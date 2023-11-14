@@ -64,4 +64,13 @@ module.exports = function (eleventyConfig) {
 
     return navigation;
   });
+
+  // Set the output directory to "docs"
+  // Set the base URL to "/spruce-documentation/"
+  return {
+    dir: {
+      output: "docs"
+    },
+    pathPrefix: "/spruce-documentation/"
+  };
 };
