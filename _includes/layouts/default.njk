@@ -1,53 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <title>{{ title if title else metadata.title }}</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/index.css" rel="stylesheet">
+    <title>{{ title if title else metadata.title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/index.css" rel="stylesheet">
 </head>
-
 <body>
+{% if show_header %}
   {% include "header.njk" %}
-
-  <main class="relative flex justify-center mx-auto max-w-8xl sm:px-2 lg:px-8 xl:px-12">
-    {% include "navigation.njk" %}
-
-    <div class="flex-auto max-w-2xl min-w-0 px-4 py-10 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
-      <article class="">
+{% endif %}
+{% if show_concepts_header %}
+  {% include "concepts_header.njk" %}
+{% endif %}
+{% if show_ideology_header %}
+  {% include "ideology_header.njk" %}
+{% endif %}
+{% if show_dev_header %}
+  {% include "dev_header.njk" %}
+{% endif %}
+<main class="relative flex mx-auto max-w-8xl sm:px-2 lg:px-8 xl:px-12">
+  
+  <!-- Left Navigation -->
+  <aside class="flex-shrink-0 w-1/5 p-4 border-r">
+    {% if show_navigation %}
+      {% include "navigation.njk" %}
+    {% endif %}
+    {# {% if show_concepts_navigation %} #}
+      {% include "concepts_navigation.njk" %}
+    {% endif %}
+    {% if show_ideology_navigation %}
+      {% include "ideology_navigation.njk" %}
+    {% endif %}
+    {% if show_dev_navigation %}
+      {% include "dev_navigation.njk" %}
+    {% endif %}
+  </aside>
+  
+  <!-- Main Content -->
+  <div class="flex-auto px-4 py-10">
+    <article class="">
         <header class="">
-          <p class="text-base font-medium text-slate-500">
-            {{ section }}
-          </p>
-
-          <h1 class="text-3xl font-bold tracking-tight text-slate-900">
-            {{ title }}
-          </h1>
+            <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+              {{ title }}
+            </h1>
         </header>
-
         {% if intro %}
-          <p class="mt-2 text-xl text-slate-600">
-            {{ intro }}
-          </p>
+            <p class="mt-2 text-xl text-slate-600">
+              {{ intro }}
+            </p>
         {% endif %}
-
-        {% if show_video_tour %}
-          {% include "video_tour.njk" %}
+        {% if show_video %}
+            {% include "video.njk" %}
         {% endif %}
-
+        {% if show_concepts_video %}
+            {% include "concepts_video.njk" %}
+        {% endif %}
+        {% if show_ideology_video %}
+            {% include "ideology_video.njk" %}
+        {% endif %}
+        {% if show_dev_video %}
+            {% include "dev_video.njk" %}
+        {% endif %}
         {% if show_quick_links %}
-          {% include "quick_links.njk" %}
+            {% include "quick_links.njk" %}
         {% endif %}
-
-        <div class="mt-8 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
-          {{ content | safe }}
+        {% if show_concepts_home %}
+            {% include "concepts_home.njk" %}
+        {% endif %}
+        {% if show_ideology_home %}
+            {% include "ideology_home.njk" %}
+        {% endif %}
+        {% if show_dev_home %}
+            {% include "dev_home.njk" %}
+        {% endif %}
+        {% if show_content_footer %}
+            {% include "content_footer.njk" %}
+        {% endif %}
+        {% if show_content_navigation %}
+            {% include "content_navigation.njk" %}
+        {% endif %}
+        
+        <div class="mt-8 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight
+              prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
+            {{ content | safe }}
         </div>
+    </article>
+  </div>
 
-        {% include 'content_footer.njk' %}
-      </article>
+  <!-- Right Sidebar (Table of Contents) -->
+  <aside class="flex-shrink-0 w-1/5 p-4 border-l sticky" style="top: 1rem;">
+    {% if show_TOC %}
+      <h1 class="mt-8 font-bold">Table of Contents</h1>
+      {{ content | toc('{"wrapperClass":"my-custom-toc"}') | safe }}
+    {% endif %}
+  </aside>
 
-      {% include 'content_navigation.njk' %}
-    </div>
-  </main>
+</main>
 </body>
 </html>
