@@ -20,8 +20,7 @@ jobs:
 
       - run: npm run build
 
-      # New step to copy files from _site to root
-      - name: Copy files to root
+      - name: copy files to root
         run: |
           cp -R _site/* .
           rm -rf _site

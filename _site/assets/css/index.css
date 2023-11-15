@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dropdown Styling */
+
+/* Table of Contents Styling */
+
+/* Wrapper Styling */
+.my-custom-toc {
+    @apply bg-gray-100 p-4 rounded-md shadow-md;
+}
+
+/* List Styling */
+.my-custom-toc ol {
+    @apply pl-5;
+}
+
+.my-custom-toc ul {
+    @apply pl-0;
+}
+
+.my-custom-toc ol > li {
+    @apply my-1;
+}
+
+.my-custom-toc ol > li > ol,
+.my-custom-toc ol > li > ul {
+    @apply pl-5 mt-1;
+}
+
+.my-custom-toc ol > li > ol > li,
+.my-custom-toc ol > li > ul > li {
+    @apply my-1;
+}
+
+.my-custom-toc ol > li > ol > li > ol,
+.my-custom-toc ol > li > ul > li > ul {
+    @apply pl-5 mt-1;
+}
+
+/* Link Styling */
+.my-custom-toc a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors duration-200;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+}
+
+  

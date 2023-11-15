@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <title>Stores</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/index.css" rel="stylesheet">
+</head>
+<body>
+
+
+  <header class="sticky top-0 z-50 flex items-center justify-between px-3 py-2 border-b shadow-lg bg-white/90 backdrop-blur-sm border-slate-400/40">
+  <div class="flex items-center flex-grow basis-0">
+    <a href="/" class="inline-block">
+      <img
+      src="/assets/images/logo.png" alt="Site Logo" class="h-8">
+    </a>
+  </div>
+  <div class="flex items-center flex-grow basis-0">
+    <a
+      href="/docs/ideology/"
+      class="px-4 py-2 mr-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      Ideology
+    </a>
+    <a
+      href="/docs/concepts/"
+      class="px-4 py-2 mc-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      Concepts
+    </a>
+    <a
+      href="/docs/dev/"
+      class="px-4 py-2 ml-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      DX Onboarding
+    </a>
+  </div>
+  <form action="https://duckduckgo.com" class="md:w-80 lg:w-96 ml-0 mr-300"> <!-- Adjusted margin classes -->
+    <span class="relative flex items-center group">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 20 20"
+        class="absolute w-4 h-4 ml-3 fill-slate-400 group-hover:fill-slate-500 group-focus:fill-slate-500">
+        <path d="M16.293 17.707a1 1 0 0 0 1.414-1.414l-1.414 1.414ZM9 14a5 5 0 0 1-5-5H2a7 7 0 0 0 7 7v-2ZM4 9a5 5 0 0 1 5-5V2a7 7 0 0
+          0-7 7h2Zm5-5a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7v2Zm8.707 12.293-3.757-3.757-1.414 1.414 3.757 3.757 1.414-1.414ZM14 9a4.98
+          4.98 0 0 1-1.464 3.536l1.414 1.414A6.98 6.98 0 0 0 16 9h-2Zm-1.464 3.536A4.98 4.98 0 0 1 9 14v2a6.98 6.98 0 0 0
+          4.95-2.05l-1.414-1.414Z"></path>
+      </svg>
+      <input
+        type="text"
+        name="q"
+        placeholder="Search docs…"
+        class="w-full py-2 pl-10 pr-2 border rounded bg-slate-100 placeholder-slate-400 text-slate-800 border-slate-100 outline
+          outline-offset-2 outline-2 outline-transparent hover:border-slate-200 focus:border-slate-200 focus:outline-slate-600"/>
+    </span>
+    <input type="hidden" name="sites" value="spinalcms.com">
+    <input type="submit" value="Search" class="sr-only"/>
+  </form>
+  </header>
+
+
+
+<main class="relative flex mx-auto max-w-8xl sm:px-2 lg:px-8 xl:px-12">
+  
+  <!-- Left Navigation -->
+  <aside class="flex-shrink-0 w-1/5 p-4 border-r">
+    
+    
+      <label
+  for="navigation"
+  class="fixed bottom-0 left-0 z-50 flex items-center justify-center w-12 h-12 mb-4 ml-4 bg-white border rounded-full
+    shadow-lg cursor-pointer text-slate-600 border-slate-300 lg:hidden transition duration-200 ease-in-out active:scale-95">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-6 h-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
+  </svg>
+</label>
+<input type="checkbox" name="navigation" id="navigation" class="hidden peer"/>
+<div class="fixed top-[3.5rem] h-screen shadow-xl px-4 left-0 hidden peer-checked:block lg:relative lg:top-0 lg:h-auto lg:px-0
+    lg:block lg:flex-none lg:shadow-none">
+  <div class="absolute inset-y-0 right-0 w-full lg:w-[50vw] bg-white lg:bg-slate-50"></div>
+  <nav class="sticky top-[4.5rem] w-64 pr-8 text-base lg:text-sm xl:w-72 xl:pr-16">
+    <ul role="list" class="-ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto py-7 pl-0.5 space-y-8">
+      
+        <li>
+          <h3 class="font-semibold tracking-tight text-slate-900">
+            Overview
+          </h3>
+          <div id="dropdown-content-Overview" class="dropdown-content hidden">
+            <ul role="list" class="pl-3 mt-3 space-y-2">
+              
+                <li>
+                  <a href="/docs/concepts/" class="text-slate-900 hover:text-slate-800">
+                    Introduction to Sprucebot Concepts
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </li>
+      
+        <li>
+          <h3 class="font-semibold tracking-tight text-slate-900">
+            Concepts
+          </h3>
+          <div id="dropdown-content-Concepts" class="dropdown-content hidden">
+            <ul role="list" class="pl-3 mt-3 space-y-2">
+              
+                <li>
+                  <a href="/docs/concepts/views/" class="text-slate-900 hover:text-slate-800">
+                    Views
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/tests/" class="text-slate-900 hover:text-slate-800">
+                    Tests
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/stores/" class="text-slate-900 hover:text-slate-800">
+                    Stores
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/events/" class="text-slate-900 hover:text-slate-800">
+                    Events
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/schemas/" class="text-slate-900 hover:text-slate-800">
+                    Schemas
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/listeners/" class="text-slate-900 hover:text-slate-800">
+                    Listeners
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/errors/" class="text-slate-900 hover:text-slate-800">
+                    Errors
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+    
+    
+    
+  </aside>
+  
+  <!-- Main Content -->
+  <div class="flex-auto px-4 py-10">
+    <article class="">
+        <header class="">
+            <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+              Stores
+            </h1>
+        </header>
+        
+            <p class="mt-2 text-xl text-slate-600">
+              Data Stores - The Technical Backbone of Spruce
+            </p>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="mt-8 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight
+              prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
+            <h1 id="overview" tabindex="-1">Overview <a class="anchor-link" href="#overview">#</a></h1>
+<p>Data Stores serve as the pivotal repositories within Spruce’s digital ecosystem. They are fundamentally database-agnostic, providing a uniform interface for data manipulation across various database systems. This technical manual delves into the intricacies of creating, synchronizing, and utilizing Stores to their full potential.</p>
+<h2 id="command-line-interface-(cli)-operations" tabindex="-1">Command Line Interface (CLI) Operations <a class="anchor-link" href="#command-line-interface-(cli)-operations">#</a></h2>
+<h3 id="initialization-of-stores" tabindex="-1">Initialization of Stores <a class="anchor-link" href="#initialization-of-stores">#</a></h3>
+<p>To start with a Store, use the <code>spruce create.store</code> command. This initializes a new Store, setting the stage for data management operations.</p>
+<h3 id="store-synchronization" tabindex="-1">Store Synchronization <a class="anchor-link" href="#store-synchronization">#</a></h3>
+<p>Post-renaming of classes or files, it’s imperative to align the Store with the changes. This is achieved through the <code>spruce sync.stores</code> command, ensuring that the Store’s structure and its references remain consistent.</p>
+<h2 id="schema-definition-within-stores" tabindex="-1">Schema Definition within Stores <a class="anchor-link" href="#schema-definition-within-stores">#</a></h2>
+<p>Schemas act as the blueprint for data validation and structure within the Stores. They come in various forms, tailoring to specific actions:</p>
+<ul>
+<li><code>fullSchema</code>: Defines the data structure returned by <code>.find(...)</code> or <code>.findOne(...)</code>.</li>
+<li><code>createSchema</code>: Ensures data integrity for <code>.create(...)</code> or <code>.createOne(...)</code>.</li>
+<li><code>updateSchema</code>: Governs data adjustments made through <code>.update(...)</code>, <code>.updateOne(...)</code>, or <code>.upsert(...)</code>.</li>
+<li><code>databaseSchema</code>: Represents the actual data structure stored in the database.</li>
+</ul>
+<p>A recommended best practice is to generate a fully typed schema using <code>spruce create.schema</code>, aligning it with <code>fullSchema</code> to enforce data consistency.</p>
+<h2 id="data-lifecycle-hooks" tabindex="-1">Data Lifecycle Hooks <a class="anchor-link" href="#data-lifecycle-hooks">#</a></h2>
+<p>Hooks are critical in managing the data lifecycle within Stores, allowing for pre- and post-operation data manipulation:</p>
+<ul>
+<li><code>willCreate</code>: Invoked before data creation.</li>
+<li><code>didCreate</code>: Triggered after data creation.</li>
+<li><code>willUpdate</code>: Engaged before data updates.</li>
+<li><code>didUpdate</code>: Activated after data updates.</li>
+<li><code>willScramble</code>: Employed to obfuscate data before saving or retrieval for security reasons.</li>
+</ul>
+<p>These hooks provide a mechanism to fine-tune data before it’s committed to the Store or before it’s fetched from it.</p>
+<h2 id="implementing-stores-in-listeners-and-tests" tabindex="-1">Implementing Stores in Listeners and Tests <a class="anchor-link" href="#implementing-stores-in-listeners-and-tests">#</a></h2>
+<h3 id="listeners-integration" tabindex="-1">Listeners Integration <a class="anchor-link" href="#listeners-integration">#</a></h3>
+<p>When integrating Stores within listeners, it’s crucial to manage data fields efficiently. Utilizing <code>includeFields</code> ensures the Store only retrieves necessary data fields, thus optimizing performance and adherence to response payload constraints.</p>
+<pre><code class="language-ts">export default async (
+    event: SpruceEvent&lt;SkillEventContract, EmitPayload&gt;
+): SpruceEventResponse&lt;ResponsePayload&gt; =&gt; {
+
+    const { stores, source } = event
+
+    const store = await stores.getStore('profiles')
+    const profile = await store.findOne({
+        target: {
+            personId: source.personId
+        }
+    }, {
+        includeFields: getFields(getProfileSchema),
+    })
+
+    return {
+        profile
+    }
+
+}
+</code></pre>
+<h3 id="testing-with-stores" tabindex="-1">Testing with Stores <a class="anchor-link" href="#testing-with-stores">#</a></h3>
+<p>Stores also prove their mettle in testing environments. Through seeding and various assertive checks, one can ensure the Store’s performance and reliability. Testing operations like <code>youCanSeedDataIntoYourStore</code> and <code>helpersLikeGetNewestAndListAreSoNice</code> provide evidence of a well-functioning Store.</p>
+<pre><code class="language-ts">export default class AcceptingAnInviteTest extends AbstractSpruceFixtureTest {
+    private static vc: AcceptSkillViewController
+    private static invites: InvitesStore
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.invites = await this.stores.getStore('invites')
+    }
+
+    @test()
+    @seed('invites', 1)
+    protected static async youCanSeedDataIntoYourStore() {
+        const invite = await this.getNewestInvite()
+        assert.isTruthy(invite)
+    }
+
+   @test()
+   @seed('invites', 20)
+    proctected static async helpersLikeGetNewestAndListAreSoNice() {
+        const invites = this.listInvites()
+        assert.isLength(invites, 20)
+    }
+
+    private static async getNewestInvite() {
+        const invite = await this.invites.findOne({})
+        assert.isTruthy(invite, `Don't forget to @seed('invites', 1) to get started!`)
+        return invite
+    }
+    
+    private static async listInvites() {
+        const invites = await this.invites.find({})
+        assert.isAbove(invite.length, 0, `Don't forget to @seed('invites', 1) to get started!`)
+        return invites
+    }
+
+    
+}
+</code></pre>
+<h2 id="database-integration%3A-embracing-postgres" tabindex="-1">Database Integration: Embracing Postgres <a class="anchor-link" href="#database-integration%3A-embracing-postgres">#</a></h2>
+<p>While Stores are indifferent to the underlying database technology, they can be augmented with adapters like <code>@sprucelabs/postgres-data-store</code>. This extends the Store’s capabilities to leverage the robustness of SQL-based systems, configured via environment variables like <code>DATABASE_CONNECTION_STRING</code>. If you want to add Postgres support, you must import the dependency.</p>
+<pre><code class="language-bash">yarn add @sprucelabs/postgres-data-store
+</code></pre>
+<p>Then you can configure your databes in your env.</p>
+<pre><code>DATABASE_CONNECTION_STRING=&quot;postgres://postgres:password@localhost:5432/database_name&quot;
+</code></pre>
+<h2 id="use-case" tabindex="-1">Use Case <a class="anchor-link" href="#use-case">#</a></h2>
+
+        </div>
+    </article>
+  </div>
+
+  <!-- Right Sidebar (Table of Contents) -->
+  <aside class="flex-shrink-0 w-1/5 p-4 border-l sticky" style="top: 1rem;">
+    
+      <h1 class="mt-8 font-bold">Table of Contents</h1>
+      <nav class="my-custom-toc" >
+        <ol><li><a href="#command-line-interface-(cli)-operations">Command Line Interface (CLI) Operations</a><ol><li><a href="#initialization-of-stores">Initialization of Stores</a></li><li><a href="#store-synchronization">Store Synchronization</a></li></ol></li><li><a href="#schema-definition-within-stores">Schema Definition within Stores</a></li><li><a href="#data-lifecycle-hooks">Data Lifecycle Hooks</a></li><li><a href="#implementing-stores-in-listeners-and-tests">Implementing Stores in Listeners and Tests</a><ol><li><a href="#listeners-integration">Listeners Integration</a></li><li><a href="#testing-with-stores">Testing with Stores</a></li></ol></li><li><a href="#database-integration%3A-embracing-postgres">Database Integration: Embracing Postgres</a></li><li><a href="#use-case">Use Case</a></li></ol>
+      </nav>
+    
+  </aside>
+
+</main>
+</body>
+</html>
