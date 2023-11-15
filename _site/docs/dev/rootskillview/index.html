@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <title>Building a Root Skill View</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/index.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+
+  <header class="sticky top-0 z-50 flex items-center justify-between px-3 py-2 border-b shadow-lg bg-white/90 backdrop-blur-sm border-slate-400/40">
+  <div class="flex items-center flex-grow basis-0">
+    <a href="/" class="inline-block">
+      <img
+      src="/assets/images/logo.png" alt="Site Logo" class="h-8">
+    </a>
+  </div>
+  <div class="flex items-center flex-grow basis-0">
+    <a
+      href="/docs/ideology/"
+      class="px-4 py-2 mr-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      Ideology
+    </a>
+    <a
+      href="/docs/concepts/"
+      class="px-4 py-2 mc-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      Concepts
+    </a>
+    <a
+      href="/docs/dev/"
+      class="px-4 py-2 ml-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      DX Onboarding
+    </a>
+  </div>
+  <form action="https://duckduckgo.com" class="md:w-80 lg:w-96 ml-0 mr-300"> <!-- Adjusted margin classes -->
+    <span class="relative flex items-center group">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 20 20"
+        class="absolute w-4 h-4 ml-3 fill-slate-400 group-hover:fill-slate-500 group-focus:fill-slate-500">
+        <path d="M16.293 17.707a1 1 0 0 0 1.414-1.414l-1.414 1.414ZM9 14a5 5 0 0 1-5-5H2a7 7 0 0 0 7 7v-2ZM4 9a5 5 0 0 1 5-5V2a7 7 0 0
+          0-7 7h2Zm5-5a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7v2Zm8.707 12.293-3.757-3.757-1.414 1.414 3.757 3.757 1.414-1.414ZM14 9a4.98
+          4.98 0 0 1-1.464 3.536l1.414 1.414A6.98 6.98 0 0 0 16 9h-2Zm-1.464 3.536A4.98 4.98 0 0 1 9 14v2a6.98 6.98 0 0 0
+          4.95-2.05l-1.414-1.414Z"></path>
+      </svg>
+      <input
+        type="text"
+        name="q"
+        placeholder="Search docs…"
+        class="w-full py-2 pl-10 pr-2 border rounded bg-slate-100 placeholder-slate-400 text-slate-800 border-slate-100 outline
+          outline-offset-2 outline-2 outline-transparent hover:border-slate-200 focus:border-slate-200 focus:outline-slate-600"/>
+    </span>
+    <input type="hidden" name="sites" value="spinalcms.com">
+    <input type="submit" value="Search" class="sr-only"/>
+  </form>
+  </header>
+
+<main class="relative flex mx-auto max-w-8xl sm:px-2 lg:px-8 xl:px-12">
+  
+  <!-- Left Navigation -->
+  <aside class="flex-shrink-0 w-1/5 p-4 border-r">
+    
+    
+    
+    
+      <label
+  for="navigation"
+  class="fixed bottom-0 left-0 z-50 flex items-center justify-center w-12 h-12 mb-4 ml-4 bg-white border rounded-full
+    shadow-lg cursor-pointer text-slate-600 border-slate-300 lg:hidden transition duration-200 ease-in-out active:scale-95">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-6 h-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
+  </svg>
+</label>
+<input type="checkbox" name="navigation" id="navigation" class="hidden peer"/>
+<div class="fixed top-[3.5rem] h-screen shadow-xl px-4 left-0 hidden peer-checked:block lg:relative lg:top-0 lg:h-auto lg:px-0
+    lg:block lg:flex-none lg:shadow-none">
+  <div class="absolute inset-y-0 right-0 w-full lg:w-[50vw] bg-white lg:bg-slate-50"></div>
+  <nav class="sticky top-[4.5rem] w-64 pr-8 text-base lg:text-sm xl:w-72 xl:pr-16">
+    <ul role="list" class="-ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto py-7 pl-0.5 space-y-8">
+      
+        <li>
+          <h3 class="text-xl font-semibold tracking-tight text-slate-900">
+            Overview
+          </h3>
+          <div id="dropdown-content-Overview" class="dropdown-content">
+            <ul role="list" class="pl-3 mt-3 space-y-2">
+              
+                <li>
+                  <a href="/docs/dev/" class="text-slate-900 hover:text-slate-800">
+                    Getting Started
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </li>
+      
+        <li>
+          <h3 class="text-xl font-semibold tracking-tight text-slate-900">
+            Learn
+          </h3>
+          <div id="dropdown-content-Learn" class="dropdown-content">
+            <ul role="list" class="pl-3 mt-3 space-y-2">
+              
+                <li>
+                  <a href="/docs/dev/rootskillview/" class="text-slate-900 hover:text-slate-800">
+                    Building a Root Skill View
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/dev/metadata/" class="text-slate-900 hover:text-slate-800">
+                    Managing your Family&#39;s Metadata
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </li>
+      
+        <li>
+          <h3 class="text-xl font-semibold tracking-tight text-slate-900">
+            Build
+          </h3>
+          <div id="dropdown-content-Build" class="dropdown-content">
+            <ul role="list" class="pl-3 mt-3 space-y-2">
+              
+                <li>
+                  <a href="/docs/dev/test/" class="text-slate-900 hover:text-slate-800">
+                    Managing your Faamily&#39;s Metadata
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+    
+  </aside>
+  
+  <!-- Main Content -->
+  <div class="flex-auto px-4 py-10">
+    <article class="">
+        <header class="">
+            <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+              Building a Root Skill View
+            </h1>
+        </header>
+        
+            <p class="mt-2 text-xl text-slate-600">
+              In this section of the guide, you will learn how to build skill views and implement dynamic routing.
+            </p>
+        
+        
+        
+        
+        
+            <a href="https://youtu.be/SiUckNpPLag?feature=shared" class="flex flex-col w-full mt-4 overflow-hidden rounded-lg shadow-xl md:flex-row md:w-4/5">
+  <div class="flex items-center justify-center w-full px-4 py-16 text-sm font-normal md:w-1/3 text-slate-900/20 bg-gradient-to-br from-indigo-200 via-sky-100 to-indigo-100">
+    <img src="/assets/images/sprucebotimage.jpeg" />
+  </div>
+
+  <div class="w-full px-6 py-4 border-t border-b border-r md:w-2/3 border-slate-200">
+    <h3 class="text-xl font-semibold tracking-tight text-slate-900">
+      Video walkthrough
+    </h3>
+
+    <p class="mt-1 text-lg text-slate-600">
+      Watch this video-walkthrough of Katas.
+    </p>
+  </div>
+</a>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="mt-8 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight
+              prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
+            <h2 id="set-up-testing-environment-and-ide" tabindex="-1">Set Up Testing Environment and IDE <a class="anchor-link" href="#set-up-testing-environment-and-ide">#</a></h2>
+<h3 id="start-docker-for-npm-caching" tabindex="-1">Start Docker for NPM Caching <a class="anchor-link" href="#start-docker-for-npm-caching">#</a></h3>
+<p>Run the command <code>spruce start.cache</code></p>
+<p>This initializes Docker to use aggressive caching for NPM packages, which improves the speed of dependency retrieval.</p>
+<h3 id="begin-a-new-skill-project" tabindex="-1">Begin a New Skill Project <a class="anchor-link" href="#begin-a-new-skill-project">#</a></h3>
+<p>Create a new skill environment by typing <code>spruce create.skill (yourSkillName)</code>. For example, our test skill is called</p>
+<p><strong>“kata-1”</strong>:</p>
+<pre><code class="language-bash">spruce create.skill kata-1
+</code></pre>
+<p>You’ll need to provide a name and description for your skill.</p>
+<p><strong>Note</strong>: Skill names can’t start with a number.</p>
+<p>Next, the system will install various dependencies.</p>
+<h3 id="access-your-new-skill" tabindex="-1">Access Your New Skill <a class="anchor-link" href="#access-your-new-skill">#</a></h3>
+<p>To open your skill in Visual Studio Code, type <code>cd (yourSkillName) &amp;&amp; code .</code>. For instance:</p>
+<pre><code class="language-bash">cd kata-1 &amp;&amp; code .
+</code></pre>
+<p>Inside Visual Studio Code, go to the terminal and run:</p>
+<pre><code class="language-bash">spruce setup.vscode
+</code></pre>
+<p>The terminal will guide you through finalizing the setup for debugging, building, testing, linting, and configuring watchers for starting Visual Studio Code.</p>
+<p>When done, use the command palette to find <strong>Manage Automatic Tasks</strong> and select <strong>Allow Automatic Tasks</strong>.</p>
+<p>Reopen the command palette and choose <strong>Reload Window</strong>.</p>
+<p>This will start tasks that enable testing. The tests will run, spot any missing dependencies, and install them as needed.</p>
+<h3 id="turn-on-watchmode" tabindex="-1">Turn on WatchMode <a class="anchor-link" href="#turn-on-watchmode">#</a></h3>
+<p>In your external terminal, type:</p>
+<pre><code class="language-bash">spruce test --watchMode smart
+</code></pre>
+<p>This command continuously runs tests you’re developing, and upon success, it starts the remaining tests. It’s recommended to keep this on during development.</p>
+<h2 id="write-your-first-failing-test" tabindex="-1">Write Your First Failing Test <a class="anchor-link" href="#write-your-first-failing-test">#</a></h2>
+<h3 id="create-a-test" tabindex="-1">Create a Test <a class="anchor-link" href="#create-a-test">#</a></h3>
+<p>With WatchMode on, go back to Visual Studio Code and the command palette, and run <code>create.test</code>.<br>
+You’ll choose between two types of testing:</p>
+<ol>
+<li>Behavioural: To check the changes you make in the environment.</li>
+<li>Implementation: To check the inner workings.</li>
+</ol>
+<p>We’ll focus on Behavioural tests due to the significant changes we’re implementing, especially when integrating with other services.</p>
+<p>Select Behavioural tests, and you’ll be asked to specify what you’re testing, using camel case.</p>
+<pre><code class="language-bash"># Enter the actual commands for the IDE setup here
+</code></pre>
+<h4 id="drafting-the-first-test%3A" tabindex="-1">Drafting the First Test: <a class="anchor-link" href="#drafting-the-first-test%3A">#</a></h4>
+<p>Write a new behavioral test called “RootSkillView”.<br>
+Base the test on the “abstract spruce fixture test”.</p>
+<pre><code class="language-typescript"> # Enter the actual code snippet for creating a new test here
+</code></pre>
+<h2 id="develop-your-root-skill-interface" tabindex="-1">Develop Your Root Skill Interface <a class="anchor-link" href="#develop-your-root-skill-interface">#</a></h2>
+<p>After setting up the IDE and starting testing, the next step is to build the skill interfaces, starting with the root skill interface.</p>
+<h3 id="create-the-root-skill-interface" tabindex="-1">Create the Root Skill Interface <a class="anchor-link" href="#create-the-root-skill-interface">#</a></h3>
+<p>Use the command <code>spruce create.view</code> to begin making your root skill interface.</p>
+<pre><code class="language-bash">spruce create.view
+</code></pre>
+<p>When asked, choose <code>Skill View Controller</code> for your controller type.</p>
+<p>For the controller name, type <code>root</code>.</p>
+<p>The command-line will handle file generation and setup for your root skill interface.</p>
+<p><code>display the code structure here</code></p>
+<h3 id="add-logic-to-your-root-skill-interface" tabindex="-1">Add Logic to Your Root Skill Interface <a class="anchor-link" href="#add-logic-to-your-root-skill-interface">#</a></h3>
+<p>In your <code>RootSkillViewController</code>, add basic UI elements like cards, buttons, and images.</p>
+<p><code>enter code snippet for UI elements here</code></p>
+<p>Describe the elements and how they interact, such as what happens when buttons are clicked.</p>
+<p><code>enter code snippet for UI interactions and error handling here</code></p>
+<pre><code class="language-typescript">// Example of button implementation
+handleButtonClick() {
+  // Response logic for button click
+}
+</code></pre>
+<p>Include error management and plan for when users deviate from the expected interaction path.</p>
+<h3 id="test-the-root-skill-interface" tabindex="-1">Test the Root Skill Interface <a class="anchor-link" href="#test-the-root-skill-interface">#</a></h3>
+<p>Write a test to make sure the root skill interface is rendered correctly.</p>
+<p>Use the <code>assert</code> library to check for the existence and proper display of all UI components.</p>
+<pre><code class="language-typescript">// Testing card display example
+it('should show a card', () =&gt; {
+  const card = rootSkillViewController.renderCard();
+  assert(card).toBeVisible();
+});
+</code></pre>
+<p>Run your tests using <code>spruce test</code> in watch mode to continuously monitor for changes and mistakes.</p>
+<h3 id="set-up-dynamic-routing" tabindex="-1">Set Up Dynamic Routing <a class="anchor-link" href="#set-up-dynamic-routing">#</a></h3>
+<p>Define routes in your skill interface to allow for smooth transitions between different views.</p>
+<p><code>enter snippet for route definition and testing here</code></p>
+<p>Create functions to manage the routes, like <code>redirectToMetaView</code> or <code>returnToRootView</code>.</p>
+<pre><code class="language-typescript">// Example of a redirect function
+</code></pre>
+<p>Design tests to ensure your routing works correctly, particularly in handling user actions.</p>
+<h2 id="preview-on-a-device" tabindex="-1">Preview on a Device <a class="anchor-link" href="#preview-on-a-device">#</a></h2>
+<p>Test the skill interface on an actual device to ensure the UI and navigation feel natural and responsive.</p>
+<p>If possible, use emulation tools in your development environment to simulate different devices.</p>
+<p>Adjust the UI based on device preview feedback.</p>
+
+        </div>
+    </article>
+  </div>
+
+  <!-- Right Sidebar (Table of Contents) -->
+  <aside class="flex-shrink-0 w-1/5 p-4 border-l sticky" style="top: 1rem;">
+    
+      <h1 class="mt-8 font-bold">Table of Contents</h1>
+      <nav class="my-custom-toc" >
+        <ol><li><a href="#set-up-testing-environment-and-ide">Set Up Testing Environment and IDE</a><ol><li><a href="#start-docker-for-npm-caching">Start Docker for NPM Caching</a></li><li><a href="#begin-a-new-skill-project">Begin a New Skill Project</a></li><li><a href="#access-your-new-skill">Access Your New Skill</a></li><li><a href="#turn-on-watchmode">Turn on WatchMode</a></li></ol></li><li><a href="#write-your-first-failing-test">Write Your First Failing Test</a><ol><li><a href="#create-a-test">Create a Test</a><ol><li><a href="#drafting-the-first-test%3A">Drafting the First Test:</a></li></ol></li></ol></li><li><a href="#develop-your-root-skill-interface">Develop Your Root Skill Interface</a><ol><li><a href="#create-the-root-skill-interface">Create the Root Skill Interface</a></li><li><a href="#add-logic-to-your-root-skill-interface">Add Logic to Your Root Skill Interface</a></li><li><a href="#test-the-root-skill-interface">Test the Root Skill Interface</a></li><li><a href="#set-up-dynamic-routing">Set Up Dynamic Routing</a></li></ol></li><li><a href="#preview-on-a-device">Preview on a Device</a></li></ol>
+      </nav>
+    
+  </aside>
+
+</main>
+</body>
+</html>

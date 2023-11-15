@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <title>Tests</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/index.css" rel="stylesheet">
+</head>
+<body>
+
+
+  <header class="sticky top-0 z-50 flex items-center justify-between px-3 py-2 border-b shadow-lg bg-white/90 backdrop-blur-sm border-slate-400/40">
+  <div class="flex items-center flex-grow basis-0">
+    <a href="/" class="inline-block">
+      <img
+      src="/assets/images/logo.png" alt="Site Logo" class="h-8">
+    </a>
+  </div>
+  <div class="flex items-center flex-grow basis-0">
+    <a
+      href="/docs/ideology/"
+      class="px-4 py-2 mr-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      Ideology
+    </a>
+    <a
+      href="/docs/concepts/"
+      class="px-4 py-2 mc-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      Concepts
+    </a>
+    <a
+      href="/docs/dev/"
+      class="px-4 py-2 ml-20 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
+      DX Onboarding
+    </a>
+  </div>
+  <form action="https://duckduckgo.com" class="md:w-80 lg:w-96 ml-0 mr-300"> <!-- Adjusted margin classes -->
+    <span class="relative flex items-center group">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 20 20"
+        class="absolute w-4 h-4 ml-3 fill-slate-400 group-hover:fill-slate-500 group-focus:fill-slate-500">
+        <path d="M16.293 17.707a1 1 0 0 0 1.414-1.414l-1.414 1.414ZM9 14a5 5 0 0 1-5-5H2a7 7 0 0 0 7 7v-2ZM4 9a5 5 0 0 1 5-5V2a7 7 0 0
+          0-7 7h2Zm5-5a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7v2Zm8.707 12.293-3.757-3.757-1.414 1.414 3.757 3.757 1.414-1.414ZM14 9a4.98
+          4.98 0 0 1-1.464 3.536l1.414 1.414A6.98 6.98 0 0 0 16 9h-2Zm-1.464 3.536A4.98 4.98 0 0 1 9 14v2a6.98 6.98 0 0 0
+          4.95-2.05l-1.414-1.414Z"></path>
+      </svg>
+      <input
+        type="text"
+        name="q"
+        placeholder="Search docs…"
+        class="w-full py-2 pl-10 pr-2 border rounded bg-slate-100 placeholder-slate-400 text-slate-800 border-slate-100 outline
+          outline-offset-2 outline-2 outline-transparent hover:border-slate-200 focus:border-slate-200 focus:outline-slate-600"/>
+    </span>
+    <input type="hidden" name="sites" value="spinalcms.com">
+    <input type="submit" value="Search" class="sr-only"/>
+  </form>
+  </header>
+
+
+
+<main class="relative flex mx-auto max-w-8xl sm:px-2 lg:px-8 xl:px-12">
+  
+  <!-- Left Navigation -->
+  <aside class="flex-shrink-0 w-1/5 p-4 border-r">
+    
+    
+      <label
+  for="navigation"
+  class="fixed bottom-0 left-0 z-50 flex items-center justify-center w-12 h-12 mb-4 ml-4 bg-white border rounded-full
+    shadow-lg cursor-pointer text-slate-600 border-slate-300 lg:hidden transition duration-200 ease-in-out active:scale-95">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-6 h-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
+  </svg>
+</label>
+<input type="checkbox" name="navigation" id="navigation" class="hidden peer"/>
+<div class="fixed top-[3.5rem] h-screen shadow-xl px-4 left-0 hidden peer-checked:block lg:relative lg:top-0 lg:h-auto lg:px-0
+    lg:block lg:flex-none lg:shadow-none">
+  <div class="absolute inset-y-0 right-0 w-full lg:w-[50vw] bg-white lg:bg-slate-50"></div>
+  <nav class="sticky top-[4.5rem] w-64 pr-8 text-base lg:text-sm xl:w-72 xl:pr-16">
+    <ul role="list" class="-ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto py-7 pl-0.5 space-y-8">
+      
+        <li>
+          <h3 class="font-semibold tracking-tight text-slate-900">
+            Overview
+          </h3>
+          <div id="dropdown-content-Overview" class="dropdown-content hidden">
+            <ul role="list" class="pl-3 mt-3 space-y-2">
+              
+                <li>
+                  <a href="/docs/concepts/" class="text-slate-900 hover:text-slate-800">
+                    Introduction to Sprucebot Concepts
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </li>
+      
+        <li>
+          <h3 class="font-semibold tracking-tight text-slate-900">
+            Concepts
+          </h3>
+          <div id="dropdown-content-Concepts" class="dropdown-content hidden">
+            <ul role="list" class="pl-3 mt-3 space-y-2">
+              
+                <li>
+                  <a href="/docs/concepts/views/" class="text-slate-900 hover:text-slate-800">
+                    Views
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/tests/" class="text-slate-900 hover:text-slate-800">
+                    Tests
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/stores/" class="text-slate-900 hover:text-slate-800">
+                    Stores
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/events/" class="text-slate-900 hover:text-slate-800">
+                    Events
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/schemas/" class="text-slate-900 hover:text-slate-800">
+                    Schemas
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/listeners/" class="text-slate-900 hover:text-slate-800">
+                    Listeners
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/docs/concepts/errors/" class="text-slate-900 hover:text-slate-800">
+                    Errors
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+    
+    
+    
+  </aside>
+  
+  <!-- Main Content -->
+  <div class="flex-auto px-4 py-10">
+    <article class="">
+        <header class="">
+            <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+              Tests
+            </h1>
+        </header>
+        
+            <p class="mt-2 text-xl text-slate-600">
+              Testing in Spruce
+            </p>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="mt-8 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight
+              prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
+            <h1 id="overview" tabindex="-1">Overview <a class="anchor-link" href="#overview">#</a></h1>
+<p>In Sprucebot, Tests maintain quality, ensuring that every aspect of the system performs flawlessly. This guide provides insights into the testing methodologies within Sprucebot.</p>
+<h1 id="creating-and-running-tests" tabindex="-1">Creating and Running Tests <a class="anchor-link" href="#creating-and-running-tests">#</a></h1>
+<p><code>spruce create.test</code> - Commits to quality by initializing a new test.<br>
+<code>spruce test</code> - Validates code readiness for deployment by running the test suite.</p>
+<h2 id="fixtures" tabindex="-1">Fixtures <a class="anchor-link" href="#fixtures">#</a></h2>
+<p>Fixtures are utility classes that emulate real-world scenarios, setting up the environment for tests. They are essential for creating realistic test conditions.</p>
+<ul>
+<li>View Fixture</li>
+<li>Store Fixture</li>
+<li>Mercury Fixture</li>
+<li>Person Fixture</li>
+<li>Location Fixture</li>
+<li>Organization Fixture</li>
+<li>Role Fixture</li>
+<li>Seed Fixture</li>
+</ul>
+<h3 id="built-in-fixtures" tabindex="-1">Built-in Fixtures <a class="anchor-link" href="#built-in-fixtures">#</a></h3>
+<p>When extending <code>AbstractSpruceFixtureTest</code>, built-in fixtures are available:</p>
+<ul>
+<li><code>this.views</code> =&gt; ViewFixture</li>
+<li><code>this.roles</code> =&gt; RoleFixture</li>
+<li><code>this.locations</code> =&gt; LocationFixture</li>
+<li><code>this.organizations</code> =&gt; OrganizationFixture</li>
+<li><code>this.people</code> =&gt; PersonFixture</li>
+<li><code>this.seeder</code> =&gt; SeedFixture</li>
+<li><code>this.skills</code> =&gt; SkillFixture</li>
+<li><code>this.mercury</code> =&gt; MercuryFixture</li>
+</ul>
+<h3 id="example-fixture-use" tabindex="-1">Example Fixture Use <a class="anchor-link" href="#example-fixture-use">#</a></h3>
+<pre><code class="language-typescript">export default class RenderingRootViewControllerTest extends AbstractSpruceFixtureTest {
+
+    @test()
+    protected static gettingFixtures() {
+
+        const organizationFixture = this.organizations
+
+        assert.isTruthy(organizationFixture)
+
+        //Save time by accessing the fixture via protected pro
+        assert.isTruthy(this.organizations)
+        assert.isTruthy(this.locations)
+    }
+}
+</code></pre>
+<h2 id="authentication-in-testing" tabindex="-1">Authentication in Testing <a class="anchor-link" href="#authentication-in-testing">#</a></h2>
+<p>Authentication mechanisms are tested using the <code>@login</code> decorator, ensuring security is as robust as other system components.</p>
+<pre><code class="language-typescript">@login()
+export default class MySkillViewControllerTest extends AbstractSpruceFixtureTest {
+
+    @test()
+    protected static async beforeEach() {
+        await super.beforeEach()
+
+        /**
+        * Is the exact same as @login decorator, don't bother doing this manually
+        * const { client } = await this.Fixture('view').loginAsDemoPerson(DEMO_NUMBER_ROOT_SVC)
+        * MercuryFixture.setDefaultClient(client)
+        **/
+
+        const client = login.getClient()
+        const { client: client2 } = await this.Fixture('view').loginAsDemoPerson()
+
+        assert.isEqual(client, client2) //once default client is set, unless you pass a new number, the client is reused
+
+        const { client: client3 } = await this.Fixture('view').loginAsDemoPerson(DEMO_NUMBER_ROOT_2)
+        assert.isNotEqual(client,client3)
+
+    }
+}
+</code></pre>
+<h2 id="seeding-data" tabindex="-1">Seeding Data <a class="anchor-link" href="#seeding-data">#</a></h2>
+<p>Seeding prepares the testing landscape with necessary data, from roles to profiles, using decorators like <code>@seed</code>.</p>
+<h3 id="seeding-example" tabindex="-1">Seeding Example <a class="anchor-link" href="#seeding-example">#</a></h3>
+<pre><code class="language-typescript">//@login sets the default client for all fixtures and seeders going forward
+@login()
+export default class RenderingRootViewControllerTest extends AbstractSpruceFixtureTest {
+
+    @seed('organizations', 2)
+    protected static async beforeEach() {
+        await super.beforeEach()
+
+        const totalOrgs = await this.organizations.listOrganizations()
+        assert.isLength(totalOrgs, 2)
+
+        //since this is in the beforeEach(), every test will come with 2 organizations
+    }
+
+    @test()
+    @seed('locations',10)
+    protected static async locationsShouldSeed() {
+        const currentOrg = await this.organizations.getNewestOrganization()
+        const locations = await this.locations.listLocations({ organizationId: currentOrg?.id })
+
+        assert.isLength(locations, 10)
+    }
+
+    @test()
+    protected static async seedingEntireAccount() {
+
+        // will seed data under newest organization
+        const {
+            locations, 
+            guests, 
+            managers, 
+            owners, 
+            teammates 
+        } = await this.seeder.seedAccount({
+            totalLocations: 1,
+            totalGuests: 3,
+            totalManagers: 5,
+            totalOwners: 2,
+            totalTeammetes: 3,
+            startingPhone: DEMO_NUMBER_SEED_STARTING_PHONE
+        })
+
+
+    }
+
+}
+</code></pre>
+<h2 id="installing-your-skill" tabindex="-1">Installing your Skill <a class="anchor-link" href="#installing-your-skill">#</a></h2>
+<pre><code>@login()
+export default class RenderingRootViewControllerTest extends AbstractSpruceFixtureTest {
+
+    @test()
+    @seed('organization',1)
+    @install.skills('skill-namespace-1', 'skill-namespace-2')
+    protected static async skillsArInstalled() {
+        //the skill is only installed at the newest organizatios
+        //now your skill can emit events to skills that are installed at the newest org
+    }
+}
+</code></pre>
+<h2 id="skill-views" tabindex="-1">Skill Views <a class="anchor-link" href="#skill-views">#</a></h2>
+<p>Everything you need to know is under the Views section!</p>
+<h2 id="best-practices-and-advanced-strategies" tabindex="-1">Best Practices and Advanced Strategies <a class="anchor-link" href="#best-practices-and-advanced-strategies">#</a></h2>
+<p>Creating reusable fixtures, employing meaningful assertions, and anticipating user behavior are among the golden rules of Spruce testing.</p>
+<p><strong>AbstractProfileTest Setup Guide</strong></p>
+<p>To optimize your testing process, start by creating an abstract test class named <code>AbstractProfileTest</code>. This class will serve as the foundation for all your subsequent tests.</p>
+<ul>
+<li>
+<p><strong>Inheritance:</strong> Ensure that every new test class extends the <code>AbstractProfileTest</code>.</p>
+</li>
+<li>
+<p><strong>Helper Methods:</strong> Implement utility functions such as <code>getNewestInvite()</code> and <code>listOrgs()</code> to streamline common actions.</p>
+</li>
+<li>
+<p><strong>Fixture Initialization:</strong></p>
+<ul>
+<li>In the <code>beforeEach()</code> setup method, assign commonly used fixtures to class properties with plural names for easy reference. For example:<pre><code class="language-typescript">this.views = this.Fixture('views');
+this.orgs = this.Fixture('organizations');
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Store Access:</strong></p>
+<ul>
+<li>Similarly, initialize stores as class properties within <code>beforeEach()</code>, using the store’s singular name. For instance:<pre><code class="language-typescript">this.invites = await this.Store('invites');
+this.profiles = await this.Store('profiles');
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Reusability:</strong></p>
+<ul>
+<li>Avoid repetitive fixture creation by saving them as protected properties within your abstract test.</li>
+</ul>
+</li>
+<li>
+<p><strong>Convenience Getters:</strong> For frequently accessed data, create getter methods like <code>getNewestOrganization()</code> to retrieve information quickly.</p>
+</li>
+<li>
+<p><strong>Assertions:</strong></p>
+<ul>
+<li>Use assertive checks with clear error messages to ensure the test environment is correctly set up, aiding in troubleshooting.</li>
+</ul>
+</li>
+</ul>
+<p>Follow these guidelines to establish a robust and efficient testing structure that will benefit your current and future development needs.</p>
+<h3 id="abstract-skill-test-example" tabindex="-1">Abstract Skill Test Example <a class="anchor-link" href="#abstract-skill-test-example">#</a></h3>
+<pre><code class="language-typescript">export default class AbstractProfileTest extends AbstractViewControllerTest {
+    protected static profiles: ProfilesStore
+    protected static router: Router
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+
+        this.profiles = await this.stores.Store('profiles')
+        this.router = this.views.getRouter()
+    }
+
+    protected static async getNewestProfile() {
+        const profile = await this.profiles.findOne({})
+
+        assert.isTruthy(profile, `You gotta @seed('profiles',1) to continue.`)
+        return profile
+    }
+
+    protected static async getNewestOrg() {
+        const org = await this.organizations.getNewestOrganization()
+        assert.isTruthy(org, `You gotta @seed('organizations',1) to continue.`)
+        return org
+    }
+
+    protected static async listProfiles () {
+        const profiles = await this.profiles.findOne({})
+        assert.isAbove(profiles.length, 0, `You gotta @seed('profiles',1) to continue.`)
+        return profiles
+    }
+}
+</code></pre>
+<h2 id="use-cases" tabindex="-1">Use Cases <a class="anchor-link" href="#use-cases">#</a></h2>
+
+        </div>
+    </article>
+  </div>
+
+  <!-- Right Sidebar (Table of Contents) -->
+  <aside class="flex-shrink-0 w-1/5 p-4 border-l sticky" style="top: 1rem;">
+    
+      <h1 class="mt-8 font-bold">Table of Contents</h1>
+      <nav class="my-custom-toc" >
+        <ol><li><a href="#fixtures">Fixtures</a><ol><li><a href="#built-in-fixtures">Built-in Fixtures</a></li><li><a href="#example-fixture-use">Example Fixture Use</a></li></ol></li><li><a href="#authentication-in-testing">Authentication in Testing</a></li><li><a href="#seeding-data">Seeding Data</a><ol><li><a href="#seeding-example">Seeding Example</a></li></ol></li><li><a href="#installing-your-skill">Installing your Skill</a></li><li><a href="#skill-views">Skill Views</a></li><li><a href="#best-practices-and-advanced-strategies">Best Practices and Advanced Strategies</a><ol><li><a href="#abstract-skill-test-example">Abstract Skill Test Example</a></li></ol></li><li><a href="#use-cases">Use Cases</a></li></ol>
+      </nav>
+    
+  </aside>
+
+</main>
+</body>
+</html>

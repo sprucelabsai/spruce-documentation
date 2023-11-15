@@ -21,7 +21,8 @@ module.exports = function (eleventyConfig) {
   // Markdown with anchor support
   eleventyConfig.setLibrary(
     'md',
-    markdownIt(mdOptions).use(markdownItAnchor, mdAnchorOpts)
+    markdownIt(mdOptions)
+      .use(markdownItAnchor, mdAnchorOpts)
   );
 
   // Table of contents plugin
@@ -63,11 +64,4 @@ module.exports = function (eleventyConfig) {
 
     return navigation;
   });
-
-  // Add this to specify the output directory
-  return {
-    dir: {
-      output: "docs"
-    }
-  };
 };
