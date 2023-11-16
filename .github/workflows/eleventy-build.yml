@@ -35,5 +35,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          ssh_key: ${{ secrets.DEPLOY_KEY }}
+          # ssh_key: ${{ secrets.DEPLOY_KEY }}
           publish_dir: ./_site
