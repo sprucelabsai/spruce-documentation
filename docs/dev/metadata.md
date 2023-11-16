@@ -1,5 +1,5 @@
 ---
-title: Managing your Family's Metadata
+title: Managing your Metadata
 intro: In this section of the guide, you will learn how to manage your metadata.
 show_dev_header: true
 show_dev_home: false
@@ -11,129 +11,163 @@ order: 1
 ---
 
 # Overview
-Welcome to our step-by-step guide on managing metadata! Today, we're going on an exciting journey to build a dynamic system for handling metadata. This guide will walk you through every step with clear explanations and practical examples. Let's dive in!
+In this section, you'll learn how to manage your metadata. Let's dive in!
 
-## Setting the Stage: Render Basic Form
+## Render Basic Form
 
-First things first, let's create a form to collect metadata. Imagine this form as the gateway through which users will input their data.
+First things first, let's create a form to collect metadata. Imagine this form as the gateway through which users will input their data. But, since we're using the TDD methodology, let's write a test to assert that a form is being rendered before we create a form.
 
-1. **Layout Design:**
-   - Sketch a simple yet intuitive form layout.
-   - Think about the user experience. What information are we collecting? How can we make it easy and logical for the user to input data?
-   - Placeholder for layout design code. 
+1. Assert that a form is being rendered:
 
    ```ts
-   (add layout design code here)
+   (add form assert code here)
    ```
 
-2. **Implementing Validation:**
-   - Now, let's ensure our form makes sense. We don't want users entering their names in date fields, right?
-   - Write some front-end validation rules.
-   - Placeholder for validation rules. 
+Once the test runs, it'll fail and the next step is to create the form.
+
+2. Create a form:
+
 ```ts   
-(add validation code here)
+(add form code here)
 ```
 
-3. **Data Binding:**
-   - Time to make our form functional. Let's bind our form fields to a data model so that when a user types in something, it gets stored correctly.
-   - Placeholder for data binding implementation. 
+After creating a form, you need to create a test to assert the fields within your form.
+
+3. Assert that the form renders fields:
 
    ```ts
-   (add data binding code here)
+   (add field assert code here)
    ```
+NOTE: This test is using `getFormVC` as a function but it has not yet been declared as a method. So, before you move on, select `getFormVC` and choose 'Declare Method' and make it available as a function:
 
-## Structuring Our Data: Use Schemas to Define Forms
+```ts
+(code to declare getFormVC as a function)
+
+```
+
+Next, to make model.sections iterable, edit your form as follows:
+
+```ts
+(code for mode.sections)
+```
+
+Once this is done, you can move on the next step, creating your first Schema.
+
+## Use Schemas to Define Forms
 
 With our form ready, let's define how our data should look and behave using schemas.
 
-1. **Define a Schema:**
-   - Think of a schema as a rule book for your data.
-   - Let's define what fields we need and the type of data each field should hold.
-   - Placeholder for schema definition. 
+1. Define a Schema:
+
+Think of a schema as a rule book for your data. Let's define what fields we need and the type of data each field should hold:
+
    ```ts
    (add schema definition code here)
    ```
+Next, pass view models within `sections`:
 
-2. **Linking Schema to Form:**
-   - Now, integrate this schema with our form. This ensures that the data entered matches our expectations.
-   - Placeholder for schema-form integration. 
+```ts
+(add code to pass view models)
+```
+Once you have passed the view models, it's time to preview the form!
+
+2. Start ```watch.views``` in the spruce cli:
+
+```bash
+watch.views
+```
+Viewing your form for the first time, you'll notice a lot of issues. Your next step is to fix all these issues step-by-step and get your form ready.
+
+3. Fix typings:
+
+ ```ts
+add code
+ ```
+
+4. Linking Schema to Form:
+
+Now, integrate this schema with your form. This ensures that the data entered matches your expectations.
+
    ```ts
    (add integration code here)
    ```
 
-3. **Evolving the Schema:**
-   - Our needs might change, and so might our data. Let's write code to update our schema as required.
-   - Placeholder for schema update. 
+5. Evolving the Schema:
+
+You need to ensure your shcema is updated as your data changes. Let's write code to update the schema as required.
 
    ```ts
       (add schema update code here)
    ```
 
-## Communication is Key: Emit and Listen to Events
+## Emit and Listen to Events
 
-Our form and schema are set. Let’s now focus on making them communicate with the backend.
+Your form and schema are set. Let’s now focus on making them communicate with the backend.
 
-1. **Setting Up Event Emitters:**
-   - When a user submits the form, an event will be emitted. This is our way of sending data from the frontend to the backend.
-   - Placeholder for setting up event emitters. 
+1. Setting Up Event Emitters:
+
+When a user submits the form, an event will be emitted. This is your way of sending data from the frontend to the backend.
+
    ```ts
    (add event emitter code here)
    ```
 
-2. **Processing Events with Listeners:**
-   - The backend needs to listen to these events and know what to do with them.
-   - Placeholder for setting up event listeners. 
+2. Processing Events with Listeners:
+
+The backend needs to listen to these events and know what to do with them.
   
    ```ts
    (add event listener code here)
    ```
 
-## Access Control: Building Permissions Contracts
+## Building Permissions Contracts
 
-We must ensure only the right people have access to the right data.
+You must ensure only the right people have access to the right data.
 
-1. **Defining User Roles:**
-   - Let’s define different user roles and what each role can or cannot do.
-   - Placeholder for defining user roles. 
+1. Defining User Roles:
+
+Let’s define different user roles and what each role can or cannot do.
    
    ```ts
    (add roles definition code here)
    ```
 
-2. **Implementing Permission Checks:**
-   - With roles defined, we now write code to check if a user has the necessary permissions to perform an action.
-   - Placeholder for permission checks. 
+2. Implementing Permission Checks:
+
+With roles defined, we now write code to check if a user has the necessary permissions to perform an action.
+
    ```ts
    (add permission check code here)
    ```
 
-## Data Persistence: Using Data Stores
+## Using Data Stores
 
 Finally, we need to store our data so that it's not lost when the app closes.
 
-1. **Choosing a Data Store:**
-   - Based on our needs, let’s choose a suitable place to store our data. This could be a database or any other form of persistent storage.
-   - Placeholder for rationale behind data store selection. 
+1. Choosing a Data Store:
+
+Based on our needs, let’s choose a suitable place to store our data. This could be a database or any other form of persistent storage.
+
    ```ts
    (add rationale here)
    ```
 
-2. **Saving Data:**
-   - Now, write the code to save data into our chosen data store.
-   - Placeholder for data saving mechanism. 
+2. Saving Data:
+
+Now, write the code to save data into our chosen data store.
+ 
    
    ```ts
    (add data saving code here)
    ```
 
-3. **Retrieving Data:**
-   - Equally important is how we get this data back when we need it.
-   - Placeholder for data retrieval method. 
-   
+3. Retrieving Data:
+
+Equally important is how we get this data back when we need it.
+
    ```ts
    (add data retrieval code here)
    ```
 
 ## Wrapping Up
-
-Congratulations! You’ve just walked through the process of creating a system to manage metadata. Remember, the journey doesn’t end here. Keep experimenting, keep learning, and most importantly, have fun coding!
+You have now successfully created a system to manager your metadata!
