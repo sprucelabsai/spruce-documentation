@@ -2,7 +2,7 @@
 title: Errors
 intro: Handling Errors in Sprucebot
 show_concepts_header: true
-show_concepts_navigation: true
+show_concepts_sidebar: true
 show_TOC: true
 show_concepts_video: false
 section: Concepts

@@ -3,7 +3,7 @@ title: Listeners
 intro: Implementing Listeners in Spruce
 show_concepts_header: true
 show_TOC: true
-show_concepts_navigation: true
+show_concepts_sidebar: true
 show_concepts_video: false
 section: Concepts
 order: 6

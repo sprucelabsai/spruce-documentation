@@ -8,32 +8,32 @@
 </head>
 <body>
 {% if show_header %}
-  {% include "header.njk" %}
+  {% include "general/header.njk" %}
 {% endif %}
 {% if show_concepts_header %}
-  {% include "concepts_header.njk" %}
+  {% include "concepts/concepts_header.njk" %}
 {% endif %}
 {% if show_ideology_header %}
-  {% include "ideology_header.njk" %}
+  {% include "ideology/ideology_header.njk" %}
 {% endif %}
 {% if show_dev_header %}
-  {% include "dev_header.njk" %}
+  {% include "dev/dev_header.njk" %}
 {% endif %}
 <main class="relative flex mx-auto max-w-8xl sm:px-2 lg:px-8 xl:px-12">
   
-  <!-- Left Navigation -->
+  <!-- Left Sidebar -->
   <aside class="flex-shrink-0 w-1/5 p-4 border-r">
-    {% if show_navigation %}
-      {% include "navigation.njk" %}
+    {% if show_sidebar %}
+      {% include "general/sidebar.njk" %}
     {% endif %}
-    {% if show_concepts_navigation %}
-      {% include "concepts_navigation.njk" %}
+    {% if show_concepts_sidebar %}
+      {% include "concepts/concepts_sidebar.njk" %}
     {% endif %}
-    {% if show_ideology_navigation %}
-      {% include "ideology_navigation.njk" %}
+    {% if show_ideology_sidebar %}
+      {% include "ideology/ideology_sidebar.njk" %}
     {% endif %}
-    {% if show_dev_navigation %}
-      {% include "dev_navigation.njk" %}
+    {% if show_dev_sidebar %}
+      {% include "dev/dev_sidebar.njk" %}
     {% endif %}
   </aside>
   
@@ -51,34 +51,34 @@
             </p>
         {% endif %}
         {% if show_video %}
-            {% include "video.njk" %}
+            {% include "general/video.njk" %}
         {% endif %}
         {% if show_concepts_video %}
-            {% include "concepts_video.njk" %}
+            {% include "concepts/concepts_video.njk" %}
         {% endif %}
         {% if show_ideology_video %}
-            {% include "ideology_video.njk" %}
+            {% include "ideology/ideology_video.njk" %}
         {% endif %}
         {% if show_dev_video %}
-            {% include "dev_video.njk" %}
+            {% include "dev/dev_video.njk" %}
         {% endif %}
-        {% if show_quick_links %}
-            {% include "quick_links.njk" %}
+        {% if show_home_links %}
+            {% include "general/home_links.njk" %}
         {% endif %}
         {% if show_concepts_home %}
-            {% include "concepts_home.njk" %}
+            {% include "concepts/concepts_home.njk" %}
         {% endif %}
         {% if show_ideology_home %}
-            {% include "ideology_home.njk" %}
+            {% include "ideology/ideology_home.njk" %}
         {% endif %}
         {% if show_dev_home %}
-            {% include "dev_home.njk" %}
+            {% include "dev/dev_home.njk" %}
         {% endif %}
-        {% if show_content_footer %}
-            {% include "content_footer.njk" %}
+        {% if show_footer %}
+            {% include "general/footer.njk" %}
         {% endif %}
-        {% if show_content_navigation %}
-            {% include "content_navigation.njk" %}
+        {% if show_footer_navigation %}
+            {% include "general/footer_navigation.njk" %}
         {% endif %}
         
         <div class="mt-8 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight

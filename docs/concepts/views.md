@@ -3,7 +3,7 @@ title: Views
 intro: Introduction to Views in Sprucebot
 show_concepts_header: true
 show_TOC: true
-show_concepts_navigation: true
+show_concepts_sidebar: true
 show_concepts_video: false
 section: Concepts
 order: 1

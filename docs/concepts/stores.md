@@ -3,7 +3,7 @@ title: Stores
 intro: Data Stores - The Technical Backbone of Spruce
 show_concepts_header: true
 show_TOC: true
-show_concepts_navigation: true
+show_concepts_sidebar: true
 show_concepts_video: false
 section: Concepts
 order: 3

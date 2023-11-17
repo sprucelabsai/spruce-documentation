@@ -3,7 +3,7 @@ title: Building a Root Skill View
 intro: In this section of the guide, you will learn how to build skill views and implement dynamic routing.
 show_dev_header: true
 show_dev_home: false
-show_dev_navigation: true
+show_dev_sidebar: true
 show_dev_video: true
 show_TOC: true
 section: Learn
