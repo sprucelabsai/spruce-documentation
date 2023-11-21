@@ -10,7 +10,7 @@ order: 1
 ---
 
 # Overview
-Skill Views are the elements users interact with when they visit spruce.bot. They are top-level Views that include various components such as CardViews, ListViews, FormViews, etc. These are controlled by SkillViewControllers. Every skill has a RootSkillViewController that is loaded by the skill's namespace, and there is no limit to the number of Skill Views (and Views) a skill can have.
+Skill Views are top-level Views that include various components such as Cards, Lists, Forms, etc. They are what you see when you visit spruce.bot. They are the equivalent of pages in classical web development. They are controlled by SkillViewControllers. Every skill can have one RootSkillViewController that is loaded by the skill's namespace (https://{{namespace}}.spruce.bot), and there is no limit to the number of Skill Views (and Views) a skill can have besides Root.
 
 ## Creating and Previewing Skill Views
 
