@@ -1,0 +1,30 @@
+{
+  links: [
+    { title: "Developer Onboarding", url: "/dev-onboarding/", children: [
+        { title: "Building a Root Skill View", url: "/dev-onboarding/build/rootskillview/" },
+        { title: "Managing your Family Members", url: "/dev-onboarding/build/members/" },
+        { title: " Managing your Metadata", url: "/dev-onboarding/build/metadata/" },
+        { title: "Creating Multi-card Forms", url: "/dev-onboarding/build/multi-card-forms/" },
+      ]
+    },
+    { title: "Concepts", url: "/concepts/", children: [
+        { title: "Errors", url: "/concepts/errors/" },
+        { title: "Events", url: "/concepts/events/" },
+        { title: "Listeners", url: "/concepts/listeners/" },
+        { title: "Schemas", url: "/concepts/schemas/" },
+        { title: "Stores", url: "/concepts/stores/" },
+        { title: "Tests", url: "/concepts/tests/"  },
+        { title: "Views", url: "/concepts/views/" },
+        { title: "Mercury", url: "/concepts/mercury/" },
+      ]
+    },
+    { title: "Ideology", url: "/ideology/", children: [
+        { title: "Mercury", url: "/ideology/mercury/" },
+      ]
+    },
+    { title: "References", url: "/references/", children: [
+        { title: "Glossary", url: "/references/glossary/" },
+      ]
+    },
+  ]
+}

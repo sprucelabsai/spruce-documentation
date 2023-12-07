@@ -1,67 +1,41 @@
-const now = String(Date.now());
-const pluginTOC = require('eleventy-plugin-toc');
-const markdownIt = require('markdown-it');
-const markdownItAnchor = require('markdown-it-anchor');
+require("json5/lib/register");
 
-const mdOptions = {
-  html: true,
-  breaks: true,
-  linkify: true,
-  typographer: true
-};
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
+const externalLinks = require("@aloskutov/eleventy-plugin-external-links");
 
-const mdAnchorOpts = {
-  permalink: true,
-  permalinkClass: 'anchor-link',
-  permalinkSymbol: '#',
-  level: [1, 2, 3, 4]
-};
+const registerExtensions = require("./11ty-extensions");
 
-module.exports = function (eleventyConfig) {
-  // Markdown with anchor support
-  eleventyConfig.setLibrary(
-    'md',
-    markdownIt(mdOptions)
-      .use(markdownItAnchor, mdAnchorOpts)
-  );
+module.exports = function(eleventyConfig) {
 
-  // Table of contents plugin
-  eleventyConfig.addPlugin(pluginTOC);
+  eleventyConfig.addPassthroughCopy({"./src/assets/": "assets"});
+  eleventyConfig.addPassthroughCopy({"./node_modules/font-awesome/css": "assets/font-awesome/css"});
+  eleventyConfig.addPassthroughCopy({"./node_modules/font-awesome/fonts": "assets/font-awesome/fonts"});
+  eleventyConfig.addPassthroughCopy({"./node_modules/highlight.js/styles/atom-one-light.min.css": "styles/highlight.js-atom-one-light.min.css"});
 
-  eleventyConfig.addWatchTarget('./tailwind.config.js');
-  eleventyConfig.addWatchTarget('./assets/css/index.css');
-  eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy({ './_tmp/style.css': './style.css' });
+  eleventyConfig.addPassthroughCopy({"./client-side-compiled/**/*": "scripts"});
+  eleventyConfig.addPassthroughCopy({"./styles-compiled/**/*": "styles"});
+  eleventyConfig.addPassthroughCopy({"./src/copy-to-root/*": "."});
 
-  eleventyConfig.addShortcode('version', function () {
-    return now;
+ 
+  eleventyConfig.addPassthroughCopy({"./node_modules/lunr/lunr.min.js": "scripts/libs/lunr.min.js"});
+
+  eleventyConfig.setUseGitIgnore(false);
+  eleventyConfig.setDataDeepMerge(false);
+
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
+  eleventyConfig.addPlugin(externalLinks, {overwrite: false});
+
+  eleventyConfig.setServerOptions({
+    showAllHosts: true
   });
 
-  eleventyConfig.addFilter('filter', function (collection, key, value) {
-    return collection.filter(item => item.data[key] === value);
-  });
+  eleventyConfig.setWatchThrottleWaitTime(100);
 
-  eleventyConfig.addNunjucksFilter('getNavigation', function (collection) {
-    const navigation = {};
+  registerExtensions(eleventyConfig);
 
-    collection.forEach(item => {
-      const section = item.data.section;
-      const subsection = item.data.subsection;
-
-      if (!navigation[section]) {
-        navigation[section] = {};
-      }
-
-      if (subsection) {
-        if (!navigation[section][subsection]) {
-          navigation[section][subsection] = [];
-        }
-        navigation[section][subsection].push(item.data);
-      } else {
-        navigation[section] = item.data;
-      }
-    });
-
-    return navigation;
-  });
+  return {
+    dir: {
+      input: "src/pages",
+    }
+  }
 };

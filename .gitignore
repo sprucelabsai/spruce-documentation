@@ -1,2 +1,8 @@
-node_modules
+.DS_Store
 _site
+node_modules
+# My 11ty specifics
+_site/
+client-side-compiled/
+styles-compiled/
+

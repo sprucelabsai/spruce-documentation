@@ -1,0 +1,39 @@
+@import 'values';
+@import 'fonts';
+@import 'svg-icons';
+@import 'base-element-styles';
+
+// @import 'debug';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  @import 'widgets';
+  @import 'header';
+  @import 'navigation';
+
+
+    // two section content, right side bar, main chunk on left.
+    @import 'page-specific/default-page-type';
+    @import 'page-specific/ds-layout-type';
+    
+  // }
+
+  @import 'footer';
+
+  @import 'page-specific/home';
+  @import 'page-specific/search';
+  @import 'page-specific/install';
+}

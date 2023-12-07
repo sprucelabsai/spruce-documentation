@@ -1,0 +1,157 @@
+@mixin navBarList() {
+  $current-page-highlight-padding: 10px;
+  
+  nav#main-nav {
+    padding: 18px 34px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      // Default for all links in tree
+      $link-color: #5B5477;
+
+
+      #mobile-search {
+        svg {
+          height: 24px;
+        }
+
+        @include mq-full {
+          display: none;
+        }
+      }
+
+      a {
+        color: $link-color;
+        display: inline-block;
+        transition: all .75s;
+        text-decoration: none;
+
+        // Add a span so that we can use the border to indicate current page and 
+        //   control the size of the indicator independent of the box size of the a tag
+        span {
+          display: inline-flex;
+          align-items: flex-end;
+          padding-left: $current-page-highlight-padding;
+          border-left: 4px solid transparent;
+
+          svg {
+            margin: 0 0 6px 6px;
+          }
+        }
+
+        @include offsiteLinkIcon($link-color, $top: 10px);
+
+        &:hover {
+          font-variation-settings: "wght" 700;
+          color: black;
+        }
+      }
+
+      li {
+        margin-bottom: unset;
+
+        &[data-is-current-parent="true"] {
+          > a {
+            color: black;
+            font-weight: 700;
+          }
+        }
+        
+        &[aria-current="page"] {
+          > a {
+            color: black;
+            font-weight: 700;
+
+            span {
+              border-left-color: $cl-brand-green;
+            }
+          }
+        }
+      }
+
+      &.nav-top-level {
+        > li {
+          > a {
+            padding: 8px 0;
+            text-transform: uppercase;
+          }
+
+          button {
+            cursor: pointer;
+
+            svg {
+              transition: all 0.25s;
+            }
+
+            &.up-arrow {
+              svg {
+                transform: rotateZ(180deg);
+              }
+            }
+          }
+        }
+
+        ul.nav-child-level {
+          display: none;
+
+          a {
+            padding: 3px 0 4px 12px;
+          }
+
+          &.open {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin inPageToc() {
+  #in-page-toc {
+    position: sticky;
+    top: 0;
+
+    padding: 18px 34px;
+
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 10px;
+      padding: 0;
+
+      li {
+        margin-bottom: 10px;
+
+        a {
+          color: #5B5477;
+          display: inline-block;
+          transition: all .75s;
+          text-decoration: none;
+
+          &:hover {
+            font-variation-settings: "wght" 700;
+            color: black;
+          }
+
+          &.current {
+            font-weight: 700;
+          }
+        }
+
+        & > ul {
+          margin-top: 10px;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}

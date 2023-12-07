@@ -1,0 +1,8 @@
+{
+  links: [
+    { title: "Developer Onboarding", url: "/dev-onboarding/", class:"" },
+    { title: "Concepts", url: "/concepts/", class:"" },
+    { title: "Ideology", url: "/ideology/", class:"" },
+    { title: "References", url: "/references/", class:"" },
+  ]
+}
