@@ -38,9 +38,6 @@
   },
   "author": "",
   "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "/"
-  },
   "homepage": "/",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
