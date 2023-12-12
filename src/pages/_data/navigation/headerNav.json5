@@ -1,5 +1,6 @@
 {
   links: [
+    { title: "Getting Started", url: "/getting-started/", class:"" },
     { title: "Developer Onboarding", url: "/dev-onboarding/", class:"" },
     { title: "Concepts", url: "/concepts/", class:"" },
     { title: "Ideology", url: "/ideology/", class:"" },

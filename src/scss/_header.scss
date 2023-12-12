@@ -84,7 +84,7 @@ header#page-header {
 
   #page-header-bar {
     padding: 8px;
-    color: #ffffff;
+    color: white;
     display: flex;
     justify-content: space-between;
 
@@ -106,7 +106,7 @@ header#page-header {
     }
 
     @include mq-full {
-      background: white;
+      background: none;
       padding: 10px $sz-full-hor-padding;
 
       #other-nav {

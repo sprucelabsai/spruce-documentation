@@ -1,5 +1,9 @@
 {
   links: [
+    { title: "Getting Started", url: "/getting-started/", children: [
+        { title: "Test Child", url: "/getting-started/child/" },
+      ]
+    },
     { title: "Developer Onboarding", url: "/dev-onboarding/", children: [
         { title: "Building a Root Skill View", url: "/dev-onboarding/build/rootskillview/" },
         { title: "Managing your Family Members", url: "/dev-onboarding/build/members/" },

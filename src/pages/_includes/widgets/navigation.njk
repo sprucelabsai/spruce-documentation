@@ -5,13 +5,13 @@
 <nav id="main-nav">
   <ul class="nav-top-level">
     <li id="mobile-search">
-      <a href="/search" title="Search the site">{{ mdiSearch() }}</a>
+      <a href="{{ '/search' | url }}" title="Search the site">{{ mdiSearch() }}</a>
     </li>
     {% for topLink in mainNavData.links %}
       {% set isCurrentParent = topLink.url == activeParent.url %}
       {% if isCurrentParent %}
       <li data-is-current-parent="true" aria-current="page">
-        <a href="{{ topLink.url }}" {{ 'target=_blank' if topLink.external }}>
+        <a href="{{ topLink.url | url }}" {{ 'target=_blank' if topLink.external }}>
           <span>
             {{ topLink.title }}
           </span>
@@ -23,7 +23,7 @@
         <ul class="nav-child-level open">
           {% for childLink in topLink.children %}
           <li {% if childLink.url == page.url %} aria-current="page" {% endif %}>
-            <a href="{{ childLink.url }}" {{ 'target=_blank' if childLink.external }}>
+            <a href="{{ childLink.url | url }}" {{ 'target=_blank' if childLink.external }}>
               <span>
                 {{ childLink.title }}
               </span>
@@ -45,7 +45,7 @@
   <ul>
     {% for link in headerNavData.links %}
       <li {% if link.url == activeParent.url %} data-is-current-parent="true" {% endif %} >
-        <a href="{{ link.url }}">{{ link.title }}</a>
+        <a href="{{ link.url | url }}">{{ link.title }}</a>
       </li>
     {% endfor %}
   </ul>

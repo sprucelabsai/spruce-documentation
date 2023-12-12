@@ -1,6 +1,6 @@
 {% from "widgets/svg-icons.njk" import rocketshipIcon, craneIcon, toolPanelIcon, personReadingIcon %}
 <div id="home-tiles">
-    {% linkTile "/dev-onboarding/", "home-tile" %}
+    {% linkTile "/dev-onboarding/" | url, "home-tile" %}
       {{ rocketshipIcon() }}
       <div class="text-wrapper">
         <h2>Developer Onboarding</h2>
@@ -8,7 +8,7 @@
       </div>
     {% endlinkTile %}
 
-    {% linkTile "/concepts/", "home-tile" %}
+    {% linkTile "/concepts/" | url, "home-tile" %}
       {{ craneIcon() }}
       <div class="text-wrapper">
         <h2>Concepts</h2>
@@ -16,7 +16,7 @@
       </div>
     {% endlinkTile %}
 
-    {% linkTile "/ideology/", "home-tile" %}
+    {% linkTile "/ideology/" | url, "home-tile" %}
       {{ toolPanelIcon() }}
       <div class="text-wrapper">
         <h2>Ideology</h2>
@@ -24,7 +24,7 @@
       </div>
     {% endlinkTile %}
 
-    {% linkTile "/", "home-tile" %}
+    {% linkTile "/" | url, "home-tile" %}
       {{ personReadingIcon() }}
       <div class="text-wrapper">
         <h2>Resources</h2>
