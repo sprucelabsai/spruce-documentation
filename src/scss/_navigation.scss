@@ -105,12 +105,17 @@
             display: block;
           }
         }
-        
-        // Additional styling specific to grandchild level
+        ul.nav-child-level {
+          a {
+            font-size: 1.0em;
+            font-weight: bold;
+          }
+        }   
         ul.nav-grandchild-level {
           a {
-            padding-left: 24px; // Increase left padding for grandchild links
-            font-size: 0.9em; // Optional: Adjust font size for grandchild links
+            padding-left: 24px;
+            font-size: 0.9em;
+            font-weight: normal; 
           }
         }        
       }

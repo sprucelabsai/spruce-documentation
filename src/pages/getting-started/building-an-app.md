@@ -25,7 +25,7 @@ title: Building an App
 </style>
 
 <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/hB1cIRfpjyU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://youtu.be/SiUckNpPLag?si=kqjULfkNZGF3iBME" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 # Building a Document-Based App with Spruce
