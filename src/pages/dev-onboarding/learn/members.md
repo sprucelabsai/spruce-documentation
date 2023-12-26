@@ -1,10 +1,10 @@
 ---
 title: Managing your Family Members
 ---
-## Overview
-In this section, you'll learn how to Manage your Family Members.
+# Chapter 2
+In this Chapter, you'll learn how to Manage your Family Members.
 
-### Managing Skill Views
+## Manage Family Members Skill View
 1. **Initial Test for the Manage Family Members Skill View**
 Create a failing test for the "Manage Family Members" skill view.
    ```typescript

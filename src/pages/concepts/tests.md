@@ -2,12 +2,12 @@
 title: Tests
 ---
 
-### Overview
+# Overview
 Testing in Spruce is essential for maintaining quality. It ensures that every aspect of the system performs as expected.
 
-### Understanding Tests in Spruce
+## Understanding Tests in Spruce
 
-#### Breakdown of Tests
+## Breakdown of Tests
 1. **Creating and Running Tests**
    - `spruce create.test`: Initializes a new test, committing to quality.
    - `spruce test`: Runs the test suite to validate code readiness for deployment.
@@ -41,3 +41,5 @@ Testing in Spruce is essential for maintaining quality. It ensures that every as
 
 #### Example: Abstract Skill Test
 The example provides a template for setting up an abstract skill test class, demonstrating how to initialize stores, routers, and profiles, along with convenience methods for accessing and listing profiles and organizations.
+
+## Practice

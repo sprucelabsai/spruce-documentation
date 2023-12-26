@@ -33,7 +33,7 @@ ul, ol {
 }
 
 .btn-purple {
-  @include btn-base(white, $cl-brand-purple, $cl-brand-purple, $cl-gray);
+  @include btn-base(white, $cl-brand-green, $cl-brand-green, $cl-gray);
 }
 
 a {

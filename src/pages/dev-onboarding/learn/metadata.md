@@ -1,8 +1,8 @@
 ---
 title: Managing your Family's Metadata
 ---
-# Overview
-In this section, you'll learn how to manage your metadata.
+# Chapter 3
+In this Chapter, you'll learn how to manage your metadata.
 
 ## Render Basic Form
 

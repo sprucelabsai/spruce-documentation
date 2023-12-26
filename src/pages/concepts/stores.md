@@ -2,12 +2,12 @@
 title: Stores
 ---
 
-### Overview
-Data Stores are pivotal repositories in Spruce's framework, designed to be database-agnostic and offer a uniform interface for interacting with various database systems.
+# Overview
+Data Stores act as repositories in Spruce developmentt. They are designed to be database-agnostic and offer a uniform interface for interacting with various database systems.
 
-### Understanding Stores in Spruce
+## Understanding Stores in Spruce
 
-#### Breakdown of Stores
+## Breakdown of Stores
 1. **CLI Operations**
    - **Initialization of Stores**: Use `spruce create.store` to initialize a new Store.
    - **Store Synchronization**: Use `spruce sync.stores` to align the Store with changes in class or file names, ensuring consistency.
@@ -26,3 +26,5 @@ Data Stores are pivotal repositories in Spruce's framework, designed to be datab
 5. **Database Integration: Embracing Postgres**
    - While Stores are database-agnostic, they can be enhanced with adapters like `@sprucelabs/postgres-data-store` for SQL-based systems.
    - Configure Postgres support by importing the necessary dependency and setting the `DATABASE_CONNECTION_STRING` in the environment.
+
+   ## Practice

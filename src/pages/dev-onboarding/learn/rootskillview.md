@@ -1,6 +1,68 @@
 ---
 title: Building a Root Skill View
+tocData:
+  - text: Chapter 1
+    href: chapter-1
+    children:
+      - text: Set Up Testing Environment and IDE
+        href: set-up-testing-environment-and-ide
+        children:
+          - text: Start Docker for NPM Caching
+            href: start-docker-for-npm-caching
+          - text: Create New Skill
+            href: create-new-skill
+          - text: Access Your New Skill
+            href: access-your-new-skill
+          - text: Turn on WatchMode
+            href: turn-on-watchmode
+      - text: Write your First Failing Test
+        href: write-your-first-failing-test
+        children:
+          - text: Drafting the First Test
+            href: drafting-the-first-test
+      - text: Create a Root Skill View
+        href: create-a-root-skill-view
+        children:
+          - text: Add Logic to Your Root Skill Interface
+            href: add-logic-to-your-root-skill-interface
+          - text: Test the Root Skill Interface
+            href: test-the-root-skill-interface
+          - text: Set Up Dynamic Routing
+            href: set-up-dynamic-routing
+      - text: Preview on a Device
+        href: preview-on-a-device
 ---
+
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 25px;
+    height: 0;
+    margin-bottom: 20px; /* Adjust as needed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the corner radius is applied */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+</style>
+
+
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/hB1cIRfpjyU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+# Chapter 1
+In this Chapter, you'll build your first Root Skill View
+
 ## Set Up Testing Environment and IDE
 
 ### Start Docker for NPM Caching
@@ -8,7 +70,7 @@ Run the command `spruce start.cache`
 
 This initializes Docker to use aggressive caching for NPM packages, which improves the speed of dependency retrieval.
 
-### Begin a New Skill Project
+### Create New Skill
 Create a new skill environment by typing `spruce create.skill (yourSkillName)`. For example, our test skill is called **"kata-1"**:
 
 ```bash
@@ -48,8 +110,6 @@ spruce test --watchMode smart
 This command continuously runs tests you're developing, and upon success, it starts the remaining tests. It’s recommended to keep this on during development.
 
 ## Write Your First Failing Test
-
-### Create a Test
 With WatchMode on, go back to Visual Studio Code and the command palette, and run `create.test`.
 You'll choose between two types of testing:
   1. Behavioural: To check the changes you make in the environment.
@@ -63,7 +123,7 @@ Select Behavioural tests, and you’ll be asked to specify what you’re testing
 # Enter the actual commands for the IDE setup here
 ```
 
-#### Drafting the First Test:
+### Drafting the First Test
 Write a new behavioral test called "RootSkillView".
 Base the test on the "abstract spruce fixture test".
 
@@ -71,11 +131,11 @@ Base the test on the "abstract spruce fixture test".
  # Enter the actual code snippet for creating a new test here
 ```
 
-## Develop Your Root Skill Interface
+## Create a Root Skill View
 
-After setting up the IDE and starting testing, the next step is to build the skill interfaces, starting with the root skill interface.
+After setting up the IDE and starting testing, the next step is to build the skill interfaces, starting with the root skill view.
 
-### Create the Root Skill Interface
+***To Create the Root Skill View:**
 
 Use the command `spruce create.view` to begin making your root skill interface.
 
@@ -89,17 +149,23 @@ For the controller name, type `root`.
 
 The command-line will handle file generation and setup for your root skill interface.
 
-```display the code structure here```
+```ts
+display the code structure here
+```
 
 ### Add Logic to Your Root Skill Interface
 
 In your `RootSkillViewController`, add basic UI elements like cards, buttons, and images.
 
-```enter code snippet for UI elements here```
+```ts
+enter code snippet for UI elements here
+```
 
 Describe the elements and how they interact, such as what happens when buttons are clicked.
 
-```enter code snippet for UI interactions and error handling here```
+```ts
+enter code snippet for UI interactions and error handling here
+```
 
 ```typescript
 // Example of button implementation
@@ -117,11 +183,7 @@ Write a test to make sure the root skill interface is rendered correctly.
 Use the `assert` library to check for the existence and proper display of all UI components.
 
 ```typescript
-// Testing card display example
-it('should show a card', () => {
-  const card = rootSkillViewController.renderCard();
-  assert(card).toBeVisible();
-});
+code
 ```
 
 Run your tests using `spruce test` in watch mode to continuously monitor for changes and mistakes.
@@ -130,7 +192,9 @@ Run your tests using `spruce test` in watch mode to continuously monitor for cha
 
 Define routes in your skill interface to allow for smooth transitions between different views.
 
-```enter snippet for route definition and testing here```
+```ts
+enter snippet for route definition and testing here
+```
 
 Create functions to manage the routes, like `redirectToMetaView` or `returnToRootView`.
 

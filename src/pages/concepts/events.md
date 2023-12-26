@@ -1,12 +1,12 @@
 ---
 title: Events
 ---
-### Overview
+# Overview
 Events in Spruce are the key to a reactive and interconnected system. They are triggered by user interactions, system updates, or scheduled occurrences and are managed by Mercury, Spruce's central communication hub.
 
-### Understanding Events in Spruce
+## Understanding Events in Spruce
 
-#### Breakdown of Events
+## Breakdown of Events
 1. **Mercury - The Event Engine**
    - Mercury processes events using commands like `spruce create.event`, `spruce listen.event`, and `spruce sync.events`.
 
@@ -27,3 +27,5 @@ Events in Spruce are the key to a reactive and interconnected system. They are t
    - The local event emitter is a strictly typed, payload-validating mechanism.
    - **Creating an Emitter**: Involves adding dependencies, building an event contract, and implementing the emitter class.
    - **Using the Emitter**: Attaching listeners to events and emitting events with payloads.
+
+## Practice

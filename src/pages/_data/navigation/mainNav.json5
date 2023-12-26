@@ -1,33 +1,104 @@
 {
   links: [
     { title: "Getting Started", url: "/getting-started/", children: [
-        { title: "Test Child", url: "/getting-started/child/" },
+        { title: "Building an App", url: "/getting-started/building-an-app/" },
       ]
     },
-    { title: "Developer Onboarding", url: "/dev-onboarding/", children: [
-        { title: "Building a Root Skill View", url: "/dev-onboarding/build/rootskillview/" },
-        { title: "Managing your Family Members", url: "/dev-onboarding/build/members/" },
-        { title: " Managing your Metadata", url: "/dev-onboarding/build/metadata/" },
-        { title: "Creating Multi-card Forms", url: "/dev-onboarding/build/multi-card-forms/" },
+    {
+  "title": "Developer Onboarding",
+  "url": "/dev-onboarding/",
+  "children": [
+    {
+      "title": "Learn",
+      "url": "/dev-onboarding/learn/",
+      "children": [
+        {
+          "title": "Building a Root Skill View",
+          "url": "/dev-onboarding/learn/rootskillview/"
+        },
+        {
+          "title": "Managing your Family Members",
+          "url": "/dev-onboarding/learn/members/"
+        },
+        {
+          "title": "Managing your Metadata",
+          "url": "/dev-onboarding/learn/metadata/"
+        },
+        {
+          "title": "Creating Multi-card Forms",
+          "url": "/dev-onboarding/learn/multi-card-forms/"
+        },
+        {
+          "title": "Generating Personalized Stories",
+          "url": "/dev-onboarding/learn/personalized-stories/"
+        },
+        {
+          "title": "Long Running Operations",
+          "url": "/dev-onboarding/learn/long-running-operations/"
+        },
+        {
+          "title": "Sharing the Story",
+          "url": "/dev-onboarding/learn/share-story/"
+        }
       ]
+    },
+    {
+      "title": "Train",
+      "url": "/dev-onboarding/train/",
+      "children": [
+        {
+          "title": "Errors",
+          "url": "/dev-onboarding/train/errors/"
+        },
+        {
+          "title": "Schemas",
+          "url": "/dev-onboarding/train/schemas/"
+        },
+        {
+          "title": "Stores",
+          "url": "/dev-onboarding/train/stores/"
+        },
+        {
+          "title": "Events",
+          "url": "/dev-onboarding/train/events/"
+        },
+        {
+          "title": "Tests",
+          "url": "/dev-onboarding/train/tests/"
+        },
+        {
+          "title": "Views",
+          "url": "/dev-onboarding/train/views/"
+        },
+        {
+          "title": "Listeners",
+          "url": "/dev-onboarding/train/listeners/"
+        },
+        {
+          "title": "Mercury",
+          "url": "/dev-onboarding/train/mercury/"
+        }
+      ]
+    }
+  ]
     },
     { title: "Concepts", url: "/concepts/", children: [
-        { title: "Errors", url: "/concepts/errors/" },
-        { title: "Events", url: "/concepts/events/" },
-        { title: "Listeners", url: "/concepts/listeners/" },
-        { title: "Schemas", url: "/concepts/schemas/" },
+        { title: "Errors", url: "/concepts/mercury/" },
+        { title: "Events", url: "/concepts/views/" },
+        { title: "Listeners", url: "/concepts/tests/" },
+        { title: "Schemas", url: "/concepts/events/" },
         { title: "Stores", url: "/concepts/stores/" },
-        { title: "Tests", url: "/concepts/tests/"  },
-        { title: "Views", url: "/concepts/views/" },
-        { title: "Mercury", url: "/concepts/mercury/" },
+        { title: "Tests", url: "/concepts/schemas/"  },
+        { title: "Views", url: "/concepts/listeners/" },
+        { title: "Mercury", url: "/concepts/errors/" },
       ]
     },
     { title: "Ideology", url: "/ideology/", children: [
-        { title: "Mercury", url: "/ideology/mercury/" },
+        { title: "Architecture", url: "/ideology/architecture/" },
       ]
     },
-    { title: "References", url: "/references/", children: [
-        { title: "Glossary", url: "/references/glossary/" },
+    { title: "Resources", url: "/resources/", children: [
+        { title: "Glossary", url: "/resources/glossary/" },
       ]
     },
   ]

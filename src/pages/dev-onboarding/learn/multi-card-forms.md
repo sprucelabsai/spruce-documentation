@@ -1,9 +1,8 @@
 ---
 title: Selecting the Story Elements
 ---
-
-### Overview
-In this tutorial, we'll walk through the process of building a story generation feature that allows for personalized storytelling. We'll cover everything from setting up the basic interface to handling user input and story elements.
+# Chapter 4
+In this Chapter, we'll walk through the process of building a story generation feature that allows for personalized storytelling. We'll cover everything from setting up the basic interface to handling user input and story elements.
 
 ## Set Up the Development Environment
 

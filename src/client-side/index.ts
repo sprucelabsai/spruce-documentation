@@ -59,9 +59,9 @@ setUpMenuToggle();
  * Sets up the Navigation open child buttons
  */
 function setupNavHandlers() {
-  document.querySelectorAll<HTMLButtonElement>("button[data-children-opener]").forEach((btn) => {
-    btn.addEventListener("click", (e: Event) => {
-      // Handle the open/close state
+  // Event listener for child level toggler
+  document.querySelectorAll("button[data-children-opener]").forEach(btn => {
+    btn.addEventListener("click", () => {
       const openedChildLevels = document.querySelectorAll("ul.nav-child-level.open");
       const clickedChildLevel = btn.parentElement?.querySelector("ul.nav-child-level");
       const currentStateOpen = clickedChildLevel?.classList.contains("open");
@@ -69,10 +69,23 @@ function setupNavHandlers() {
       openedChildLevels.forEach((ul) => ul.classList.remove("open"));
       clickedChildLevel?.classList.toggle("open", !currentStateOpen);
 
-      // Handle the arrow direction
-      const openedButtons = document.querySelectorAll("#main-nav ul.nav-top-level > li > button.up-arrow");
-      openedButtons.forEach((btn) => btn.classList.remove("up-arrow"));
+      // Update button arrow direction for child level
       btn.classList.toggle("up-arrow", !currentStateOpen);
+    });
+  });
+
+  // Event listener for grandchild level toggler
+  document.querySelectorAll("button[data-grandchildren-opener]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const openedGrandchildLevels = document.querySelectorAll("ul.nav-grandchild-level.open");
+      const clickedGrandchildLevel = btn.parentElement?.querySelector("ul.nav-grandchild-level");
+      const currentGrandchildStateOpen = clickedGrandchildLevel?.classList.contains("open");
+
+      openedGrandchildLevels.forEach((ul) => ul.classList.remove("open"));
+      clickedGrandchildLevel?.classList.toggle("open", !currentGrandchildStateOpen);
+
+      // Update button arrow direction for grandchild level
+      btn.classList.toggle("up-arrow", !currentGrandchildStateOpen);
     });
   });
 }

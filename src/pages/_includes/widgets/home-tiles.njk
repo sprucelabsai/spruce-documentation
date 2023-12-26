@@ -1,10 +1,10 @@
 {% from "widgets/svg-icons.njk" import rocketshipIcon, craneIcon, toolPanelIcon, personReadingIcon %}
 <div id="home-tiles">
-    {% linkTile "/dev-onboarding/" | url, "home-tile" %}
-      {{ rocketshipIcon() }}
+    {% linkTile "/ideology/" | url, "home-tile" %}
+      {{ toolPanelIcon() }}
       <div class="text-wrapper">
-        <h2>Developer Onboarding</h2>
-        <p>Onboarding materials that ensure a seamless initiation process into the Sprucebot ecosystem.</p>
+        <h2>Ideology</h2>
+        <p>Delve deeper into the foundational principles that drive Sprucebot.</p>
       </div>
     {% endlinkTile %}
 
@@ -16,15 +16,15 @@
       </div>
     {% endlinkTile %}
 
-    {% linkTile "/ideology/" | url, "home-tile" %}
-      {{ toolPanelIcon() }}
+    {% linkTile "/dev-onboarding/" | url, "home-tile" %}
+      {{ rocketshipIcon() }}
       <div class="text-wrapper">
-        <h2>Ideology</h2>
-        <p>Delve deeper into the foundational principles that drive Sprucebot.</p>
+        <h2>Developer Onboarding</h2>
+        <p>Onboarding materials that ensure a seamless initiation process into the Sprucebot ecosystem.</p>
       </div>
     {% endlinkTile %}
 
-    {% linkTile "/" | url, "home-tile" %}
+    {% linkTile "/resources/" | url, "home-tile" %}
       {{ personReadingIcon() }}
       <div class="text-wrapper">
         <h2>Resources</h2>

@@ -2,7 +2,7 @@
   $current-page-highlight-padding: 10px;
   
   nav#main-nav {
-    padding: 18px 34px;
+    padding: 18px 8px;
 
     ul {
       list-style: none;
@@ -94,17 +94,25 @@
           }
         }
 
-        ul.nav-child-level {
+        ul.nav-child-level, ul.nav-grandchild-level {
           display: none;
-
+        
           a {
             padding: 3px 0 4px 12px;
           }
-
+        
           &.open {
             display: block;
           }
         }
+        
+        // Additional styling specific to grandchild level
+        ul.nav-grandchild-level {
+          a {
+            padding-left: 24px; // Increase left padding for grandchild links
+            font-size: 0.9em; // Optional: Adjust font size for grandchild links
+          }
+        }        
       }
     }
   }
@@ -120,7 +128,8 @@
     h2 {
       margin: 0;
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 800;
+      font-family: Mulish;
     }
 
     ul {

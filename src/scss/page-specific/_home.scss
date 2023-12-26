@@ -81,6 +81,8 @@
   
   .btn:hover {
     background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
   }
 
   #home-tiles {
@@ -106,7 +108,7 @@
           margin-left: 24px;
 
           h2 {
-            border-bottom: 2px solid $cl-brand-purple;
+            border-bottom: 2px solid $cl-brand-green;
             margin: 0;
             font-size: 28px;
           }

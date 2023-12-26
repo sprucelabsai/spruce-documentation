@@ -28,6 +28,20 @@
                 {{ childLink.title }}
               </span>
             </a>
+            {% if childLink.hasChildren %}
+            <button class="clear-btn down-arrow" data-grandchildren-opener>
+              {{ downArrowHead() }}
+            </button>
+            <ul class="nav-grandchild-level open">
+              {% for grandchildLink in childLink.children %}
+              <li {% if grandchildLink.url == page.url %} aria-current="page" {% endif %}>
+                <a href="{{ grandchildLink.url | url }}" {{ 'target=_blank' if grandchildLink.external }}>
+                  <span>{{ grandchildLink.title }}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
           </li>
           {% endfor %}
         </ul>
@@ -55,7 +69,7 @@
 {% macro tocBlock(tocData) %}
 {% if tocData %}
   <nav id="in-page-toc">
-    <h2>On this page</h2>
+    <h2>Table of Contents</h2>
     <ul>
       {% for item in tocData %}
         <li>
