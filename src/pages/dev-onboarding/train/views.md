@@ -1,4 +1,3 @@
-
 ## Creating and Previewing Skill Views
 
 ### Creating a New Skill View

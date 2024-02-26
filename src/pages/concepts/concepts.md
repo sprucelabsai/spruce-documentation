@@ -40,7 +40,7 @@ title: Concepts
 }
 </style>
 
-This section of explains all the sprucebot concepts
+Concepts are a key part of spruce development, they handle the different parts of a sprucebot application, such as errors, stores, events, etc. This section of our guide offers a breakdown of all the sprucebot concepts.
 
 <div class="guide-sections">
     <a href="errors/" class="section-link">

@@ -1,3 +1,3 @@
 ---
-title: Sprucebot References
+title: Sprucebot Resources
 ---

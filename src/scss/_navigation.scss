@@ -96,7 +96,6 @@
 
         ul.nav-child-level, ul.nav-grandchild-level {
           display: none;
-        
           a {
             padding: 3px 0 4px 12px;
           }
@@ -108,7 +107,7 @@
         ul.nav-child-level {
           a {
             font-size: 1.0em;
-            font-weight: bold;
+            font-weight: normal;
           }
         }   
         ul.nav-grandchild-level {
