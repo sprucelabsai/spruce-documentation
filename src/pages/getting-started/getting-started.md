@@ -227,73 +227,109 @@ To create a skill in Spruce, you'll follow a similar process to setting up a new
 By combining these components, you'll develop comprehensive skills within the Spruce ecosystem.
 
   </div>
-  <div id="content-ios" class="language-content" style="display:none;">
+  <div id="content-ios" class="language-content" style="display:block;">
     
 # Transitioning from iOS to Spruce
 
-iOS development primarily uses Swift or Objective-C, Spruce on the other hand, is a TypeScript-based framework. The following guide will help you draw parallels between familiar iOS concepts and Spruce’s architecture, and provide a clear understanding of how your existing skills can be adapted and applied in Spruce.
+Modern iOS development primarily uses Swift, Spruce on the other hand, is a TypeScript-based framework. The following guide will help you draw parallels between familiar iOS concepts and Spruce’s architecture, and provide a clear understanding of how your existing skills can be adapted and applied in Spruce.
 
 ## Key Differences between iOS and Spruce Development
 
-| iOS Development      | Spruce Development      |
-|----------------------|-------------------------|
-| Swift                | TypeScript              |
-| Xcode                | Visual Studio Code (VS Code) |
-| ViewController       | ViewController |
-| Core Data            | Data Stores             |
-| AppDelegate          | No direct equivalent    |
-| HTTP requests        | Sockets via Mercury Client |
-
-## Development Essentials
-
-| Development Aspect    | iOS                      | Spruce                   |
+|     | iOS                      | Spruce                   |
 |-----------------------|--------------------------|--------------------------|
 | **Programming Language** | Swift/Objective-C        | TypeScript               |
 | **IDE**                 | Xcode                    | Visual Studio Code       |
-| **UI Design**           | UIKit/SwiftUI            | HTML, CSS, JavaScript/TypeScript |
-| **Data Management**     | Core Data                | Schemas                  |
-| **Event Handling**      | Delegates, NotificationCenter, Target-Action | Centralized Event System |
-| **API Integration**     | Alamofire/URLSession     | HTTP Requests, Sockets via Mercury Client |
+| **App Lifecycle**                 | AppDelegate                    | No Equivalent       |
+| **UI Design**           | SwiftUI, ViewControllers            | Heartwood, ViewControllers |
+| **Event Handling**      | Delegates, NotificationCenter, Target-Action | Mercury |
 | **Data Persistence**    | Core Data, UserDefaults  | Data Stores                   |
-| **Error Handling**      | NSError, Error Protocol, Try-Catch Blocks |  |
-| **Testing**             | XCTest                   |               |
-| **User Authentication** | Apple's Frameworks, Custom Server-Side Solutions | Via Mercury |
+| **Error Handling**      | NSError, Error Protocol, Try-Catch Blocks | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | XCTest                   | TDD by the 3 laws              |
+| **User Authentication** | Apple's Frameworks, Custom Server-Side Solutions | Mercury, Authenticator |
+| **User Permissions** | Apple's Frameworks, Custom Server-Side Solutions | Mercury, Authorizor |
 
-### Front-end
+### Programming Language
 
-In iOS, you use UIKit or SwiftUI to create user interfaces. In Spruce, you build web interfaces using HTML, CSS, and TypeScript. These technologies are standard for web development and allow you to create responsive and dynamic user experiences.
+#### iOS
 
-### Data Management
+```swift
+//
+//  ContentView.swift
+//  ChatPrototype
+//
+import SwiftUI
 
-iOS developers might be familiar with Core Data for data management. In Spruce, you use "Schemas" to define and manage data models. This approach is more aligned with web development practices and allows for flexibility in how data is stored and managed.
+
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Text("Knock, knock!")
+                .padding()
+                .background(Color.teal, in: RoundedRectangle(cornerRadius: 8))
+            Text("Who's there?")
+                .padding()
+                .background(Color.yellow, in: RoundedRectangle(cornerRadius: 8))
+        }
+        .padding()
+    }
+}
+
+
+#Preview {
+    ContentView()
+}
+```
+#### Spruce
+
+```typescript
+import {
+	AbstractSkillViewController,
+	CardViewController,
+	ViewControllerOptions,
+	buildSkillViewLayout,
+	SkillView
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class RootSkillViewController extends AbstractSkillViewController {
+	public static id = 'root'
+	protected cardVc: CardViewController
+
+	public constructor(options: ViewControllerOptions) {
+		super(options)
+		this.cardVc = this.Controller('card', {
+			header: {
+				title: 'Hello, World!',
+			}
+		})
+	}
+
+	public render(): SkillView {
+		return buildSkillViewLayout('grid', {
+			cards: [this.cardVc.render()]
+		})
+	}
+}
+
+```
+
+### IDE                 
+
+### App Lifecycle
+
+### UI Design
 
 ### Event Handling
 
-Event handling in iOS can involve delegates, NotificationCenter, and target-action mechanisms. In Spruce, a centralized event system manages communication between different parts of the application, emphasizing a modular architecture and real-time data flow.
-
-### API Integration
-
-API integration is crucial in both iOS and Spruce for accessing external data and services. While iOS developers might use Alamofire or URLSession, Spruce developers use web technologies to make HTTP requests and handle responses.
-
 ### Data Persistence
-
-Data persistence in iOS often involves Core Data or UserDefaults. In Spruce, "Stores" serve a similar purpose, providing a way to manage data persistence across the application with an emphasis on web application contexts.
 
 ### Error Handling
 
-Error management is an essential part of development in both ecosystems. iOS uses NSError and Error protocol, along with try-catch blocks for error handling. Spruce adopts a similar approach with try-catch blocks in TypeScript, tailored to web development needs.
+### Testing             
 
-### Testing
+### User Authentication
 
-Testing ensures your application runs correctly. iOS uses XCTest framework, while Spruce utilizes JavaScript/TypeScript testing frameworks like Jest or Mocha, covering both front-end and back-end aspects of web applications.
+### User Permissions
 
-### User Authentication and Management
-
-In iOS, authentication might use Apple's frameworks or custom server-side solutions. Spruce handles authentication in a web context, often employing token-based methods and managing sessions and permissions across the client and server.
-
-## Building Your First Skill in Spruce
-
-Creating a skill in Spruce involves initializing your project with the Spruce CLI, developing front-end components using TypeScript, and implementing backend services. You'll integrate these components to create a fully functional skill.
     
   </div>
   <div id="content-android" class="language-content" style="display:none;">
