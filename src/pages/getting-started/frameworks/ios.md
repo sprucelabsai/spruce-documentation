@@ -78,6 +78,8 @@ Modern iOS development primarily uses Swift, Spruce on the other hand, is a Type
 
 #### iOS
 
+This is pulled from the ******Swift Playground******. It renders a full screen view that has two text views with a little bit of styling.
+
 ```swift
 //
 //  ContentView.swift
@@ -106,6 +108,8 @@ struct ContentView: View {
 }
 ```
 #### Spruce
+
+In Spruce, 100% of the styling is handled by Heartwood (Storybook[httpl]).
 
 ```typescript
 import {
