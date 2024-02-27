@@ -1,5 +1,5 @@
 ---
-title: IOS
+title: Transitioning from iOS
 ---
 <style>
   #language-selector {
@@ -55,7 +55,6 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from iOS to Spruce
 
 Modern iOS development primarily uses Swift, Spruce on the other hand, is a TypeScript-based framework. The following guide will help you draw parallels between familiar iOS concepts and Spruce’s architecture, and provide a clear understanding of how your existing skills can be adapted and applied in Spruce.
 
@@ -78,7 +77,7 @@ Modern iOS development primarily uses Swift, Spruce on the other hand, is a Type
 
 #### iOS
 
-This is pulled from the ******Swift Playground******. It renders a full screen view that has two text views with a little bit of styling.
+In iOS, SwiftUI view files declare a structure and a preview. The structure conforms to the View protocol and describes the view’s content and layout.
 
 ```swift
 //
@@ -103,13 +102,10 @@ struct ContentView: View {
 }
 
 
-#Preview {
-    ContentView()
-}
 ```
 #### Spruce
 
-In Spruce, 100% of the styling is handled by Heartwood (Storybook[httpl]).
+This `SkillViewController` will render a full screen view with a `CardViewController` on it with a title and a subtitle. All ViewControllers (and SkillViewControllers) reduce down to a `ViewModel` that return from render(). In Spruce, 100% of the styling is handled by [Heartwood](https://sprucelabsai.github.io/spruce-documentation/concepts/listeners/) ([Storybook](https://storybook.spruce.bot)). 
 
 ```typescript
 import {
@@ -126,9 +122,11 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 	public constructor(options: ViewControllerOptions) {
 		super(options)
+
 		this.cardVc = this.Controller('card', {
 			header: {
 				title: 'Hello, World!',
+				subtitle: 'This is a card'
 			}
 		})
 	}
@@ -144,12 +142,23 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 ### IDE 
 
-```
-placeholder
+#### iOS in xcode
+<img src="../../../assets/img/screenshots/xcode.png">
 
-```
+#### Spruce in Visual Studio Code
+<img src="../../../assets/img/screenshots/vscode.png">
 
 ### App Lifecycle
+
+#### iOS
+
+
+#### Spruce
+
+When a browser or native app loads your Skill, it will start by hitting it's `RootSkillViewController`. You can execute code at each stage by implementing a method by the name of the stage.
+<img src="../../../assets/img/diagrams/skill_view_lifecycle.png">
+
+
 
 ```
 placeholder
@@ -157,6 +166,10 @@ placeholder
 ```
 
 ### UI Design
+
+#### iOS
+
+
 
 ```
 placeholder
