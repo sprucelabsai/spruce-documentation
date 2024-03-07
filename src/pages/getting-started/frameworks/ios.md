@@ -56,7 +56,7 @@ tr:nth-child(even) {
 </style>
 
 
-Modern iOS development primarily uses Swift, Spruce on the other hand, is a TypeScript-based framework. The following guide will help you draw parallels between familiar iOS concepts and Spruce’s architecture, and provide a clear understanding of how your existing skills can be adapted and applied in Spruce.
+Modern iOS development primarily uses Swift. Spruce on the other hand, is a TypeScript-based framework. The following guide will help you draw parallels between familiar iOS concepts and Spruce’s architecture, and provide a clear understanding of how your existing skills can be adapted and applied in Spruce.
 
 ## Key Differences between iOS and Spruce Development
 
@@ -80,12 +80,7 @@ Modern iOS development primarily uses Swift, Spruce on the other hand, is a Type
 In iOS, SwiftUI view files declare a structure and a preview. The structure conforms to the View protocol and describes the view’s content and layout.
 
 ```swift
-//
-//  ContentView.swift
-//  ChatPrototype
-//
 import SwiftUI
-
 
 struct ContentView: View {
     var body: some View {
@@ -158,62 +153,227 @@ export default class RootSkillViewController extends AbstractSkillViewController
 When a browser or native app loads your Skill, it will start by hitting it's `RootSkillViewController`. You can execute code at each stage by implementing a method by the name of the stage.
 <img src="../../../assets/img/diagrams/skill_view_lifecycle.png">
 
-
-
-```
-placeholder
-
-```
-
 ### UI Design
 
 #### iOS
 
+You can customize the look of any view in your app using the `SwiftUI` framework. You can use a wide variety of views to construct your interface, from labels and buttons to more complex views like lists, stacks, and navigation views. 
 
+#### Spruce
 
+[Heartwood](link/to/heartwood) handles the rendering of all front end components. It adopts the philosphy of "Everything Beautiful". While you are constrained to the views that Heartwood provides, you can customize their look by running the following in your skill:
+
+```bash
+spruce create.theme
 ```
-placeholder
-
-```
+This will create a `theme.ts` file you can customize. If you want to apply a theme to your organization (vs just your skill), you can utilize the [Theme Skill](https://spruce.bot/#views/theme.root).
 
 ### Event Handling
 
-```
-placeholder
+#### iOS
+
+There are various ways to pass around data in iOS. You can use delegates, NotificationCenter, or target-action to handle events. But, since all your components are available in the same codebase, you can instantiate and invoke them directly.
+
+#### Spruce
+
+In Spruce, your views are rendered on the edge, while your Skill is hosted on a server. So, you have to use the [Mercury event system](path/to/mercury) to communicate between the two. Mercury also allows you to pass information other skills. 
+
+```typescript
+
+// inside of Skill View sending message to the Skill with the namespace "eightbitstories"
+
+const client = await this.connectToApi()
+await this.client.emitAndFlattenResponses(
+  'eightbitstories.submit-feedback::v2023_09_05',
+  {
+    payload: {
+      feedback: 'Help make this better!',
+    },
+  }
+)
 
 ```
 
 ### Data Persistence
 
-```
-placeholder
+#### iOS
 
+In iOS, you can use Core Data, UserDefaults, or a custom solution to persist data.
+
+```swift
+// UserDefaults
+let defaults = UserDefaults.standard
+defaults.set(25, forKey: "Age")
+
+// Core Data
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
+let entity = NSEntityDescription.entity(forEntityName: "Car", in: context)
+let newCar = NSManagedObject(entity: entity!, insertInto: context)
+
+newUser.setValue("Toyota", forKey: "make")
+newUser.setValue("Camry", forKey: "model")
+newUser.setValue(2022, forKey: "year")
+
+context.save()
+```
+
+
+#### Spruce
+
+In Spruce, you'll use the [Stores](path/to/stores) feature to persist data. The stores use [Schemas](path/to/schemas) to define the shape of the data. 
+
+
+```bash
+spruce create.store
+```
+
+Once you configure your store, you can use it in your skill's event listener like this:
+
+```typescript
+export default async (
+  event: SpruceEvent<SkillEventContract, EmitPayload>
+): SpruceEventResponse<ResponsePayload> => {
+  const { stores } = event
+
+  const cars = await stores.getStore('cars')
+  await cars.createOne({
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2022
+  })
+
+  return {
+    success: true,
+  }
+}
 ```
 
 ### Error Handling
 
+#### iOS
+iOS does not have a built-in error handling system. You can use NSError, Error Protocol, or do-catch blocks to handle errors.
+
+```swift
+do {
+    try checkForError()
+} catch {
+    print("An error occurred")
+}
 ```
-placeholder
+
+#### Spruce
+
+Spruce provides a much more robust, standardized error handling system. You can use the [SpruceError](path/to/errors) class to create custom errors, you define the Schemas for those errors to give them shape, and then use try-catch blocks to handle them.
+
+```bash
+spruce create.error
+```
+This will create an error builder inside of your skill at `./src/errors/{{errorName}}.builder.ts`. Inside there is the schema that defines your error.
+
+You can throw an error you have defined like this:
+
+```typescript
+throw new SpruceError({
+  code: 'MY_ERRORS_NAME_HERE',
+  friendlyMessage: 'All errors can provide a friendly error message!',
+})
+```
+
+
+### Testing      
+
+
+#### iOS
+
+Testing is a second class citizen in iOS development. You can use XCTest to write unit tests, but it's not as robust as other testing frameworks.
+
+```swift
+import XCTest
+
+class MyTests: XCTestCase {
+    func testExample() {
+        let result = 1 + 2
+        XCTAssertEqual(result, 3)
+    }
+}
 
 ```
 
-### Testing             
+#### Spruce
 
-```
-placeholder
+Everything in Spruce starts with a [Test](path/to/tests). If you want to write a piece of production code, you must start with a failing test.
 
+```bash
+spruce create.test
 ```
+
+Once your test file is created, you are ready to start!
+
+
 
 ### User Authentication
 
-```
-placeholder
+#### iOS
 
+iOS does not have the concept of being "logged in". You'll need to use a 3rd party service like Firebase or Auth0 to handle user authentication.
+
+#### Spruce
+
+Because [Mercury](path/to/mercury) handles user authentication (and authorization). You can use the [Authenticator](path/to/authenticator) to know if a person is logged in or not. You can also use it to log a person in or out.
+
+```typescript
+//inside your Skill View's load lifecycle method
+public async load(options: SkillViewControllerLoadOptions) {
+  const { authenticator } = options
+
+  this.log.info(authenticator.isLoggedIn())
+  this.log.info(authenticator.getPerson())
+
+  // force person to be logged out
+  authenticator.clearSession()
+
+}
 ```
 
 ### User Permissions
 
-```
-placeholder
 
+#### iOS
+
+iOS has ways to request permissions for things like location, camera, and microphone. You can use Apple's frameworks to request these permissions. As far as requesting permission to features you have built, you'll need to build a custom solution.
+
+```swift
+import AVFoundation
+
+AVCaptureDevice.requestAccess(for: .video) { granted in
+    if granted {
+        print("Video access granted")
+    } else {
+        print("Video access denied")
+    }
+}
+
+```
+
+#### Spruce
+
+Mercury also handles all your [Permission](path/to/permissions) needs. To introduce new permissions into the platform, you need to create a Permission Contract in your skill:
+
+```bash
+spruce create.permissions
+```
+Then you can do permission checks in your Skill View like this:
+
+```typescript
+//inside your Skill View's load lifecycle method
+public async load(options: SkillViewControllerLoadOptions) {
+  const { authorizer } = options
+
+  const canGenerateStory = await authorizer.can({
+    contractId: 'eightbitstories.eight-bit-stories',
+    permissionIds: ['can-generate-story'],
+  })
+
+}
 ```
