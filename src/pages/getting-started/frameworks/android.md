@@ -57,22 +57,26 @@ tr:nth-child(even) {
 
 # Transitioning from Android to Spruce
 
-Android development typically involves Java or Kotlin, while Spruce is a TypeScript-based framework. This guide will help you connect your knowledge of Android development to Spruce's architecture, showing you how to adapt your existing skills to the Spruce environment.
+Android development typically involves Java or Kotlin, while Spruce is a TypeScript-based platform. 
+
+While Android focuses on front-end and does support directly implementing some backend type functionality, most times an Android app is communicating with a remote API to do it's work. Spruce, on the other hand, is a "full-stack platform" that allows for both beautiful UI's and robust back-ends.
+
+This guide will help you connect your knowledge of Android development to Spruce's architecture, showing you how to adapt your existing skills to the Spruce environment.
 
 ## Key Differences between Android and Spruce Development
 
-| Development Aspect     | Android                  | Spruce                   |
-|------------------------|--------------------------|--------------------------|
-| **Programming Language** | Java/Kotlin              | TypeScript               |
-| **IDE**                  | Android Studio           | Visual Studio Code       |
-| **UI Design**            | XML Layouts              | HTML, CSS, JavaScript/TypeScript |
-| **Data Management**      | SQLite/Room              | Schemas                  |
-| **Event Handling**       | Intents                  | Centralized Event System |
-| **API Integration**      | Retrofit/OkHttp          | HTTP Requests, Sockets via Mercury Client |
-| **Data Persistence**     | SharedPreferences        | Stores                   |
-| **Error Handling**       | Try-Catch Blocks         | Try-Catch Blocks in TypeScript |
-| **Testing**              | JUnit, Espresso          | Jest, Mocha              |
-| **User Authentication**  | OAuth, Firebase Auth     | Token-Based Methods, Web-Based Authentication |
+|     | Android                      | Spruce                   |
+|-----------------------|--------------------------|--------------------------|
+| **Programming Language** | Java/Kotlin        | TypeScript               |
+| **IDE**                 | Android Studio                    | Visual Studio Code       |
+| **App Lifecycle**                 | Application Class, Activities, Services, etc.                    | No Equivalent       |
+| **UI Design**           | Activities, Fragments            | Heartwood, ViewControllers |
+| **Event Handling**      | Broadcast Receivers, LocalBroadcastManager | Mercury |
+| **Data Persistence**    | Core Data, UserDefaults  | Data Stores                   |
+| **Error Handling**      | NSError, Error Protocol, Try-Catch Blocks | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | XCTest                   | TDD by the 3 laws              |
+| **User Authentication** | Apple's Frameworks, Custom Server-Side Solutions | Mercury, Authenticator |
+| **User Permissions** | Apple's Frameworks, Custom Server-Side Solutions | Mercury, Authorizor |
 
 ### Programming Language
 

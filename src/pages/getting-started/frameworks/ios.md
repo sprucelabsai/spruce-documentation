@@ -56,7 +56,11 @@ tr:nth-child(even) {
 </style>
 
 
-Modern iOS development primarily uses Swift. Spruce on the other hand, is a TypeScript-based framework. The following guide will help you draw parallels between familiar iOS concepts and Spruce’s architecture, and provide a clear understanding of how your existing skills can be adapted and applied in Spruce.
+iOS development typically involves Swift or Objective C, while Spruce is a TypeScript-based platform. 
+
+While iOS focuses on front-end and does support directly implementing some backend type functionality, most times an iOS app is communicating with a remote API to do it's work. Spruce, on the other hand, is a "full-stack platform" that allows for both beautiful UI's and robust back-ends.
+
+This guide will help you connect your knowledge of Android development to Spruce's architecture, showing you how to adapt your existing skills to the Spruce environment.
 
 ## Key Differences between iOS and Spruce Development
 
