@@ -21,6 +21,25 @@
         @include mq-full {
           display: none;
         }
+        a {
+          width: 100%;
+          text-align: center;
+          text-decoration: none;
+          color: inherit;
+        }
+      
+        .btn-text {
+          display: block;
+          padding: 10px 20px;
+          background-color: #ffffff;
+          border: none;
+          border-radius: 5px;
+          box-sizing: border-box;
+          
+          &:hover {
+            background-color: #ffffff;
+          }
+        }
       }
 
       a {

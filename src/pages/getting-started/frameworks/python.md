@@ -1,5 +1,5 @@
 ---
-title: Python
+title: Transitioning from Python to Spruce
 ---
 <style>
   #language-selector {
@@ -55,24 +55,22 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from Python to Spruce
-
 Python development often involves using dynamic scripting languages and various frameworks like Django or Flask. Spruce, on the other hand, uses TypeScript. This guide will help you connect your Python expertise to Spruce’s architecture, showing how to adapt and apply your existing skills in a new environment.
 
 ## Key Differences between Python and Spruce Development
 
-| Development Aspect       | Python                  | Spruce                   |
-|--------------------------|-------------------------|--------------------------|
-| **Programming Language**  | Python                  | TypeScript               |
-| **IDE**                  | PyCharm, others         | Visual Studio Code       |
-| **UI Design**            | Templates (Django/Flask)| HTML, CSS, JavaScript/TypeScript |
-| **Data Management**      | Django ORM, SQLAlchemy  | Schemas                  |
-| **Event Handling**       | URL Routing             | Centralized Event System |
-| **API Integration**      | Django REST Framework, Flask | HTTP Requests, Sockets via Mercury Client |
-| **Data Persistence**     | SQLite, PostgreSQL, others | Stores                   |
-| **Error Handling**       | Try-Except Blocks       | Try-Catch Blocks in TypeScript |
-| **Testing**              | unittest, pytest        | Jest, Mocha              |
-| **User Authentication**  | Django Authentication System, Flask-Login | Token-Based Methods, Web-Based Authentication |
+|     | Python                   | Spruce                  |
+|-----------------------|--------------------------|-------------------------|
+| **Programming Language** | Python                  | TypeScript              |
+| **IDE**                 | PyCharm, VS Code        | Visual Studio Code      |
+| **App Lifecycle**       | Depends on the framework or context | No Equivalent |
+| **UI Design**           | Tkinter for desktop GUI, Frameworks like Django or Flask for web | Heartwood, ViewControllers |
+| **Event Handling**      | Event loops in frameworks, Callbacks | Mercury                 |
+| **Data Persistence**    | SQLite, SQLAlchemy, Django ORM | Data Stores             |
+| **Error Handling**      | Try-Except Blocks       | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | Unittest, PyTest        | Jest, Testing Library   |
+| **User Authentication** | Depends on the framework; Flask-Login, Django's auth system | Mercury, Authenticator |
+| **User Permissions**    | Framework-specific; Django's permission framework, Flask-Principal | Mercury, Authorizor     |
 
 ### Programming Language
 

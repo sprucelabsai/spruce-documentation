@@ -24,8 +24,8 @@
 
   #greeting {
     grid-area: greeting;
-    // Will be set to flex by mq-full
-    display: none;
+    display: block;
+    text-align: center;
     flex-direction: column;
     align-items: center;
     position: relative;
@@ -50,7 +50,6 @@
     }
 
     .btn {
-      //TODO: Create a standard reverse-btn 
       @include btn-base(black);
       margin-top: 32px;
     }
@@ -62,27 +61,40 @@
     }
   }
 
+  @media screen and (max-width: 499px) {
+    #greeting h1 {
+      font-size: 24px;
+    }
+
+    #greeting p {
+      font-size: 14px;
+    }
+
+    #greeting {
+      padding: 10px 0;
+    }
+  }
+
   #buttons {
     display: flex;
-    justify-content: center; /* Centers the buttons container */
-    flex-wrap: wrap; /* Allows buttons to wrap */
-    gap: 10px; /* Creates space between the buttons */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
   .btn {
     text-decoration: none;
-    background-color: #007bff; /* Example button color */
+    background-color: #007bff;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    /* Add additional styling as necessary */
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-4px);
+
+    &:hover {
+      background-color: #0056b3;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: translateY(-4px);
+    }
   }
 
   #home-tiles {

@@ -1,5 +1,5 @@
 ---
-title: Ruby
+title: Transitioning from Ruby on Rails to Spruce
 ---
 <style>
   #language-selector {
@@ -55,25 +55,22 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from Ruby on Rails to Spruce
-
 Ruby on Rails is a full-stack framework that uses Ruby, while Spruce is built on TypeScript. This guide will assist you in drawing parallels between Rails development and Spruce's architecture, helping you understand how to apply your existing Rails knowledge in Spruce.
 
 ## Key Differences between Ruby on Rails and Spruce Development
 
-| Development Aspect       | Ruby on Rails            | Spruce                   |
-|--------------------------|--------------------------|--------------------------|
-| **Programming Language**  | Ruby                     | TypeScript               |
-| **Framework**             | Rails                    | Spruce Framework         |
-| **IDE**                  | RubyMine, Sublime Text, others | Visual Studio Code   |
-| **UI Design**            | ERB, Haml, etc.          | HTML, CSS, JavaScript/TypeScript |
-| **Data Management**      | Active Record            | Schemas                  |
-| **Event Handling**       | Routes, Action Cable     | Centralized Event System |
-| **API Integration**      | Rails API Mode           | HTTP Requests, Sockets via Mercury Client |
-| **Data Persistence**     | SQL-based databases      | Various database support with Stores |
-| **Error Handling**       | Exception Handling with `rescue` | Try-Catch Blocks in TypeScript |
-| **Testing**              | RSpec, MiniTest          | Jest, Mocha              |
-| **User Authentication**  | Devise, OmniAuth         | Token-Based Methods, Web-Based Authentication |
+|     | Ruby                      | Spruce                   |
+|-----------------------|--------------------------|--------------------------|
+| **Programming Language** | Ruby                     | TypeScript               |
+| **IDE**                 | RubyMine, VS Code        | Visual Studio Code       |
+| **App Lifecycle**       | No direct equivalent; controlled by frameworks like Rails | No Equivalent            |
+| **UI Design**           | N/A for CLI; Rails for web views | Heartwood, ViewControllers |
+| **Event Handling**      | Observer pattern, Callbacks in Rails | Mercury                  |
+| **Data Persistence**    | ActiveRecord in Rails    | Data Stores              |
+| **Error Handling**      | Begin-Rescue             | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | RSpec, Minitest          | TDD by the 3 laws        |
+| **User Authentication** | Devise (Rails)           | Mercury, Authenticator   |
+| **User Permissions**    | Pundit, Cancancan (Rails) | Mercury, Authorizor      |
 
 ### Programming Language
 

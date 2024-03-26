@@ -5,8 +5,13 @@
 <nav id="main-nav">
   <ul class="nav-top-level">
     <li id="mobile-search">
-      <a href="{{ '/search' | url }}" title="Search the site">{{ mdiSearch() }}</a>
-    </li>
+  <a href="{{ '/search/' | url }}" title="Search the site">{{ mdiSearch() }}</a>
+<a href="{{ '/getting-started/' | url }}" class="btn-text">Getting Started</a>
+<a href="{{ '/ideology/' | url }}" class="btn-text">Ideology</a>
+<a href="{{ '/concepts/' | url }}" class="btn-text">Concepts</a>
+<a href="{{ '/dev-onboarding/' | url }}" class="btn-text">Developer Onboarding</a>
+<a href="{{ '/resources/' | url }}" class="btn-text">Resources</a>
+</li>
     {% for topLink in mainNavData.links %}
       {% set isCurrentParent = topLink.url == activeParent.url %}
       {% if isCurrentParent %}

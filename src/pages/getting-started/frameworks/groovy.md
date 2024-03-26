@@ -1,5 +1,5 @@
 ---
-title: Groovy
+title: Transitioning from Groovy to Spruce
 ---
 <style>
   #language-selector {
@@ -55,24 +55,23 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from Groovy to Spruce
-
 Groovy is a dynamic language with static-typing and static compilation capabilities, for the Java platform. It integrates smoothly with any Java program and immediately delivers to your application powerful features, including scripting capabilities, Domain-Specific Language authoring, runtime and compile-time meta-programming and functional programming. Transitioning to Spruce, a TypeScript-based framework, from a Groovy and potentially Grails background involves adapting to a new ecosystem centered around JavaScript and TypeScript for full-stack web development.
 
 ## Key Differences between Groovy and Spruce Development
 
-| Development Aspect        | Groovy                   | Spruce                   |
-|---------------------------|--------------------------|--------------------------|
-| **Programming Language**   | Groovy/Java              | TypeScript               |
-| **Framework**              | Grails                   | Spruce Framework         |
-| **ORM**                    | GORM                     | Data Stores with Schemas |
-| **MVC Architecture**       | Grails MVC               | Modular Architecture     |
-| **Template Engine**        | GSP                      | HTML, CSS, JavaScript/TypeScript |
-| **API Integration**        | Grails REST Controllers  | HTTP Requests, Sockets via Mercury Client |
-| **Data Persistence**       | SQL/NoSQL with GORM      | Flexible Data Stores     |
-| **Error Handling**         | Exception Handling       | Try-Catch Blocks in TypeScript |
-| **Testing**                | Spock, JUnit             | Jest, Mocha              |
-| **Routing**                | URLMappings              | Centralized Event System |
+|     | Groovy                   | Spruce                   |
+|-----------------------|--------------------------|--------------------------|
+| **Programming Language** | Groovy                  | TypeScript               |
+| **IDE**                 | IntelliJ IDEA, Eclipse  | Visual Studio Code       |
+| **App Lifecycle**       | Controlled by frameworks like Grails | No Equivalent            |
+| **UI Design**           | N/A for CLI; Grails for web views | Heartwood, ViewControllers |
+| **Event Handling**      | Event listeners in frameworks | Mercury                  |
+| **Data Persistence**    | GORM in Grails          | Data Stores              |
+| **Error Handling**      | Try-Catch Blocks        | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | Spock, JUnit            | TDD by the 3 laws        |
+| **User Authentication** | Spring Security (with Grails) | Mercury, Authenticator   |
+| **User Permissions**    | Spring Security ACL (with Grails) | Mercury, Authorizor      |
+
 
 ### Programming Language
 

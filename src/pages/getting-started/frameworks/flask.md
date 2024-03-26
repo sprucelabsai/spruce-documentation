@@ -1,5 +1,5 @@
 ---
-title: Flask
+title: Transitioning from Flask to Spruce
 ---
 <style>
   #language-selector {
@@ -55,24 +55,22 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from Flask to Spruce
-
 Flask is a Python web framework that provides the tools necessary for building simple web applications quickly. On the other hand, Spruce is a TypeScript-based full-stack framework designed to create scalable web applications with a focus on modern web development practices. This guide will help Flask developers understand how to transition to Spruce.
 
 ## Key Differences between Flask and Spruce Development
 
-| Development Aspect        | Flask                    | Spruce                   |
-|---------------------------|--------------------------|--------------------------|
-| **Programming Language**   | Python                   | TypeScript               |
-| **Framework**              | Flask                    | Spruce Framework         |
-| **Template Engine**        | Jinja2                   | HTML, CSS, JavaScript/TypeScript |
-| **State Management**       | Flask Global, Flask-Login| Stores with Schemas      |
-| **Routing**                | Flask Routing            | Centralized Event System |
-| **API Integration**        | Flask RESTful            | HTTP Requests, Sockets via Mercury Client |
-| **Data Persistence**       | Flask-SQLAlchemy         | Data Stores              |
-| **Error Handling**         | Try-Except Blocks        | Try-Catch Blocks in TypeScript |
-| **Testing**                | unittest, pytest         | Jest, Mocha              |
-| **User Authentication**    | Flask-Login, Flask-JWT   | Token-Based Authentication |
+|     | Flask                    | Spruce                   |
+|-----------------------|--------------------------|--------------------------|
+| **Programming Language** | Python                  | TypeScript               |
+| **IDE**                 | PyCharm, VS Code        | Visual Studio Code       |
+| **App Lifecycle**       | Managed by Flask        | No Equivalent            |
+| **UI Design**           | Jinja2 Templates        | Heartwood, ViewControllers |
+| **Event Handling**      | Routes and View Functions | Mercury                  |
+| **Data Persistence**    | SQLAlchemy, Flask-SQLAlchemy | Data Stores              |
+| **Error Handling**      | Try-Except Blocks, Error Handlers | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | Flask Testing, PyTest   | TDD by the 3 laws        |
+| **User Authentication** | Flask-Login, Flask-Security | Mercury, Authenticator   |
+| **User Permissions**    | Flask-Principal, Custom Decorators | Mercury, Authorizor      |
 
 ### Programming Language
 

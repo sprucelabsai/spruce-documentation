@@ -1,5 +1,5 @@
 ---
-title: React
+title: Transitioning from React to Spruce
 ---
 <style>
   #language-selector {
@@ -55,23 +55,22 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from React to Spruce
-
 React is a library for building user interfaces, primarily focused on the front-end. Spruce is a full-stack framework that uses TypeScript, expanding on the concepts you're familiar with from React and applying them throughout the entire stack. This guide will help you understand how to transition from React's component-based architecture to Spruce's full-stack development approach.
 
 ## Key Differences between React and Spruce Development
 
-| Development Aspect        | React                    | Spruce                   |
-|---------------------------|--------------------------|--------------------------|
-| **Programming Language**   | JavaScript/TypeScript    | TypeScript               |
-| **Library/Framework**      | React.js                 | Spruce Framework         |
-| **State Management**       | Component State, Redux   | Stores with Schemas      |
-| **Routing**               | React Router             | Centralized Event System |
-| **API Integration**       | Fetch API, Axios         | HTTP Requests, Sockets via Mercury Client |
-| **Data Persistence**      | Local State, Context API | Data Stores              |
-| **Error Handling**        | Error Boundaries         | Try-Catch Blocks in TypeScript |
-| **Testing**               | Jest, React Testing Library | Jest, Mocha             |
-| **User Authentication**   | Context API, Auth0       | Token-Based Authentication |
+|     | React                    | Spruce                   |
+|-----------------------|--------------------------|--------------------------|
+| **Programming Language** | JavaScript/TypeScript   | TypeScript               |
+| **IDE**                 | VS Code, WebStorm       | Visual Studio Code       |
+| **App Lifecycle**       | Component Lifecycle, Hooks | No Equivalent            |
+| **UI Design**           | JSX, CSS Modules        | Heartwood, ViewControllers |
+| **Event Handling**      | Synthetic Events        | Mercury                  |
+| **Data Persistence**    | State Management (Redux, Context API) | Data Stores              |
+| **Error Handling**      | Error Boundaries, Try-Catch in Async Code | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | Jest, React Testing Library | TDD by the 3 laws        |
+| **User Authentication** | Context API for State Management, Third-Party Services (Auth0, Firebase) | Mercury, Authenticator   |
+| **User Permissions**    | Custom Logic, Third-Party Libraries | Mercury, Authorizor      |
 
 ### Programming Language
 

@@ -1,5 +1,5 @@
 ---
-title: Laravel
+title: Transitioning from Laravel to Spruce
 ---
 <style>
   #language-selector {
@@ -55,25 +55,22 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from Laravel to Spruce
-
 Laravel is a PHP framework designed for web application development that follows the MVC (Model-View-Controller) architectural pattern. Spruce, in contrast, is a TypeScript-based framework that also covers full-stack development but leverages JavaScript's ecosystem. This guide will help you draw parallels between familiar Laravel concepts and Spruce's architecture, offering a clear path to apply your existing Laravel skills to Spruce development.
 
 ## Key Differences between Laravel and Spruce Development
 
-| Development Aspect       | Laravel                  | Spruce                   |
-|--------------------------|--------------------------|--------------------------|
-| **Programming Language**  | PHP                      | TypeScript               |
-| **Framework**             | Laravel                  | Spruce Framework         |
-| **IDE**                  | PHPStorm, others         | Visual Studio Code       |
-| **UI Design**            | Blade Templates          | HTML, CSS, JavaScript/TypeScript |
-| **Data Management**      | Eloquent ORM             | Schemas                  |
-| **Event Handling**       | Events, Broadcasting     | Centralized Event System |
-| **API Integration**      | Laravel API Resources    | HTTP Requests, Sockets via Mercury Client |
-| **Data Persistence**     | SQL with Eloquent        | Various databases with Stores |
-| **Error Handling**       | Exception Handling with `try-catch` | Try-Catch Blocks in TypeScript |
-| **Testing**              | PHPUnit, Laravel Dusk    | Jest, Mocha              |
-| **User Authentication**  | Built-in Auth, Passport  | Token-Based Methods, Web-Based Authentication |
+|     | Laravel                  | Spruce                   |
+|-----------------------|--------------------------|--------------------------|
+| **Programming Language** | PHP                      | TypeScript               |
+| **IDE**                 | PhpStorm, VS Code        | Visual Studio Code       |
+| **App Lifecycle**       | Lifecycle managed by Laravel | No Equivalent            |
+| **UI Design**           | Blade Templates          | Heartwood, ViewControllers |
+| **Event Handling**      | Events and Listeners     | Mercury                  |
+| **Data Persistence**    | Eloquent ORM             | Data Stores              |
+| **Error Handling**      | Try-Catch Blocks, Error Handling Mechanisms in Laravel | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | PHPUnit, Laravel Dusk    | TDD by the 3 laws        |
+| **User Authentication** | Built-in Auth, Sanctum, Passport | Mercury, Authenticator   |
+| **User Permissions**    | Gates and Policies       | Mercury, Authorizor      |
 
 ### Programming Language
 

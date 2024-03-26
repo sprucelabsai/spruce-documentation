@@ -1,5 +1,5 @@
 ---
-title: Spring
+title: Transitioning from Spring to Spruce
 ---
 <style>
   #language-selector {
@@ -55,23 +55,22 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from Spring to Spruce
-
 Spring is a framework for creating complex, enterprise-level applications in Java. It provides a wide range of functionalities, from dependency injection to security, and much more. Spruce, on the other hand, is a TypeScript-based framework designed for building scalable web applications. This guide will help Spring developers understand how to transition to Spruce.
 
 ## Key Differences between Spring and Spruce Development
 
-| Development Aspect        | Spring                   | Spruce                   |
-|---------------------------|--------------------------|--------------------------|
-| **Programming Language**   | Java                     | TypeScript               |
-| **Framework**              | Spring Framework         | Spruce Framework         |
-| **ORM**                    | Hibernate, JPA           | Data Stores with Schemas |
-| **MVC Architecture**       | Spring MVC               | Component-Based Views    |
-| **Security**               | Spring Security          | Token-Based Authentication |
-| **API Integration**        | REST Controllers         | HTTP Requests, Sockets via Mercury Client |
-| **Error Handling**         | Global Exception Handling | Try-Catch Blocks in TypeScript |
-| **Testing**                | JUnit, Mockito           | Jest, Mocha              |
-| **Routing**                | Spring MVC Routing       | Centralized Event System |
+|     | Spring                   | Spruce                   |
+|-----------------------|--------------------------|--------------------------|
+| **Programming Language** | Java                    | TypeScript               |
+| **IDE**                 | IntelliJ IDEA, Eclipse, STS | Visual Studio Code       |
+| **App Lifecycle**       | Managed by Spring Framework | No Equivalent            |
+| **UI Design**           | Thymeleaf, JSP          | Heartwood, ViewControllers |
+| **Event Handling**      | Spring Events           | Mercury                  |
+| **Data Persistence**    | Spring Data JPA         | Data Stores              |
+| **Error Handling**      | Exception Handling in Spring | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | Spring Testing, JUnit   | TDD by the 3 laws        |
+| **User Authentication** | Spring Security         | Mercury, Authenticator   |
+| **User Permissions**    | Spring Security, Method Security | Mercury, Authorizor      |
 
 ### Programming Language
 

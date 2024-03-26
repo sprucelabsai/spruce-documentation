@@ -1,5 +1,5 @@
 ---
-title: Django
+title: Transitioning from Django to Spruce
 ---
 <style>
   #language-selector {
@@ -55,24 +55,22 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from Django to Spruce
-
 Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Spruce is a TypeScript-based framework that offers full-stack development capabilities. This guide will help Django developers understand how to transition their skills to work with Spruce.
 
 ## Key Differences between Django and Spruce Development
 
-| Development Aspect        | Django                   | Spruce                   |
-|---------------------------|--------------------------|--------------------------|
-| **Programming Language**   | Python                   | TypeScript               |
-| **Framework**              | Django                   | Spruce Framework         |
-| **Template Engine**        | Django Templates         | HTML, CSS, JavaScript/TypeScript |
-| **ORM**                    | Django ORM               | Data Stores with Schemas |
-| **Routing**                | Django URL Dispatcher    | Centralized Event System |
-| **API Integration**        | Django REST Framework    | HTTP Requests, Sockets via Mercury Client |
-| **Data Persistence**       | SQL Databases with ORM   | Flexible Data Stores     |
-| **Error Handling**         | Exception Handling       | Try-Catch Blocks in TypeScript |
-| **Testing**                | Django Test Suite        | Jest, Mocha              |
-| **User Authentication**    | Django Authentication    | Token-Based Authentication |
+|     | Django                   | Spruce                   |
+|-----------------------|--------------------------|--------------------------|
+| **Programming Language** | Python                  | TypeScript               |
+| **IDE**                 | PyCharm, VS Code        | Visual Studio Code       |
+| **App Lifecycle**       | Managed by Django       | No Equivalent            |
+| **UI Design**           | Django Templates        | Heartwood, ViewControllers |
+| **Event Handling**      | Signals                 | Mercury                  |
+| **Data Persistence**    | Django ORM              | Data Stores              |
+| **Error Handling**      | Try-Except Blocks       | Try-Catch Blocks, SpruceErrors |
+| **Testing**             | Django's Test Framework | TDD by the 3 laws        |
+| **User Authentication** | Django's Authentication System | Mercury, Authenticator   |
+| **User Permissions**    | Django's Permission Framework | Mercury, Authorizor      |
 
 ### Programming Language
 

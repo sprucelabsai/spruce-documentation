@@ -1,5 +1,5 @@
 ---
-title: Android
+title: Transitioning from Android to Spruce
 ---
 <style>
   #language-selector {
