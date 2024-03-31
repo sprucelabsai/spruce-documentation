@@ -3,12 +3,17 @@ $cl-header-bar-primary: black;
 
 header#page-header {
   grid-area: header;
-  
+
   #page-header-top {
+    -webkit-app-region: drag;
     display: flex;
     justify-content: space-between;
     font-size: 18px;
     padding: 24px $sz-mobile-hor-padding 20px;
+
+    * {
+      -webkit-app-region: no-drag;
+    }
 
     a {
       text-decoration: none;
@@ -60,7 +65,7 @@ header#page-header {
               border-bottom-color: $cl-brand-purple;
             }
           }
-          
+
           &:hover {
             a {
               border-bottom-color: $cl-brand-green;
