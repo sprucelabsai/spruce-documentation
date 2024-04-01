@@ -19,8 +19,7 @@ $default-max-content-width: 1200px;
 $mobile-width: 900px;
 // Tablet width? Do we care?
 
-// $sz-full-hor-padding: 70px;
-$sz-full-hor-padding: 0px;
+$sz-full-hor-padding: 20px;
 $sz-mobile-hor-padding: 30px;
 
 /* Explicit heights */
@@ -28,9 +27,9 @@ $footer-large-screen-height: 200px;
 
 
 /* Gradients */
-$header-gradiant: white; 
-$blue-to-light-purple-grad: linear-gradient(180deg,#4720e3,#b748ff 68.44%);
-$blue-to-light-blue-grad: linear-gradient(180deg,#415bed,#13d0d7 44.86%);
+$header-gradiant: white;
+$blue-to-light-purple-grad: linear-gradient(180deg, #4720e3, #b748ff 68.44%);
+$blue-to-light-blue-grad: linear-gradient(180deg, #415bed, #13d0d7 44.86%);
 
 
 @mixin mq-full {

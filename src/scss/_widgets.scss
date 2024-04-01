@@ -1,11 +1,12 @@
 //does not work with colors containing alpha
 @function encodecolor($string) {
-	@if type-of($string) == 'color' {
-        $hex: str-slice(ie-hex-str($string), 4);
-        $string:unquote("#{$hex}");
-    }
-    $string: '%23' + $string;
-	@return $string;
+  @if type-of($string)=='color' {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string: unquote("#{$hex}");
+  }
+
+  $string: '%23' + $string;
+  @return $string;
 }
 
 /* Code Fence styling */
@@ -41,7 +42,8 @@ pre.hljs-container {
   border-radius: .3em;
 }
 
-pre.hljs-container, code {
+pre.hljs-container,
+code {
   background-color: rgba($cl-gray, 50%);
 }
 
@@ -62,10 +64,11 @@ code.language-shell {
 }
 
 /* Inline input and output */
-code, kbd {
-	padding: .1em .35em;
-	border-radius: .4em;
-	white-space: break-spaces;
+code,
+kbd {
+  padding: .1em .35em;
+  border-radius: .4em;
+  white-space: break-spaces;
   box-sizing: border-box;
   font-size: 90%;
 }
@@ -77,7 +80,8 @@ kbd {
 
 /* Offset the styling of combo keys from their combinator (e.g., the '+' in 'Ctrl+C'). */
 /* Doesn't work on all browsers, but makes for slightly nicer typesetting for the browsers that do support it. */
-kbd:has(kbd), kbd kbd {
+kbd:has(kbd),
+kbd kbd {
   background-color: rgba($cl-main-text, 0.5);
 }
 
@@ -93,6 +97,7 @@ kbd:has(kbd) {
 
 /* Details and Summary */
 details {
+
   /* For historical reasons this block's class name is different from the 'Learn more' text that it displays. */
   &.dig-deeper {
     outline: rgba(black, 0.25) solid 1px;
@@ -109,6 +114,7 @@ details {
         display: none;
         content: '';
       }
+
       &::before {
         font-weight: normal;
         padding-left: 32px;
@@ -120,6 +126,7 @@ details {
         content: "Learn more | ";
         color: rgba(black, 0.5);
       }
+
       @include addExpandIcon;
     }
 
@@ -131,7 +138,7 @@ details {
       summary {
         border-radius: 5px 5px 0 0;
 
-        &::after{
+        &::after {
           transform: scaleY(-1);
           top: 4px;
         }
@@ -146,7 +153,7 @@ details {
   .admonition-title {
     background-color: $admonitionBg;
     padding: 6.4px 9.6px 6.4px 16px;
-    border-bottom: .8px solid rgba(68,138,255,.1);
+    border-bottom: .8px solid rgba(68, 138, 255, .1);
     margin-top: 0;
     font-weight: 700;
     @content;
@@ -163,12 +170,15 @@ details {
   &-content {
     padding: 0 16px;
 
-    > * {
+    >* {
       margin-top: 0;
     }
 
-    > ol, > ul {
-      ol, ul {
+    >ol,
+    >ul {
+
+      ol,
+      ul {
         padding-left: 20px;
       }
     }
@@ -189,7 +199,7 @@ details {
   }
 
   &.info {
-    @include admonitionTitle(rgba($cl-other-green, 0.2)){
+    @include admonitionTitle(rgba($cl-other-green, 0.2)) {
       padding-top: 10px;
       display: flex;
       gap: 12px;
@@ -230,7 +240,7 @@ details {
 
 @mixin cardBase() {
   border-radius: 5px;
-  box-shadow: 4px 4px 50px rgba(#000,.25);
+  box-shadow: 4px 4px 50px rgba(#000, .25);
   color: $cl-main-text;
 
   .content-wrapper {
@@ -247,7 +257,7 @@ details {
 
   .content-wrapper {
     background-color: white;
-    clip-path: polygon(17% 0,100% 55%,100% 100%,0 100%,0 15%);
+    clip-path: polygon(17% 0, 100% 55%, 100% 100%, 0 100%, 0 15%);
     margin-top: $head-space;
 
   }
@@ -322,6 +332,7 @@ a.link-tile {
 
     @include mq-mobile {
       display: flex;
+      align-items: center;
     }
   }
 }
@@ -333,6 +344,7 @@ a.link-tile {
     padding-right: 15px !important;
     display: inline-block;
     position: relative;
+
     &:after {
       transition: .25s;
       position: absolute;
@@ -356,7 +368,7 @@ a.link-tile {
   left: 0;
   right: 0;
   z-index: 1;
-  background-color: rgba(#000,.25);
+  background-color: rgba(#000, .25);
 
   &-close {
     position: absolute;

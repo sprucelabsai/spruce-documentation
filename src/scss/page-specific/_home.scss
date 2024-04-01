@@ -1,12 +1,12 @@
 &.home-page {
   position: relative;
-  grid-template-areas: 
+  grid-template-areas:
     "... header header ..."
     "... header header ..."
     "greeting greeting greeting greeting"
     "... mainArea mainArea ..."
     "... footer footer ...";
-  
+
   #page-bg {
     display: none;
     position: absolute;
@@ -35,7 +35,10 @@
     &-bg {
       background-color: black;
       position: absolute;
-      top: 0; bottom: 0; right: 0; left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
       z-index: -1;
       overflow: hidden;
     }
@@ -51,7 +54,6 @@
 
     .btn {
       @include btn-base(black);
-      margin-top: 32px;
     }
   }
 
@@ -80,8 +82,9 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    margin-top: 40px;
   }
-  
+
   .btn {
     text-decoration: none;
     background-color: #007bff;
@@ -106,7 +109,7 @@
     .home-tile {
       text-decoration: none;
       background-color: white;
-      
+
       .content-wrapper {
         padding-left: 40px;
         display: flex;
@@ -150,7 +153,8 @@
       display: flex;
     }
 
-    .side-bar, .sidebar-right-bg {
+    .side-bar,
+    .sidebar-right-bg {
       display: none;
     }
   }

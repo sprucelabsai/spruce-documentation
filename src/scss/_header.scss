@@ -1,12 +1,14 @@
-$top-nav-img-height: 24px;
+$top-nav-img-height: 50px;
 $cl-header-bar-primary: black;
 
 header#page-header {
   grid-area: header;
+  display: flex;
 
   #page-header-top {
     -webkit-app-region: drag;
     display: flex;
+    flex: 2;
     justify-content: space-between;
     font-size: 18px;
     padding: 24px $sz-mobile-hor-padding 20px;
@@ -38,7 +40,7 @@ header#page-header {
     #header-nav {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
 
       ul {
         display: flex;
