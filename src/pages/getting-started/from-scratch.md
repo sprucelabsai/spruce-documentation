@@ -1,5 +1,5 @@
 ---
-title: Building an App
+title: Start from Scratch
 ---
 
 <style>
@@ -27,8 +27,6 @@ title: Building an App
 <div class="video-container">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/SiUckNpPLag?si=SCepKnOJDJKmLbC-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
-
-# Building a Document-Based App with Spruce
 
 ## Overview
 In this guide, we'll create a checklist document application using the Spruce framework, focusing on document management and manipulation. We'll implement features for managing checklist items, including selection, addition, deletion, and rearrangement.

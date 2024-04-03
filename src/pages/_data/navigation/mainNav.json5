@@ -1,7 +1,7 @@
 {
   links: [
     { title: "Getting Started", url: "/getting-started/", children: [
-        { title: "Building an App", url: "/getting-started/building-an-app/" },
+        { title: "Start from Scratch", url: "/getting-started/from-scratch/" },
         { title: "IOS", url: "/getting-started/frameworks/ios/" },
         { title: "Ruby", url: "/getting-started/frameworks/ruby/" },
         { title: "Android", url: "/getting-started/frameworks/android/" },
@@ -12,6 +12,14 @@
         { title: "React", url: "/getting-started/frameworks/react/" },
         { title: "Spring", url: "/getting-started/frameworks/spring/" },
         { title: "Groovy", url: "/getting-started/frameworks/groovy/" },
+      ]
+    },
+    { title: "Installing the CLI", url: "/getting-started/", children: [
+      { title: "Test", url: "/getting-started/installing-cli/test/" },
+    ]
+    },
+    { title: "Development Theatre", url: "/getting-started/", children: [
+        { title: "Test", url: "/getting-started/setting-up-dev-theatre/test/" },
       ]
     },
     {
@@ -105,10 +113,11 @@
     },
     { title: "Ideology", url: "/ideology/", children: [
         { title: "Architecture", url: "/ideology/architecture/" },
+        { title: "Test-Driven Development", url: "/ideology/tdd/" },
+        { title: "Clean Code", url: "/ideology/clean-code/" },
       ]
     },
-    { title: "Resources", url: "/resources/", children: [
-        { title: "Glossary", url: "/resources/glossary/" },
+    { title: "Glossary", url: "/glossary/", children: [
       ]
     },
   ]
