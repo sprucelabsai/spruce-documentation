@@ -1,0 +1,20 @@
+$monokai-bg: #6d8301; // Dark background color
+$monokai-fg: #0081a4; // Foreground color
+$monokai-green: #a6e22e;
+$monokai-blue: #66d9ef;
+$monokai-orange: #fd971f;
+$monokai-pink: #f92672;
+
+code, pre {
+  background: $monokai-bg;
+  color: $monokai-fg;
+  // Add other styling as needed (padding, border-radius, etc.)
+  padding: 0.5em;
+  border-radius: 4px;
+}
+
+// Example of styling specific elements within your code samples
+// Adjust based on how your code is structured or highlighted
+.keyword { color: $monokai-pink; }
+.string { color: $monokai-green; }
+.number { color: $monokai-orange; }

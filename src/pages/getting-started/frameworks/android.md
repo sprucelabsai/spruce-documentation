@@ -55,8 +55,6 @@ tr:nth-child(even) {
 }
 </style>
 
-# Transitioning from Android to Spruce
-
 Android development typically involves Java or Kotlin, while Spruce is a TypeScript-based platform. 
 
 While Android focuses on front-end and does support directly implementing some backend type functionality, most times an Android app is communicating with a remote API to do it's work. Spruce, on the other hand, is a "full-stack platform" that allows for both beautiful UI's and robust back-ends.

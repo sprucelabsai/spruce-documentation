@@ -64,3 +64,6 @@ In this guide, we'll walk you through what makes Spruce unique compared to other
 Before transitioning to Spruce, you should:
 - Have a basic understanding of TypeScript, as this is the core language used in Spruce development.
 - Be familiar with full-stack development concepts, including front-end and back-end development processes.
+
+
+

@@ -14,10 +14,6 @@
         { title: "Groovy", url: "/getting-started/frameworks/groovy/" },
       ]
     },
-    { title: "Installing the CLI", url: "/getting-started/", children: [
-      { title: "Test", url: "/getting-started/installing-cli/test/" },
-    ]
-    },
     { title: "Development Theatre", url: "/getting-started/", children: [
         { title: "Test", url: "/getting-started/setting-up-dev-theatre/test/" },
       ]
