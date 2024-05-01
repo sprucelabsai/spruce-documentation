@@ -1,9 +1,9 @@
 ---
-title: Learn
+title: Building a Skill
 script: frameworks.js
 ---
 
-You've reached the "Learn" section, a step towards unleashing the full potential of your programming skills within the Spruce ecosystem.
+You've reached the Building a Skill section, a step towards unleashing the full potential of your programming skills within the Spruce ecosystem.
 
 ## What You Will Learn
 

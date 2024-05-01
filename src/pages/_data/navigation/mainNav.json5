@@ -28,36 +28,22 @@
       ]
     },
     {
-      "title": "Developer Onboarding",
-      "url": "/dev-onboarding/",
-      "children": [
-        {
-          "title": "Learn",
-          "url": "/dev-onboarding/learn/",
-          "children": [
-            { "title": "Building a Root Skill View", "url": "/dev-onboarding/learn/rootskillview/" },
-            { "title": "Managing your Family Members", "url": "/dev-onboarding/learn/members/" },
-            { "title": "Managing your Metadata", "url": "/dev-onboarding/learn/metadata/" },
-            { "title": "Creating Multi-card Forms", "url": "/dev-onboarding/learn/multi-card-forms/" },
-            { "title": "Generating Personalized Stories", "url": "/dev-onboarding/learn/personalized-stories/" },
-            { "title": "Long Running Operations", "url": "/dev-onboarding/learn/long-running-operations/" },
-            { "title": "Sharing the Story", "url": "/dev-onboarding/learn/share-story/" }
-          ]
-        }
-      ]
-    },
-    {
       "title": "Training",
       "url": "/training/",
       "children": [
-        { "title": "Building a Root Skill View", "url": "/training/errors/" },
-        { "title": "Managing your Family Members", "url": "/training/schemas/" },
-        { "title": "Managing your Metadata", "url": "/training/stores/" },
-        { "title": "Creating Multi-card Forms", "url": "/training/events/" },
-        { "title": "Generating Personalized Stories", "url": "/training/tests/" },
-        { "title": "Long Running Operations", "url": "/training/views/" },
-        { "title": "Sharing the Story", "url": "/training/listeners/" },
-        { "title": "Sharing the Story", "url": "/training/mercury/" }
+      {
+          "title": "Building a Skill",
+          "url": "/training/building-a-skill/",
+          "children": [
+            { "title": "Building a Root Skill View", "url": "/training/building-a-skill/rootskillview/" },
+            { "title": "Managing your Family Members", "url": "/training/building-a-skill/members/" },
+            { "title": "Managing your Metadata", "url": "/training/building-a-skill/metadata/" },
+            { "title": "Creating Multi-card Forms", "url": "/training/building-a-skill/multi-card-forms/" },
+            { "title": "Generating Personalized Stories", "url": "/training/building-a-skill/personalized-stories/" },
+            { "title": "Long Running Operations", "url": "/training/building-a-skill/long-running-operations/" },
+            { "title": "Sharing the Story", "url": "/training/building-a-skill/share-story/" }
+          ]
+        }
       ]
     },
     {
