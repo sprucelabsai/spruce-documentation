@@ -92,10 +92,10 @@ function setupNavHandlers() {
 
 setupNavHandlers();
 
-function openModalIFrame(url:string) {
+function openModalIFrame(url: string) {
   const template = document.querySelector<HTMLTemplateElement>('#modal-iframe-template');
 
-  const frag =  template?.content.cloneNode(true) as DocumentFragment;
+  const frag = template?.content.cloneNode(true) as DocumentFragment;
   console.log(frag)
   if (frag) {
     const div = frag.querySelector(".modal-iframe");
@@ -160,4 +160,11 @@ const openDetailsOnFragmentIdNavigation = () => {
 // Open details elements when they have an ID that's navigated to.
 openDetailsOnFragmentIdNavigation();
 window.addEventListener("hashchange", openDetailsOnFragmentIdNavigation);
+
+// Ensure all links open in the same tab
+const allLinks: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('a');
+allLinks.forEach((link: HTMLAnchorElement) => {
+  link.setAttribute('target', '_self');
+});
+
 

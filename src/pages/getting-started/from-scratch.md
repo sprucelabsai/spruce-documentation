@@ -1,27 +1,6 @@
 ---
 title: Start from Scratch
 ---
-
-<style>
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    padding-top: 25px;
-    height: 0;
-    margin-bottom: 20px; /* Adjust as needed */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Ensures the corner radius is applied */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 </style>
 
 <div class="video-container">

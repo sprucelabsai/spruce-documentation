@@ -1,24 +1,30 @@
 {
-  links: [
+  "links": [
     {
-      title: "Getting Started", url: "/getting-started/", children: [
+      "title": "Getting Started",
+      "url": "/getting-started/",
+      "children": [
         {
-          title: "Where to start", children: [
-            { title: "Start from Scratch", url: "/getting-started/from-scratch/" },
-            { title: "IOS", url: "/getting-started/frameworks/ios/" },
-            { title: "Ruby", url: "/getting-started/frameworks/ruby/" },
-            { title: "Android", url: "/getting-started/frameworks/android/" },
-            { title: "Python", url: "/getting-started/frameworks/python/" },
-            { title: "Laravel", url: "/getting-started/frameworks/laravel/" },
-            { title: "Django", url: "/getting-started/frameworks/django/" },
-            { title: "Flask", url: "/getting-started/frameworks/flask/" },
-            { title: "React", url: "/getting-started/frameworks/react/" },
-            { title: "Spring", url: "/getting-started/frameworks/spring/" },
-            { title: "Groovy", url: "/getting-started/frameworks/groovy/" },]
+          "title": "Where to start",
+          "children": [
+            { "title": "Start from Scratch", "url": "/getting-started/from-scratch/" },
+            { "title": "IOS", "url": "/getting-started/frameworks/ios/" },
+            { "title": "Ruby", "url": "/getting-started/frameworks/ruby/" },
+            { "title": "Android", "url": "/getting-started/frameworks/android/" },
+            { "title": "Python", "url": "/getting-started/frameworks/python/" },
+            { "title": "Laravel", "url": "/getting-started/frameworks/laravel/" },
+            { "title": "Django", "url": "/getting-started/frameworks/django/" },
+            { "title": "Flask", "url": "/getting-started/frameworks/flask/" },
+            { "title": "React", "url": "/getting-started/frameworks/react/" },
+            { "title": "Spring", "url": "/getting-started/frameworks/spring/" },
+            { "title": "Groovy", "url": "/getting-started/frameworks/groovy/" }
+          ]
         },
         {
-          title: "Development Theatre", url: "/getting-started/development-theatre/", children: []
-        },
+          "title": "Development Theatre",
+          "url": "/getting-started/development-theatre/",
+          "children": []
+        }
       ]
     },
     {
@@ -29,98 +35,62 @@
           "title": "Learn",
           "url": "/dev-onboarding/learn/",
           "children": [
-            {
-              "title": "Building a Root Skill View",
-              "url": "/dev-onboarding/learn/rootskillview/"
-            },
-            {
-              "title": "Managing your Family Members",
-              "url": "/dev-onboarding/learn/members/"
-            },
-            {
-              "title": "Managing your Metadata",
-              "url": "/dev-onboarding/learn/metadata/"
-            },
-            {
-              "title": "Creating Multi-card Forms",
-              "url": "/dev-onboarding/learn/multi-card-forms/"
-            },
-            {
-              "title": "Generating Personalized Stories",
-              "url": "/dev-onboarding/learn/personalized-stories/"
-            },
-            {
-              "title": "Long Running Operations",
-              "url": "/dev-onboarding/learn/long-running-operations/"
-            },
-            {
-              "title": "Sharing the Story",
-              "url": "/dev-onboarding/learn/share-story/"
-            }
-          ]
-        },
-        {
-          "title": "Train",
-          "url": "/dev-onboarding/train/",
-          "children": [
-            {
-              "title": "Errors",
-              "url": "/dev-onboarding/train/errors/"
-            },
-            {
-              "title": "Schemas",
-              "url": "/dev-onboarding/train/schemas/"
-            },
-            {
-              "title": "Stores",
-              "url": "/dev-onboarding/train/stores/"
-            },
-            {
-              "title": "Events",
-              "url": "/dev-onboarding/train/events/"
-            },
-            {
-              "title": "Tests",
-              "url": "/dev-onboarding/train/tests/"
-            },
-            {
-              "title": "Views",
-              "url": "/dev-onboarding/train/views/"
-            },
-            {
-              "title": "Listeners",
-              "url": "/dev-onboarding/train/listeners/"
-            },
-            {
-              "title": "Mercury",
-              "url": "/dev-onboarding/train/mercury/"
-            }
+            { "title": "Building a Root Skill View", "url": "/dev-onboarding/learn/rootskillview/" },
+            { "title": "Managing your Family Members", "url": "/dev-onboarding/learn/members/" },
+            { "title": "Managing your Metadata", "url": "/dev-onboarding/learn/metadata/" },
+            { "title": "Creating Multi-card Forms", "url": "/dev-onboarding/learn/multi-card-forms/" },
+            { "title": "Generating Personalized Stories", "url": "/dev-onboarding/learn/personalized-stories/" },
+            { "title": "Long Running Operations", "url": "/dev-onboarding/learn/long-running-operations/" },
+            { "title": "Sharing the Story", "url": "/dev-onboarding/learn/share-story/" }
           ]
         }
       ]
     },
     {
-      title: "Concepts", url: "/concepts/", children: [
-        { title: "Errors", url: "/concepts/mercury/" },
-        { title: "Events", url: "/concepts/views/" },
-        { title: "Listeners", url: "/concepts/tests/" },
-        { title: "Schemas", url: "/concepts/events/" },
-        { title: "Stores", url: "/concepts/stores/" },
-        { title: "Tests", url: "/concepts/schemas/" },
-        { title: "Views", url: "/concepts/listeners/" },
-        { title: "Mercury", url: "/concepts/errors/" },
+      "title": "Training",
+      "url": "/training/",
+      "children": [
+        { "title": "Building a Root Skill View", "url": "/training/errors/" },
+        { "title": "Managing your Family Members", "url": "/training/schemas/" },
+        { "title": "Managing your Metadata", "url": "/training/stores/" },
+        { "title": "Creating Multi-card Forms", "url": "/training/events/" },
+        { "title": "Generating Personalized Stories", "url": "/training/tests/" },
+        { "title": "Long Running Operations", "url": "/training/views/" },
+        { "title": "Sharing the Story", "url": "/training/listeners/" },
+        { "title": "Sharing the Story", "url": "/training/mercury/" }
       ]
     },
     {
-      title: "Ideology", url: "/ideology/", children: [
-        { title: "Architecture", url: "/ideology/architecture/" },
-        { title: "Test-Driven Development", url: "/ideology/tdd/" },
-        { title: "Clean Code", url: "/ideology/clean-code/" },
+      "title": "Concepts",
+      "url": "/concepts/",
+      "children": [
+        { "title": "Errors", "url": "/concepts/errors/" },
+        { "title": "Events", "url": "/concepts/views/" },
+        { "title": "Listeners", "url": "/concepts/tests/" },
+        { "title": "Schemas", "url": "/concepts/events/" },
+        { "title": "Stores", "url": "/concepts/stores/" },
+        { "title": "Tests", "url": "/concepts/schemas/" },
+        { "title": "Views", "url": "/concepts/listeners/" },
+        { "title": "Mercury", "url": "/concepts/mercury/" },
+        { "title": "Permissions", "url": "/concepts/permissions/" }
       ]
     },
     {
-      title: "Glossary", url: "/glossary/", children: [
+      "title": "Ideology",
+      "url": "/ideology/",
+      "children": [
+        { "title": "Architecture", "url": "/ideology/architecture/" },
+        { "title": "Test-Driven Development", "url": "/ideology/tdd/" },
+        { "title": "Clean Code", "url": "/ideology/clean-code/" }
       ]
     },
+    {
+      "title": "Help",
+      "url": "/help/",
+      "children": [
+        { "title": "Glossary", "url": "/help/glossary/" },
+        { "title": "Contact", "url": "/help/contact/" }
+      ]
+    }
   ]
 }

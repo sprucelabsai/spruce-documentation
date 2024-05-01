@@ -30,4 +30,20 @@
         <p>Onboarding materials that ensure a seamless initiation process into the Sprucebot ecosystem.</p>
       </div>
     {% endlinkTile %}
+
+    {% linkTile "/training/" | url, "home-tile" %}
+      {{ personReadingIcon() }}
+      <div class="text-wrapper">
+        <h2>Training</h2>
+        <p>Learn how to use Sprucebot to its full potential.</p>
+      </div>
+    {% endlinkTile %}
+
+    {% linkTile "/help/" | url, "home-tile" %}
+      {{ rocketshipIcon() }}
+      <div class="text-wrapper">
+        <h2>Help</h2>
+        <p>Get help with Sprucebot.</p>
+      </div>
+    {% endlinkTile %}
 </div>

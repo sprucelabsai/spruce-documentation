@@ -1,44 +1,6 @@
 ---
 title: Concepts
 ---
-<style>
-.guide-sections {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.section-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    color: #333;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.section-link:hover {
-    background-color: #0EDDD3;
-    transform: scale(1.05); /* Slightly increase the size */
-}
-
-.section-number {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.disabled {
-    opacity: 0.5;
-    cursor: default;
-}
-
-.disabled:hover {
-    background-color: #f0f0f0;
-    transform: none; /* No transformation for disabled links */
-}
-</style>
 
 Concepts are a key part of spruce development, they handle the different parts of a sprucebot application, such as errors, stores, events, etc. This section of our guide offers a breakdown of all the sprucebot concepts.
 
@@ -76,26 +38,3 @@ Concepts are a key part of spruce development, they handle the different parts o
         <span class="section-title">Mercury</span>
     </a>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        // Select all chapter links
-        const sectionLinks = document.querySelectorAll('.section-link');
-
-        // Add a click event listener to each chapter link
-        sectionLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Prevent default action if the link is disabled
-                if (this.classList.contains('disabled')) {
-                    e.preventDefault();
-                }
-            });
-        });
-
-        // Ensure all links open in the same tab
-        const allLinks = document.querySelectorAll('a');
-        allLinks.forEach(link => {
-            link.setAttribute('target', '_self');
-        });
-    });
-</script>
