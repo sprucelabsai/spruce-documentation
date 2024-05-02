@@ -1,3 +1,3 @@
-# Ideology
+# Katas
 
 Coming soon...

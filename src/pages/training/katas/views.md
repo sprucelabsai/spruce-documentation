@@ -1,3 +1,3 @@
-# Ideology
+# Views
 
 Coming soon...

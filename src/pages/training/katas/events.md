@@ -1,3 +1,3 @@
-# Ideology
+# Events
 
 Coming soon...

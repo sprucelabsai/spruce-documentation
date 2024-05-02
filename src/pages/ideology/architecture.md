@@ -1,7 +1,4 @@
----title: Yo
----
-
-# Sprucebot Architecture Guide
+# Small Trunk, Big Branches.
 
 ## Introduction
 
