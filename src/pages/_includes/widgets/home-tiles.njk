@@ -1,41 +1,41 @@
-{% from "widgets/svg-icons.njk" import rocketshipIcon, craneIcon, toolPanelIcon, personReadingIcon %}
+{% from "widgets/svg-icons.njk" import rocketshipIcon, craneIcon, toolPanelIcon, personReadingIcon, externalLinkIcon, helpIcon, dumbbelIcon %}
 <div id="home-tiles">
     {% linkTile "/getting-started/" | url, "home-tile" %}
-      {{ personReadingIcon() }}
+      {{ toolPanelIcon() }}
       <div class="text-wrapper">
-        <h2>Getting Started</h2>
-        <p>Start here to get up and running with Sprucebot.</p>
+        <h2>1. Getting Started</h2>
+        <p>Your journey starts with setting up the Development Theatre.</p>
       </div>
     {% endlinkTile %}
     {% linkTile "/ideology/" | url, "home-tile" %}
-      {{ toolPanelIcon() }}
+      {{ personReadingIcon() }}
       <div class="text-wrapper">
-        <h2>Ideology</h2>
-        <p>Delve deeper into the foundational principles that drive Sprucebot.</p>
+        <h2>2. Ideology</h2>
+        <p>After setup, dive into the core principles upon which Spruce is built.</p>
       </div>
     {% endlinkTile %}
 
     {% linkTile "/concepts/" | url, "home-tile" %}
       {{ craneIcon() }}
       <div class="text-wrapper">
-        <h2>Concepts</h2>
-        <p>Gain a solid understanding of the fundamental concepts around Sprucebot.</p>
+        <h2>3. Concepts</h2>
+        <p>Now that you've got the core principles, let's talk about the building blocks.</p>
       </div>
     {% endlinkTile %}
 
     {% linkTile "/training/" | url, "home-tile" %}
-      {{ rocketshipIcon() }}
+      {{ dumbbelIcon() }}
       <div class="text-wrapper">
-        <h2>Training</h2>
-        <p>Training materials that ensure a seamless initiation process into the Sprucebot ecosystem.</p>
+        <h2>4. Training</h2>
+        <p>You've got the ideology, you get the concepts, it's time to get our hands dirty.</p>
       </div>
     {% endlinkTile %}
 
     {% linkTile "/help/" | url, "home-tile" %}
-      {{ rocketshipIcon() }}
+      {{ helpIcon() }}
       <div class="text-wrapper">
-        <h2>Help</h2>
-        <p>Get help with Sprucebot.</p>
+        <h2>5. Help</h2>
+        <p>Well that didn't go as expected. Review our help docs and join our Discord server.</p>
       </div>
     {% endlinkTile %}
 </div>
