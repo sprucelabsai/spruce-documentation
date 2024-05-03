@@ -1,6 +1,4 @@
----
-title: Clean Code Principles and Practices
----
+# Clean Code 🫧
 
 ## Introduction
 

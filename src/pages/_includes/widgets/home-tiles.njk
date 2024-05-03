@@ -1,4 +1,4 @@
-{% from "widgets/svg-icons.njk" import rocketshipIcon, craneIcon, toolPanelIcon, personReadingIcon, externalLinkIcon, helpIcon, dumbbelIcon %}
+{% from "widgets/svg-icons.njk" import rocketshipIcon, craneIcon, toolPanelIcon, personReadingIcon, externalLinkIcon, helpIcon, dumbbelIcon, questionMark %}
 <div id="home-tiles">
     {% linkTile "/getting-started/" | url, "home-tile" %}
       {{ toolPanelIcon() }}
@@ -32,7 +32,7 @@
     {% endlinkTile %}
 
     {% linkTile "/help/" | url, "home-tile" %}
-      {{ helpIcon() }}
+      {{ questionMark() }}
       <div class="text-wrapper">
         <h2>5. Help</h2>
         <p>Well that didn't go as expected. Review our help docs and join our Discord server.</p>

@@ -1,3 +1,3 @@
-# Ideology
+# Ideology 📖
 
 Coming soon...

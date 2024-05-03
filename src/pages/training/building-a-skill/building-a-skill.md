@@ -1,7 +1,4 @@
----
-title: Building a Skill
-script: frameworks.js
----
+# Building A Skill 🧩
 
 You've reached the Building a Skill section, a step towards unleashing the full potential of your programming skills within the Spruce ecosystem.
 

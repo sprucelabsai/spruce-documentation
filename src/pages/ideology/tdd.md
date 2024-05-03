@@ -1,6 +1,4 @@
----
-title: Test-Driven Development (TDD) by the Three Laws
----
+# Test-Driven Development (TDD) by the Three Laws ⚡️
 
 ## Introduction
 

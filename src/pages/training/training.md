@@ -1,6 +1,4 @@
----
-title: Training
----
+# Training 🏋️
 
 Welcome to the Developer Onboarding Guide for Spruce. This guide serves as your comprehensive roadmap, crafted to seamlessly introduce you to the intricacies of the Sprucebot platform. At its core, this guide utilizes an engaging, hands-on approach: you will develop a family-centric AI story generator, which acts as a practical tool for learning.
 

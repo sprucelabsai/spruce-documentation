@@ -1,6 +1,4 @@
----
-title: Introduction to Getting Started with Spruce
----
+# Getting Started with Spruce 🏁
 
 Before you start working with Spruce, it's important to get a feel for how it's different from the programming language or system you're used to. 
 

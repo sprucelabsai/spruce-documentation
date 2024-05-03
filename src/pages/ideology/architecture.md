@@ -1,4 +1,4 @@
-# Small Trunk, Big Branches.
+# Small Trunk, Big Branches 🌲
 
 ## Introduction
 
