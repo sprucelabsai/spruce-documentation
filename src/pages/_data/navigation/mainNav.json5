@@ -195,7 +195,11 @@
         },
         {
           "title": "Discord",
-          "url": "/help/discord/"
+          "url": "/help/contact/"
+        },
+        {
+          "title": "Github Issues",
+          "url": "/help/github-issues/"
         }
       ]
     }
