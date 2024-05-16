@@ -1,0 +1,62 @@
+{
+  columns: [
+    {
+      title: "Gettting Started",
+      links: [
+        { title: "Get Started", url: "/getting-started/", class:"" },
+        { title: "Ideology", url: "/ideology/", class:"" },
+        { title: "Concepts", url: "/concepts/", class:"" },
+        { title: "Training", url: "/training/", class:"" },
+        { title: "Help", url: "/help/", class:"" },
+      ]
+    },
+        {
+      title: "Gettting Started",
+      links: [
+        { title: "Get Started", url: "/getting-started/", class:"" },
+        { title: "Ideology", url: "/ideology/", class:"" },
+        { title: "Concepts", url: "/concepts/", class:"" },
+        { title: "Training", url: "/training/", class:"" },
+        { title: "Help", url: "/help/", class:"" },
+      ]
+    },
+        {
+      title: "Gettting Started",
+      links: [
+        { title: "Get Started", url: "/getting-started/", class:"" },
+        { title: "Ideology", url: "/ideology/", class:"" },
+        { title: "Concepts", url: "/concepts/", class:"" },
+        { title: "Training", url: "/training/", class:"" },
+        { title: "Help", url: "/help/", class:"" },
+      ]
+    },
+        {
+      title: "Gettting Started",
+      links: [
+        { title: "Get Started", url: "/getting-started/", class:"" },
+        { title: "Ideology", url: "/ideology/", class:"" },
+        { title: "Concepts", url: "/concepts/", class:"" },
+        { title: "Training", url: "/training/", class:"" },
+        { title: "Help", url: "/help/", class:"" },
+      ]
+    },
+  ],
+
+  bottomRow:
+  {
+    links: [
+      { title: "sprucelabsai", url: "https://sprucelabsai.github.io/spruce-documentation/", image: "/assets/img/logos/sprucebot.png", class:"sp-logo-link no-away" },
+      {
+        type: "icon-list",
+        class: "icon-list",
+        links: [
+          { title: "Spruce on Reddit", url: "https://www.reddit.com/", svgSnippet: "redditIcon", class:"no-away", external: true },
+          { title: "Spruce on Discord", url: "https://discord.com/invite/", svgSnippet: "discordMarkIcon", class:"no-away", external: true },
+          { title: "Spruce on GitHub", url: "https://github.com/", svgSnippet: "githubLogo", class:"no-away", external: true },
+          { title: "Spruce on YouTube", url: "https://www.youtube.com/channel/", svgSnippet: "youtubeMarkIcon", class:"no-away", external: true },
+          { title: "Spruce on Twitter", url: "https://twitter.com/", svgSnippet: "twitterLogo", class:"no-away", external: true },
+        ]
+      },
+    ]
+  },
+}

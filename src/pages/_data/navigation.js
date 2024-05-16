@@ -1,8 +1,9 @@
 const mainNav = require("./navigation/mainNav.json5");
 const headerNav = require("./navigation/headerNav.json5");
+const footerLinks = require("./navigation/footerLinks.json5");
 
-function findTopLinkRecordFor(url) {
-  return mainNav.links.find(link => {
+function findTopLinkRecordFor(url, navLinks) {
+  return navLinks.find(link => {
     if (link.url === url) { return true; }
 
     if (link.children) {
@@ -29,18 +30,23 @@ const mainNavObj = {
     }))
   })),
   getActiveParentLink(pageUrlRendering) {
-    return findTopLinkRecordFor(pageUrlRendering);
+    return findTopLinkRecordFor(pageUrlRendering, mainNav.links);
   }
 };
 
 const headerNavObj = {
   ...headerNav,
   getActiveParentLink(pageUrlRendering) {
-    return findTopLinkRecordFor(pageUrlRendering);
+    return findTopLinkRecordFor(pageUrlRendering, headerNav.links);
   }
+};
+
+const footerNavObj = {
+  ...footerLinks,
 };
 
 module.exports = {
   mainNav: mainNavObj,
-  headerNav: headerNavObj
+  headerNav: headerNavObj,
+  footerNav: footerNavObj
 };
