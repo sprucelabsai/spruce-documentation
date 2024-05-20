@@ -14,7 +14,7 @@ The easiest way to approach this is to follow the "Now What?" link at the bottom
 ## Necessary Dependencies
 
 1. Have a Mac with OSX 10.15 or later.
-2. 
+2. (Optional): [iTerm2](https://iterm2.com)
 
 ## Now What?
 
