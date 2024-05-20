@@ -100,6 +100,7 @@ export default class RootSkillViewController extends AbstractSkillViewController
 #### Spruce
 
 When a browser or native app loads your Skill, it will start by hitting it's `RootSkillViewController`. You can execute code at each stage by implementing a method by the name of the stage.
+
 <img src="../../../assets/img/diagrams/skill_view_lifecycle.png">
 
 ### UI Design
