@@ -1,6 +1,6 @@
 # Getting Started 🏁
 
-The Spruce SDK may be much different from what you're used to. To start, lets dive into how to work through this documentation to create the best Developer Experience possible:
+The Spruce SDK may be much different from what you're used to. To start, review to work through this documentation to create the best Developer Experience possible:
 
 * Step 1: Make sure you have the necessary dependencies installed on your machine.
 * Step 2: Choose your starting point (at the bottom of this page).

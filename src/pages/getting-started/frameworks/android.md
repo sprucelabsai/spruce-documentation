@@ -1,8 +1,6 @@
----
-title: Transitioning from Android to Spruce
----
+# Transitioning from Android to Spruce
 
-Android development typically involves Java or Kotlin, while Spruce is a TypeScript-based platform. 
+Android development typically involves Java or Kotlin, while Spruce is a TypeScript-based platform.
 
 While Android focuses on front-end and does support directly implementing some backend type functionality, most times an Android app is communicating with a remote API to do it's work. Spruce, on the other hand, is a "full-stack platform" that allows for both beautiful UI's and robust back-ends.
 
@@ -54,40 +52,41 @@ struct ContentView: View {
     ContentView()
 }
 ```
+
 #### Spruce
 
 ```typescript
 import {
-	AbstractSkillViewController,
-	CardViewController,
-	ViewControllerOptions,
-	buildSkillViewLayout,
-	SkillView
+ AbstractSkillViewController,
+ CardViewController,
+ ViewControllerOptions,
+ buildSkillViewLayout,
+ SkillView
 } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
-	public static id = 'root'
-	protected cardVc: CardViewController
+ public static id = 'root'
+ protected cardVc: CardViewController
 
-	public constructor(options: ViewControllerOptions) {
-		super(options)
-		this.cardVc = this.Controller('card', {
-			header: {
-				title: 'Hello, World!',
-			}
-		})
-	}
+ public constructor(options: ViewControllerOptions) {
+  super(options)
+  this.cardVc = this.Controller('card', {
+   header: {
+    title: 'Hello, World!',
+   }
+  })
+ }
 
-	public render(): SkillView {
-		return buildSkillViewLayout('grid', {
-			cards: [this.cardVc.render()]
-		})
-	}
+ public render(): SkillView {
+  return buildSkillViewLayout('grid', {
+   cards: [this.cardVc.render()]
+  })
+ }
 }
 
 ```
 
-### IDE 
+### IDE
 
 ```
 placeholder
@@ -129,7 +128,7 @@ placeholder
 
 ```
 
-### Testing             
+### Testing
 
 ```
 placeholder

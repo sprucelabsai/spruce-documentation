@@ -1,6 +1,4 @@
----
-title: Transitioning from Groovy to Spruce
----
+# Transitioning from Groovy to Spruce
 
 Groovy is a dynamic language with static-typing and static compilation capabilities, for the Java platform. It integrates smoothly with any Java program and immediately delivers to your application powerful features, including scripting capabilities, Domain-Specific Language authoring, runtime and compile-time meta-programming and functional programming. Transitioning to Spruce, a TypeScript-based framework, from a Groovy and potentially Grails background involves adapting to a new ecosystem centered around JavaScript and TypeScript for full-stack web development.
 
@@ -18,7 +16,6 @@ Groovy is a dynamic language with static-typing and static compilation capabilit
 | **Testing**             | Spock, JUnit            | TDD by the 3 laws        |
 | **User Authentication** | Spring Security (with Grails) | Mercury, Authenticator   |
 | **User Permissions**    | Spring Security ACL (with Grails) | Mercury, Authorizor      |
-
 
 ### Programming Language
 
@@ -51,40 +48,41 @@ struct ContentView: View {
     ContentView()
 }
 ```
+
 #### Spruce
 
 ```typescript
 import {
-	AbstractSkillViewController,
-	CardViewController,
-	ViewControllerOptions,
-	buildSkillViewLayout,
-	SkillView
+ AbstractSkillViewController,
+ CardViewController,
+ ViewControllerOptions,
+ buildSkillViewLayout,
+ SkillView
 } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
-	public static id = 'root'
-	protected cardVc: CardViewController
+ public static id = 'root'
+ protected cardVc: CardViewController
 
-	public constructor(options: ViewControllerOptions) {
-		super(options)
-		this.cardVc = this.Controller('card', {
-			header: {
-				title: 'Hello, World!',
-			}
-		})
-	}
+ public constructor(options: ViewControllerOptions) {
+  super(options)
+  this.cardVc = this.Controller('card', {
+   header: {
+    title: 'Hello, World!',
+   }
+  })
+ }
 
-	public render(): SkillView {
-		return buildSkillViewLayout('grid', {
-			cards: [this.cardVc.render()]
-		})
-	}
+ public render(): SkillView {
+  return buildSkillViewLayout('grid', {
+   cards: [this.cardVc.render()]
+  })
+ }
 }
 
 ```
 
-### IDE 
+### IDE
 
 ```
 placeholder
@@ -126,7 +124,7 @@ placeholder
 
 ```
 
-### Testing             
+### Testing
 
 ```
 placeholder

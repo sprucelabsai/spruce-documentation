@@ -1,6 +1,4 @@
----
-title: Transitioning from Spring to Spruce
----
+# Transitioning from Spring to Spruce
 
 Spring is a framework for creating complex, enterprise-level applications in Java. It provides a wide range of functionalities, from dependency injection to security, and much more. Spruce, on the other hand, is a TypeScript-based framework designed for building scalable web applications. This guide will help Spring developers understand how to transition to Spruce.
 
@@ -50,40 +48,41 @@ struct ContentView: View {
     ContentView()
 }
 ```
+
 #### Spruce
 
 ```typescript
 import {
-	AbstractSkillViewController,
-	CardViewController,
-	ViewControllerOptions,
-	buildSkillViewLayout,
-	SkillView
+ AbstractSkillViewController,
+ CardViewController,
+ ViewControllerOptions,
+ buildSkillViewLayout,
+ SkillView
 } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
-	public static id = 'root'
-	protected cardVc: CardViewController
+ public static id = 'root'
+ protected cardVc: CardViewController
 
-	public constructor(options: ViewControllerOptions) {
-		super(options)
-		this.cardVc = this.Controller('card', {
-			header: {
-				title: 'Hello, World!',
-			}
-		})
-	}
+ public constructor(options: ViewControllerOptions) {
+  super(options)
+  this.cardVc = this.Controller('card', {
+   header: {
+    title: 'Hello, World!',
+   }
+  })
+ }
 
-	public render(): SkillView {
-		return buildSkillViewLayout('grid', {
-			cards: [this.cardVc.render()]
-		})
-	}
+ public render(): SkillView {
+  return buildSkillViewLayout('grid', {
+   cards: [this.cardVc.render()]
+  })
+ }
 }
 
 ```
 
-### IDE 
+### IDE
 
 ```
 placeholder
@@ -125,7 +124,7 @@ placeholder
 
 ```
 
-### Testing             
+### Testing
 
 ```
 placeholder

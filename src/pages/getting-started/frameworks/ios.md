@@ -1,13 +1,10 @@
----
-title: Transitioning from iOS
----
+# Transitioning from iOS
 
-
-iOS development typically involves Swift or Objective C, while Spruce is a TypeScript-based platform. 
+iOS development typically involves Swift or Objective C, while Spruce is a TypeScript-based platform.
 
 While iOS focuses on front-end and does support directly implementing some backend type functionality, most times an iOS app is communicating with a remote API to do it's work. Spruce, on the other hand, is a "full-stack platform" that allows for both beautiful UI's and robust back-ends.
 
-This guide will help you connect your knowledge of Android development to Spruce's architecture, showing you how to adapt your existing skills to the Spruce environment.
+This guide will help you connect your knowledge of iOS development to Spruce's architecture, showing you how to adapt your existing skills to the Spruce environment.
 
 ## Key Differences between iOS and Spruce Development
 
@@ -49,55 +46,56 @@ struct ContentView: View {
 
 
 ```
+
 #### Spruce
 
-This `SkillViewController` will render a full screen view with a `CardViewController` on it with a title and a subtitle. All ViewControllers (and SkillViewControllers) reduce down to a `ViewModel` that return from render(). In Spruce, 100% of the styling is handled by [Heartwood](https://sprucelabsai.github.io/spruce-documentation/concepts/listeners/) ([Storybook](https://storybook.spruce.bot)). 
+This `SkillViewController` will render a full screen view with a `CardViewController` on it with a title and a subtitle. All ViewControllers (and SkillViewControllers) reduce down to a `ViewModel` that return from render(). In Spruce, 100% of the styling is handled by [Heartwood](../../concepts/views/) ([Storybook](https://storybook.spruce.bot)).
 
 ```typescript
 import {
-	AbstractSkillViewController,
-	CardViewController,
-	ViewControllerOptions,
-	buildSkillViewLayout,
-	SkillView
+   AbstractSkillViewController,
+   CardViewController,
+   ViewControllerOptions,
+   buildSkillViewLayout,
+   SkillView
 } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
-	public static id = 'root'
-	protected cardVc: CardViewController
+   public static id = 'root'
+   protected cardVc: CardViewController
 
-	public constructor(options: ViewControllerOptions) {
-		super(options)
+   public constructor(options: ViewControllerOptions) {
+      super(options)
 
-		this.cardVc = this.Controller('card', {
-			header: {
-				title: 'Hello, World!',
-				subtitle: 'This is a card'
-			}
-		})
-	}
+      this.cardVc = this.Controller('card', {
+         header: {
+         title: 'Hello, World!',
+         subtitle: 'This is a card'
+         }
+      })
+   }
 
-	public render(): SkillView {
-		return buildSkillViewLayout('grid', {
-			cards: [this.cardVc.render()]
-		})
-	}
+   public render(): SkillView {
+   return buildSkillViewLayout('grid', {
+      cards: [this.cardVc.render()]
+      })
+   }
 }
-
 ```
 
-### IDE 
+### IDE
 
 #### iOS in xcode
+
 <img src="../../../assets/img/screenshots/xcode.png">
 
 #### Spruce in Visual Studio Code
+
 <img src="../../../assets/img/screenshots/vscode.png">
 
 ### App Lifecycle
 
 #### iOS
-
 
 #### Spruce
 
@@ -108,16 +106,17 @@ When a browser or native app loads your Skill, it will start by hitting it's `Ro
 
 #### iOS
 
-You can customize the look of any view in your app using the `SwiftUI` framework. You can use a wide variety of views to construct your interface, from labels and buttons to more complex views like lists, stacks, and navigation views. 
+You can customize the look of any view in your app using the `SwiftUI` framework. You can use a wide variety of views to construct your interface, from labels and buttons to more complex views like lists, stacks, and navigation views.
 
 #### Spruce
 
-[Heartwood](link/to/heartwood) handles the rendering of all front end components. It adopts the philosphy of "Everything Beautiful". While you are constrained to the views that Heartwood provides, you can customize their look by running the following in your skill:
+[Heartwood](../../concepts/views/) handles the rendering of all front end components. It adopts the philosphy of "Everything Beautiful". While you are constrained to the views that Heartwood provides, you can customize their look by running the following in your skill:
 
 ```bash
 spruce create.theme
 ```
-This will create a `theme.ts` file you can customize. If you want to apply a theme to your organization (vs just your skill), you can utilize the [Theme Skill](https://spruce.bot/#views/theme.root).
+
+This will create a `skill.theme.ts` file you can customize. If you want to apply a theme to your organization (vs just your skill), you can utilize the [Theme Skill](https://spruce.bot/#views/theme.root).
 
 ### Event Handling
 
@@ -127,7 +126,7 @@ There are various ways to pass around data in iOS. You can use delegates, Notifi
 
 #### Spruce
 
-In Spruce, your views are rendered on the edge, while your Skill is hosted on a server. So, you have to use the [Mercury event system](path/to/mercury) to communicate between the two. Mercury also allows you to pass information other skills. 
+In Spruce, your views are rendered on the edge, while your Skill is hosted on a server. So, you have to use the [Mercury event system](../../concepts/mercury/) to communicate between the two. Mercury also allows you to pass information other skills.
 
 ```typescript
 
@@ -169,11 +168,9 @@ newUser.setValue(2022, forKey: "year")
 context.save()
 ```
 
-
 #### Spruce
 
-In Spruce, you'll use the [Stores](path/to/stores) feature to persist data. The stores use [Schemas](path/to/schemas) to define the shape of the data. 
-
+In Spruce, you'll use the [Stores](../../concepts/stores/) feature to persist data. The stores use [Schemas](../../concepts/schemas/) to define the shape of the data.
 
 ```bash
 spruce create.store
@@ -203,6 +200,7 @@ export default async (
 ### Error Handling
 
 #### iOS
+
 iOS does not have a built-in error handling system. You can use NSError, Error Protocol, or do-catch blocks to handle errors.
 
 ```swift
@@ -215,11 +213,12 @@ do {
 
 #### Spruce
 
-Spruce provides a much more robust, standardized error handling system. You can use the [SpruceError](path/to/errors) class to create custom errors, you define the Schemas for those errors to give them shape, and then use try-catch blocks to handle them.
+Spruce provides a much more robust, standardized error handling system. You can use the [SpruceError](../../concepts/errors/) class to create custom errors, you define the Schemas for those errors to give them shape, and then use try-catch blocks to handle them.
 
 ```bash
 spruce create.error
 ```
+
 This will create an error builder inside of your skill at `./src/errors/{{errorName}}.builder.ts`. Inside there is the schema that defines your error.
 
 You can throw an error you have defined like this:
@@ -231,9 +230,7 @@ throw new SpruceError({
 })
 ```
 
-
-### Testing      
-
+### Testing
 
 #### iOS
 
@@ -253,15 +250,13 @@ class MyTests: XCTestCase {
 
 #### Spruce
 
-Everything in Spruce starts with a [Test](path/to/tests). If you want to write a piece of production code, you must start with a failing test.
+Everything in Spruce starts with a [Test](../../concepts/tests/) If you want to write a piece of production code, you must start with a failing test.
 
 ```bash
 spruce create.test
 ```
 
 Once your test file is created, you are ready to start!
-
-
 
 ### User Authentication
 
@@ -271,7 +266,7 @@ iOS does not have the concept of being "logged in". You'll need to use a 3rd par
 
 #### Spruce
 
-Because [Mercury](path/to/mercury) handles user authentication (and authorization). You can use the [Authenticator](path/to/authenticator) to know if a person is logged in or not. You can also use it to log a person in or out.
+Because [Mercury](../../concepts/mercury/) handles user authentication (and authorization). You can use the [Authenticator](../../concepts/permissions/) to know if a person is logged in or not. You can also use it to log a person in or out.
 
 ```typescript
 //inside your Skill View's load lifecycle method
@@ -288,7 +283,6 @@ public async load(options: SkillViewControllerLoadOptions) {
 ```
 
 ### User Permissions
-
 
 #### iOS
 
@@ -314,6 +308,7 @@ Mercury also handles all your [Permission](path/to/permissions) needs. To introd
 ```bash
 spruce create.permissions
 ```
+
 Then you can do permission checks in your Skill View like this:
 
 ```typescript

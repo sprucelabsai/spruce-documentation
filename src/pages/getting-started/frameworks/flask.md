@@ -1,6 +1,4 @@
----
-title: Transitioning from Flask to Spruce
----
+# Transitioning from Flask to Spruce
 
 Flask is a Python web framework that provides the tools necessary for building simple web applications quickly. On the other hand, Spruce is a TypeScript-based full-stack framework designed to create scalable web applications with a focus on modern web development practices. This guide will help Flask developers understand how to transition to Spruce.
 
@@ -50,40 +48,41 @@ struct ContentView: View {
     ContentView()
 }
 ```
+
 #### Spruce
 
 ```typescript
 import {
-	AbstractSkillViewController,
-	CardViewController,
-	ViewControllerOptions,
-	buildSkillViewLayout,
-	SkillView
+ AbstractSkillViewController,
+ CardViewController,
+ ViewControllerOptions,
+ buildSkillViewLayout,
+ SkillView
 } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
-	public static id = 'root'
-	protected cardVc: CardViewController
+ public static id = 'root'
+ protected cardVc: CardViewController
 
-	public constructor(options: ViewControllerOptions) {
-		super(options)
-		this.cardVc = this.Controller('card', {
-			header: {
-				title: 'Hello, World!',
-			}
-		})
-	}
+ public constructor(options: ViewControllerOptions) {
+  super(options)
+  this.cardVc = this.Controller('card', {
+   header: {
+    title: 'Hello, World!',
+   }
+  })
+ }
 
-	public render(): SkillView {
-		return buildSkillViewLayout('grid', {
-			cards: [this.cardVc.render()]
-		})
-	}
+ public render(): SkillView {
+  return buildSkillViewLayout('grid', {
+   cards: [this.cardVc.render()]
+  })
+ }
 }
 
 ```
 
-### IDE 
+### IDE
 
 ```
 placeholder
@@ -125,7 +124,7 @@ placeholder
 
 ```
 
-### Testing             
+### Testing
 
 ```
 placeholder

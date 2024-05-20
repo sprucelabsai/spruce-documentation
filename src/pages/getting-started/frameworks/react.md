@@ -1,6 +1,4 @@
----
-title: Transitioning from React to Spruce
----
+# Transitioning from React to Spruce
 
 React is a library for building user interfaces, primarily focused on the front-end. Spruce is a full-stack framework that uses TypeScript, expanding on the concepts you're familiar with from React and applying them throughout the entire stack. This guide will help you understand how to transition from React's component-based architecture to Spruce's full-stack development approach.
 
@@ -50,40 +48,41 @@ struct ContentView: View {
     ContentView()
 }
 ```
+
 #### Spruce
 
 ```typescript
 import {
-	AbstractSkillViewController,
-	CardViewController,
-	ViewControllerOptions,
-	buildSkillViewLayout,
-	SkillView
+ AbstractSkillViewController,
+ CardViewController,
+ ViewControllerOptions,
+ buildSkillViewLayout,
+ SkillView
 } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
-	public static id = 'root'
-	protected cardVc: CardViewController
+ public static id = 'root'
+ protected cardVc: CardViewController
 
-	public constructor(options: ViewControllerOptions) {
-		super(options)
-		this.cardVc = this.Controller('card', {
-			header: {
-				title: 'Hello, World!',
-			}
-		})
-	}
+ public constructor(options: ViewControllerOptions) {
+  super(options)
+  this.cardVc = this.Controller('card', {
+   header: {
+    title: 'Hello, World!',
+   }
+  })
+ }
 
-	public render(): SkillView {
-		return buildSkillViewLayout('grid', {
-			cards: [this.cardVc.render()]
-		})
-	}
+ public render(): SkillView {
+  return buildSkillViewLayout('grid', {
+   cards: [this.cardVc.render()]
+  })
+ }
 }
 
 ```
 
-### IDE 
+### IDE
 
 ```
 placeholder
@@ -125,7 +124,7 @@ placeholder
 
 ```
 
-### Testing             
+### Testing
 
 ```
 placeholder
