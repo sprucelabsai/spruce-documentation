@@ -1,13 +1,33 @@
-# Getting Started with Spruce 🏁
+# Getting Started 🏁
 
-Before you start working with Spruce, it's important to get a feel for how it's different from the programming language or system you're used to. 
+The Spruce SDK may be much different from what you're used to. To start, lets dive into how to work through this documentation to create the best Developer Experience possible:
 
-In this guide, we'll walk you through what makes Spruce unique compared to other development frameworks. You'll discover how Spruce handles various parts of building an app and find out what you need to know to begin. We've designed this transition section to make your first step into Spruce development as smooth as possible.
+* Step 1: Make sure you have the necessary dependencies installed on your machine.
+* Step 2: Choose your starting point (at the bottom of this page).
+* Step 3: Setup your Development Theatre.
+* Step 4: Learn the Ideology
+* Step 5: Learn the Concepts
+* Step 6: Begin Training
 
-## Pre-requisites
-Before transitioning to Spruce, you should:
-- Have a basic understanding of TypeScript, as this is the core language used in Spruce development.
-- Be familiar with full-stack development concepts, including front-end and back-end development processes.
+The easiest way to approach this is to follow the "Now What?" link at the bottom of each page. The documentation will guide you through everything in the correct order (following the navigation above).
 
+## Necessary Dependencies
 
+1. Have a Mac with OSX 10.15 or later.
+2. 
 
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/getting-started/from-scratch/' | url }}">From Scratch</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/ios/' | url }}">IOS</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/android/' | url }}">Android</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/ruby/' | url }}">Ruby</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/python/' | url }}">Python</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/laravel/' | url }}">Laravel</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/react/' | url }}">React</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/django/' | url }}">Django</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/flask/' | url }}">Flask</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/spring/' | url }}">Spring</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/groovy/' | url }}">Groovy</a>
+</div>

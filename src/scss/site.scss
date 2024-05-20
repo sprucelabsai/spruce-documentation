@@ -10,7 +10,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -27,11 +28,21 @@ body {
   @import '_markdown-docs-styles';
 
 
-    @import 'page-specific/default-page-type';
+  @import 'page-specific/default-page-type';
 
   @import 'footer';
 
   @import 'page-specific/home';
   @import 'page-specific/search';
   @import 'page-specific/install';
+}
+
+.grid-buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  .btn {
+    @include btn-base(white, black);
+    margin: 5px;
+  }
 }
