@@ -18,6 +18,8 @@ The easiest way to approach this is to follow the "Now What?" link at the bottom
 
 ## Now What?
 
+Pick a starting point that best fits your current skillset:
+
 <div class="grid-buttons">
     <a class="btn" href="{{ '/getting-started/from-scratch/' | url }}">From Scratch</a>
     <a class="btn" href="{{ '/getting-started/frameworks/ios/' | url }}">IOS</a>
