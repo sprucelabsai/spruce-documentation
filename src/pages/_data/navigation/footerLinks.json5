@@ -3,41 +3,56 @@
     {
       title: "Gettting Started",
       links: [
-        { title: "Get Started", url: "/getting-started/", class:"" },
-        { title: "Ideology", url: "/ideology/", class:"" },
-        { title: "Concepts", url: "/concepts/", class:"" },
-        { title: "Training", url: "/training/", class:"" },
-        { title: "Help", url: "/help/", class:"" },
+        { title: "Start From Scratch", url: "/getting-started/from-scratch/", class:"" },
+        { title: "Android", url: "/getting-started/frameworks/android/", class:"" },
+        { title: "Django", url: "/getting-started/frameworks/django/", class:"" },
+        { title: "Flask", url: "/getting-started/frameworks/flask/", class:"" },
+        { title: "Groovy", url: "/getting-started/frameworks/groovy/", class:"" },
+        { title: "IOS", url: "/getting-started/frameworks/ios/", class:"" },
+        { title: "Laravel", url: "/getting-started/frameworks/laravel/", class:"" },
+        { title: "Python", url: "/getting-started/frameworks/python/", class:"" },
+        { title: "Ruby", url: "/getting-started/frameworks/ruby/", class:"" },
+        { title: "React", url: "/getting-started/frameworks/react/", class:"" },
+        { title: "Spring", url: "/getting-started/frameworks/spring/", class:"" },
+      ]
+    },
+       {
+      title: "Ideology",
+      links: [
+        { title: "The Fourth Runtime", url: "/ideology/the_fourth_runtime/", class:"" },
+        { title: "Great Software", url: "/ideology/great_software/", class:"" },
+        { title: "Small Trunk, Big Branches", url: "/ideology/architecture/", class:"" },
+        { title: "Clean Code", url: "/ideology/tdd/", class:"" },
+        { title: "Training", url: "/ideology/clean-code/", class:"" },
       ]
     },
         {
-      title: "Gettting Started",
+      title: "Concepts",
       links: [
-        { title: "Get Started", url: "/getting-started/", class:"" },
-        { title: "Ideology", url: "/ideology/", class:"" },
-        { title: "Concepts", url: "/concepts/", class:"" },
-        { title: "Training", url: "/training/", class:"" },
-        { title: "Help", url: "/help/", class:"" },
+        { title: "Mercury", url: "/concepts/mercury/", class:"" },
+        { title: "Tests", url: "/concepts/tests/", class:"" },
+        { title: "Views", url: "/concepts/views/", class:"" },
+        { title: "Events", url: "/concepts/events/", class:"" },
+        { title: "Schemas", url: "/concepts/schemas/", class:"" },
+        { title: "Permissions", url: "/concepts/permissions/", class:"" },
+        { title: "Listeners", url: "/concepts/listeners/", class:"" },
+        { title: "Errors", url: "/concepts/errors/", class:"" },
+        { title: "Stores", url: "/concepts/stores/", class:"" },
       ]
     },
         {
-      title: "Gettting Started",
+      title: "Training",
       links: [
-        { title: "Get Started", url: "/getting-started/", class:"" },
-        { title: "Ideology", url: "/ideology/", class:"" },
-        { title: "Concepts", url: "/concepts/", class:"" },
-        { title: "Training", url: "/training/", class:"" },
-        { title: "Help", url: "/help/", class:"" },
+        { title: "Building Your First Skill", url: "/training/building-a-skill/", class:"" },
+        { title: "Katas", url: "/training/katas/", class:"" },
       ]
     },
         {
-      title: "Gettting Started",
+      title: "Help",
       links: [
-        { title: "Get Started", url: "/getting-started/", class:"" },
-        { title: "Ideology", url: "/ideology/", class:"" },
-        { title: "Concepts", url: "/concepts/", class:"" },
-        { title: "Training", url: "/training/", class:"" },
-        { title: "Help", url: "/help/", class:"" },
+        { title: "Glossary", url: "/help/glossary/", class:"" },
+        { title: "Discord", url: "/help/contact/", class:"" },
+        { title: "Github Issues", url: "/help/github-issues/", class:"" },
       ]
     },
   ],
