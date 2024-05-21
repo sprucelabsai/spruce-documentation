@@ -60,7 +60,7 @@
   bottomRow:
   {
     links: [
-      { title: "sprucelabsai", url: "https://sprucelabsai.github.io/spruce-documentation/", image: "/assets/img/logos/sprucebot.png", class:"sp-logo-link no-away" },
+      { title: "sprucelabsai", url: "https://sprucelabsai.github.io/spruce-documentation/", image: { url: "/assets/img/logos/sprucebot.png" }, class:"sp-logo" },
       {
         type: "icon-list",
         class: "icon-list",
