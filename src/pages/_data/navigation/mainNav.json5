@@ -12,24 +12,8 @@
               "url": "/getting-started/from-scratch/"
             },
             {
-              "title": "IOS",
-              "url": "/getting-started/frameworks/ios/"
-            },
-            {
-              "title": "Ruby",
-              "url": "/getting-started/frameworks/ruby/"
-            },
-            {
               "title": "Android",
               "url": "/getting-started/frameworks/android/"
-            },
-            {
-              "title": "Python",
-              "url": "/getting-started/frameworks/python/"
-            },
-            {
-              "title": "Laravel",
-              "url": "/getting-started/frameworks/laravel/"
             },
             {
               "title": "Django",
@@ -40,6 +24,26 @@
               "url": "/getting-started/frameworks/flask/"
             },
             {
+              "title": "Groovy",
+              "url": "/getting-started/frameworks/groovy/"
+            },
+            {
+              "title": "IOS",
+              "url": "/getting-started/frameworks/ios/"
+            },
+            {
+              "title": "Laravel",
+              "url": "/getting-started/frameworks/laravel/"
+            },
+            {
+              "title": "Python",
+              "url": "/getting-started/frameworks/python/"
+            },
+            {
+              "title": "Ruby",
+              "url": "/getting-started/frameworks/ruby/"
+            },
+            {
               "title": "React",
               "url": "/getting-started/frameworks/react/"
             },
@@ -47,10 +51,6 @@
               "title": "Spring",
               "url": "/getting-started/frameworks/spring/"
             },
-            {
-              "title": "Groovy",
-              "url": "/getting-started/frameworks/groovy/"
-            }
           ]
         },
         {

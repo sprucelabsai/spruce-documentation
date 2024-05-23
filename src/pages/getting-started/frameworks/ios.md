@@ -324,3 +324,9 @@ public async load(options: SkillViewControllerLoadOptions) {
 
 }
 ```
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/getting-started/development-theatre/' | url }}">Install the Development Theatre</a>
+</div>

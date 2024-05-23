@@ -23,34 +23,10 @@ This guide will help you connect your knowledge of Android development to Spruce
 
 ### Programming Language
 
-#### iOS
+#### Android
 
-```swift
-//
-//  ContentView.swift
-//  ChatPrototype
-//
-import SwiftUI
-
-
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Text("Knock, knock!")
-                .padding()
-                .background(Color.teal, in: RoundedRectangle(cornerRadius: 8))
-            Text("Who's there?")
-                .padding()
-                .background(Color.yellow, in: RoundedRectangle(cornerRadius: 8))
-        }
-        .padding()
-    }
-}
-
-
-#Preview {
-    ContentView()
-}
+```
+Coming soon...
 ```
 
 #### Spruce
@@ -89,62 +65,68 @@ export default class RootSkillViewController extends AbstractSkillViewController
 ### IDE
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### App Lifecycle
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### UI Design
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### Event Handling
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### Data Persistence
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### Error Handling
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### Testing
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### User Authentication
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### User Permissions
 
 ```
-placeholder
+Coming soon...
 
 ```
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/getting-started/development-theatre/' | url }}">Install the Development Theatre</a>
+</div>

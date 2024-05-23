@@ -85,62 +85,68 @@ export default class RootSkillViewController extends AbstractSkillViewController
 ### IDE
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### App Lifecycle
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### UI Design
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### Event Handling
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### Data Persistence
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### Error Handling
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### Testing
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### User Authentication
 
 ```
-placeholder
+Coming soon...
 
 ```
 
 ### User Permissions
 
 ```
-placeholder
+Coming soon...
 
 ```
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/getting-started/development-theatre/' | url }}">Install the Development Theatre</a>
+</div>
