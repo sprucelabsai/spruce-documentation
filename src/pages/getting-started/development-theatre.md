@@ -1,5 +1,7 @@
 # Install Development Theatre ⚔️
 
+Note: Currently only supports M1 Mac.
+
 Open up your favorite terminal app and run the following command to install Development Theatre.
 
 <pre>
