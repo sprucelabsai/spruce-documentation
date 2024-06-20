@@ -1,6 +1,16 @@
 # Dates & Times
 
-More coming soon...
+Details coming soon...
+
+## Timezones
+
+### Based on `Location`
+
+Coming Soon...
+
+### Based on `Person`
+
+Coming Soon...
 
 ## Rendering time spans
 
