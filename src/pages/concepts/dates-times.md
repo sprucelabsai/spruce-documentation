@@ -107,7 +107,7 @@ public async someOperation() {
 
 #### Test 3: Ensure `durationUtil.renderDateTimeUntil(...)` is called with correct timezone
 
-You can start a new test and use the `dateAssert` utility from `@sprucelabs/calendar-utils` to assert the timezone based on the last built duration util available on the `DateUtilBuilder`. Note: You can get the `timezone` off a `Location` or `Person` if you don't want to hardcode it like this example.
+You can start a new test and use the `dateAssert` utility from `@sprucelabs/calendar-utils` to assert the timezone based on `DurationUtilBuilder.lastBuiltDurationUtil`. Note: You can get the `timezone` off a `Location` or `Person` if you don't want to hardcode it like this example.
 
 ```ts
 import { DurationUtilBuilder, dateAssert } from '@sprucelabs/calendar-utils'
