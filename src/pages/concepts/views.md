@@ -11,7 +11,7 @@ You can globally enhance View Controller functionality by using View Controller 
 
 ### Implementing a View Controller Plugin
 
-#### Test 1: Is the plugin installed?
+#### Test: Is the plugin installed?
 
 ```ts
 import {
@@ -32,19 +32,13 @@ protected static async autoLogoutPluginInstalled() {
 
 Note: If you are planning on using your own plugin (one that is not built yet), type it instead of `AutoLogoutPlugin` as if it exists and then begin with the productions steps below.
 
-#### Production 1: Install the plugin
+#### Production: Install the plugin
 
 1. Install the module that holds the plugin: `yarn add {packageName}`
 2. Create the plugin: `spruce create.view.plugin`
 3. Implement the plugin into `./src/viewPlugins/{pluginName}.ts`
 
-If you using a prebuild plugin, you would implement it like this:
-
-```ts
-export { AutoLogoutPlugin as default } from '@sprucelabs/spruce-heartwood-utils'
-```
-
-If you are building your own plugin, it may look like this:
+Your plugin starts like this:
 
 ```ts
 import { ViewControllerPlugin } from '@sprucelabs/heartwood-view-controllers'
@@ -54,7 +48,25 @@ export default class MyViewPlugin implements ViewControllerPlugin {
         ...
     }
 }
-
 ```
 
-If you are creating your own plugin, you will need to import it into your test now.
+Now that plugin is created, you can import it into your test.
+
+If you using a prebuilt plugin, you would implement it like this:
+
+```ts
+export { AutoLogoutPlugin as default } from '@sprucelabs/spruce-heartwood-utils'
+```
+
+#### Test Doubling Your Plugin
+
+You can drop in your test double using the `views` fixture on your `AbstractSpruceFixtureTest`. Here is how you may do that in your `beforeEach`:
+
+```ts
+protected static async beforeEach() {
+    this.spy = new SpyPlugin()
+    this.views.addPlugin('autoLogout', this.spy)
+}
+```
+
+Now, in any View Controller you create, `this.plugins.autoLogout` will be the `SpyPlugin` instance.
