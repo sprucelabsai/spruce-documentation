@@ -12,9 +12,9 @@ Coming Soon...
 
 Coming Soon...
 
-## Rendering time spans
+## Rendering time until a date
 
-The `durationUtil` provided by `@sprucelabs/calendar-utils` is useful for rendering time spans like "2 hours" or "5 days" or "today".
+The `durationUtil` provided by `@sprucelabs/calendar-utils` is useful for rendering time until a date, like "in 2 hours" or "5 days ago" or "today".
 
 ### `durationUtil` in the backend
 
@@ -73,26 +73,19 @@ import { DurationUtilBuilder } from '@sprucelabs/calendar-utils'
 
 @test()
 protected static async myOperationCallsRenderDateTimeUntil() {
-    let passedBeginning: number | undefined
     let passedEnd: number | undefined
 
     const dateTimeUntil = generateId()
-
     const expectedEnd = 0 //Some date in the future
 
-    DurationUtilBuilder.durationUtil.renderDateTimeUntil = (beginning, end) => {
-        passedBeginning = beginning
+    DurationUtilBuilder.durationUtil.renderDateTimeUntil = (end) => {
         passedEnd = end
-        
         return dateTimeUntil
     }
 
-    const floor = Date.now()
     const message = await this.someOperation()
-    const ceiling = Date.now()
 
     assert.doesInclude(message, dateTimeUntil)
-    assert.isBetween(passedBeginning, floor, ceiling)
     assert.isEqual(passendEnd, expectedEnd)
 
 }
@@ -109,7 +102,7 @@ public async someOperation() {
     ...
     const someDateInFuture = 0 //Some date in the future
     const durationUtil = await DurationUtilBuilder.getFromTimezone('America/Denver')
-    const timeUntil = durationUtil.renderDateTimeUntil(Date.now(), someDateInFuture)
+    const timeUntil = durationUtil.renderDateTimeUntil(someDateInFuture)
     const message = `Your journey starts in ${timeUntil}!`
     ...
 }
@@ -145,10 +138,56 @@ public async someOperation() {
     ...
     const someDateInFuture = 0 //Some date in the future
     const durationUtil = await DurationUtilBuilder.getFromTimezone('Africa/Johannesburg')
-    const timeUntil = durationUtil.renderDateTimeUntil(Date.now(), someDateInFuture)
+    const timeUntil = durationUtil.renderDateTimeUntil(someDateInFuture)
     const message = `Your journey starts in ${timeUntil}!`
     ...
 }
 ```
 
 ### `durationUtil` in views
+
+If you want to render the time until an event in a View Controller, you go about it slightly differently, but it's pretty easy!
+
+#### Test 1: Ensure `durationUtil` is configured correctly
+
+```ts
+import { vcDurationAssert } from '@sprucelabs/heartwood-view-controllers'
+
+@test()
+protected static async myViewHasDurationUtilConfigured() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    vcDurationAssert.durationUtilIsConfiguredForVc(vc)
+}
+```
+
+
+#### Test 1a: Ensure `vcDurationAssert` is configured correctly
+
+You should have gotten an error telling you to call `vcDurationAssert.beforeEach(this.views)` to get the assertion library to work correctly. Lets do that now.
+
+```ts
+import { vcDurationAssert } from '@sprucelabs/heartwood-view-controllers'
+
+protected static async beforeEach() {
+    await super.beforeEach()
+    vcDurationAssert.beforeEach(this.views)
+}
+
+@test()
+protected static async myViewHasDurationUtilConfigured() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    vcDurationAssert.durationUtilIsConfiguredForVc(vc)
+}
+```
+
+#### Production 1: Configure `durationUtil` in the View Controller
+
+Your View Controller will come with a fully timezone aware `dateUtil` accessibly via `this.dates`. Your job is to set the `durationUtil.dates` to `this.dates` in the constructor of your View Controller to make sure the `durationUtil` is timezone aware.
+
+```ts
+class RootSkillView extends AbstractSkillViewController {
+    public constructor(options: SkillViewControllerOptions) {
+        super(options)
+        durationUtil.dates = this.dates
+    }
+}
