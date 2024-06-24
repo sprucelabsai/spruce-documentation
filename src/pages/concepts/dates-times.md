@@ -191,3 +191,200 @@ class RootSkillView extends AbstractSkillViewController {
         durationUtil.dates = this.dates
     }
 }
+```
+
+### `durationUtil` in messages
+
+Sending a message that renders the time until is a bit different than the other two examples. You actually don't need to use the `durationUtil` at all because it's handled by [Mercury](../mercury/) for you using [Message Context](../messages)!
+
+#### Test 1: Ensure a message is sent
+
+```ts
+import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
+
+@test()
+protected static async messageIsSent() {
+    let wasHit = false
+
+    await eventFaker.on('send-message::v2020_12_25', () => {
+        wasHit = true
+
+        return {
+            message: {
+                body: generateId(),
+                classification: 'transactional' as const,
+                id: generateId(),
+                dateCreated: Date.now(),
+                source: {},
+                target: {
+                    personId: generateId(),
+                },
+            },
+        }
+    })
+
+    await this.someOperationThatSendsAMessage()
+
+    assert.isTrue(wasHit, `Message was not sent!`)
+}
+```
+
+#### Production 1: Send a message
+Follow the process for [sending messages](../messages) to work your way through testing sending a message. We'll only pay attention to the parts relevant to rendering the time until a date.
+
+```ts
+private async someOperationThatSendsAMessage() {
+    await this.client.emitAndFlattenResponses('send-message::v2020_12_25', {
+        target: {},
+        payload: {},
+    }
+}
+```
+
+#### Test 2: Ensure the message is sent with expected placeholder
+Now we'll check the body to see if it contains the `{{formatDateTimeUntil dateTimeMs}}` placeholder. Also, we can remove the `didHit` assertion because it's redundant. Lastly, I'm not gonna show the full response because it's not relevant to this example.
+
+```ts
+import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
+
+@test()
+protected static async messageIsSent() {
+    let passedBody: string | undefined
+
+    await eventFaker.on('send-message::v2020_12_25', ( { payload }) => {
+        passedBody = payload.message.body
+
+        return {
+            message: {
+                ...
+            },
+        }
+    })
+
+    await this.someOperationThatSendsAMessage()
+
+    assert.doesInclude(papassedBody, '{{formatDateTimeUntil eventDateMs}}')
+}
+```
+
+#### Production 2: Send a message with the placeholder
+
+```ts
+private async someOperationThatSendsAMessage() {
+    await this.client.emitAndFlattenResponses('send-message::v2020_12_25', {
+        target: {},
+        payload: {
+            message: {
+                ...,
+                body: `Your journey starts in {{formatDateTimeUntil eventDateMs}}!`,
+            }
+        },
+    }
+}
+```
+#### Test 3: Ensure the message has the correct context
+The `formatDateTimeUntil` placeholder is a plugin that accepts a variable that is named after anything in the [Message Context](../messages). In this case, we're using `eventDateMs` as the variable name. We need to make sure that the `eventDateMs` is in the context of the message. This variable could be called anything as long as it's a key in the context. Also, the `formatDateTimeUntil` plugin will default to the target's timezone. Meaning, if you target a location, it'll use that location's timezone. Or, if you target a person, it'll use that person's timezone. In this example, we want to target a timezone manuall, just to show you how to do it.
+
+```ts
+import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
+
+@test()
+protected static async messageIsSent() {
+    let passedBody: string | undefined
+    let passedContext: Record<string, any> | undefined
+
+    const expectedEventDateMs = 0 //some date in the future or past
+
+    await eventFaker.on('send-message::v2020_12_25', ( { payload }) => {
+        passedBody = payload.message.body
+        passedContext = payload.message.context
+
+        return {
+            message: {
+                ...
+            },
+        }
+    })
+
+    await this.someOperationThatSendsAMessage()
+
+    assert.doesInclude(papassedBody, '{{formatDateTimeUntil eventDateMs}}')
+    assert.isEqualDeep(passedContext, { timezone: 'Africa/Johannesburg', eventDateMs: expectedEventDateMs })
+}
+```
+
+#### Production 3: Send a message with the context
+
+```ts
+private async someOperationThatSendsAMessage() {
+    await this.client.emitAndFlattenResponses('send-message::v2020_12_25', {
+        target: {},
+        payload: {
+            message: {
+                ...,
+                body: `Your journey starts in {{formatDateTimeUntil eventDateMs}}!`,
+                context: {
+                    eventDateMs: 0 //some date in the future or past,
+                    timezone: 'Africa/Johannesburg'
+                }
+            }
+        },
+    }
+}
+```
+
+#### Test 4: Parameterize the timezone
+
+Lastly, lets parameterize this test to let us test different timezones.
+
+```ts
+import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
+import { TimezoneName } from '@sprucelabs/calendar-utils'
+
+@test('message is sent with timezone Africa/Johannesburg')
+@test('message is sent with timezone America/Denver')
+protected static async messageIsSent(timezone: TimezoneName) {
+    let passedBody: string | undefined
+    let passedContext: Record<string, any> | undefined
+
+    const expectedEventDateMs = 0 //some date in the future or past
+    this.timezoneLoaderTestDouble.setTimezone(timezone) //use some test double that can be accessed in the production code
+
+    await eventFaker.on('send-message::v2020_12_25', ( { payload }) => {
+        passedBody = payload.message.body
+        passedContext = payload.message.context
+
+        return {
+            message: {
+                ...
+            },
+        }
+    })
+
+    await this.someOperationThatSendsAMessage()
+
+    assert.doesInclude(papassedBody, '{{formatDateTimeUntil eventDateMs}}')
+    assert.isEqualDeep(passedContext, { timezone, eventDateMs: expectedEventDateMs })
+}
+```
+
+#### Production 4: Send a message with the timezone
+
+ ```ts
+private async someOperationThatSendsAMessage() {
+    const timezone = this.someDataSource.getSomeTimezone() //some method that returns a timezone that is test doubled
+    await this.client.emitAndFlattenResponses('send-message::v2020_12_25', {
+        target: {},
+        payload: {
+            message: {
+                ...,
+                body: `Your journey starts in {{formatDateTimeUntil eventDateMs}}!`,
+                context: {
+                    eventDateMs: 0 //some date in the future or past,
+                    timezone,
+                }
+            }
+        },
+    }
+}
+```

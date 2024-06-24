@@ -160,6 +160,10 @@
         {
           "title": "Dates & Times",
           "url": "/concepts/dates-times/"
+        },
+        {
+          "title": "Messages",
+          "url": "/concepts/messages/"
         }
       ]
     },
