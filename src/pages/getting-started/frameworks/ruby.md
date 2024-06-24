@@ -19,34 +19,10 @@ Ruby on Rails is a full-stack framework that uses Ruby, while Spruce is built on
 
 ### Programming Language
 
-#### iOS
+#### Ruby
 
-```swift
-//
-//  ContentView.swift
-//  ChatPrototype
-//
-import SwiftUI
-
-
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Text("Knock, knock!")
-                .padding()
-                .background(Color.teal, in: RoundedRectangle(cornerRadius: 8))
-            Text("Who's there?")
-                .padding()
-                .background(Color.yellow, in: RoundedRectangle(cornerRadius: 8))
-        }
-        .padding()
-    }
-}
-
-
-#Preview {
-    ContentView()
-}
+```
+Coming soon...
 ```
 
 #### Spruce
@@ -86,63 +62,54 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 ```
 Coming soon...
-
 ```
 
 ### App Lifecycle
 
 ```
 Coming soon...
-
 ```
 
 ### UI Design
 
 ```
 Coming soon...
-
 ```
 
 ### Event Handling
 
 ```
 Coming soon...
-
 ```
 
 ### Data Persistence
 
 ```
 Coming soon...
-
 ```
 
 ### Error Handling
 
 ```
 Coming soon...
-
 ```
 
 ### Testing
 
 ```
 Coming soon...
-
 ```
 
 ### User Authentication
 
 ```
 Coming soon...
-
 ```
 
 ### User Permissions
 
 ```
 Coming soon...
-
 ```
 
 ## Now What?

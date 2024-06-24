@@ -181,13 +181,3 @@ Create functions to manage the routes, like `redirectToMetaView` or `returnToRoo
 ```
 
 Design tests to ensure your routing works correctly, particularly in handling user actions.
-
-## Preview on a Device
-
-
-
-Test the skill interface on an actual device to ensure the UI and navigation feel natural and responsive.
-
-If possible, use emulation tools in your development environment to simulate different devices.
-
-Adjust the UI based on device preview feedback.

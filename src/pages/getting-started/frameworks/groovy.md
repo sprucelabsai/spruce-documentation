@@ -19,34 +19,10 @@ Groovy is a dynamic language with static-typing and static compilation capabilit
 
 ### Programming Language
 
-#### iOS
+#### Groovy
 
-```swift
-//
-//  ContentView.swift
-//  ChatPrototype
-//
-import SwiftUI
-
-
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Text("Knock, knock!")
-                .padding()
-                .background(Color.teal, in: RoundedRectangle(cornerRadius: 8))
-            Text("Who's there?")
-                .padding()
-                .background(Color.yellow, in: RoundedRectangle(cornerRadius: 8))
-        }
-        .padding()
-    }
-}
-
-
-#Preview {
-    ContentView()
-}
+```
+Coming soon...
 ```
 
 #### Spruce
@@ -86,63 +62,54 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 ```
 Coming soon...
-
 ```
 
 ### App Lifecycle
 
 ```
 Coming soon...
-
 ```
 
 ### UI Design
 
 ```
 Coming soon...
-
 ```
 
 ### Event Handling
 
 ```
 Coming soon...
-
 ```
 
 ### Data Persistence
 
 ```
 Coming soon...
-
 ```
 
 ### Error Handling
 
 ```
 Coming soon...
-
 ```
 
 ### Testing
 
 ```
 Coming soon...
-
 ```
 
 ### User Authentication
 
 ```
 Coming soon...
-
 ```
 
 ### User Permissions
 
 ```
 Coming soon...
-
 ```
 
 ## Now What?

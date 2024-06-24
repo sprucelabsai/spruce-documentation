@@ -66,63 +66,54 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 ```
 Coming soon...
-
 ```
 
 ### App Lifecycle
 
 ```
 Coming soon...
-
 ```
 
 ### UI Design
 
 ```
 Coming soon...
-
 ```
 
 ### Event Handling
 
 ```
 Coming soon...
-
 ```
 
 ### Data Persistence
 
 ```
 Coming soon...
-
 ```
 
 ### Error Handling
 
 ```
 Coming soon...
-
 ```
 
 ### Testing
 
 ```
 Coming soon...
-
 ```
 
 ### User Authentication
 
 ```
 Coming soon...
-
 ```
 
 ### User Permissions
 
 ```
 Coming soon...
-
 ```
 
 ## Now What?
