@@ -263,7 +263,7 @@ protected static async messageIsSent() {
 
     await this.someOperationThatSendsAMessage()
 
-    assert.doesInclude(papassedBody, '{{formatDateTimeUntil eventDateMs}}')
+    assert.doesInclude(passedBody, '{{formatDateTimeUntil eventDateMs}}')
 }
 ```
 
@@ -308,7 +308,7 @@ protected static async messageIsSent() {
 
     await this.someOperationThatSendsAMessage()
 
-    assert.doesInclude(papassedBody, '{{formatDateTimeUntil eventDateMs}}')
+    assert.doesInclude(passedBody, '{{formatDateTimeUntil eventDateMs}}')
     assert.isEqualDeep(passedContext, { timezone: 'Africa/Johannesburg', eventDateMs: expectedEventDateMs })
 }
 ```
@@ -363,7 +363,7 @@ protected static async messageIsSent(timezone: TimezoneName) {
 
     await this.someOperationThatSendsAMessage()
 
-    assert.doesInclude(papassedBody, '{{formatDateTimeUntil eventDateMs}}')
+    assert.doesInclude(passedBody, '{{formatDateTimeUntil eventDateMs}}')
     assert.isEqualDeep(passedContext, { timezone, eventDateMs: expectedEventDateMs })
 }
 ```
