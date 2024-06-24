@@ -1,5 +1,9 @@
 # Install Development Theatre ⚔️
 
+Note: Currently only supports M Series Macs.
+
+Open up your favorite terminal app and run the following command to install Development Theatre.
+
 <pre>
     <code class="language-bash" data-lang="bash">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sprucelabsai-community/theatre-monorepo/master/support/install.sh)"</code>
 </pre>

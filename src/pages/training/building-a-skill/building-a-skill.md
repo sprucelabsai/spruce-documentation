@@ -1,18 +1,6 @@
-# Building A Skill 🧩
+# Building Your First Skill 🧩
 
-You've reached the Building a Skill section, a step towards unleashing the full potential of your programming skills within the Spruce ecosystem.
-
-## What You Will Learn
-
-This section comprises seven meticulously crafted chapters, each focused on a distinct aspect of Spruce development. By the end of this section, you will not only have a comprehensive understanding of the Spruce framework but also hands-on experience in applying these concepts to real-world scenarios. Here’s a sneak peek into what each chapter offers:
-
-1. **Build a Root Skill View:** Dive into the basics of creating the core interface for your applications.
-2. **Manage Your Family Members:** Learn to efficiently handle user relationships and interactions within your applications.
-3. **Manage Your Metadata:** Master the art of organizing and manipulating data to enhance application functionality.
-4. **Create Multi-Card Forms:** Get acquainted with designing complex forms that capture a wide range of user inputs.
-5. **Generate Personalized Stories:** Explore the creative side of Spruce by developing custom narrative experiences for your users.
-6. **Long-Running Operations:** Tackle the challenges of managing operations that require extended execution times.
-7. **Sharing the Story:** Discover how to amplify your application’s reach by enabling users to share their experiences.
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/960504621?h=32d1ec593e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="8-Bit Stories"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ## Project: 8-Bit Stories
 

@@ -1,25 +1,72 @@
----
-title: Views
----
+# Views
 
-![](/spruce-documentation/assets/img/concepts/views.jpeg){.sz100p} {.center}
+Diagrams and details here coming soon...
 
-# Overview
-Skill Views are top-level Views that include various components such as Cards, Lists, Forms, etc. They are what you see when you visit spruce.bot. They are the equivalent of pages in classical web development. They are controlled by SkillViewControllers. Every skill can have one RootSkillViewController that is loaded by the skill's namespace (https://{{namespace}}.spruce.bot), and there is no limit to the number of Skill Views (and Views) a skill can have besides Root.
+## View Controller Plugins
 
-1. **Skill Views**: These are the top-level Views that users interact with when they visit a skill on spruce.bot. Skill Views can incorporate various components such as Cards, Lists, and Forms, providing a rich and dynamic user experience.
+You can globally enhance View Controller functionality by using View Controller Plugins. Here are some plugins that are already available:
 
-2. **RootSkillViewController**: Each skill in Sprucebot has one central controller, the RootSkillViewController, which acts as the entry point. This controller is responsible for managing the primary View of the skill, accessible via the skill's unique namespace URL.
+1. [AutoLogoutPlugin](https://www.npmjs.com/package/@sprucelabs/spruce-heartwood-utils): Automatically logs out a person after a certain period of inactivity. You can set the timeout in seconds and also disable it where desired.
+2. [AdjustMmpVcPlugin](https://www.npmjs.com/package/@sprucelabs/spruce-mmp-vc-plugin): Used to communicate with the MMP (Mobile Media Partners) Adjust. Others like AppsFlyer may come later. It currently only works inside the Spruce native iOS app.
 
-3. **Components of Views**: Within each View, you can integrate various components to build a comprehensive interface. These components include:
-    - **Cards**: Used for displaying information in a segmented format.
-    - **Lists**: Ideal for presenting a collection of items or options.
-    - **Forms**: Facilitate user input and interactions.
+### Implementing a View Controller Plugin
 
-4. **Creating Views**: To create a new Skill View, developers use the `spruce create.view` command. This initiates the process of building a custom View tailored to the specific needs of the skill.
+#### Test: Is the plugin installed?
 
-5. **Previewing and Live Reloading**: The `spruce watch.views` command allows for live reloading and real-time previews of Views. This feature is crucial for iterative development and immediate feedback on changes.
+```ts
+import {
+    vcAssert,
+    vcPluginAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+import { AutoLogoutPlugin } from '@sprucelabs/spruce-heartwood-utils'
 
-6. **Incremental Building**: As developers make modifications to the source, Sprucebot incrementally builds the Views, streamlining the development process and ensuring that changes are promptly reflected.
+@test()
+protected static async autoLogoutPluginInstalled() {
+    vcPluginAssert.pluginIsInstalled(
+        this.views.Controller('eightbitstories.root', {}),
+        'autoLogout',
+        AutoLogoutPlugin
+    )
+}
+```
 
-By utilizing these Views, developers can craft a customized, engaging, and intuitive interface for their skills on Sprucebot, enhancing the user experience and interaction.
+Note: If you are planning on using your own plugin (one that is not built yet), type it instead of `AutoLogoutPlugin` as if it exists and then begin with the productions steps below.
+
+#### Production: Install the plugin
+
+1. Install the module that holds the plugin: `yarn add {packageName}`
+2. Create the plugin: `spruce create.view.plugin`
+3. Implement the plugin into `./src/viewPlugins/{pluginName}.ts`
+
+Your plugin starts like this:
+
+```ts
+import { ViewControllerPlugin } from '@sprucelabs/heartwood-view-controllers'
+
+export default class MyViewPlugin implements ViewControllerPlugin {
+    public async doSomething() {
+        ...
+    }
+}
+```
+
+Now that plugin is created, you can import it into your test.
+
+If you using a prebuilt plugin, you would implement it like this:
+
+```ts
+export { AutoLogoutPlugin as default } from '@sprucelabs/spruce-heartwood-utils'
+```
+
+#### Test Doubling Your Plugin
+
+You can drop in your test double using the `views` fixture on your `AbstractSpruceFixtureTest`. Here is how you may do that in your `beforeEach`:
+
+```ts
+protected static async beforeEach() {
+    this.spy = new SpyPlugin()
+    this.views.addPlugin('autoLogout', this.spy)
+}
+```
+
+Now, in any View Controller you create, `this.plugins.autoLogout` will be the `SpyPlugin` instance.
