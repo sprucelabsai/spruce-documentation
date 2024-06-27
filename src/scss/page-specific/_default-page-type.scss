@@ -51,7 +51,7 @@ $cl-sidebar-bg: #f7f7f7;
   .sidebar-right-bg {
     display: none;
     background-color: $cl-sidebar-bg;
-    grid-area: main-r1-start / sidebar-begin / main-end / vp-right;
+    grid-area: main-r1-start / vp-left / main-end / vp-right;
     z-index: -1;
   }
 
