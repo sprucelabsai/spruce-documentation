@@ -4,12 +4,8 @@
 
   <body class="{{ pageStyleId }} {{ layoutId }}">
     {% include "parts/header.njk" %}
-    {% renderlayoutblock "abovePageWrap" %}{% endrenderlayoutblock %}
-
     {{ content | safe }}
-    
     {% renderlayoutblock "belowPageWrap" %}{% endrenderlayoutblock %}
-    
     {% include "parts/footer.njk" %}
     {% include "parts/templates.njk" %}
     {% include "widgets/unsupported-brower-warning.njk" %}
