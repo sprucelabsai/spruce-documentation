@@ -1,8 +1,4 @@
----
-title: Stores
----
-
-# Overview
+# Stores
 Data Stores act as repositories in Spruce developmentt. They are designed to be database-agnostic and offer a uniform interface for interacting with various database systems.
 
 ## Understanding Stores in Spruce

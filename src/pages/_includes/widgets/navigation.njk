@@ -34,10 +34,10 @@
             </span>
           </a>
           {% if childLink.hasChildren %}
-          <button class="clear-btn up-arrow" data-grandchildren-opener>
+          <button class="clear-btn down-arrow" data-grandchildren-opener>
             {{ downArrowHead() }}
           </button>
-          <ul class="nav-grandchild-level">
+          <ul class="nav-grandchild-level open">
             {% for grandchildLink in childLink.children %}
             <li {% if grandchildLink.url==page.url %} aria-current="page" {% endif %}>
               <a href="{{ grandchildLink.url | url }}" {{ 'target=_blank' if grandchildLink.external }}>
