@@ -85,7 +85,7 @@ function setupNavHandlers() {
       clickedGrandchildLevel?.classList.toggle("open", !currentGrandchildStateOpen);
 
       // Update button arrow direction for grandchild level
-      btn.classList.toggle("up-arrow", currentGrandchildStateOpen);
+      btn.classList.toggle("up-arrow", !currentGrandchildStateOpen);
     });
   });
 }
