@@ -106,13 +106,34 @@
           "title": "Katas",
           "url": "/training/katas/",
           "children": [
-            { "title": "Views", "url": "/training/katas/views/" },
-            { "title": "Events", "url": "/training/katas/events/" },
-            { "title": "Schemas", "url": "/training/katas/schemas/" },
-            { "title": "Permissions", "url": "/training/katas/permissions/" },
-            { "title": "Listeners", "url": "/training/katas/listeners/" },
-            { "title": "Errors", "url": "/training/katas/errors/" },
-            { "title": "Stores", "url": "/training/katas/stores/" }
+            {
+              "title": "Views",
+              "url": "/training/katas/views/"
+            },
+            {
+              "title": "Events",
+              "url": "/training/katas/events/"
+            },
+            {
+              "title": "Schemas",
+              "url": "/training/katas/schemas/"
+            },
+            {
+              "title": "Permissions",
+              "url": "/training/katas/permissions/"
+            },
+            {
+              "title": "Listeners",
+              "url": "/training/katas/listeners/"
+            },
+            {
+              "title": "Errors",
+              "url": "/training/katas/errors/"
+            },
+            {
+              "title": "Stores",
+              "url": "/training/katas/stores/"
+            }
           ]
         }
       ]
@@ -159,7 +180,17 @@
         },
         {
           "title": "Dates & Times",
-          "url": "/concepts/dates-times/"
+          "url": "/concepts/dates-times/",
+          "children": [
+            {
+              "title": "Timezones",
+              "url": "/concepts/dates-times/#timezones"
+            },
+            {
+              "title": "Rendering time until a date",
+              "url": "/concepts/dates-times/#rendering_time_until"
+            }
+          ]
         },
         {
           "title": "Messages",
