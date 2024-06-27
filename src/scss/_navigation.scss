@@ -18,6 +18,11 @@
           height: 24px;
         }
 
+        a.btn-text {
+          display: none;
+        }
+
+
         @include mq-full {
           display: none;
         }

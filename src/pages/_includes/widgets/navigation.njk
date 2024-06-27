@@ -14,8 +14,8 @@
     </li>
     {% for topLink in mainNavData.links %}
     {% set isCurrentParent = topLink.url == activeParent.url %}
-    {% if isCurrentParent %}
-    <li data-is-current-parent="true" aria-current="page">
+    {# {% if isCurrentParent %} #}
+    <li class="{% if isCurrentParent %}is-current{% endif %} top" data-is-current-parent="{% if isCurrentParent %}true{% endif %}" aria-current="page">
       <a href="{{ topLink.url | url }}" {{ 'target=_blank' if topLink.external }}>
         <span>
           {{ topLink.title }}
@@ -52,7 +52,7 @@
       </ul>
       {% endif %}
     </li>
-    {% endif %}
+    {# {% endif %} #}
     {% endfor %}
   </ul>
 </nav>

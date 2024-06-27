@@ -56,7 +56,7 @@ $cl-sidebar-bg: #f7f7f7;
   }
 
   @include mq-full {
-    grid-template-columns: [vp-left] minmax(20px, 1fr) [sidebar-begin] 420px [sidebar-end] minmax(0, 1000px) minmax(20px, 1fr) [vp-right];
+    grid-template-columns: [vp-left] minmax(20px, 1fr) [sidebar-begin] 320px [sidebar-end] minmax(0, 1000px) minmax(20px, 1fr) [vp-right];
     grid-template-areas:
       "... header header ..."
       "... header header ..."
@@ -72,6 +72,9 @@ $cl-sidebar-bg: #f7f7f7;
     .side-bar {
       grid-area: sideBar;
       z-index: unset;
+      li.top:not(.is-current) {
+        display: none;
+      }
     }
 
     .header-full-bg,

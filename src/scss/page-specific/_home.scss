@@ -148,6 +148,15 @@
     }
   }
 
+  .side-bar {
+    grid-area: greeting;
+    display: none;
+  }
+
+  .side-bar.show {
+    display: block;
+  }
+
   @include mq-full {
     #greeting {
       display: flex;
