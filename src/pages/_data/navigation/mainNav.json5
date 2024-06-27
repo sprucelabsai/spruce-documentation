@@ -164,7 +164,33 @@
         },
         {
           "title": "Permissions",
-          "url": "/concepts/permissions/"
+          "url": "/concepts/permissions/",
+          "children": [
+            {
+              "title": "Important Classes",
+              "url": "/concepts/permissions/#important-classes"
+            },
+            {
+              "title": "In Skill Backend",
+              "url": "/concepts/permissions/#checking-in-the-backend"
+            },
+            {
+              "title": " - Request new example",
+              "url": "/help/new-example/"
+            },
+            {
+              "title": "In Skill Views",
+              "url": "/concepts/permissions/#checking-in-skill-views"
+            },
+            {
+              "title": " - Redirect of not logged in",
+              "url": "/concepts/permissions/#redirecting-if-someone-is-not-logged-in"
+            },
+            {
+              "title": " - Request new example",
+              "url": "/help/new-example"
+            }
+          ]
         },
         {
           "title": "Listeners",
@@ -182,6 +208,10 @@
           "title": "Dates & Times",
           "url": "/concepts/dates-times/",
           "children": [
+            {
+              "title": "Important Utilities",
+              "url": "/concepts/dates-times/#important-utilities"
+            },
             {
               "title": "Timezones",
               "url": "/concepts/dates-times/#timezones"
@@ -239,6 +269,10 @@
         {
           "title": "Github Issues",
           "url": "/help/github-issues/"
+        },
+        {
+          "title": "Request new example",
+          "url": "/help/new-example/"
         }
       ]
     }
