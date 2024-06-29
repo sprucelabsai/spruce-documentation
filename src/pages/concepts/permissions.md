@@ -3,9 +3,7 @@
 Permissions are handled by 2 main classes: `Authenticator` and `Authorizer`. The `Authenticator` is responsible for checking if someone is logged in, and the `Authorizer` is responsible for checking if a logged in person has the right permissions to do something.
 
 
-
 ## Important Classes
-
 
 <details>
 <summary>

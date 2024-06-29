@@ -188,7 +188,9 @@ You can globally enhance View Controller functionality by using View Controller 
 
 ### Implementing a View Controller Plugin
 
-#### Test 1: Is the plugin installed?
+
+<details>
+<summary><strong>Test 1:</strong> Is the plugin installed?</summary>
 
 ```ts
 import {
@@ -209,7 +211,10 @@ protected static async autoLogoutPluginInstalled() {
 
 Note: If you are planning on using your own plugin (one that is not built yet), type it instead of `AutoLogoutPlugin` as if it exists and then begin with the productions steps below.
 
-#### Production 1: Install the plugin
+</details>
+
+<details>
+<summary><strong>Production 1:</strong> Install the plugin</summary>
 
 1. Install the module that holds the plugin: `yarn add {packageName}`
 2. Create the plugin: `spruce create.view.plugin`
@@ -233,7 +238,10 @@ Note: If you using a prebuilt plugin, you would implement it like this:
 export { AutoLogoutPlugin as default } from '@sprucelabs/spruce-heartwood-utils'
 ```
 
-#### Test Doubling Your Plugin
+</details>
+
+<details>
+<summary><strong>Test Doubling Your Plugin</strong></summary>
 
 You can drop in your test double using the `views` fixture on your `AbstractSpruceFixtureTest`. Here is how you may do that in your `beforeEach`:
 
@@ -259,3 +267,5 @@ class RootSkillView extends AbstractSkillViewController {
     }
 }
 ```
+
+</details>
