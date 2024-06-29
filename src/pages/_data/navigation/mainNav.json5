@@ -152,7 +152,17 @@
         },
         {
           "title": "Views",
-          "url": "/concepts/views/"
+          "url": "/concepts/views/",
+          "children": [
+            {
+              "title": "Important Classes",
+              "url": "/concepts/views/#important-classes"
+            },
+            {
+              "title": "View Controller Plugins",
+              "url": "/concepts/views/#view-controller-plugins"
+            }
+          ]
         },
         {
           "title": "Events",

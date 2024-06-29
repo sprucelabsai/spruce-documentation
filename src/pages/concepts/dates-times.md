@@ -413,7 +413,7 @@ export interface DateUtil {
 ```
 
 ### DateUtilDecorator
-A decorator that makes the `dateUtil` timezone aware. This is done automatically for you in your Skill Views, but you'll need to do it manually in your backend.
+A decorator that makes the `dateUtil` timezone aware. This is done automatically for you in your Skill Views.
 
 ### durationUtil
 A utility that helps you render durations in various ways.

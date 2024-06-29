@@ -2,11 +2,17 @@
 
 Permissions are handled by 2 main classes: `Authenticator` and `Authorizer`. The `Authenticator` is responsible for checking if someone is logged in, and the `Authorizer` is responsible for checking if a logged in person has the right permissions to do something.
 
+
+
 ## Important Classes
 
-### Authenticator
-See if someone is logged in, who it is, and persist a session token to keep a person logged in.
-```ts
+
+<details>
+<summary>
+<strong>Authenticator</strong> - See if someone is logged in, who it is, and persist a session token to keep a person logged in.
+</summary>
+
+````ts
 export interface Authenticator {
     //Get the logged in person, if someone is logged in
     getPerson(): Person | null
@@ -38,9 +44,14 @@ interface Payloads {
     'did-login': DidLoginPayload
     'did-logout': DidLogoutPayload
 }
-```
-### Authorizer
-Check if a person has the right permissions to do something. Works if someone is not logged in.
+````
+
+</details>
+
+<details>
+<summary>
+<strong>Authorizer</strong> - Check if a person has the right permissions to do something. Works if someone is not logged in.
+</summary>
 
 ```ts
 export interface Authorizer {
@@ -103,6 +114,9 @@ type SavePermissionsTarget = Omit<
 >
 
 ```
+
+</details>
+
 ## Checking in the backend
 
 Coming soon...
@@ -111,8 +125,11 @@ Coming soon...
 
 ### Redirecting if someone is not logged in
 
-#### Test 1: Check for redirect on load
-We're going to write this test with the person not logged in and redirect, but it'll take another test to get the `Authenticator` into the production code.
+<details>
+
+<summary><strong>Test 1:</strong> Check for redirect on load</summary>
+
+We're going to write this test with the person not logged in and redirect, but it'll take another test to get the `Authenticator` into the production code. 
 
 ```ts
 import { fake, AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
@@ -140,8 +157,12 @@ export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 }
 ```
 
-#### Production 1: Redirect no matter what
-We actually don't need to check if the person is logged in yet! Go TDD!
+</details>
+
+<details>
+<summary><strong>Production 1:</strong> Redirect no matter what</summary>
+
+We actually don't need to check if the person is logged in yet! Go TDD! 
 
 ```ts
 import { AbstractSkillViewController, SkillViewControllerLoadOptions } from '@sprucelabs/heartwood-view-controllers'
@@ -160,7 +181,10 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 ```
 
-#### Test 2: Should not redirect if logged in
+</details>
+
+<details>
+<summary><strong>Test 2:</strong> Should not redirect if logged in</summary>
 Now we'll test that it does NOT redirect if someone is logged in, which will force us to do the `authenticator.isLoggedIn()` check. Something to note: If a redirect is triggered without an assert, it will throw an error and fail the test. So, you don't actually need to assert anything in this test.
 
 ```ts
@@ -178,7 +202,11 @@ protected static async shouldNotRedirectIfLoggedIn() {
 
 ```
 
-#### Production 2: Check if person is logged in
+</details>
+
+
+<details>
+<summary><strong>Production 2:</strong> Check if person is logged in</summary>
 Now, inside our `RootSkillViewController`, we'll check if the person is logged in before redirecting. If you run logic after this check, you'll need to write tests to ensure that logic is not run after the redirect (not covered in this example).
 
 ```ts
@@ -199,7 +227,10 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 ```
 
-#### Test 3: Refactor tests
+</details>
+
+<details>
+<summary><strong>Test 3:</strong> Refactor tests</summary>
 
 Here is how you could refactor your tests to make them more readable and maintainable.
 
@@ -244,5 +275,8 @@ export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 }
 ```
 
+</details>
 
 ## In event contracts
+
+Coming soon...
