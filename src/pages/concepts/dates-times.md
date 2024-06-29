@@ -2,8 +2,8 @@
 
 ## Important Utilities
 
-### dateUtil
-A utility that wraps a lot of helpful date related functionality. By default it's not timezone aware, but you can make it timezone aware by using the `DateUtilDecorator` provided by `@sprucelabs/calendar-utils`.
+<details>
+<summary><strong>dateUtil</strong> - A utility that wraps a lot of helpful date related functionality. By default it's not timezone aware, but you can make it timezone aware by using the DateUtilDecorator provided by @sprucelabs/calendar-utils.</summary>
 
 
 ```ts
@@ -412,11 +412,19 @@ export interface DateUtil {
 
 ```
 
-### DateUtilDecorator
-A decorator that makes the `dateUtil` timezone aware. This is done automatically for you in your Skill Views.
+</details>
 
-### durationUtil
-A utility that helps you render durations in various ways.
+<details>
+<summary><strong>DateUtilDecorator</strong> - A decorator that makes the dateUtil timezone aware. This is done automatically for you in your Skill Views.</summary>
+
+Coming soon...
+</details>
+
+<details>
+<summary><strong>durationUtil</strong> - A utility that helps you render durations (timespans, distances, etc.) in various ways.</summary>
+
+Coming soon...
+</details>
 
 ## Timezones
 
@@ -435,8 +443,8 @@ The `durationUtil` provided by `@sprucelabs/calendar-utils` is useful for render
 ### `durationUtil` in the backend
 
 If you need to render a time span from a listener or something invoked from a listener, here is how you would on that.
-
-#### Test 1: Ensure `durationUtil.renderDateTimeUntil(...)` is called and used as expected
+<details>
+<summary><strong>Test 1:</strong> Assert `durationUtil.renderDateTimeUntil(...)` is called</summary>
 
 You are safe to monkey patch the `durationUtil` on the `DurationUtilBuilder` to spy on the `renderDateTimeUntil(...)` method. Make sure to call `DurationBuilder.reset()` in the `beforeEach()` of your test suite to make sure the `durationUtil` is reset to its original state.
 
@@ -463,7 +471,10 @@ protected static async myOperationCallsRenderDateTimeUntil() {
 }
 ```
 
-#### Production 1: Call `durationUtil.renderDateTimeUntil(...)`
+</details>
+
+<details>
+<summary><strong>Production 1:</strong> Call `durationUtil.renderDateTimeUntil(...)`</summary>
 
 In this first attempt, you're only making sure that the `durationUtil.renderDateTimeUntil(...)` method is called. You're not concerned with the parameters passed to it nor are you concerned with the timezone, just drop in something random to start.
 
@@ -480,7 +491,10 @@ public async someOperation() {
 }
 ```
 
-#### Test 2: Ensure `durationUtil.renderDateTimeUntil(...)` is called with correct params
+</details>
+
+<details>
+<summary><strong>Test 2:</strong> Assert `durationUtil.renderDateTimeUntil(...)` is called with correct params</summary>
 
 Now that you know the `durationUtil.renderDateTimeUntil(...)` method is called, you can spy on the parameters passed to it. You can use `assert.isBetween(...)` to ensure the `beginning` and `end` parameters are within a reasonable range.
 
@@ -507,7 +521,10 @@ protected static async myOperationCallsRenderDateTimeUntil() {
 }
 ```
 
-#### Production 2: Call `durationUtil.renderDateTimeUntil(...)` with correct params
+</details>
+
+<details>
+<summary><strong>Production 2:</strong> Call `durationUtil.renderDateTimeUntil(...)` with correct params</summary>
 
 In a lot of cases, you'll just want to pass `Date.now()` as the `beginning` parameter. That's what I'll show you here.
 
@@ -524,7 +541,10 @@ public async someOperation() {
 }
 ```
 
-#### Test 3: Ensure `durationUtil.renderDateTimeUntil(...)` is called with correct timezone
+</details>
+
+<details>
+<summary><strong>Test 3</strong>: Assert `durationUtil.renderDateTimeUntil(...)` is called with correct timezone</summary>
 
 You can start a new test and use the `dateAssert` utility from `@sprucelabs/calendar-utils` to assert the timezone based on `DurationUtilBuilder.lastBuiltDurationUtil`. Note: You can get the `timezone` off a `Location` or `Person` if you don't want to hardcode it like this example.
 
@@ -543,7 +563,10 @@ protected static async myOperationCalledWithTheExpectedTimezone() {
 
 ```
 
-#### Production 3: Call `durationUtil.renderDateTimeUntil(...)` with correct timezone
+</details>
+
+<details>
+<summary><strong>Production 3</strong>: Call `durationUtil.renderDateTimeUntil(...)` with correct timezone</summary>
 
 Finally! You can bring it home by calling the `DurationUtilBuilder.getFromTimezone()` method with the correct timezone! You could obviously do this first, it's totally up to you!
 
@@ -560,11 +583,14 @@ public async someOperation() {
 }
 ```
 
+</details>
+
 ### `durationUtil` in views
 
 If you want to render the time until an event in a View Controller, you go about it slightly differently, but it's pretty easy!
 
-#### Test 1: Ensure `durationUtil` is configured correctly
+<details>
+<summary><strong>Test 1:</strong> Assert `durationUtil` is configured correctly</summary>
 
 ```ts
 import { vcDurationAssert } from '@sprucelabs/heartwood-view-controllers'
@@ -576,8 +602,10 @@ protected static async myViewHasDurationUtilConfigured() {
 }
 ```
 
+</details>
 
-#### Test 1a: Ensure `vcDurationAssert` is configured correctly
+<details>
+<summary><strong>Test 1a:</strong> Ensure `vcDurationAssert` is configured correctly</summary>
 
 You should have gotten an error telling you to call `vcDurationAssert.beforeEach(this.views)` to get the assertion library to work correctly. Lets do that now.
 
@@ -596,7 +624,10 @@ protected static async myViewHasDurationUtilConfigured() {
 }
 ```
 
-#### Production 1: Configure `durationUtil` in the View Controller
+</details>
+
+<details>
+<summary><strong>Production 1:</strong> Configure `durationUtil` in the View Controller</summary>
 
 Your View Controller will come with a fully timezone aware `dateUtil` accessibly via `this.dates`. Your job is to set the `durationUtil.dates` to `this.dates` in the constructor of your View Controller to make sure the `durationUtil` is timezone aware.
 
@@ -609,11 +640,14 @@ class RootSkillView extends AbstractSkillViewController {
 }
 ```
 
+</details>
+
 ### `durationUtil` in messages
 
 Sending a message that renders the time until is a bit different than the other two examples. You actually don't need to use the `durationUtil` at all because it's handled by [Mercury](../mercury/) for you using [Message Context](../messages)!
 
-#### Test 1: Ensure a message is sent
+<details>
+<summary><strong>Test 1:</strong> Assert a message is sent</summary>
 
 ```ts
 import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
@@ -645,7 +679,10 @@ protected static async messageIsSent() {
 }
 ```
 
-#### Production 1: Send a message
+</details>
+
+<details>
+<summary><strong>Production 1:</strong> Send a message</summary>
 Follow the process for [sending messages](../messages) to work your way through testing sending a message. We'll only pay attention to the parts relevant to rendering the time until a date.
 
 ```ts
@@ -657,7 +694,10 @@ private async someOperationThatSendsAMessage() {
 }
 ```
 
-#### Test 2: Ensure the message is sent with expected placeholder
+</details>
+
+<details>
+<summary><strong>Test 2:</strong> Assert the message is sent with expected placeholder</summary>
 Now we'll check the body to see if it contains the `{{formatDateTimeUntil dateTimeMs}}` placeholder. Also, we can remove the `didHit` assertion because it's redundant. Lastly, I'm not gonna show the full response because it's not relevant to this example.
 
 ```ts
@@ -683,7 +723,10 @@ protected static async messageIsSent() {
 }
 ```
 
-#### Production 2: Send a message with the placeholder
+</details>
+
+<details>
+<summary><strong>Production 2:</strong> Send a message with the placeholder</summary>
 
 ```ts
 private async someOperationThatSendsAMessage() {
@@ -698,7 +741,11 @@ private async someOperationThatSendsAMessage() {
     }
 }
 ```
-#### Test 3: Ensure the message has the correct context
+
+</details>
+
+<details>
+<summary><strong>Test 3:</strong> Assert the message has the correct context</summary>
 The `formatDateTimeUntil` placeholder is a plugin that accepts a variable that is named after anything in the [Message Context](../messages). In this case, we're using `eventDateMs` as the variable name. We need to make sure that the `eventDateMs` is in the context of the message. This variable could be called anything as long as it's a key in the context. Also, the `formatDateTimeUntil` plugin will default to the target's timezone. Meaning, if you target a location, it'll use that location's timezone. Or, if you target a person, it'll use that person's timezone. In this example, we want to target a timezone manuall, just to show you how to do it.
 
 ```ts
@@ -729,7 +776,10 @@ protected static async messageIsSent() {
 }
 ```
 
-#### Production 3: Send a message with the context
+</details>
+
+<details>
+<summary><strong>Production 3:</strong> Send a message with the context</summary>
 
 ```ts
 private async someOperationThatSendsAMessage() {
@@ -749,7 +799,11 @@ private async someOperationThatSendsAMessage() {
 }
 ```
 
-#### Test 4: Parameterize the timezone
+</details>
+
+<details>
+
+<summary><strong>Test 4:</strong> Parameterize the timezone</summary>
 
 Lastly, lets parameterize this test to let us test different timezones.
 
@@ -784,7 +838,11 @@ protected static async messageIsSent(timezone: TimezoneName) {
 }
 ```
 
-#### Production 4: Send a message with the timezone
+</details>
+
+<details>
+
+<summary><strong>Production 4:</strong> Send a message with the timezone</summary>
 
  ```ts
 private async someOperationThatSendsAMessage() {
@@ -804,3 +862,5 @@ private async someOperationThatSendsAMessage() {
     }
 }
 ```
+
+</details>
