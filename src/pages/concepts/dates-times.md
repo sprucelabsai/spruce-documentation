@@ -444,7 +444,7 @@ The `durationUtil` provided by `@sprucelabs/calendar-utils` is useful for render
 
 If you need to render a time span from a listener or something invoked from a listener, here is how you would on that.
 <details>
-<summary><strong>Test 1:</strong> Assert `durationUtil.renderDateTimeUntil(...)` is called</summary>
+<summary><strong>Test 1:</strong> Assert <em>durationUtil.renderDateTimeUntil(...)</em> is called</summary>
 
 You are safe to monkey patch the `durationUtil` on the `DurationUtilBuilder` to spy on the `renderDateTimeUntil(...)` method. Make sure to call `DurationBuilder.reset()` in the `beforeEach()` of your test suite to make sure the `durationUtil` is reset to its original state.
 
@@ -474,7 +474,7 @@ protected static async myOperationCallsRenderDateTimeUntil() {
 </details>
 
 <details>
-<summary><strong>Production 1:</strong> Call `durationUtil.renderDateTimeUntil(...)`</summary>
+<summary><strong>Production 1:</strong> Call <em>durationUtil.renderDateTimeUntil(...)</em></summary>
 
 In this first attempt, you're only making sure that the `durationUtil.renderDateTimeUntil(...)` method is called. You're not concerned with the parameters passed to it nor are you concerned with the timezone, just drop in something random to start.
 
@@ -494,7 +494,7 @@ public async someOperation() {
 </details>
 
 <details>
-<summary><strong>Test 2:</strong> Assert `durationUtil.renderDateTimeUntil(...)` is called with correct params</summary>
+<summary><strong>Test 2:</strong> Assert <em>durationUtil.renderDateTimeUntil(...)</em> is called with correct params</summary>
 
 Now that you know the `durationUtil.renderDateTimeUntil(...)` method is called, you can spy on the parameters passed to it. You can use `assert.isBetween(...)` to ensure the `beginning` and `end` parameters are within a reasonable range.
 
@@ -524,7 +524,7 @@ protected static async myOperationCallsRenderDateTimeUntil() {
 </details>
 
 <details>
-<summary><strong>Production 2:</strong> Call `durationUtil.renderDateTimeUntil(...)` with correct params</summary>
+<summary><strong>Production 2:</strong> Call <em>durationUtil.renderDateTimeUntil(...)</em> with correct params</summary>
 
 In a lot of cases, you'll just want to pass `Date.now()` as the `beginning` parameter. That's what I'll show you here.
 
@@ -544,7 +544,7 @@ public async someOperation() {
 </details>
 
 <details>
-<summary><strong>Test 3</strong>: Assert `durationUtil.renderDateTimeUntil(...)` is called with correct timezone</summary>
+<summary><strong>Test 3</strong>: Assert <em>durationUtil.renderDateTimeUntil(...)</em> is called with correct timezone</summary>
 
 You can start a new test and use the `dateAssert` utility from `@sprucelabs/calendar-utils` to assert the timezone based on `DurationUtilBuilder.lastBuiltDurationUtil`. Note: You can get the `timezone` off a `Location` or `Person` if you don't want to hardcode it like this example.
 
@@ -605,7 +605,7 @@ protected static async myViewHasDurationUtilConfigured() {
 </details>
 
 <details>
-<summary><strong>Test 1a:</strong> Ensure `vcDurationAssert` is configured correctly</summary>
+<summary><strong>Test 1a:</strong> Ensure <em>vcDurationAssert</em> is configured correctly</summary>
 
 You should have gotten an error telling you to call `vcDurationAssert.beforeEach(this.views)` to get the assertion library to work correctly. Lets do that now.
 
@@ -627,7 +627,7 @@ protected static async myViewHasDurationUtilConfigured() {
 </details>
 
 <details>
-<summary><strong>Production 1:</strong> Configure `durationUtil` in the View Controller</summary>
+<summary><strong>Production 1:</strong> Configure <em>durationUtil</em> in the View Controller</summary>
 
 Your View Controller will come with a fully timezone aware `dateUtil` accessibly via `this.dates`. Your job is to set the `durationUtil.dates` to `this.dates` in the constructor of your View Controller to make sure the `durationUtil` is timezone aware.
 

@@ -1,37 +1,47 @@
 # Views
 
-Diagrams and details here coming soon...
+<img src="../../assets/img/diagrams/skill_view_and_card.png">
 
 ## Important Classes
 
 <details>
+
 <summary><strong>AbstractCalendarEventViewController</strong> - The class that calendar events extend to customize how they render in the calendar.</summary>
 
 Coming soon...
+
 </details>
 
 <details>
+
 <summary><strong>AbstractSkillViewController</strong> - The class your Skill Views can extend to have access to helpful properties.</summary>
 
 Coming soon...
+
 </details>
 
 <details>
+
 <summary><strong>AbstractViewController</strong> - The class your views can extend to have access to helpful properties.</summary>
 
 Coming soon...
+
 </details>
 
 <details>
+
 <summary><strong>ActiveRecordCardViewController</strong> - A card that holds an `ActiveRecordList` to make loading, searching, and paging through database records a breeze.</summary>
 
 [Storybook](https://storybook.spruce.bot/?path=/story/components-lists--active-record-list)
+
 </details>
 
 <details>
+
 <summary><strong>ActiveRecordListViewController</strong> - A list that makes loading, searching, and paging through database record a breeze.</summary>
 
 [Storybook](https://storybook.spruce.bot/?path=/story/components-lists--active-record-list)
+
 </details>
 
 <details>
@@ -154,7 +164,6 @@ Coming soon...
 [Storybook](https://storybook.spruce.bot/?path=/story/components-form--customizable-ratings).
 </details>
 
-
 <details>
 <summary><strong>SwipeViewController</strong> - A version of a card where sections are rendered as a swipe view.</summary>
 
@@ -188,9 +197,8 @@ You can globally enhance View Controller functionality by using View Controller 
 
 ### Implementing a View Controller Plugin
 
-
 <details>
-<summary><strong>Test 1:</strong> Is the plugin installed?</summary>
+<summary><strong>Test 1:</strong> Assert the plugin is installed</summary>
 
 ```ts
 import {
@@ -209,7 +217,7 @@ protected static async autoLogoutPluginInstalled() {
 }
 ```
 
-Note: If you are planning on using your own plugin (one that is not built yet), type it instead of `AutoLogoutPlugin` as if it exists and then begin with the productions steps below.
+> **Note**: If you are planning on using your own plugin (one that is not built yet), use it instead of `AutoLogoutPlugin` as if it exists and then begin with the productions steps below.
 
 </details>
 
@@ -232,7 +240,7 @@ export default class MyViewPlugin implements ViewControllerPlugin {
 
 Now that plugin is created, you can import it into your test.
 
-Note: If you using a prebuilt plugin, you would implement it like this:
+> **Note**: If you are using a prebuilt plugin, you would implement it like this:
 
 ```ts
 export { AutoLogoutPlugin as default } from '@sprucelabs/spruce-heartwood-utils'
@@ -243,7 +251,7 @@ export { AutoLogoutPlugin as default } from '@sprucelabs/spruce-heartwood-utils'
 <details>
 <summary><strong>Test Doubling Your Plugin</strong></summary>
 
-You can drop in your test double using the `views` fixture on your `AbstractSpruceFixtureTest`. Here is how you may do that in your `beforeEach`:
+You can drop in your test double using the `views` fixture on your `AbstractSpruceFixtureTest` . Here is how you may do that in your `beforeEach` :
 
 ```ts
 protected static async beforeEach() {
