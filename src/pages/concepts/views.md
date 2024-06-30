@@ -196,9 +196,17 @@ Coming soon...
 [Storybook](https://storybook.spruce.bot/?path=/story/components-tool-belt-tool-belt--tool-belt).
 </details>
 
+## Root Skill View
+
+Coming soon...
+
+## Skill View Lifecycle
+
+Coming soon...
+
 ## Rendering a Skill View
 
-Let's get started on rendering a `SkillView`.
+Let's get started on rendering a `SkillView`. In this example I'll use the `RootSkillViewController`, but you can name your `SkillViewController` anything you want.
 
 <details>
 <summary><strong>Test 1</strong>: Load Your (Root) Skill View</summary>
@@ -265,6 +273,7 @@ import {
     vcAssert,
     vcPluginAssert,
 } from '@sprucelabs/heartwood-view-controllers'
+
 import { AutoLogoutPlugin } from '@sprucelabs/spruce-heartwood-utils'
 
 @test()
