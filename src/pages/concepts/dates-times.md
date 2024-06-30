@@ -789,7 +789,7 @@ private async someOperationThatSendsAMessage() {
         payload: {
             message: {
                 ...,
-                body: `Your journey starts in {{formatDateTimeUntil eventDateMs}}!`,
+                body: `Your journey starts in {% echo "{{formatDateTimeUntil eventDateMs}}" %}!`,
                 context: {
                     eventDateMs: 0 //some date in the future or past,
                     timezone: 'Africa/Johannesburg'
@@ -853,7 +853,7 @@ private async someOperationThatSendsAMessage() {
         payload: {
             message: {
                 ...,
-                body: `Your journey starts in {{formatDateTimeUntil eventDateMs}}!`,
+                body: `Your journey starts in {% echo "{{formatDateTimeUntil eventDateMs}}" %}!`,
                 context: {
                     eventDateMs: 0 //some date in the future or past,
                     timezone,

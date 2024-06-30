@@ -196,12 +196,12 @@ Coming soon...
 [Storybook](https://storybook.spruce.bot/?path=/story/components-tool-belt-tool-belt--tool-belt).
 </details>
 
-## Rendering Your First Skill View
+## Rendering a Skill View
 
-Let's get started on rendering your first `SkillView` and `CardViewController`.
+Let's get started on rendering a `SkillView`.
 
 <details>
-<summary><strong>Test 1</strong>: Load Your Root Skill View</summary>
+<summary><strong>Test 1</strong>: Load Your (Root) Skill View</summary>
 
 We'll start with the `RootSkillViewController`. All you have to do to start is try and load your Skill View and the test will fail.
 
@@ -222,6 +222,30 @@ This part is pretty easy! Run this following command and follow the instructions
 ```shell
 spruce create.view
 ```
+</details>
+
+## Rendering Cards
+
+Now that you have your `RootSkillViewController`, you can start adding cards to it. Here is how you can test and implement some cards.
+
+<details>
+<summary><strong>Test 1</strong>: Assert card is rendered</summary>
+
+```ts
+import {
+    vcAssert,
+    vcPluginAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+
+...
+
+@test()
+protected static async rendersExpectedCard() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    vcAssert.assertSkillViewRendersCard(vc, 'my-card')
+}
+```
+
 </details>
 
 ## View Controller Plugins
