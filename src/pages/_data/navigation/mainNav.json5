@@ -159,6 +159,14 @@
               "url": "/concepts/views/#important-classes"
             },
             {
+              "title": "Rendering Your First Skill View",
+              "url": "/concepts/views/#rendering-your-first-skill-view"
+            },
+            {
+              "title": "Rendering Cards",
+              "url": "/concepts/views/#rendering-cards"
+            },
+            {
               "title": "View Controller Plugins",
               "url": "/concepts/views/#view-controller-plugins"
             }

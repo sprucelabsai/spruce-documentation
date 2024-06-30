@@ -9,20 +9,20 @@ In this chapter, you'll learn how to implement the invite skill functionality.
 ### Initialize Your Spruce Bot Project
 Use the Spruce CLI to initialize your project.
 
-```bash
+```shell
 
 ```
 
 Navigate to your directory:
 
-```bash
+```shell
 
 ```
 
 ### Install Dependencies
 Ensure all necessary dependencies are installed:
 
-```bash
+```shell
 
 ```
 
@@ -30,14 +30,14 @@ Ensure all necessary dependencies are installed:
 ### Setting Up Test Environment
 Prepare your testing environment
 
-```bash
+```shell
 
 ```
 
 ### Drafting Your First Test
 Create a new test for the invite skill:
 
-```bash
+```shell
 spruce create.test inviteSkill
 ```
 
@@ -73,7 +73,7 @@ Embed the invite skill in your workflow.
 ### Run Tests
 Execute your tests to ensure the invite functionality works as expected.
 
-```bash
+```shell
 
 ```
 

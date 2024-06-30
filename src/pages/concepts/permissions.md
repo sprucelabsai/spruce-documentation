@@ -183,6 +183,7 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 <details>
 <summary><strong>Test 2:</strong> Should not redirect if logged in</summary>
+
 Now we'll test that it does NOT redirect if someone is logged in, which will force us to do the `authenticator.isLoggedIn()` check. Something to note: If a redirect is triggered without an assert, it will throw an error and fail the test. So, you don't actually need to assert anything in this test.
 
 ```ts

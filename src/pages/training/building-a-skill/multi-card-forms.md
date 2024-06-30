@@ -8,7 +8,7 @@ In this Chapter, we'll walk through the process of building a story generation f
 
 1. **Initialize Your Project**:
    - Begin by setting up your development environment for the project.
-     ```bash
+     ```shell
      watch.views
      ```
 

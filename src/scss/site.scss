@@ -64,8 +64,8 @@ h1 {
 }
 
 blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
+  background: rgba($cl-gray, 10%);
+  border-left: 10px solid $monokai-fg;
   margin: 1.5em 10px;
-  padding: 5px 10px .1em 20px;
+  padding: 1px 10px .1em 20px;
 }

@@ -746,6 +746,7 @@ private async someOperationThatSendsAMessage() {
 
 <details>
 <summary><strong>Test 3:</strong> Assert the message has the correct context</summary>
+
 The `formatDateTimeUntil` placeholder is a plugin that accepts a variable that is named after anything in the [Message Context](../messages). In this case, we're using `eventDateMs` as the variable name. We need to make sure that the `eventDateMs` is in the context of the message. This variable could be called anything as long as it's a key in the context. Also, the `formatDateTimeUntil` plugin will default to the target's timezone. Meaning, if you target a location, it'll use that location's timezone. Or, if you target a person, it'll use that person's timezone. In this example, we want to target a timezone manuall, just to show you how to do it.
 
 ```ts

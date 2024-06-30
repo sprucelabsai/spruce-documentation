@@ -15,7 +15,7 @@ Before starting, ensure your development environment is ready:
 1. **Docker Setup**: Initialize Docker with `spruce start.cache` for efficient NPM package caching.
 2. **Skill Project Creation**: Use `spruce create.skill [yourSkillName]` to initiate a new skill project. Example: `spruce create.skill kata-1`. 
 3. **Accessing the Skill**: Navigate to your skill folder and open it in Visual Studio Code:
-   ```bash
+   ```shell
    cd kata-1 && code .
    ```
 4. **IDE Configuration**: Inside Visual Studio Code, run `spruce setup.vscode` in the terminal and follow the setup instructions for debugging and other configurations.

@@ -1,8 +1,14 @@
 # Views
 
-Views are the building blocks of the front-end experience in Spruce. Every `Skill` can register `Skill Views` that are comprised of `CardViewControllers`.
+`Views` are the building blocks of the front-end experience in Spruce. Every `Skill` can register `Skill Views` that are comprised of `CardViewControllers`. By default, the a skill's `RootSkillViewController` is the first view that is rendered.
 
-<img src="../../assets/img/diagrams/skill_view_and_card.png">
+<img style="margin:0 auto; display:block;" src="../../assets/img/diagrams/skill_view_with_cards.png">
+
+A `CardViewController` has a `CardHeader`, `CardBody`, and `CardFooter`. The `CardBody` is comprised of many `CardSections`. See the diagrams below to understand how cards are constructed.
+
+<img style="margin:0 auto; display:block;" src="../../assets/img/diagrams/skill_view_and_card.png">
+
+Every other type of `ViewController` (listed below) is rendered inside a `CardSection`. This allows for a consistent look and feel across all views in the Spruce ecosystem.
 
 ## Important Classes
 
@@ -190,12 +196,40 @@ Coming soon...
 [Storybook](https://storybook.spruce.bot/?path=/story/components-tool-belt-tool-belt--tool-belt).
 </details>
 
+## Rendering Your First Skill View
+
+Let's get started on rendering your first `SkillView` and `CardViewController`.
+
+<details>
+<summary><strong>Test 1</strong>: Load Your Root Skill View</summary>
+
+We'll start with the `RootSkillViewController`. All you have to do to start is try and load your Skill View and the test will fail.
+
+```ts
+@test()
+protected static async canLoadRootSkillView() {
+    this.views.Controller('eightbitstories.root', {}),
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Create Your Root Skill View</summary>
+
+This part is pretty easy! Run this following command and follow the instructions!
+
+```shell
+spruce create.view
+```
+</details>
+
 ## View Controller Plugins
 
 You can globally enhance View Controller functionality by using View Controller Plugins. Here are some plugins that are already available:
 
 1. [AutoLogoutPlugin](https://www.npmjs.com/package/@sprucelabs/spruce-heartwood-utils): Automatically logs out a person after a certain period of inactivity. You can set the timeout in seconds and also disable it where desired.
-2. [AdjustMmpVcPlugin](https://www.npmjs.com/package/@sprucelabs/spruce-mmp-vc-plugin): Used to communicate with the MMP (Mobile Media Partners) Adjust. Others like AppsFlyer may come later. It currently only works inside the Spruce native iOS app.
+2. [AdjustMmpVcPlugin](https://www.npmjs.com/package/@sprucelabs/spruce-mmp-vc-plugin): Used to communicate with the MMP (Mobile Measurement Partners) Adjust. Others like AppsFlyer may come later. It currently only works inside the Spruce native iOS app.
 
 ### Implementing a View Controller Plugin
 
@@ -253,7 +287,7 @@ export { AutoLogoutPlugin as default } from '@sprucelabs/spruce-heartwood-utils'
 <details>
 <summary><strong>Test Doubling Your Plugin</strong></summary>
 
-You can drop in your test double using the `views` fixture on your `AbstractSpruceFixtureTest` . Here is how you may do that in your `beforeEach` :
+You can drop in your test double using the `views` fixture on your `AbstractSpruceFixtureTest` . Here is how you may do that in your `beforeEach()`:
 
 ```ts
 protected static async beforeEach() {
