@@ -590,7 +590,7 @@ public async someOperation() {
 If you want to render the time until an event in a View Controller, you go about it slightly differently, but it's pretty easy!
 
 <details>
-<summary><strong>Test 1:</strong> Assert `durationUtil` is configured correctly</summary>
+<summary><strong>Test 1:</strong> Assert <em>durationUtil</em> is configured correctly</summary>
 
 ```ts
 import { vcDurationAssert } from '@sprucelabs/heartwood-view-controllers'

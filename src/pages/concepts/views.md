@@ -1,5 +1,7 @@
 # Views
 
+Views are the building blocks of the front-end experience in Spruce. Every `Skill` can register `Skill Views` that are comprised of `CardViewControllers`.
+
 <img src="../../assets/img/diagrams/skill_view_and_card.png">
 
 ## Important Classes
@@ -226,7 +228,7 @@ protected static async autoLogoutPluginInstalled() {
 
 1. Install the module that holds the plugin: `yarn add {packageName}`
 2. Create the plugin: `spruce create.view.plugin`
-3. Implement the plugin into `./src/viewPlugins/{pluginName}.ts`
+3. Implement the plugin at `./src/viewPlugins/{pluginName}.ts`
 
 Your plugin starts like this:
 
