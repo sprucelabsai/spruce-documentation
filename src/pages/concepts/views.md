@@ -202,7 +202,7 @@ Coming soon...
 
 ## Skill View Lifecycle
 
-Coming soon...
+<img src="../../assets/img/diagrams/skill_view_lifecycle.png">
 
 ## Rendering a Skill View
 
