@@ -43,6 +43,17 @@ interface Payloads {
     'did-logout': DidLogoutPayload
 }
 ````
+| Method | Returns | Description |
+| --- | --- | --- |
+| `getPerson()` | `Person` \| `null` | Get the logged in person, if someone is logged in |
+| `setSessionToken(token: string, person: Person)` | `void` | Log a person in by setting their token and Person record |
+| `getSessionToken()` | `string` \| `null` | Get the session token of a logged in person |
+| `isLoggedIn()` | `bool` | Check if someone is logged in |
+| `clearSession()` | `void` | Clear the session, logging the person out |
+| `addEventListener<N extends 'did-login' \| 'did-logout'>(name: N, cb: Payloads[N])` | `void` | Add an event listener for when someone logs in or out to take some action |
+| `removeEventListener<N extends 'did-login' \| 'did-logout'>(name: N, cb?: Payloads[N])` | `void` | Remove an event listener, passing no cb will remove all listeners for that event |
+
+
 
 </details>
 
