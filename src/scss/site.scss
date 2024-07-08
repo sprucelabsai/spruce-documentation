@@ -67,6 +67,11 @@ h1 {
   padding-bottom: 20px;
 }
 
+h3 {
+  border-bottom: 1px solid $cl-gray;
+  padding-bottom: 5px;
+}
+
 .main-area > h2 {
   background: rgba($cl-gray, 30%); 
   padding: 10px;

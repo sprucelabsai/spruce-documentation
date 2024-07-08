@@ -50,7 +50,7 @@
             {
               "title": "Spring",
               "url": "/getting-started/frameworks/spring/"
-            },
+            }
           ]
         },
         {
@@ -159,12 +159,40 @@
               "url": "/concepts/views/#important-classes"
             },
             {
-              "title": "Rendering a Skill View",
+              "title": "Root Skill View",
+              "url": "/concepts/views/#root-skill-view"
+            },
+            {
+              "title": "Skill View Lifecycle",
+              "url": "/concepts/views/#skill-view-lifecycle"
+            },
+            {
+              "title": "Rendering Skill Views",
               "url": "/concepts/views/#rendering-a-skill-view"
+            },
+            {
+              "title": " - Root Skill View",
+              "url": "/concepts/views/#root-skill-view"
+            },
+            {
+              "title": " - Arbitrary Skill Views",
+              "url": "/concepts/views/#root-skill-view"
+            },
+            {
+              "title": " - Redirecting Between Skill Views",
+              "url": "/concepts/views/#redirecting-between-skill-views"
             },
             {
               "title": "Rendering Cards",
               "url": "/concepts/views/#rendering-cards"
+            },
+            {
+              "title": " - Asserting by Id",
+              "url": "/concepts/views/#asserting-card-by-id"
+            },
+            {
+              "title": "Rendering a Dialog",
+              "url": "/concepts/views/#rendering-a-dialog"
             },
             {
               "title": "View Controller Plugins",
@@ -207,6 +235,10 @@
             {
               "title": " - Request new example",
               "url": "/help/new-example"
+            },
+            {
+              "title": "In event contracts",
+              "url": "/concepts/permissions/#in-event-contracts"
             }
           ]
         },
@@ -235,8 +267,28 @@
               "url": "/concepts/dates-times/#timezones"
             },
             {
+              "title": " - Based on Location",
+              "url": "/concepts/dates-times/#based-on-location"
+            },
+            {
+              "title": " - Based on Person",
+              "url": "/concepts/dates-times/#based-on-person"
+            },
+            {
               "title": "Rendering time until a date",
               "url": "/concepts/dates-times/#rendering-time-until-a-date"
+            },
+            {
+              "title": " - In the Backend",
+              "url": "/concepts/dates-times/#duration-util-in-the-backend"
+            },
+            {
+              "title": " - In Views",
+              "url": "/concepts/dates-times/#duration-util-in-views"
+            },
+            {
+              "title": " - In Messages",
+              "url": "/concepts/dates-times/#duration-util-in-messages"
             }
           ]
         },
