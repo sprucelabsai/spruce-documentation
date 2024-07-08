@@ -113,7 +113,7 @@ You can customize the look of any view in your app using the `SwiftUI` framework
 
 [Heartwood](../../concepts/views/) handles the rendering of all front end components. It adopts the philosphy of "Everything Beautiful". While you are constrained to the views that Heartwood provides, you can customize their look by running the following in your skill:
 
-```bash
+```shell
 spruce create.theme
 ```
 
@@ -173,7 +173,7 @@ context.save()
 
 In Spruce, you'll use the [Stores](../../concepts/stores/) feature to persist data. The stores use [Schemas](../../concepts/schemas/) to define the shape of the data.
 
-```bash
+```shell
 spruce create.store
 ```
 
@@ -216,7 +216,7 @@ do {
 
 Spruce provides a much more robust, standardized error handling system. You can use the [SpruceError](../../concepts/errors/) class to create custom errors, you define the Schemas for those errors to give them shape, and then use try-catch blocks to handle them.
 
-```bash
+```shell
 spruce create.error
 ```
 
@@ -253,7 +253,7 @@ class MyTests: XCTestCase {
 
 Everything in Spruce starts with a [Test](../../concepts/tests/) If you want to write a piece of production code, you must start with a failing test.
 
-```bash
+```shell
 spruce create.test
 ```
 
@@ -306,7 +306,7 @@ AVCaptureDevice.requestAccess(for: .video) { granted in
 
 Mercury also handles all your [Permission](path/to/permissions) needs. To introduce new permissions into the platform, you need to create a Permission Contract in your skill:
 
-```bash
+```shell
 spruce create.permissions
 ```
 

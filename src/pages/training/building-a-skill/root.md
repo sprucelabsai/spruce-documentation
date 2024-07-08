@@ -51,7 +51,7 @@ This initializes Docker to use aggressive caching for NPM packages, which improv
 ### Create New Skill
 Create a new skill environment by typing `spruce create.skill (yourSkillName)`. For example, our test skill is called **"kata-1"**:
 
-```bash
+```shell
 spruce create.skill kata-1
 ```
 
@@ -63,11 +63,11 @@ Next, the system will install various dependencies.
 
 ### Access Your New Skill
 To open your skill in Visual Studio Code, type `cd (yourSkillName) && code .`. For instance:
-```bash
+```shell
 cd kata-1 && code .
 ```
 Inside Visual Studio Code, go to the terminal and run:
-```bash
+```shell
 spruce setup.vscode
 ```
 
@@ -82,7 +82,7 @@ This will start tasks that enable testing. The tests will run, spot any missing 
 ### Turn on WatchMode
 In your external terminal, type:
 
-```bash
+```shell
 spruce test --watchMode smart
 ```
 This command continuously runs tests you're developing, and upon success, it starts the remaining tests. It’s recommended to keep this on during development.
@@ -97,7 +97,7 @@ We’ll focus on Behavioural tests due to the significant changes we're implemen
 
 Select Behavioural tests, and you’ll be asked to specify what you’re testing, using camel case.
 
-```bash
+```shell
 # Enter the actual commands for the IDE setup here
 ```
 
@@ -117,7 +117,7 @@ After setting up the IDE and starting testing, the next step is to build the ski
 
 Use the command `spruce create.view` to begin making your root skill interface.
 
-```bash
+```shell
 spruce create.view
 ```
 

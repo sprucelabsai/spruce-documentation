@@ -35,12 +35,12 @@
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 // global font sizes vars
 $fs-extra-smaller: 13px;
 $fs-smaller: 14px;
-$fs-primary: 18px;
+$fs-primary: 16px;
 $fs-bigger: 20px;
 
 // local font sizes
@@ -51,16 +51,17 @@ html {
   font-size: 6.2%;
 
   body {
-    font-family: Mulish;
+    font-family: "Roboto Mono";
     font-size: $fs-primary;
-    line-height: 1.4em;
+    line-height: 1.5em;
+    font-weight: 200;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: Mulish;
-    font-weight: 800;
+    font-family: "Roboto Mono";
+    font-weight: 500;
   }
 }

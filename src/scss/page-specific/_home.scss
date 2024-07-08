@@ -123,7 +123,6 @@
           margin-left: 24px;
 
           h2 {
-            border-bottom: 2px solid $cl-brand-green;
             margin: 0;
             font-size: 28px;
           }
@@ -165,6 +164,17 @@
     .side-bar,
     .sidebar-right-bg {
       display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  &.home-page #home-tiles .home-tile {
+    .content-wrapper svg {
+      display: none;
+    }
+    .content-wrapper .text-wrapper {
+      margin-left: 0;
     }
   }
 }

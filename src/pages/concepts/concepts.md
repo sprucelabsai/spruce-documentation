@@ -1,7 +1,5 @@
 # Concepts 🧱
 
-Coming soon...
-
 <div class="guide-sections">
     <a href="mercury/" class="section-link">
         <span class="section-number">Section 1</span>

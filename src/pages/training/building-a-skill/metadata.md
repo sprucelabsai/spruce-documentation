@@ -64,7 +64,7 @@ Once you have passed the view models, it's time to preview the form!
 
 2. Start ```watch.views``` in the spruce cli:
 
-```bash
+```shell
 watch.views
 ```
 Viewing your form for the first time, you'll notice a lot of issues. Your next step is to fix all these issues step-by-step and get your form ready.
