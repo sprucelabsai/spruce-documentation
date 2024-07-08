@@ -10,50 +10,15 @@ Permissions are handled by 2 main classes: `Authenticator` and `Authorizer`. The
 <strong>Authenticator</strong> - See if someone is logged in, who it is, and persist a session token to keep a person logged in.
 </summary>
 
-````ts
-export interface Authenticator {
-    //Get the logged in person, if someone is logged in
-    getPerson(): Person | null
-    //Log a person in by setting their token and Person record.
-    setSessionToken(token: string, person: Person): void
-    //Get the session token of a logged in person
-    getSessionToken(): string | null
-    //Check if someone is logged in
-    isLoggedIn(): boolean
-    //Clear the session, logging the person out
-    clearSession(): void
-    //Add an event listener for when someone logs in or out to take some action
-    addEventListener<N extends 'did-login' | 'did-logout'>(
-        name: N,
-        cb: Payloads[N]
-    ): void
-    
-    //Remove an event listener, passing no cb will remove all listeners for that event
-    removeEventListener<N extends 'did-login' | 'did-logout'>(
-        name: N,
-        cb?: Payloads[N]
-    ): void
-}
-
-type DidLoginPayload = (payload: { token: string; person: Person }) => void
-type DidLogoutPayload = (payload: { person: Person }) => void
-
-interface Payloads {
-    'did-login': DidLoginPayload
-    'did-logout': DidLogoutPayload
-}
-````
 | Method | Returns | Description |
 | --- | --- | --- |
-| `getPerson()` | `Person` \| `null` | Get the logged in person, if someone is logged in |
+| `getPerson()` | [`Person`](https://github.com/search?q=repo%3Asprucelabsai-community%2Fspruce-core-schemas+%22export+interface+Person+%7B%22&type=code) \| `null` | Get the logged in person, if someone is logged in |
 | `setSessionToken(token: string, person: Person)` | `void` | Log a person in by setting their token and Person record |
 | `getSessionToken()` | `string` \| `null` | Get the session token of a logged in person |
 | `isLoggedIn()` | `bool` | Check if someone is logged in |
 | `clearSession()` | `void` | Clear the session, logging the person out |
 | `addEventListener<N extends 'did-login' \| 'did-logout'>(name: N, cb: Payloads[N])` | `void` | Add an event listener for when someone logs in or out to take some action |
 | `removeEventListener<N extends 'did-login' \| 'did-logout'>(name: N, cb?: Payloads[N])` | `void` | Remove an event listener, passing no cb will remove all listeners for that event |
-
-
 
 </details>
 
@@ -62,67 +27,10 @@ interface Payloads {
 <strong>Authorizer</strong> - Check if a person has the right permissions to do something. Works if someone is not logged in.
 </summary>
 
-```ts
-export interface Authorizer {
-    //Check if the current person has a permission
-    can<
-        ContractId extends PermissionContractId,
-        Ids extends PermissionId<ContractId>,
-    >(
-        options: AuthorizerCanOptions<ContractId, Ids>
-    ): Promise<Record<Ids, boolean>>
-
-    //Save permissions for a person. Note: the person must have the permission to save permissions
-    savePermissions<
-        ContractId extends PermissionContractId,
-        Ids extends PermissionId<ContractId>,
-    >(
-        options: SavePermissionsOptions<ContractId, Ids>
-    ): Promise<void>
-}
-
-//Options sent to authorizer.can(...)
-export interface AuthorizerCanOptions<
-    ContractId extends PermissionContractId,
-    Ids extends PermissionId<ContractId> = PermissionId<ContractId>,
-> {
-    contractId: ContractId
-    permissionIds: Ids[]
-    target?: SpruceSchemas.Mercury.v2020_12_25.GetResolvedPermissionsContractEmitTarget
-}
-
-//When checking can(...), you can override the target to check against. It'll default to the logged in user and their current scope (location or organization)
-namespace SpruceSchemas.Mercury.v2020_12_25 {
-    interface SavePermissionsEmitTarget {
-        'locationId'?: string | undefined | null;
-        'organizationId'?: string | undefined | null;
-        'permissionPersonId'?: string | undefined | null;
-        'permissionSkillId'?: string | undefined | null;
-        'permissionContractId': string;
-        'roleId'?: string | undefined | null;
-    }
-}
-
-//Options sent to authorizer.savePermissions(...)
-export interface SavePermissionsOptions<
-    ContractId extends PermissionContractId,
-    Ids extends PermissionId<ContractId>,
-> {
-    target: SavePermissionsTarget & { personId?: string; skillId?: string }
-    contractId: ContractId
-    permissions: {
-        id: Ids
-        can: StatusFlag
-    }[]
-}
-
-//The target for saving permissions
-type SavePermissionsTarget = Omit<
-    SpruceSchemas.Mercury.v2020_12_25.SavePermissionsEmitTarget,
-    'permissionPersonId' | 'permissionContractId' | 'permissionSkillId'
->
-
-```
+| Method | Returns | Description |
+| --- | --- | --- |
+| `can<ContractId, Ids>(options: AuthorizerCanOptions<ContractId, Ids>)` | `Promise<Record<Ids, boolean>>` | Check if the current person has a permission |
+| `savePermissions<ContractId, Ids>(options: SavePermissionsOptions<ContractId, Ids>)` | `Promise<void>` | Save permissions for a person. Note: the person must have the permission to save permissions |
 
 </details>
 
