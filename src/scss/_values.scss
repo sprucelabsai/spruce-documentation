@@ -1,7 +1,7 @@
 /* Colors */
-$cl-brand-purple: #8719F6;
-$cl-brand-green: #0EDDD3;
-$cl-other-green: #74FAD2;
+$cl-brand-purple: #FF8C00;
+$cl-brand-green: #FF8C00;
+$cl-other-green: #FF8C00;
 $cl-gray: #d0d0d7;
 $cl-light-gray: #575656;
 
@@ -28,8 +28,8 @@ $footer-large-screen-height: 200px;
 
 /* Gradients */
 $header-gradiant: white;
-$blue-to-light-purple-grad: linear-gradient(180deg, #4720e3, #b748ff 68.44%);
-$blue-to-light-blue-grad: linear-gradient(180deg, #415bed, #13d0d7 44.86%);
+$blue-to-light-purple-grad: linear-gradient(180deg, #FF8C00, #FF8C00 68.44%);
+$blue-to-light-blue-grad: linear-gradient(180deg, #FF8C00, #FF8C00 44.86%);
 
 
 @mixin mq-full {

@@ -12,12 +12,12 @@ Permissions are handled by 2 main classes: `Authenticator` and `Authorizer`. The
 
 | Method | Returns | Description |
 | --- | --- | --- |
-| `getPerson()` | [`Person`](https://github.com/search?q=repo%3Asprucelabsai-community%2Fspruce-core-schemas+%22export+interface+Person+%7B%22&type=code) \| `null` | Get the logged in person, if someone is logged in |
-| `setSessionToken(token: string, person: Person)` | `void` | Log a person in by setting their token and Person record |
+| `getPerson()` | [`Person`](https://github.com/search?q=repo%3Asprucelabsai-community%2Fspruce-core-schemas+%22Person%22&type=code) \| `null` | Get the logged in person, if someone is logged in |
+| [`setSessionToken`](https://github.com/search?q=org%3Asprucelabsai-community+SessionToken&type=code)(token: string, person: Person) | `void` | Log a person in by setting their token and Person record |
 | `getSessionToken()` | `string` \| `null` | Get the session token of a logged in person |
 | `isLoggedIn()` | `bool` | Check if someone is logged in |
-| `clearSession()` | `void` | Clear the session, logging the person out |
-| `addEventListener<N extends 'did-login' \| 'did-logout'>(name: N, cb: Payloads[N])` | `void` | Add an event listener for when someone logs in or out to take some action |
+| [`clearSession()`](https://github.com/search?q=org%3Asprucelabsai-community+Session&type=code)| `void` | Clear the session, logging the person out |
+| [`addEventListener<N extends 'did-login'`](https://github.com/search?q=org%3Asprucelabsai-community+EventListener&type=code)| 'did-logout'>(name: N, cb: Payloads[N])` | `void` | Add an event listener for when someone logs in or out to take some action |
 | `removeEventListener<N extends 'did-login' \| 'did-logout'>(name: N, cb?: Payloads[N])` | `void` | Remove an event listener, passing no cb will remove all listeners for that event |
 
 </details>
@@ -74,6 +74,14 @@ export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 }
 ```
 
+| Method                                                | Returns    | Description                                                                                                             |
+|-------------------------------------------------------|------------|-------------------------------------------------------------------------------------------------------------------------|
+| `views.Controller(viewId: string, options: object)`   | `View`     | Creates and returns a view controller for the specified view ID with the given options.                                 |
+| `permissions.getAuthenticator().clearSession()`       | `void`     | Clears the current session, logging the person out.                                                                     |
+| `views.load(view: View)`                              | `Promise`  | Loads the specified view and returns a promise that resolves when the view is loaded.                                   |
+| `views.getRouter()`                                   | `Router`   | Gets the router instance used for navigating between views.                                                             |
+| `vcAssert.assertActionRedirects(options: object)`     | `Promise`  | Asserts that a specified action redirects to the expected destination. Options include the action, router, and destination. |
+
 </details>
 
 <details>
@@ -98,6 +106,11 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 ```
 
+| Method                                              | Returns    | Description                                                                                                                |
+|-----------------------------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------|
+| `router.redirect(destination: string)`              | `Promise`  | Redirects to the specified destination.                                                                                    |
+| `load(options: SkillViewControllerLoadOptions)`     | `Promise`  | Loads the view controller with the given options and redirects to the 'eightbitstories.onboarding' destination.            |
+
 </details>
 
 <details>
@@ -119,6 +132,13 @@ protected static async shouldNotRedirectIfLoggedIn() {
 ...
 
 ```
+
+| Method                                          | Returns   | Description                                                                                                             |
+|-------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|
+| `views.Controller(viewId: string, options: object)` | `View`    | Creates and returns a view controller for the specified view ID with the given options.                                 |
+| `views.load(view: View)`                        | `Promise` | Loads the specified view and returns a promise that resolves when the view is loaded.                                    |
+| `test()`                                        | `void`    | Marks a method as a test method to be executed by the test runner.                                                      |
+| `shouldNotRedirectIfLoggedIn()`                 | `Promise` | Ensures that the view does not redirect if someone is already logged in.                                                |
 
 </details>
 
@@ -144,6 +164,12 @@ export default class RootSkillViewController extends AbstractSkillViewController
 }
 
 ```
+
+| Method                                              | Returns    | Description                                                                                                                     |
+|-----------------------------------------------------|------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `router.redirect(destination: string)`              | `Promise`  | Redirects to the specified destination.                                                                                         |
+| `authenticator.isLoggedIn()`                        | `boolean`  | Checks if the person is logged in and returns true if logged in, false otherwise.                                               |
+| `load(options: SkillViewControllerLoadOptions)`     | `Promise`  | Loads the view controller with the given options, and if the person is not logged in, redirects to the 'eightbitstories.onboarding' destination. |
 
 </details>
 
@@ -192,6 +218,16 @@ export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     }
 }
 ```
+| Method                                                  | Returns    | Description                                                                                                                    |
+|---------------------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `views.Controller(viewId: string, options: object)`     | `View`     | Creates and returns a view controller for the specified view ID with the given options.                                        |
+| `permissions.getAuthenticator().clearSession()`         | `void`     | Clears the current session, logging the person out.                                                                            |
+| `vcAssert.assertActionRedirects(options: object)`       | `Promise`  | Asserts that a specified action redirects to the expected destination. Options include the action, router, and destination.    |
+| `test()`                                                | `void`     | Marks a method as a test method to be executed by the test runner.                                                             |
+| `beforeEach()`                                          | `Promise`  | Sets up the necessary preconditions before each test, including constructing the RootSkillViewController.                     |
+| `redirectsToOnboardingIfNotLoggedIn()`                  | `Promise`  | Tests that the controller redirects to onboarding if the person is not logged in.                                              |
+| `shouldNotRedirectIfLoggedIn()`                         | `Promise`  | Tests that the controller does not redirect if the person is logged in.                                                        |
+| `load()`                                                | `Promise`  | Loads the RootSkillViewController for use in tests.                                                                            |
 
 </details>
 

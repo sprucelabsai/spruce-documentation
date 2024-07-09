@@ -159,24 +159,24 @@
               "url": "/concepts/views/#important-classes"
             },
             {
-              "title": "Root Skill View",
-              "url": "/concepts/views/#root-skill-view"
-            },
-            {
               "title": "Skill View Lifecycle",
               "url": "/concepts/views/#skill-view-lifecycle"
             },
             {
+              "title": "Root Skill View",
+              "url": "/concepts/views/#root-skill-view"
+            },
+            {
               "title": "Rendering Skill Views",
-              "url": "/concepts/views/#rendering-a-skill-view"
+              "url": "/concepts/views/#rendering-skill-views"
             },
             {
               "title": " - Root Skill View",
-              "url": "/concepts/views/#root-skill-view"
+              "url": "/concepts/views/#root-skill-view-1"
             },
             {
-              "title": " - Arbitrary Skill Views",
-              "url": "/concepts/views/#root-skill-view"
+              "title": " - Rendering A Different Skill View",
+              "url": "/concepts/views/#rendering-a-different-skill-view"
             },
             {
               "title": " - Redirecting Between Skill Views",
@@ -193,6 +193,18 @@
             {
               "title": "Rendering a Dialog",
               "url": "/concepts/views/#rendering-a-dialog"
+            },
+            {
+              "title": " - Rendering a simple ViewModel based Dialog on load",
+              "url": "/concepts/views/#rendering-a-simple-view-model-based-dialog-on-load"
+            },
+            {
+              "title": " - Rendering a CardViewController based Dialog on load",
+              "url": "/concepts/views/#rendering-a-cardviewcontroller-based-dialog-on-load"
+            },
+            {
+              "title": " - Running code when a Dialog is closed",
+              "url": "/concepts/views/#asserting-card-by-id"
             },
             {
               "title": "View Controller Plugins",
