@@ -1103,7 +1103,7 @@ Here is an overview of what I did:
 <details>
 <summary><strong>Production 5</strong>: Simplify implementation</summary>
 
-Because we've moved to an arrow function and a `Spy`, we can simplify the implementation of `MyCardViewController` by removing the additional method `this.handleListener()`.
+Because we've moved to a `Spy`, we can simplify the implementation of `MyCardViewController` by removing the additional method `this.handleListener()`. But, we'll need to also change `this.handleDidGenerateStory()` to an arrow function to maintain `this`.
 
 ```ts
 import { 
