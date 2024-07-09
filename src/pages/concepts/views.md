@@ -208,7 +208,7 @@ Coming soon...
 
 Skill Views are the equivalent of pages in a "standard" web application. They are accessible via the url in 2 ways.
 
-1. Subdomain: `https://{skillNamespace}.spruce.bot`
+1. Subdomain: `https://{skillNamespace}.spruce.bot` (will render your `RootSkillViewController`)
 2. Hash: `https://spruce.bot/#/views/{skillNamespace}.{viewId}`
 
 ### Root Skill View
@@ -468,7 +468,7 @@ class RootSkillViewController extends AbstractSkillViewController {
 
 ### Running code when a `Dialog` is closed
 
-Sometimes you'll need to tear down some resources when a dialog is closed. You can do this by overriding the `didHide()` method in your `CardViewController`. For this example, we'll start start with the "Render a `CardViewController` based `Dialog` on load" example from above and we'll use the scenario of wanting to remove event listeners when the dialog is closed. 
+Sometimes you'll need to tear down some resources when a dialog is closed. You can do this by overriding the `didHide()` method in your `ViewController`. For this example, we'll start start with the "Render a `CardViewController` based `Dialog` on load" example from above and we'll use the scenario of wanting to remove event listeners when the dialog is closed. 
 
 <details>
 <summary><strong>Test 1a</strong>: Call load on <em>Dialog's</em> <em>CardViewController</em></summary>
