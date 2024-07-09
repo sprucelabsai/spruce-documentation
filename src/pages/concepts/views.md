@@ -458,9 +458,41 @@ class RootSkillView extends AbstractSkillViewController {
 ```
 </details>
 
-### Running code when a dialog is closed
+### Running code when a `Dialog` is closed
 
-Coming soon...
+Sometimes you'll need to tear down some resources when a dialog is closed. You can do this by overriding the `didHide()` method in your `CardViewController`. For this example, we'll start start with the "Render a `CardViewController` based `Dialog` on load" example from above and we'll use the scenario of wanting to remove event listeners when the dialog is closed. 
+
+<details>
+<summary><strong>Test 1</strong>: Call load on <em>Dialog's</em> <em>CardViewController</em>.</summary>
+
+We have to start by checking if the `load` method is called on the `MyViewController` when the dialog is rendered.
+
+```ts
+import {
+    vcAssert,
+    vcPluginAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+
+...
+
+@test()
+protected static async rendersAlertOnLoad() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
+    vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
+}
+
+@test()
+protected static async callsLoadOnMyCardAfterShowingAsDialog() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
+    const myCardVc = vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
+   
+   myCardVc.assertLoaded()
+}
+```
+
+</details>
 
 ## View Controller Plugins
 
