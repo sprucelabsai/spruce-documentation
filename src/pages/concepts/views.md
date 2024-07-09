@@ -482,7 +482,7 @@ import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
-export default class RunningCodeWhenDialogIsClosedTest extends AbstractSpruceFixtureTest {
+export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
     @test()
     protected static async rendersAlertOnLoad() {
@@ -517,7 +517,7 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
 import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
-export default class RunningCodeWhenDialogIsClosedTest extends AbstractSpruceFixtureTest {
+export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
     protected static async beforeEach() {
         await super.beforeEach()
@@ -591,7 +591,7 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
 import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
-export default class RunningCodeWhenDialogIsClosedTest extends AbstractSpruceFixtureTest {
+export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
     private static vc: MockMyCardViewController
 
