@@ -67,6 +67,22 @@ h1 {
   padding-bottom: 20px;
 }
 
+h3 {
+  border-bottom: 1px solid #d0d0d7;
+  padding-bottom: 5px;
+  padding-top: 3px;
+  border-left: 5px solid #d0d0d7;
+  padding-left: 10px;
+  margin-top: 50px;
+
+  code {
+    color: black;
+    font-weight: 500;
+    font-size: inherit;
+    font-family: inherit;
+  }
+}
+
 .main-area > h2 {
   background: rgba($cl-gray, 30%); 
   padding: 10px;

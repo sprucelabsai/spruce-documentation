@@ -196,17 +196,24 @@ Coming soon...
 [Storybook](https://storybook.spruce.bot/?path=/story/components-tool-belt-tool-belt--tool-belt).
 </details>
 
-## Root Skill View
-
-Coming soon...
-
 ## Skill View Lifecycle
 
 <img src="../../assets/img/diagrams/skill_view_lifecycle.png">
 
-## Rendering a Skill View
+## Root Skill View
 
-Let's get started on rendering a `SkillView`. In this example I'll use the `RootSkillViewController`, but you can name your `SkillViewController` anything you want.
+Coming soon...
+
+## Rendering Skill Views
+
+Skill Views are the equivalent of pages in a "standard" web application. They are accessible via the url in 2 ways.
+
+1. Subdomain: `https://{skillNamespace}.spruce.bot`
+2. Hash: `https://spruce.bot/#/views/{skillNamespace}.{viewId}`
+
+### Root Skill View
+
+Let's get started on rendering a `RootSkillView`.
 
 <details>
 <summary><strong>Test 1</strong>: Load Your (Root) Skill View</summary>
@@ -230,9 +237,22 @@ This part is pretty easy! Run this following command and follow the instructions
 ```shell
 spruce create.view
 ```
+
 </details>
 
+### Rendering A Different Skill View
+
+Coming soon...
+
+### Redirecting Between Skill Views
+
+Coming soon...
+
 ## Rendering Cards
+
+
+
+### Asserting Card by Id
 
 Now that you have your `RootSkillViewController`, you can start adding cards to it. Here is how you can test and implement some cards.
 
@@ -251,6 +271,224 @@ import {
 protected static async rendersExpectedCard() {
     const vc = this.views.Controller('eightbitstories.root', {})
     vcAssert.assertSkillViewRendersCard(vc, 'my-card')
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Render your card</summary>
+
+Coming soon...
+
+</details>
+
+## Rendering Dialogs
+
+Dialogs are cards rendered modally. You can render a basic `Card` `ViewModel` or you can render a `CardViewController` as a dialog.
+
+### Rendering a simple `ViewModel` based `Dialog` on load
+
+This is the simplest way to render a dialog. You can render a `Card` `ViewModel` by calling `this.renderInDialog(...)` from your `SkillViewController` or `ViewController`.
+
+<details>
+<summary><strong>Test 1</strong>: Assert dialog is rendered on load</summary>
+
+For this example, we'll keep the dialog simple and render a `Card` `ViewModel` in the `RootSkillViewController`'s `load()` `Lifecycle` method.
+```ts
+import {
+    vcAssert,
+    vcPluginAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+
+...
+
+@test()
+protected static async rendersAlertOnLoad() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Render a dialog on load</summary>
+
+```ts
+import { AbstractSkillViewController } from '@sprucelabs/heartwood-view-controllers'
+
+class RootSkillView extends AbstractSkillViewController {
+    public async load() {
+        this.renderInDialog({
+            header: {
+                title: 'Hello, World!',
+            },
+        })
+    }
+}
+```
+
+</details>
+
+
+
+### Rendering a `CardViewController` based `Dialog` on load
+
+Now lets make this dialog more powerful by rendering a `CardViewController` of our own!
+
+<details>
+<summary><strong>Test 1</strong>: Assert dialog is rendered on load</summary>
+
+This first test is very simple, just making sure a dialog is rendered.
+
+```ts
+import {
+    vcAssert,
+    vcPluginAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+
+...
+
+@test()
+protected static async rendersAlertOnLoad() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
+}
+```
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Render a simple dialog on load</summary>
+
+```ts
+import { AbstractSkillViewController } from '@sprucelabs/heartwood-view-controllers'
+
+class RootSkillView extends AbstractSkillViewController {
+    public async load() {
+        this.renderInDialog({})
+    }
+}
+```
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Assert dialog is a specific type</summary>
+
+```ts
+import {
+    vcAssert,
+    vcPluginAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+
+...
+
+@test()
+protected static async rendersAlertOnLoad() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
+    vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
+}
+```
+You're going to get a failure here because `MyCardViewController` doesn't exist yet. Let's create it!
+
+</details>
+
+<details>
+<summary><strong>Production 2a</strong>: Create <em>MyCardViewController</em> to fail next assertion</summary>
+
+When you are creating your `View`, make sure to base it on a `Card`.
+
+```bash
+spruce create.view
+```
+
+Call it `My Card` (or whatever you want). 
+
+> **Note**: Don't add `ViewController` to the end of the name of `ViewControllers`. That'll be added for you.
+
+> **Note**: It is helpful to add the name of the `ViewModel` being rendered. Examples: If you render a `Card`, end your name in `Card`. If you render a `Form`, end your name in `Form`.
+
+> **Note**: Don't add `Dialog` to name of your `ViewController`. Because a `CardViewController` can be rendered in a dialog or in a `SkillView`, it is better to keep the name free from where it is rendered.
+
+</details>
+
+<details>
+<summary><strong>Production 2b</strong>: Make <em>MyCardViewController</em> render a <em>Card</em></summary>
+
+It is much better to use composition over inheritance. This is how you can make `MyCardViewController` render a `CardViewController`.
+
+```ts
+import { CardViewController, AbstractViewController, Card } from '@sprucelabs/heartwood-view-controllers'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+
+    public static id = 'my-card'
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.cardVc = this.Controller('card', {
+            header: {
+                title: 'Hello, World!',
+            },
+        })
+    }
+
+    public render(): CardViewController {
+        return this.cardVc.render()
+    }
+}
+
+```
+</details>
+
+<details>
+<summary><strong>Production 2c</strong>: Render <em>MyCardViewController</em> in the dialog</summary>
+
+```ts
+
+import { AbstractSkillViewController } from '@sprucelabs/heartwood-view-controllers'
+
+class RootSkillView extends AbstractSkillViewController {
+    public async load() {
+        const myCardVc = this.Controller('eightbitstories.my-card', {})
+        this.renderInDialog(myCardVc.render())
+    }
+}
+```
+</details>
+
+### Running code when a `Dialog` is closed
+
+Sometimes you'll need to tear down some resources when a dialog is closed. You can do this by overriding the `didHide()` method in your `CardViewController`. For this example, we'll start start with the "Render a `CardViewController` based `Dialog` on load" example from above and we'll use the scenario of wanting to remove event listeners when the dialog is closed. 
+
+<details>
+<summary><strong>Test 1</strong>: Call load on <em>Dialog's</em> <em>CardViewController</em>.</summary>
+
+We have to start by checking if the `load` method is called on the `MyViewController` when the dialog is rendered.
+
+```ts
+import {
+    vcAssert,
+    vcPluginAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+
+...
+
+@test()
+protected static async rendersAlertOnLoad() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
+    vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
+}
+
+@test()
+protected static async callsLoadOnMyCardAfterShowingAsDialog() {
+    const vc = this.views.Controller('eightbitstories.root', {})
+    const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
+    const myCardVc = vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
+   
+   myCardVc.assertLoaded()
 }
 ```
 
