@@ -34,7 +34,7 @@ module.exports = function (eleventyConfig) {
   registerExtensions(eleventyConfig);
 
   return {
-    pathPrefix: "/spruce-documentation/",
+    pathPrefix: "/",
     dir: {
       input: "src/pages",
     }
