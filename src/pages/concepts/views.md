@@ -452,7 +452,7 @@ Coming soon...
 The interoperatibility of Spruce allows you to render cards from other skills. It's a great way to share views accross multiple skills. To pull this off, you'll leverage the `RemoteViewControllerFactory` provided by [`@sprucelabs/spruce-heartwood-utils`](https://www.npmjs.com/package/@sprucelabs/spruce-heartwood-utils).
 
 <details>
-<summary><strong>Test 1a</strong>: Set stage for importing <em>RemoveViewControllerFactory</em></summary>
+<summary><strong>Test 1a</strong>: Set stage for importing <em>RemoteViewControllerFactory</em></summary>
 
 For this first test, we're going to drop in the `MockRemoteViewControllerFactory` test double to get ready to make some assertions.
 
@@ -531,6 +531,8 @@ The first step in production is to load the remote card. I won't be actually ren
 import { AbstractSkillViewController } from '@sprucelabs/heartwood-view-controllers'
 
 class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+
     public async load() {
         const remote = RemoteViewControllerFactoryImpl.Factory({
             connectToApi: this.connectToApi,
@@ -539,13 +541,17 @@ class RootSkillViewController extends AbstractSkillViewController {
 
         await remote.RemoteController('other-skill.my-card', {})
     }
+
+     public render() {
+        return {}
+    }
 }
 ```
 
 </details>
 
 <details>
-<summary><strong>Test 2</strong>: Drop in remote card</summary>
+<summary><strong>Test 2</strong>: Drop in the remote card to the <em>MockRemoteViewControllerFactory</em></summary>
 
 You should now be getting an error something like "Couldn't find a view controller called "other-skill.my-card"." I'm gonna drop in a `CardViewController` into the `MockRemoteViewControllerFactory` to make that error go away.
 
@@ -573,10 +579,237 @@ export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
 }
 ```
 
-> **Note**: I dropped in a `CardViewControllerImpl` here, but you may want to actually drop in a test double to make more assertions later.
+> **Note**: I dropped in a `CardViewControllerImpl` to keep the example simple, but you will probably want to drop in a test double to make more assertions later.
 
 </details>
 
+<details>
+<summary><strong>Test 3</strong>: Assert Skill View renders the remote card</summary>
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert, CardViewControllerImpl } from '@sprucelabs/heartwood-view-controllers'   
+import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from '@sprucelabs/spruce-heartwood-utils'
+
+export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async loadsRemoteCard() {
+        RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
+
+        MockRemoteViewControllerFactory.dropInRemoteController(
+            'forms.remote-form-card',
+            CardViewControllerImpl
+        )
+
+        const vc = this.views.Controller('eightbitstories.root', {})
+        await this.views.load(vc)
+
+        MockRemoteViewControllerFactory.getInstance().assertFetchedRemoteController('other-skill.my-card')
+
+    }
+
+    @test()
+    protected static async rendersRemoteCard() {
+        RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
+
+        MockRemoteViewControllerFactory.dropInRemoteController(
+            'forms.remote-form-card',
+            CardViewControllerImpl
+        )
+
+        const vc = this.views.Controller('eightbitstories.root', {})
+
+        await this.views.load(vc)
+
+        MockRemoteViewControllerFactory.getInstance().assertSkillViewRendersRemoteCard(vc, 'other-skill.my-card')
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Production 2</strong>: Render the remote card</summary>
+
+```ts
+import { AbstractSkillViewController } from '@sprucelabs/heartwood-view-controllers'
+
+class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+
+    private remoteCardVc?: CardViewController
+
+    public async load() {
+        const remote = RemoteViewControllerFactoryImpl.Factory({
+            connectToApi: this.connectToApi,
+            vcFactory: this.getVcFactory()
+        })
+
+        this.remoteCardVc = await remote.RemoteController('other-skill.my-card', {})
+    }
+
+    public render() {
+        if (!this.remoteCardVc) {
+            return {}
+        }
+
+        return {
+            layouts: [
+                {
+                    cards: [
+                        this.remoteCardVc.render()
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+> **Note**: In order to get types to pass, I had to optionally return early from `render()`. Because `render()` is called before `load()`, I had to make sure that `this.remoteCardVc` was optional and that I returned an empty object if it was not set. You can return anything you want before load.
+
+</details>
+
+<details>
+<summary><strong>Test 4</strong>: Dry the test</summary>
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert, CardViewControllerImpl } from '@sprucelabs/heartwood-view-controllers'   
+import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from '@sprucelabs/spruce-heartwood-utils'
+
+export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
+    private static vc: RootSkillViewController
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+
+        RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
+        MockRemoteViewControllerFactory.dropInRemoteController(
+            'forms.remote-form-card',
+            CardViewControllerImpl
+        )
+        this.vc = this.views.Controller('eightbitstories.root', {})
+    }
+
+    @test()
+    protected static async loadsRemoteCard() {
+        await this.load()
+        this.mockFactory.assertFetchedRemoteController('other-skill.my-card')
+    }
+
+    @test()
+    protected static async rendersRemoteCard() {
+        await this.load()
+        this.mockFactory.assertSkillViewRendersRemoteCard(vc, 'other-skill.my-card')
+    }
+
+    public static async load() {
+        await this.views.load(vc)
+    }
+
+    public static get mockFactory() {
+        return MockRemoteViewControllerFactory.getInstance()
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Test 5</strong>: Assert render is triggered</summary>
+
+Simply setting the remote card to `this.remoteCardVc` will not cause the card to be rendered. You need to manually trigger a render on your `SkillViewController`.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert, CardViewControllerImpl } from '@sprucelabs/heartwood-view-controllers'   
+import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from '@sprucelabs/spruce-heartwood-utils'
+
+export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
+    private static vc: RootSkillViewController
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+
+        RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
+        MockRemoteViewControllerFactory.dropInRemoteController(
+            'forms.remote-form-card',
+            CardViewControllerImpl
+        )
+        this.vc = this.views.Controller('eightbitstories.root', {})
+    }
+
+    @test()
+    protected static async loadsRemoteCard() {
+        await this.load()
+        this.mockFactory.assertFetchedRemoteController('other-skill.my-card')
+    }
+
+    @test()
+    protected static async rendersRemoteCard() {
+        await this.load()
+        this.mockFactory.assertSkillViewRendersRemoteCard(vc, 'other-skill.my-card')
+    }
+
+    @test()
+    protected static async triggersRender() {
+        await this.load()
+        vcAssert.assertTriggerRenderCount(this.vc, 1)
+    }
+
+    public static async load() {
+        await this.views.load(vc)
+    }
+
+    public static get mockFactory() {
+        return MockRemoteViewControllerFactory.getInstance()
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Production 3</strong>: Trigger render in Skill View</summary>
+
+```ts
+import { AbstractSkillViewController } from '@sprucelabs/heartwood-view-controllers'
+
+class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+
+    private remoteCardVc?: CardViewController
+
+    public async load() {
+        const remote = RemoteViewControllerFactoryImpl.Factory({
+            connectToApi: this.connectToApi,
+            vcFactory: this.getVcFactory()
+        })
+
+        this.remoteCardVc = await remote.RemoteController('other-skill.my-card', {})
+        this.triggerRender()
+    }
+
+    public render() {
+        if (!this.remoteCardVc) {
+            return {}
+        }
+
+        return {
+            layouts: [
+                {
+                    cards: [
+                        this.remoteCardVc.render()
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+</details>
 
 ## Rendering Dialogs
 
@@ -657,8 +890,14 @@ export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 import { AbstractSkillViewController } from '@sprucelabs/heartwood-view-controllers'
 
 class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+
     public async load() {
         this.renderInDialog({})
+    }
+
+    public render() {
+        return {}
     }
 }
 ```
@@ -753,6 +992,10 @@ class RootSkillViewController extends AbstractSkillViewController {
     public async load() {
         const myCardVc = this.Controller('eightbitstories.my-card', {})
         this.renderInDialog(myCardVc.render())
+    }
+
+     public render() {
+        return {}
     }
 }
 ```
@@ -867,6 +1110,10 @@ class RootSkillViewController extends AbstractSkillViewController {
         this.renderInDialog(myCardVc.render())
 
         await myCardVc.load()
+    }
+
+     public render() {
+        return {}
     }
 }
 ```
