@@ -449,7 +449,134 @@ Coming soon...
 
 ### Rendering remote cards
 
-Coming soon...
+The interoperatibility of Spruce allows you to render cards from other skills. It's a great way to share views accross multiple skills. To pull this off, you'll leverage the `RemoteViewControllerFactory` provided by [`@sprucelabs/spruce-heartwood-utils`](https://www.npmjs.com/package/@sprucelabs/spruce-heartwood-utils).
+
+<details>
+<summary><strong>Test 1a</strong>: Set stage for importing <em>RemoveViewControllerFactory</em></summary>
+
+For this first test, we're going to drop in the `MockRemoteViewControllerFactory` test double to get ready to make some assertions.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'   
+
+export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async loadsRemoteCard() {
+        RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
+    }
+}
+```
+</details>
+
+<details>
+<summary><strong>Test 1b</strong>: Import <em>@sprucelabs/spruce-heartwood-utils</em></summary>
+
+You should get 2 errors, one for each class you need to import. Lets start by adding the correct dependency using `yarn`.
+
+```bash
+yarn add @sprucelabs/spruce-heartwood-utils
+```
+
+Now that this is done, you can import the classes you need and the tests will pass.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'   
+import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from '@sprucelabs/spruce-heartwood-utils'
+
+export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async loadsRemoteCard() {
+        RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Test 1c</strong>: Assert card is fetched</summary>
+
+Now I'm going to execute the operation (in this case `this.views.load(...)`) where I expect the remote card to be fetched. Then I'll assert that it was fetched by accessing the `MockRemoteViewControllerFactory` instance.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'   
+import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from '@sprucelabs/spruce-heartwood-utils'
+
+export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async loadsRemoteCard() {
+        RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
+
+
+        const vc = this.views.Controller('eightbitstories.root', {})
+        await this.views.load(vc)
+
+        MockRemoteViewControllerFactory.getInstance().assertFetchedRemoteController('other-skill.my-card')
+
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Load the remote card</summary>
+
+The first step in production is to load the remote card. I won't be actually rendering it yet, that'll be a different test!
+
+```ts
+import { AbstractSkillViewController } from '@sprucelabs/heartwood-view-controllers'
+
+class RootSkillViewController extends AbstractSkillViewController {
+    public async load() {
+        const remote = RemoteViewControllerFactoryImpl.Factory({
+            connectToApi: this.connectToApi,
+            vcFactory: this.getVcFactory()
+        })
+
+        await remote.RemoteController('other-skill.my-card', {})
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Drop in remote card</summary>
+
+You should now be getting an error something like "Couldn't find a view controller called "other-skill.my-card"." I'm gonna drop in a `CardViewController` into the `MockRemoteViewControllerFactory` to make that error go away.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert, CardViewControllerImpl } from '@sprucelabs/heartwood-view-controllers'   
+import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from '@sprucelabs/spruce-heartwood-utils'
+
+export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async loadsRemoteCard() {
+        RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
+
+        MockRemoteViewControllerFactory.dropInRemoteController(
+            'forms.remote-form-card',
+            CardViewControllerImpl
+        )
+
+        const vc = this.views.Controller('eightbitstories.root', {})
+        await this.views.load(vc)
+
+        MockRemoteViewControllerFactory.getInstance().assertFetchedRemoteController('other-skill.my-card')
+
+    }
+}
+```
+
+> **Note**: I dropped in a `CardViewControllerImpl` here, but you may want to actually drop in a test double to make more assertions later.
+
+</details>
+
 
 ## Rendering Dialogs
 
