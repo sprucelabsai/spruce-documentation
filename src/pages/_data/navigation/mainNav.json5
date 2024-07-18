@@ -187,28 +187,36 @@
               "url": "/concepts/views/#rendering-cards"
             },
             {
-              "title": " - Asserting by Id",
-              "url": "/concepts/views/#asserting-card-by-id"
+              "title": " - Rendering Card by Id",
+              "url": "/concepts/views/#rendering-card-by-id"
             },
             {
-              "title": "Rendering a Dialog",
-              "url": "/concepts/views/#rendering-a-dialog"
+              "title": " - Rendering Remote Cards",
+              "url": "/concepts/views/#rendering-remote-cards"
             },
             {
-              "title": " - Rendering a simple ViewModel based Dialog on load",
+              "title": "Rendering Dialogs",
+              "url": "/concepts/views/#rendering-dialogs"
+            },
+            {
+              "title": " - Rendering a simple ViewModel Based Dialog on load",
               "url": "/concepts/views/#rendering-a-simple-view-model-based-dialog-on-load"
             },
             {
-              "title": " - Rendering a CardViewController based Dialog on load",
-              "url": "/concepts/views/#rendering-a-cardviewcontroller-based-dialog-on-load"
+              "title": " - Rendering a CardViewController Based Dialog on load",
+              "url": "/concepts/views/#rendering-a-card-view-controller-based-dialog-on-load"
             },
             {
-              "title": " - Running code when a Dialog is closed",
-              "url": "/concepts/views/#asserting-card-by-id"
+              "title": " - Running Code When a Dialog is Closed",
+              "url": "/concepts/views/#running-code-when-a-dialog-is-closed"
             },
             {
               "title": "View Controller Plugins",
               "url": "/concepts/views/#view-controller-plugins"
+            },
+            {
+              "title": " - Implementing a View Controller Plugin",
+              "url": "/concepts/views/#implementing-a-view-controller-plugin"
             }
           ]
         },

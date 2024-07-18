@@ -13,3 +13,6 @@ Open up your favorite terminal app and run the following command to install Deve
 <div class="grid-buttons">
     <a class="btn" href="{{ '/ideology/' | url }}">Learn the Spruce Ideology</a>
 </div>
+
+
+<a href="https://forms.gle/2ZMtwUxg1egV8sHT8" class="btn">Request Documentation</a>

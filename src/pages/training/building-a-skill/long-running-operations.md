@@ -57,3 +57,5 @@ The key challenge is modifying the story generation feature to handle operations
 
 1. **Final Adjustments**: Make any final adjustments to the code based on testing feedback.
 2. **Device Testing**: Test the skill interface on an actual device to ensure the UI and navigation feel natural and responsive.
+
+<a href="https://forms.gle/2ZMtwUxg1egV8sHT8" class="btn">Request Documentation</a>

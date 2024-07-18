@@ -47,6 +47,21 @@ body {
   }
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; // Adjust as needed
+}
+
+.btn {
+  @include btn-base(white, black);
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
 details {
   margin-bottom: 10px;
   margin-left: 20px;

@@ -42,3 +42,6 @@ Set up listeners for user actions. Generate prompts to send to ChatGPT based on 
 
 7. **Finalizing and Testing Story Generation**
 Ensure the story generation process works seamlessly. Test and fine-tune the integration with ChatGPT.
+
+
+<a href="https://forms.gle/2ZMtwUxg1egV8sHT8" class="btn">Request Documentation</a>
