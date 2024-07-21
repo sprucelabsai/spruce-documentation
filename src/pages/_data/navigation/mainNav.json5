@@ -57,6 +57,11 @@
           "title": "Development Theatre",
           "url": "/getting-started/development-theatre/",
           "children": []
+        },
+        {
+          "title": "Manually Install Development Theatre",
+          "url": "/getting-started/manual-install/",
+          "children": []
         }
       ]
     },
