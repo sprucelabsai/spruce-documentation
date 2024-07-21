@@ -147,6 +147,10 @@
           "url": "/concepts/mercury/"
         },
         {
+          "title": "Events",
+          "url": "/concepts/events/"
+        },
+        {
           "title": "Tests",
           "url": "/concepts/tests/"
         },
@@ -219,10 +223,6 @@
               "url": "/concepts/views/#implementing-a-view-controller-plugin"
             }
           ]
-        },
-        {
-          "title": "Events",
-          "url": "/concepts/events/"
         },
         {
           "title": "Schemas",
