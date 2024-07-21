@@ -20,3 +20,13 @@ Every skill utilizes the `MercuryClient` for communication. It's a websocket bas
 ## Core Events
 
 It's common to refer to the events that `Mercury` supports as "core events". 
+
+API COMING SOON
+
+### Registering your skill
+
+In order for your skill to officially be a "skill," you need to register it. Once registered, it'll be able to register events, be installed at organizations, and more.
+
+```bash
+spruce register
+```
