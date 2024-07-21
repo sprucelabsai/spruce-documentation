@@ -5,5 +5,5 @@
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/ideology/great_software/' | url }}">Small Trunk, Big Branches</a>
+    <a class="btn" href="{{ '/ideology/architecture/' | url }}">Small Trunk, Big Branches</a>
 </div>

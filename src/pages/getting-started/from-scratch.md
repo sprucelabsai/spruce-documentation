@@ -193,14 +193,16 @@ public async load(options: SkillViewControllerLoadOptions) {
 }
 ```
 
+### Something Missing?
+
+<div class="grid-buttons">
+    <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
+</div>
+
+
 ## Now What?
 
 <div class="grid-buttons">
     <a class="btn" href="{{ '/getting-started/development-theatre/' | url }}">Install the Development Theatre</a>
 </div>
 
-## Need More Information?
-
-<div class="grid-buttons">
-    <a class="btn" href="{{ '/getting-started/development-theatre/' | url }}">Request Documentation</a>
-</div>

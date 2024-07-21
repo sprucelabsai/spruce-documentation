@@ -1,20 +1,13 @@
 # Getting Started 🏁
 
-The Spruce SDK may be much different from what you're used to. To start, review to work through this documentation to create the best Developer Experience possible:
+The Spruce SDK may be much different from what you're used to. Here is how we're going to approach this:
 
-* Step 1: Make sure you have the necessary dependencies installed on your machine.
-* Step 2: Choose your starting point (at the bottom of this page).
-* Step 3: Setup your Development Theatre.
-* Step 4: Learn the Ideology
-* Step 5: Learn the Concepts
-* Step 6: Begin Training
+* Step 1: Choose your starting point (at the bottom of this page).
+* Step 2: Setup your Development Theatre.
+* Step 3: Learn the Ideology
+* Step 4: Build your first skill
 
 The easiest way to approach this is to follow the "Now What?" link at the bottom of each page. The documentation will guide you through everything in the correct order (following the navigation above).
-
-## Necessary Dependencies
-
-1. Have an M Series Mac with OSX 14.0 or later.
-2. (Optional): [iTerm2](https://iterm2.com)
 
 ## Now What?
 
