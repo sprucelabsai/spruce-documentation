@@ -70,7 +70,7 @@ function setupNavHandlers() {
       clickedChildLevel?.classList.toggle("open", !currentStateOpen);
 
       // Update button arrow direction for child level
-      btn.classList.toggle("up-arrow", !currentStateOpen);
+      btn.classList.toggle("up-arrow", !!currentStateOpen);
     });
   });
 
@@ -85,7 +85,7 @@ function setupNavHandlers() {
       clickedGrandchildLevel?.classList.toggle("open", !currentGrandchildStateOpen);
 
       // Update button arrow direction for grandchild level
-      btn.classList.toggle("up-arrow", !currentGrandchildStateOpen);
+      btn.classList.toggle("up-arrow", !!currentGrandchildStateOpen);
     });
   });
 }
