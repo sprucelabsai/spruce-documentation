@@ -52,7 +52,7 @@ Events are very robust, especially when compared to standard verb based HTTP req
     <img src="../../assets/img/concepts/event_structure.png">
 </div>
 
-## File Structure
+## Event File Structure
 
 When you register an event as a skill (see "Registering an Event" below), the following files will be created:
 
@@ -72,6 +72,8 @@ responsePayload.builder.ts
 2. **emitTarget.builder.ts**: The schema of the target that the event is being sent to.
 3. **event.options.ts**: Additional options for an event (including permissions).
 4. **responsePayload.builder.ts**: The schema of the payload that is returned when the event is handled.
+
+## Events & Listeners
 
 ### Registering an Event
 
@@ -129,13 +131,19 @@ spruce create.event
 
 Now is a great time to do some event design work. Once your event is defined, make sure you run the following:
 
-
 ```bash
 spruce sync.events
 ```
 
 </details>
 
+### Listening to an Event as a Skill
+
+Coming soon...
+
+### Listening to an Event in a View
+
+Coming soon...
 
 
 ### Something Missing?
