@@ -1787,8 +1787,8 @@ class RootSkillView extends AbstractSkillViewController {
 
 </details>
 
-## Need More Information?
+### Something Missing?
 
 <div class="grid-buttons">
-    <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation</a>
+    <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
 </div>

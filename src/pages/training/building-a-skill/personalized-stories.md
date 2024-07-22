@@ -44,4 +44,8 @@ Set up listeners for user actions. Generate prompts to send to ChatGPT based on 
 Ensure the story generation process works seamlessly. Test and fine-tune the integration with ChatGPT.
 
 
-<a href="https://forms.gle/2ZMtwUxg1egV8sHT8" class="btn">Request Documentation</a>
+### Something Missing?
+
+<div class="grid-buttons">
+    <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
+</div>

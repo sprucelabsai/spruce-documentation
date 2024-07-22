@@ -47,6 +47,7 @@ title: Sprucebot Glossary
 # Y
 # Z
 
+
 <!-- Embedding HTML for additional styling -->
 <div class="glossary">
   <h2>More Terms</h2>
@@ -55,6 +56,12 @@ title: Sprucebot Glossary
     <li><strong>CSS</strong>: Cascading Style Sheets, a style sheet language used for describing the presentation of a document written in HTML or XML.</li>
     <li><strong>JavaScript</strong>: A programming language that conforms to the ECMAScript specification.</li>
   </ul>
+</div>
+
+### Something Missing?
+
+<div class="grid-buttons">
+    <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
 </div>
 
 <!-- Embedding CSS directly into Markdown for styling -->

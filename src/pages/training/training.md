@@ -13,3 +13,9 @@ Training is a critical part of mastery. The training is broken into 2 sections. 
         <span class="section-title">Train with Katas</span>
     </a>
 </div>
+
+### Something Missing?
+
+<div class="grid-buttons">
+    <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
+</div>

@@ -88,4 +88,8 @@ In this Chapter, we'll walk through the process of building a story generation f
 
 Congratulations! You have now developed a story generation feature that incorporates user input for a personalized narrative experience. This tool allows for creativity and flexibility in storytelling, engaging users in a unique way.
 
-<a href="https://forms.gle/2ZMtwUxg1egV8sHT8" class="btn">Request Documentation</a>
+### Something Missing?
+
+<div class="grid-buttons">
+    <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
+</div>
