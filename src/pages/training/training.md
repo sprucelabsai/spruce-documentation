@@ -4,11 +4,11 @@ Training is a critical part of mastery. The training is broken into 2 sections. 
 
 
 <div class="guide-sections">
-    <a href="learn/" class="section-link">
+    <a href="{{ '/training/building-a-skill/' | url }}" class="section-link">
         <span class="section-number">Section 1</span>
         <span class="section-title">Learn by building your first Skill</span>
     </a>
-    <a href="train/" class="section-link">
+    <a href="{{ '/training/katas/' | url }}" class="section-link">
         <span class="section-number">Section 2</span>
         <span class="section-title">Train with Katas</span>
     </a>
@@ -18,4 +18,10 @@ Training is a critical part of mastery. The training is broken into 2 sections. 
 
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
+</div>
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/training/building-a-skill/' | url }}">Building a Skill</a>
 </div>

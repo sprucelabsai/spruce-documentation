@@ -168,3 +168,9 @@ You have now successfully created a system to manager your metadata!
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
 </div>
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/training/members/' | url }}">Managing Your Family Members</a>
+</div>

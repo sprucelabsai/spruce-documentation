@@ -11,7 +11,7 @@ Let's Get Started!
 The following chapter's break down how each building block is placed in creating a story generator using sprucebot:
 
 <div class="guide-sections">
-    <a href="rootskillview/" class="section-link">
+    <a href="root/" class="section-link">
         <span class="section-number">Chapter 1</span>
         <span class="section-title">Building a RootSkillView</span>
     </a>
@@ -45,4 +45,10 @@ The following chapter's break down how each building block is placed in creating
 
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
+</div>
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/training/building-a-skill/root/' | url }}">Building a RootSkillView</a>
 </div>

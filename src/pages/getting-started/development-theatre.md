@@ -9,15 +9,15 @@ Open up your favorite terminal app and run the following command to install Deve
 ```
 > **Note**: This approach only supports M Series Macs (for now). If you're not on an M Series Mac, you can [install the theatre manually](../manual-install).
 
-## Now What?
-
-<div class="grid-buttons">
-    <a class="btn" href="{{ '/ideology/' | url }}">Learn the Spruce Ideology</a>
-</div>
-
 ### Something Missing?
 
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
+</div>
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/ideology/' | url }}">Learn the Spruce Ideology</a>
 </div>
 

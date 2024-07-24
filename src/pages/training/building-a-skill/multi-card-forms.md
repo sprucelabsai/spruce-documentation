@@ -93,3 +93,9 @@ Congratulations! You have now developed a story generation feature that incorpor
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
 </div>
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/training/personalized-stories/' | url }}">Generating Personalized Stories with ChatGPT</a>
+</div>
