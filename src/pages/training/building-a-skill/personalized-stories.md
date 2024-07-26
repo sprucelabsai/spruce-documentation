@@ -49,3 +49,9 @@ Ensure the story generation process works seamlessly. Test and fine-tune the int
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
 </div>
+
+## Now What?
+
+<div class="grid-buttons">
+    <a class="btn" href="{{ '/training/long-running-operations/' | url }}">Long Running Operations</a>
+</div>
