@@ -172,5 +172,5 @@ You have now successfully created a system to manager your metadata!
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/members/' | url }}">Managing Your Family Members</a>
+    <a class="btn" href="{{ '/training/building-a-skill/members/' | url }}">Managing Your Family Members</a>
 </div>

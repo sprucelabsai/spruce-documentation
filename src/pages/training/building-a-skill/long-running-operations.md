@@ -67,5 +67,5 @@ The key challenge is modifying the story generation feature to handle operations
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/share-story/' | url }}">Sharing the Story</a>
+    <a class="btn" href="{{ '/training//building-a-skill/share-story/' | url }}">Sharing the Story</a>
 </div>

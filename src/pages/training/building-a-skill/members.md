@@ -250,5 +250,5 @@ Implement functionality for deleting family members from the list.
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/multi-card-forms/' | url }}">Creating Multi-Card Forms</a>
+    <a class="btn" href="{{ '/training/building-a-skill/multi-card-forms/' | url }}">Creating Multi-Card Forms</a>
 </div>

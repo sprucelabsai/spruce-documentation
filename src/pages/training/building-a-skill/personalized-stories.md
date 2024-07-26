@@ -53,5 +53,5 @@ Ensure the story generation process works seamlessly. Test and fine-tune the int
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/long-running-operations/' | url }}">Long Running Operations</a>
+    <a class="btn" href="{{ '/training/building-a-skill/long-running-operations/' | url }}">Long Running Operations</a>
 </div>
