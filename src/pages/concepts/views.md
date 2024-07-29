@@ -441,10 +441,251 @@ export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 </details>
 
 <details>
-<summary><strong>Production 1</strong>: Render your card</summary>
+<summary><strong>Production 1a</strong>: Render your card</summary>
 
-Coming soon...
+We'll quickly create a `CardViewController` to render in our `RootSkillViewController` as the only card in a single layout.
 
+```ts
+import {
+    AbstractSkillViewController,
+    ViewControllerOptions,
+    SkillView,
+    CardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+    protected cardVc: CardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.cardVc = this.Controller('card', {
+            id: 'my-card',
+            header: {
+                title: 'My Card',
+            },
+        })
+    }
+
+    public render(): SkillView {
+        return {
+            layouts: [
+                {
+                    cards: [this.cardVc.render()],
+                },
+            ],
+        }
+    }
+}
+
+```
+
+> **Note**: Your card's `ViewModel` is never fully tested. Things like header text changes too much to make a meaningful test. The only time you should test the copy in your view is if it's dynamically generated.
+
+</details>
+
+<details>
+<summary><strong>Production 1b</strong>: Cleanup your SkillView</summary>
+
+Extracting the construction of your nested view controllers to builder methods makes the constructor of your `RootSkillViewController` much easier to read and makes refactor easier.
+
+```ts
+import {
+    AbstractSkillViewController,
+    ViewControllerOptions,
+    SkillView,
+    CardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+    protected cardVc: CardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.cardVc = this.CardVc()
+    }
+
+    private CardVc() {
+        return this.Controller('card', {
+            id: 'my-card',
+            header: {
+                title: 'My Card',
+            },
+        })
+    }
+
+    public render(): SkillView {
+        return {
+            layouts: [
+                {
+                    cards: [this.cardVc.render()],
+                },
+            ],
+        }
+    }
+}
+
+```
+
+
+</details>
+
+### Rendering your own ViewController Class
+
+<details>
+<summary><strong>Test 1</strong>: Assert card rendered of type</summary>
+
+This test picks up where the last one left off. We're going to test that the `CardViewController` is rendered as an instance of `MyCardViewController`.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'   
+
+export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async rendersExpectedCard() {
+        const vc = this.views.Controller('eightbitstories.root', {})
+        const cardVc = vcAssert.assertSkillViewRendersCard(vc, 'my-card')
+        vcAssert.assertControllerInstanceOf(cardVc, MyCardViewController)
+    }
+}
+```
+
+> **Note**: You will be getting a "MyCardViewController not defined" error here, that is expected. We will fix that in the next step.
+
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Create your own ViewController Class</summary>
+
+```bash
+spruce create.view
+```
+Make sure you select "Card" as the type of `ViewModel` you want your new `ViewController` to render and name it "My Card".
+
+> **Note**: View controllers will automatically have 'ViewController' appended to the end of the name you provide, so "My Card" will become "MyCardViewController".
+
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Import ViewController Class</summary>
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'  
+import MyCardViewController from '../../ViewControllers/MyCard.vc' 
+
+export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async rendersExpectedCard() {
+        const vc = this.views.Controller('eightbitstories.root', {})
+        const cardVc = vcAssert.assertSkillViewRendersCard(vc, 'my-card')
+        vcAssert.assertControllerInstanceOf(cardVc, MyCardViewController)
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Production 1a</strong>: Implement your ViewController Class</summary>
+
+In Spruce, we use composition over inheritance. That means your `MyCardViewController` should have a `CardViewController` as a property and render that, rather than trying to extend `CardViewController` or implement the `CardViewController` interface.
+
+```ts
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private cardVc: CardCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        
+        this.cardVc = this.Controller('card', {
+            id: 'my-card',
+            header: {
+                title: "Hey there!",
+            },
+        })
+    }
+
+    public render() {
+        return this.cardVc.render()
+    }
+}
+```
+</details>
+
+<details>
+<summary><strong>Production 1b</strong>: Update your RootSkillViewController</summary>
+
+Now it's just a matter of swapping out `card` for `my-card` in your `CardVc` builder method, renaming a few things, and updating the `render` method to render your new `MyCardViewController`.
+
+```ts
+import {
+    AbstractSkillViewController,
+    ViewControllerOptions,
+    SkillView,
+    CardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+import MyCardViewController from '../ViewControllers/MyCard.vc'
+
+export default class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+    protected myCardVc: MyCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.myCardVc = this.MyCardVc()
+    }
+
+    private MyCardVc() {
+        return this.Controller('eightbitstories.my-card', {})
+    }
+
+    public render(): SkillView {
+        return {
+            layouts: [
+                {
+                    cards: [this.myCardVc.render()],
+                },
+            ],
+        }
+    }
+}
+
+```
+</details>
+
+<details>
+<summary><strong>Production 1c</strong>: Cleanup MyCardViewController</summary>
+
+Now we'll go throught the usual refactor of extracting the construction of your view controllers to builder methods.
+
+```ts
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private cardVc: CardCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.cardVc = this.CardVc()
+    }
+
+    private CardVc() {
+        return this.Controller('card', {
+            id: 'my-card',
+            header: {
+                title: "Hey there!",
+            },
+        })
+    }
+
+    public render() {
+        return this.cardVc.render()
+    }
+}
+```
 </details>
 
 ### Rendering remote cards
@@ -809,6 +1050,76 @@ class RootSkillViewController extends AbstractSkillViewController {
 }
 ```
 
+</details>
+
+### Active Record Card
+
+The `ActiveRecordCard` is a special card that is used to quickly render records returned from a listener (usually pulled from a database, but not necessarily). Generally speaking, it is a great way to render a list of records.
+
+<details>
+<summary><strong>Test 1</strong>: Assert card is rendered as instance of <em>ActiveRecordCardViewController</em></summary>
+
+This test starts with a **ViewController<Card>** that you would have already created and checked for in another test using `vcAssert.assertSkillViewRendersCard(vc, 'my-card')` in the "Rendering Card by Id" section.
+
+```ts
+import { vcAssert, AbstractSpruceFixtureTest } from '@sprucelabs/heartwood-view-controllers'
+import { test } from '@sprucelabs/test-utils'
+
+export default class MyCardTest extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        const vc = this.views.Controller('eightbitstories.my-card', {})
+        vcAssert.assertIsActiveRecordCard(vc)
+    }
+}
+
+```
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Render the <em>ActiveRecordCard</em></summary>
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    CardViewController,
+    buildActiveRecordCard,
+    ActiveRecordCardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private activeRecordCardVc: ActiveRecordCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+
+        this.activeRecordCardVc = this.Controller(
+            'active-record-card',
+            buildActiveRecordCard({
+                id: 'my-cards-id',
+                header: {
+                    title: "Who's On Wifi",
+                },
+                eventName: 'list-installed-skills::v2020_12_25',
+                responseKey: 'skills',
+                rowTransformer: () => ({
+                    id: 'aoeu',
+                    cells: [],
+                }),
+            })
+        )
+    }
+
+    public render() {
+        return this.activeRecordCardVc.render()
+    }
+}
+
+```
+> **Note**: The `eventName` and `responseKey` are placeholders. You will need to replace them with the actual event name and response key that you are listening for in upcoming tests.
 </details>
 
 ## Rendering Dialogs
