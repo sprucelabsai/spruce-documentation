@@ -1054,12 +1054,20 @@ class RootSkillViewController extends AbstractSkillViewController {
 
 ### Active Record Card
 
-The `ActiveRecordCard` is a special card that is used to quickly render records returned from a listener (usually pulled from a database, but not necessarily). Generally speaking, it is a great way to render a list of records.
+The `ActiveRecordCard` is a special card that is used to quickly render records returned from a listener (usually pulled from a database, but not necessarily). Generally speaking, it is a great way to render a list of records. 
+
+> **Note**: This test starts with a **MyCardViewContoller**  that you have already created in the ["Rendering Card by Id"](#rendering-your-own-view-controller-class) section. You should start with that test before continuing.
 
 <details>
 <summary><strong>Test 1</strong>: Assert card is rendered as instance of <em>ActiveRecordCardViewController</em></summary>
 
-This test starts with a **ViewController<Card>** that you would have already created and checked for in another test using `vcAssert.assertSkillViewRendersCard(vc, 'my-card')` in the "Rendering Card by Id" section.
+If you haven't already created a test, you need to run:
+
+```bash
+spruce create.test
+```
+
+And call it "My Card" and select `AbstractSpruceFixtureTest` as the base test class (unless you have a different base class you want to use). The idea here is to test the card independently of the Skill View.
 
 ```ts
 import { vcAssert, AbstractSpruceFixtureTest } from '@sprucelabs/heartwood-view-controllers'
@@ -1084,7 +1092,6 @@ import {
     AbstractViewController,
     ViewControllerOptions,
     Card,
-    CardViewController,
     buildActiveRecordCard,
     ActiveRecordCardViewController,
 } from '@sprucelabs/heartwood-view-controllers'
@@ -1095,13 +1102,16 @@ export default class MyCardViewController extends AbstractViewController<Card> {
 
     public constructor(options: ViewControllerOptions) {
         super(options)
+        this.activeRecordCardVc = this.ActiveCardVc()
+    }
 
-        this.activeRecordCardVc = this.Controller(
+    private ActiveCardVc() {
+        return this.Controller(
             'active-record-card',
             buildActiveRecordCard({
                 id: 'my-cards-id',
                 header: {
-                    title: "Who's On Wifi",
+                    title: "Family Members",
                 },
                 eventName: 'list-installed-skills::v2020_12_25',
                 responseKey: 'skills',
@@ -1120,6 +1130,485 @@ export default class MyCardViewController extends AbstractViewController<Card> {
 
 ```
 > **Note**: The `eventName` and `responseKey` are placeholders. You will need to replace them with the actual event name and response key that you are listening for in upcoming tests.
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Assert <em>ActiveRecordCard</em> is emitting the correct event on load</summary>
+
+Even though our goal is to make sure that the `ActiveRecordCard` is emitting the correct event on load, we'll first need to make sure that `MyCardViewController` has a method called `load` that calls `this.activeRecordCardVc.load()`. We're not going to jump right there, though. We'll start with the test below which will fail because `MyCardViewController` doesn't have a `load` method.
+
+```ts
+import { vcAssert, AbstractSpruceFixtureTest } from '@sprucelabs/heartwood-view-controllers'
+import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
+import { test } from '@sprucelabs/test-utils'
+
+export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        const vc = this.views.Controller('eightbitstories.my-card', {})
+        vcAssert.assertIsActiveRecordCard(vc)
+    }
+
+    @test()
+    protected static async emitsListConnectedPeopleOnLoad() {
+        let wasHit = false
+
+        await eventFaker.on('eightbitstories.list-family-members::v2024_07_22', () => {
+            wasHit = true
+            return {
+                familyMembers: [],
+            }
+        })
+
+        const vc = this.views.Controller('eightbitstories.my-card', {})
+        await vc.load()
+    }
+}
+
+```
+> **Note**: The event `eightbitstories.list-family-members::v2024_07_22` is a best guess at what the event name will be. It will show a type error to start, that is fine, we'll fix it in a moment.
+
+> **Note**: The response to the event, `{ familyMembers: [] }`, is what we'd like the event to respond with, once we design it. The idea being, design it how you think it should work, and then make it work that way.
+
+</details>
+
+<details>
+<summary><strong>Production 2</strong>: Stub the <em>load</em> method to <em>MyCardViewController</em></summary>
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    buildActiveRecordCard,
+    ActiveRecordCardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private activeRecordCardVc: ActiveRecordCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.activeRecordCardVc = this.ActiveCardVc()
+    }
+
+    private ActiveCardVc() {
+        return this.Controller(
+            'active-record-card',
+            buildActiveRecordCard({
+                id: 'my-cards-id',
+                header: {
+                    title: "Family Members",
+                },
+                eventName: 'list-installed-skills::v2020_12_25',
+                responseKey: 'skills',
+                rowTransformer: () => ({
+                    id: 'aoeu',
+                    cells: [],
+                }),
+            })
+        )
+    }
+
+    public async load() {}
+
+    public render() {
+        return this.activeRecordCardVc.render()
+    }
+}
+
+```
+
+</details>
+
+<details>
+
+<summary><strong>Test 3</strong>: Assert the event is being emitted</summary>
+
+```ts
+import { vcAssert, AbstractSpruceFixtureTest } from '@sprucelabs/heartwood-view-controllers'
+import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
+import { test, assert } from '@sprucelabs/test-utils'
+
+export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        const vc = this.views.Controller('eightbitstories.my-card', {})
+        vcAssert.assertIsActiveRecordCard(vc)
+    }
+
+    @test()
+    protected static async emitsListConnectedPeopleOnLoad() {
+        let wasHit = false
+
+        await eventFaker.on('eightbitstories.list-family-members::v2024_07_22', () => {
+            wasHit = true
+            return {
+                familyMembers: [],
+            }
+        })
+
+        const vc = this.views.Controller('eightbitstories.my-card', {})
+        await vc.load()
+
+        assert.isTrue(wasHit, 'The event eightbitstories.list-family-members::v2024_07_22 was not emitted.')
+    }
+}
+```
+</details>
+
+<details>
+<summary><strong>Production 3a</strong>: Emit the event on load</summary>
+
+Not only are we going to load the `ActiveRecordCard` on load, but we're going to update the event `eightbitstories.list-family-members::v2024_07_22` and the `responseKey` to match what we want it to look like.
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    buildActiveRecordCard,
+    ActiveRecordCardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private activeRecordCardVc: ActiveRecordCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.activeRecordCardVc = this.ActiveCardVc()
+    }
+
+    private ActiveCardVc() {
+        return this.Controller(
+            'active-record-card',
+            buildActiveRecordCard({
+                id: 'my-cards-id',
+                header: {
+                    title: "Family Members",
+                },
+                eventName: 'eightbitstories.list-family-members::v2024_07_22',
+                responseKey: 'familyMembers',
+                rowTransformer: () => ({
+                    id: 'aoeu',
+                    cells: [],
+                }),
+            })
+        )
+    }
+
+    public async load() {
+        await this.activeRecordCardVc.load()
+    }
+
+    public render() {
+        return this.activeRecordCardVc.render()
+    }
+}
+
+```
+</details>
+
+<details>
+<summary><strong>Production 3b</strong>: Create the event</summary>
+
+You should be getting an error that the event `eightbitstories.list-family-members::v2024_07_22` doesn't exist. Let's create it!
+
+```bash
+spruce create.event
+```
+
+Make sure to name it "List Family Members".
+
+> **Note**: Now you can jump into the [event definition files](../events/#event-file-structure) and design it how you think it should work. Once you have that, you can run `spruce sync.events` to generate the event contracts and your test will pass.
+
+</details>
+
+<details>
+<summary><strong>Production 3c (Optional)</strong>: Stub a target</summary>
+
+If your event requires a target, let's stub one in for now:
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    buildActiveRecordCard,
+    ActiveRecordCardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private activeRecordCardVc: ActiveRecordCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.activeRecordCardVc = this.ActiveCardVc()
+    }
+
+    private ActiveCardVc() {
+        return this.Controller(
+            'active-record-card',
+            buildActiveRecordCard({
+                id: 'my-cards-id',
+                header: {
+                    title: "Family Members",
+                },
+                eventName: 'eightbitstories.list-family-members::v2024_07_22',
+                responseKey: 'familyMembers',
+                target: {
+                    organizationId: 'aoeu'
+                },
+                rowTransformer: () => ({
+                    id: 'aoeu',
+                    cells: [],
+                }),
+            })
+        )
+    }
+
+    public async load() {
+        await this.activeRecordCardVc.load()
+    }
+
+    public render() {
+        return this.activeRecordCardVc.render()
+    }
+}
+
+```
+
+</details>
+
+<details>
+<summary><strong>Test 4a</strong>: Dry the tests</summary>
+
+Now is as good as time as any to cleaup our test code. We'll move the construction of the `MyCardViewController` the `beforeEach()` of the test to make the test easier to read and refactor later.
+
+```ts
+import { vcAssert, AbstractSpruceFixtureTest } from '@sprucelabs/heartwood-view-controllers'
+import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
+import { test, assert } from '@sprucelabs/test-utils'
+import MyCardViewController from '../../ViewControllers/MyCard.vc'
+
+export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
+    protected static vc: MyCardViewController
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.vc = this.views.Controller('eightbitstories.my-card', {})
+    }
+
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        vcAssert.assertIsActiveRecordCard(this.vc)
+    }
+
+    @test()
+    protected static async emitsListConnectedPeopleOnLoad() {
+        let wasHit = false
+
+        await eventFaker.on('eightbitstories.list-family-members::v2024_07_22', () => {
+            wasHit = true
+            return {
+                familyMembers: [],
+            }
+        })
+
+        await this.vc.load()
+
+        assert.isTrue(wasHit, 'The event eightbitstories.list-family-members::v2024_07_22 was not emitted.')
+    }
+}
+```
+</details>
+
+<details>
+<summary><strong>Test 4b (Optional)</strong>: Assert the correct target</summary>
+
+If this were a `SkillViewController`, our `load()` method would be passed `Scope`, which would be how we could get the current `Organization` or `Location`. But, since this is a `ViewController`, we don't have that luxury. We'll need the person calling `load()` on our `ViewController` to pass the important information in and we'll construct the `target` from that.
+
+```ts
+import { SpruceSchemas, vcAssert } from '@sprucelabs/heartwood-view-controllers'
+import { eventFaker, AbstractFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { assert, generateId, test } from '@sprucelabs/test-utils'
+import MyCardViewController from '../../../viewControllers/MyCard.vc'
+
+export default class MyCardTest extends AbstractFixtureTest {
+    private static vc: MyCardViewController
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.vc = this.views.Controller('eightbitstories.my-card', {})
+    }
+
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        vcAssert.assertIsActiveRecordCard(this.vc)
+    }
+
+    @test()
+    protected static async emitsListConnectedPeopleOnLoad() {
+        const organizationId = generateId()
+
+        let wasHit = false
+        let passedTarget:
+            | SpruceSchemas.Eightbitstories.v2024_07_22.ListFamilyMembersEmitTarget
+            | undefined
+
+        await eventFaker.on(
+            'eightbitstories.list-family-members::v2024_07_22',
+            ({ target }) => {
+                passedTarget = target
+                wasHit = true
+                return {
+                    people: [],
+                }
+            }
+        )
+
+        await this.vc.load(organizationId)
+
+        assert.isTrue(wasHit)
+        assert.isEqualDeep(passedTarget, { organizationId })
+    }
+}
+
+```
+</details>
+
+<details>
+<summary><strong>Production 4 (Optional)</strong>: Set the target on the <em>ActiveRecordCard</em></summary>
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    buildActiveRecordCard,
+    ActiveRecordCardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private activeRecordCardVc: ActiveRecordCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.activeRecordCardVc = this.ActiveCardVc()
+    }
+
+    private ActiveCardVc() {
+        return this.Controller(
+            'active-record-card',
+            buildActiveRecordCard({
+                id: 'my-cards-id',
+                header: {
+                    title: "Family Members",
+                },
+                eventName: 'eightbitstories.list-family-members::v2024_07_22',
+                responseKey: 'familyMembers',
+                rowTransformer: () => ({
+                    id: 'aoeu',
+                    cells: [],
+                }),
+            })
+        )
+    }
+
+    public async load(organizationId: string) {
+        this.activeRecordCardVc.setTarget({ organizationId })
+        await this.activeRecordCardVc.load()
+    }
+
+    public render() {
+        return this.activeRecordCardVc.render()
+    }
+}
+
+```
+
+> **Note**: Because we are setting the target using `setTarget()`, we don't need to pass it to the constructor of the `ActiveRecordCard`. So we removed the stubbed target from the constructor.
+
+</details>
+
+<details>
+<summary><strong>Test 5</strong>: Refactor the test</summary>
+
+The idea here is to remove the redundant assertions and to extract out the `eventFaker` to an `EventFaker` class we can reuse across tests.
+
+```ts
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
+import { AbstractFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { assert, generateId, test } from '@sprucelabs/test-utils'
+import MyCardViewController from '../../../viewControllers/MyCard.vc'
+import EventFaker, { ListFamilyMembersTargetAndPayload } from '../../support/EventFaker'
+
+export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
+    private static vc: MyCardViewController
+    private static eventFaker: EventFaker
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.eventFaker = new EventFaker()
+        this.vc = this.views.Controller('eightbitstories.my-card', {})
+    }
+
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        vcAssert.assertIsActiveRecordCard(this.vc)
+    }
+
+    @test()
+    protected static async emitsListConnectedPeopleOnLoad() {
+        const organizationId = generateId()
+
+        let passedTarget:
+            | ListFamilyMembersTargetAndPayload['target']
+            | undefined
+
+        await this.eventFaker.fakeListFamilyMembers(({ target }) => {
+            passedTarget = target
+            return []
+        })
+
+        await this.vc.load(organizationId)
+
+        assert.isEqualDeep(passedTarget, { organizationId })
+    }
+}
+
+```
+And our new `EventFaker` implementation:
+
+```ts
+import { eventFaker, SpruceSchemas } from '@sprucelabs/spruce-test-fixtures'
+import { generateId } from '@sprucelabs/test-utils'
+import { SpruceSchemas, Person } from '@sprucelabs/spruce-core-schemas'
+
+export class EventFaker {
+    public async fakeListFamilyMembers(
+        cb?: (targetAndPayload: ListConnectPeopleTargetAndPayload) => void | Person[]
+    ) {
+        await eventFaker.on(
+            'eightbitstories.list-familyMembers::v2024_07_22',
+            (targetAndPayload) => {
+                return {
+                    people: cb?.(targetAndPayload) ?? [],
+                }
+            }
+        )
+    }
+}
+
+export type ListFamilyMembersTargetAndPayload =
+    SpruceSchemas.Eightbitstories.v2024_07_22.ListFamilyMembers
+
+```
+
 </details>
 
 ## Rendering Dialogs
