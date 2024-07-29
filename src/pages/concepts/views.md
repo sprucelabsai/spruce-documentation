@@ -1572,7 +1572,9 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
 
         await this.eventFaker.fakeListFamilyMembers(({ target }) => {
             passedTarget = target
-            return []
+            return {
+                people: []
+            }
         })
 
         await this.vc.load(organizationId)
@@ -1591,13 +1593,13 @@ import { SpruceSchemas, Person } from '@sprucelabs/spruce-core-schemas'
 
 export class EventFaker {
     public async fakeListFamilyMembers(
-        cb?: (targetAndPayload: ListConnectPeopleTargetAndPayload) => void | Person[]
+        cb?: (targetAndPayload: ListConnectPeopleTargetAndPayload) => void | ListConnectedPeopleResponse
     ) {
         await eventFaker.on(
             'eightbitstories.list-familyMembers::v2024_07_22',
             (targetAndPayload) => {
-                return {
-                    people: cb?.(targetAndPayload) ?? [],
+                return cb?.(targetAndPayload) ?? {
+                    people: [],
                 }
             }
         )
@@ -1605,7 +1607,309 @@ export class EventFaker {
 }
 
 export type ListFamilyMembersTargetAndPayload =
-    SpruceSchemas.Eightbitstories.v2024_07_22.ListFamilyMembers
+    SpruceSchemas.Eightbitstories.v2024_07_22.ListFamilyMembersEmitTargetAndPayload
+export type ListConnectedPeopleResponse =
+    SpruceSchemas.Eightbitstories.v2024_07_22.ListFamilyMembersResponsePayload
+
+```
+</details>
+
+<details>
+<summary><strong>Test 6a</strong>: Assert the expected rows are rendered</summary>
+
+```ts
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
+import { AbstractFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { assert, generateId, test } from '@sprucelabs/test-utils'
+import MyCardViewController from '../../../viewControllers/MyCard.vc'
+import { Person } from '@sprucelabs/spruce-core-schemas'
+import EventFaker, { ListFamilyMembersTargetAndPayload } from '../../support/EventFaker'
+
+export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
+    private static vc: MyCardViewController
+    private static eventFaker: EventFaker
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.eventFaker = new EventFaker()
+        this.vc = this.views.Controller('eightbitstories.my-card', {})
+    }
+
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        vcAssert.assertIsActiveRecordCard(this.vc)
+    }
+
+    @test()
+    protected static async emitsListConnectedPeopleOnLoad() {
+        const organizationId = generateId()
+
+        let passedTarget:
+            | ListFamilyMembersTargetAndPayload['target']
+            | undefined
+
+        await this.eventFaker.fakeListFamilyMembers(({ target }) => {
+            passedTarget = target
+            return {
+                people: []
+            }
+        })
+
+        await this.vc.load(organizationId)
+
+        assert.isEqualDeep(passedTarget, { organizationId })
+    }
+
+    @test()
+    protected static async rendersRowForResults() {
+        const organizationId = generateId()
+
+        const person: Person = {
+            id: generateId(),
+            casualName: generateId(),
+            networkInterface: 'eth0',
+        }
+
+        await this.eventFaker.fakeListConnectedPeople(() => [person])
+
+        await this.vc.load(organizationId)
+
+        listAssert.listRendersRow(this.vc.getListVc(), person.id)
+    }
+}
+
+```
+
+> **Note**: You should get an error that `getListVc()` doesn't exist. To fix this, we'll need a `Spy` test double to expose the `ActiveRecordCard`'s `getListVc()` method.
+
+</details>
+
+<details>
+<summary><strong>Test 6b</strong>: Create the Test Double</summary>
+
+Here we're going to create the `SpyMyCard` test double, override the controller using `this.views.setController()`, and typecast the controller to `SpyMyCard` to expose the `getListVc()` method.
+
+```ts
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
+import { AbstractFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { assert, generateId, test } from '@sprucelabs/test-utils'
+import MyCardViewController from '../../../viewControllers/MyCard.vc'
+import { Person } from '@sprucelabs/spruce-core-schemas'
+import EventFaker, { ListFamilyMembersTargetAndPayload } from '../../support/EventFaker'
+
+export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
+    private static vc: SpyMyCard
+    private static eventFaker: EventFaker
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.eventFaker = new EventFaker()
+
+        this.views.setController('eightbitstories.my-card', SpyMyCard)
+        this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
+    }
+
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        vcAssert.assertIsActiveRecordCard(this.vc)
+    }
+
+    @test()
+    protected static async emitsListConnectedPeopleOnLoad() {
+        const organizationId = generateId()
+
+        let passedTarget:
+            | ListFamilyMembersTargetAndPayload['target']
+            | undefined
+
+        await this.eventFaker.fakeListFamilyMembers(({ target }) => {
+            passedTarget = target
+            return {
+                people: []
+            }
+        })
+
+        await this.vc.load(organizationId)
+
+        assert.isEqualDeep(passedTarget, { organizationId })
+    }
+
+    @test()
+    protected static async rendersRowForResults() {
+        const organizationId = generateId()
+
+        const person: Person = {
+            id: generateId(),
+            casualName: generateId(),
+            networkInterface: 'eth0',
+        }
+
+        await this.eventFaker.fakeListConnectedPeople(() => [person])
+
+        await this.vc.load(organizationId)
+
+        listAssert.listRendersRow(this.vc.getListVc(), person.id)
+    }
+}
+
+class SpyMyCard extends MyCardViewController {
+    public getListVc() {
+        return this.activeRecordCardVc.getListVc()
+    }
+}
+
+```
+
+> **Note**: Even though the test will pass, you'll get a type error because `activeRecordCard` is private in `MyCardViewController`. We'll address that in the production code while we make the test pass.
+
+</details>
+
+<details>
+<summary><strong>Production 6</strong>: Render the row as expected</summary>
+
+We are doing 2 things here:
+
+1. Setting `activeRecordCardVc` to `protected` so that `SpyMyCard` can access it.
+2. Updating the `rowTransformer` to use the family member's id for the row id and the family member's name for the row cell.
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    buildActiveRecordCard,
+    ActiveRecordCardViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    protected activeRecordCardVc: ActiveRecordCardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+        this.activeRecordCardVc = this.ActiveCardVc()
+    }
+
+    private ActiveCardVc() {
+        return this.Controller(
+            'active-record-card',
+            buildActiveRecordCard({
+                id: 'my-cards-id',
+                header: {
+                    title: "Family Members",
+                },
+                eventName: 'eightbitstories.list-family-members::v2024_07_22',
+                responseKey: 'familyMembers',
+                rowTransformer: (familyMember) => ({
+                    id: familyMember.id,
+                    cells: [{
+                        text: {
+                            content: familyMember.name
+                        }
+                    }],
+                }),
+            })
+        )
+    }
+
+    public async load(organizationId: string) {
+        this.activeRecordCardVc.setTarget({ organizationId })
+        await this.activeRecordCardVc.load()
+    }
+
+    public render() {
+        return this.activeRecordCardVc.render()
+    }
+}
+
+```
+
+</details>
+
+<details>
+<summary><strong>Test 7</strong>: Dry the test</summary>
+
+There is quite a bit happening here:
+
+1. Moved a lot of things to the `beforeEach()` to simplify the tests
+    1. The `organizationId`
+    2. The `familyMembers` return from the event
+    3. The `lastListFamilyMembersTarget` from the event
+2. Created a `load()` method to pass the `organizationId` to `load()` for us
+
+
+```ts
+import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
+import { AbstractFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { assert, generateId, test } from '@sprucelabs/test-utils'
+import MyCardViewController from '../../../viewControllers/MyCard.vc'
+import { Person } from '@sprucelabs/spruce-core-schemas'
+import EventFaker, { ListFamilyMembersTargetAndPayload } from '../../support/EventFaker'
+
+export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
+    private static vc: SpyMyCard
+    private static eventFaker: EventFaker
+    private static organizationId: string
+    private static lastListFamilyMembersTarget:
+        | ListFamilyMembersTargetAndPayload['target']
+        | undefined
+
+    private static familyMembers: Person[] = []
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        
+        this.eventFaker = new EventFaker()
+        this.organizationId = generateId()
+        this.familyMembers = []
+
+        this.views.setController('eightbitstories.my-card', SpyMyCard)
+        this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
+
+        delete this.lastListFamilyMembersTarget
+        
+        await this.eventFaker.fakeListFamilyMembers(({ target }) => {
+            this.lastListFamilyMembersTarget = target
+            return {
+                people: this.familyMembers
+            }
+        })
+    }
+
+    @test()
+    protected static async rendersAsInstanceOfActiveRecordCard() {
+        vcAssert.assertIsActiveRecordCard(this.vc)
+    }
+
+    @test()
+    protected static async emitsListConnectedPeopleOnLoad() {
+        await this.load()
+        assert.isEqualDeep(this.lastListFamilyMembersTarget, { organizationId: this.organizationId })
+    }
+
+    @test()
+    protected static async rendersRowForResults() {
+        this.familyMembers.push({
+            id: generateId(),
+            casualName: generateId(),
+            networkInterface: 'eth0',
+        })
+
+        await this.load()
+
+        listAssert.listRendersRow(this.vc.getListVc(), this.familyMembers[0].id)
+    }
+
+    protected static async load() {
+        await this.vc.load(this.organizationId)
+    }
+}
+
+class SpyMyCard extends MyCardViewController {
+    public getListVc() {
+        return this.activeRecordCardVc.getListVc()
+    }
+}
 
 ```
 
