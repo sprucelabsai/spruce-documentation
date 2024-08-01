@@ -1,43 +1,44 @@
 # Building Your First Skill 🧩
 
+To anchor your learning experience in a real world exercise, we will be building a `Skill` together: **8-bit Stories**. This training series will take you from your first failing test all the way to deploy. End-to-end, it will touch almost every [Concept](/concepts) in the Spruce Platform. Budget yourself a few hours to complete this training.
+
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/960504621?h=32d1ec593e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="8-Bit Stories"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-## Project: 8-Bit Stories
 
-To anchor your learning experience, we will be building a project together: **8-Bit Stories**. This project is designed to apply the concepts learned in a practical, engaging manner. 8-Bit Stories is a story generator that allows users to create personalized stories. Through this project, you will see firsthand how the Spruce framework's versatility and power can be harnessed to create applications that captivate and engage.
-
-Let's Get Started!
-
-The following chapter's break down how each building block is placed in creating a story generator using sprucebot:
+## Let's Get Started!
 
 <div class="guide-sections">
+    <a href="wireframes/" class="section-link">
+        <span class="section-number">Chapter 0</span>
+        <span class="section-title">Reviewing the Wireframes</span>
+    </a>
     <a href="root/" class="section-link">
         <span class="section-number">Chapter 1</span>
-        <span class="section-title">Building a RootSkillView</span>
+        <span class="section-title">Dashboard (RootSkillView)</span>
     </a>
-    <a href="metadata/" class="section-link">
+    <a href="values/" class="section-link">
         <span class="section-number">Chapter 2</span>
-        <span class="section-title">Managing your Metadata</span>
+        <span class="section-title">Feedback</span>
     </a>
     <a href="members/" class="section-link">
         <span class="section-number">Chapter 3</span>
-        <span class="section-title">Managing your Family Members</span>
+        <span class="section-title">Your Family Values</span>
     </a>
     <a href="multi-card-forms/" class="section-link">
         <span class="section-number">Chapter 4</span>
-        <span class="section-title">Creating Multi-Card Forms</span>
+        <span class="section-title">Your Family Members</span>
     </a>
     <a href="personalized-stories/" class="section-link">
-        <span class="section-number">Chapter 5A</span>
-        <span class="section-title">Generating Personalized Stories with ChatGPT</span>
+        <span class="section-number">Chapter 5</span>
+        <span class="section-title">Generating a Bedtime Story</span>
     </a>
-    <a href="long-running-operations/" class="section-link">
-        <span class="section-number">Chapter 5B</span>
-        <span class="section-title">Long Running Operations</span>
-    </a>
-    <a href="share-story/" class="section-link">
+    <a href="personalized-stories/" class="section-link">
         <span class="section-number">Chapter 6</span>
-        <span class="section-title">Sharing the Story</span>
+        <span class="section-title">Sharing Your Story</span>
+    </a>
+    <a href="personalized-stories/" class="section-link">
+        <span class="section-number">Bonus Chapter </span>
+        <span class="section-title">Onboarding</span>
     </a>
 </div>
 
@@ -50,5 +51,5 @@ The following chapter's break down how each building block is placed in creating
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/root/' | url }}">Building a RootSkillView</a>
+    <a class="btn" href="{{ '/training/building-a-skill/root/' | url }}">Reviewing the Wireframes</a>
 </div>

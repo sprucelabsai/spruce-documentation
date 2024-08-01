@@ -74,6 +74,10 @@
           "url": "/training/building-a-skill/",
           "children": [
             {
+              "title": "Wireframes",
+              "url": "/training/building-a-skill/wireframes/"
+            },
+            {
               "title": "Starting Your Skill",
               "url": "/training/building-a-skill/new-skill/"
             },
