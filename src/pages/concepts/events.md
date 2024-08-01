@@ -54,7 +54,7 @@ Events are very robust, especially when compared to standard verb based HTTP req
 
 ## Event File Structure
 
-When you register an event as a skill (see "Registering an Event" below), the following files will be created:
+When you register an event as a skill (see ["Registering an Event"](#registering-an-event) below), the following files will be created:
 
 ```
 >ls src/events/{eventName}/v2024_01_01
