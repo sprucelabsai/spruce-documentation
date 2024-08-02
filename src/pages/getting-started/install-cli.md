@@ -1,6 +1,6 @@
 # Install the Spruce CLI
 
-This is the fastest way to get up and running with the Spruce CLI. This is a great way to get started in writing regression proof node modules.
+This is the fastest way to get up and running with the Spruce CLI. It's the best way to get started in writing regression proof node modules.
 
 1. Install <a href="https://nodejs.org/en/">latest LTS Node</a>.
 3. Install <a href="https://code.visualstudio.com">Visual Studio Code (vscode)</a>.
