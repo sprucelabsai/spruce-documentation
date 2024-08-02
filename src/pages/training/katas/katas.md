@@ -42,11 +42,26 @@ spruce create.test
 ## Spruce Katas
 
 <div class="guide-sections">
-    <a href="{{ '/training/building-a-skill/' | url }}" class="section-link">
+    <a href="{{ '/training/katas/views/' | url }}" class="section-link">
         <span class="section-number">Views</span>
     </a>
-    <a href="{{ '/training/katas/' | url }}" class="section-link">
+    <a href="{{ '/training/katas/events' | url }}" class="section-link">
         <span class="section-number">Events</span>
+    </a>
+    <a href="{{ '/training/katas/schemas' | url }}" class="section-link">
+        <span class="section-number">Schemas</span>
+    </a>
+    <a href="{{ '/training/katas/permissions' | url }}" class="section-link">
+        <span class="section-number">Permissions</span>
+    </a>
+    <a href="{{ '/training/katas/listeners' | url }}" class="section-link">
+        <span class="section-number">Listeners</span>
+    </a>
+    <a href="{{ '/training/katas/errors' | url }}" class="section-link">
+        <span class="section-number">Errors</span>
+    </a>
+    <a href="{{ '/training/katas/stores' | url }}" class="section-link">
+        <span class="section-number">Stores</span>
     </a>
 </div>
 
