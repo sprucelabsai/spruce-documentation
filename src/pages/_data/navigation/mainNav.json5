@@ -79,35 +79,35 @@
             },
             {
               "title": "Starting Your Skill",
-              "url": "/training/building-a-skill/new-skill/"
+              "url": "/training/building-a-skill/starting-a-skill/"
             },
             {
-              "title": "Building the Root SkillView",
-              "url": "/training/building-a-skill/root/"
+              "title": "Dashboard",
+              "url": "/training/building-a-skill/dashboard/"
             },
             {
-              "title": "Managing your Family Members",
-              "url": "/training/building-a-skill/members/"
+              "title": "Feedback",
+              "url": "/training/building-a-skill/feedback/"
             },
             {
-              "title": "Managing your Metadata",
-              "url": "/training/building-a-skill/metadata/"
+              "title": "Your Family Values",
+              "url": "/training/building-a-skill/your-family-values/"
             },
             {
-              "title": "Creating Multi-card Forms",
-              "url": "/training/building-a-skill/multi-card-forms/"
+              "title": "Your Family Members",
+              "url": "/training/building-a-skill/your-family-members/"
             },
             {
-              "title": "Generating Personalized Stories",
-              "url": "/training/building-a-skill/personalized-stories/"
+              "title": "Generating a Bedtime Story",
+              "url": "/training/building-a-skill/generating-a-story/"
             },
             {
-              "title": "Long Running Operations",
-              "url": "/training/building-a-skill/long-running-operations/"
-            },
-            {
-              "title": "Sharing the Story",
+              "title": "Sharing Your Story",
               "url": "/training/building-a-skill/share-story/"
+            },
+            {
+              "title": "Onboarding",
+              "url": "/training/building-a-skill/onboarding/"
             }
           ]
         },

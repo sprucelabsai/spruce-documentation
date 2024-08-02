@@ -51,5 +51,5 @@ To anchor your learning experience in a real world exercise, we will be building
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/root/' | url }}">Reviewing the Wireframes</a>
+    <a class="btn" href="{{ '/training/building-a-skill/wireframes/' | url }}">Reviewing the Wireframes</a>
 </div>
