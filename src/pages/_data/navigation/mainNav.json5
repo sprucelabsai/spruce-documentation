@@ -59,12 +59,12 @@
           "children": []
         },
         {
-          "title": "Manual: Install Development Theatre",
+          "title": "Manual: Development Theatre",
           "url": "/getting-started/manual-install/",
           "children": []
         },
         {
-          "title": "CLI Only: Install Spruce CLI",
+          "title": "SDK Only: Install Spruce CLI",
           "url": "/getting-started/install-cli/",
           "children": []
         }
