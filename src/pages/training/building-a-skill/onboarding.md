@@ -1,6 +1,4 @@
----
-title: Sharing the Story
----
+# Onboarding
 
 Coming soon...
 
@@ -13,5 +11,5 @@ Coming soon...
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/onboarding/' | url }}">Onboarding</a>
+    <a class="btn" href="{{ '/training/Katas/' | url }}">Train with Katas</a>
 </div>

@@ -12,31 +12,31 @@ To anchor your learning experience in a real world exercise, we will be building
         <span class="section-number">Chapter 0</span>
         <span class="section-title">Reviewing the Wireframes</span>
     </a>
-    <a href="root/" class="section-link">
+    <a href="dashboard/" class="section-link">
         <span class="section-number">Chapter 1</span>
         <span class="section-title">Dashboard (RootSkillView)</span>
     </a>
-    <a href="values/" class="section-link">
+    <a href="feedback/" class="section-link">
         <span class="section-number">Chapter 2</span>
         <span class="section-title">Feedback</span>
     </a>
-    <a href="members/" class="section-link">
+    <a href="your-family-values/" class="section-link">
         <span class="section-number">Chapter 3</span>
         <span class="section-title">Your Family Values</span>
     </a>
-    <a href="multi-card-forms/" class="section-link">
+    <a href="your-family-members/" class="section-link">
         <span class="section-number">Chapter 4</span>
         <span class="section-title">Your Family Members</span>
     </a>
-    <a href="personalized-stories/" class="section-link">
+    <a href="generating-a-story/" class="section-link">
         <span class="section-number">Chapter 5</span>
         <span class="section-title">Generating a Bedtime Story</span>
     </a>
-    <a href="personalized-stories/" class="section-link">
+    <a href="share-story/" class="section-link">
         <span class="section-number">Chapter 6</span>
         <span class="section-title">Sharing Your Story</span>
     </a>
-    <a href="personalized-stories/" class="section-link">
+    <a href="onboarding/" class="section-link">
         <span class="section-number">Bonus Chapter </span>
         <span class="section-title">Onboarding</span>
     </a>
@@ -51,5 +51,5 @@ To anchor your learning experience in a real world exercise, we will be building
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/root/' | url }}">Reviewing the Wireframes</a>
+    <a class="btn" href="{{ '/training/building-a-skill/wireframes/' | url }}">Reviewing the Wireframes</a>
 </div>

@@ -1,6 +1,4 @@
----
-title: Sharing the Story
----
+# Your Family Members
 
 Coming soon...
 
@@ -13,5 +11,5 @@ Coming soon...
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/onboarding/' | url }}">Onboarding</a>
+    <a class="btn" href="{{ '/training/building-a-skill/generating-a-story/' | url }}">Generating a Bedtime Story</a>
 </div>

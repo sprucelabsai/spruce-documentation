@@ -1,5 +1,5 @@
 ---
-title: Sharing the Story
+title: Generating a Bedtime Story with ChatGPT
 ---
 
 Coming soon...
@@ -13,5 +13,5 @@ Coming soon...
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/onboarding/' | url }}">Onboarding</a>
+    <a class="btn" href="{{ '/training/building-a-skill/share-story/' | url }}">Sharing Your Story</a>
 </div>
