@@ -800,7 +800,7 @@ export default class MyCardViewController extends AbstractViewController<Card> {
         })
     }
 
-    private async handleAutocompleteChange(value: string) {
+    private async handleAutocompleteChange(_value: string) {
         this.autocompleteInputVc.showSuggestions([])
         const client = await this.connectToApi()
         await client.emitAndFlattenResponses(
@@ -866,6 +866,8 @@ type MyFormSchema = typeof myFormSchema
 > **Note**: We still show an empty array of suggestions to keep the past test working.
 
 > **Note**: You should be getting an error that a listener for `eightbitstories.autocomplete-event::v2020_01_01` doesn't exist for the last test, we'll refactor our test next to make it work.
+
+> **Note**: To avoid an unused variable warning, you can prepend the variable name with an underscore (`_value`).
 
 </details>
 
@@ -975,6 +977,11 @@ class EventFaker {
 ```
 
 > **Note**: By adding the `EventFaker` class and faking the event in `beforeEach`, we can be sure that no test fails because of a missing listener.
+
+</details>
+
+<details>
+<summary><strong>Test 4b</strong>: Assert the expected target & payload</summary>
 
 </details>
 
