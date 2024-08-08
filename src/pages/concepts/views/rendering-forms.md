@@ -44,7 +44,7 @@ import { buildSchema } from '@sprucelabs/schema'
 export default class MyCardViewController extends AbstractViewController<Card> {
     public static id = 'my-card'
     private cardVc: CardViewController
-    private formVc: FormViewController<MyFormSchema>
+    protected formVc: FormViewController<MyFormSchema>
 
     public constructor(options: ViewControllerOptions) {
         super(options)
@@ -145,7 +145,7 @@ class SpyMyCard extends MyCardViewController {
 
 ```
 
-> **Note**: If you are following along, you will get a type error because `formVc` is 'private'. You can make it 'protected' in `MyCardViewController` to get around this.
+> **Note**: If you are following along, you will get a type error because `formVc` is `private`. You can make it `protected` in `MyCardViewController` to get around this.
 
 > **Note**: Now you should get an error that your form is not rendering the expected fields. It's time to implement the fields in your form.
 
@@ -175,7 +175,7 @@ import { buildSchema } from '@sprucelabs/schema'
 export default class MyCardViewController extends AbstractViewController<Card> {
     public static id = 'my-card'
     private cardVc: CardViewController
-    private formVc: FormViewController<MyFormSchema>
+    protected formVc: FormViewController<MyFormSchema>
 
     public constructor(options: ViewControllerOptions) {
         super(options)
@@ -246,7 +246,7 @@ import { buildSchema } from '@sprucelabs/schema'
 export default class MyCardViewController extends AbstractViewController<Card> {
     public static id = 'my-card'
     private cardVc: CardViewController
-    private formVc: FormViewController<MyFormSchema>
+    protected formVc: FormViewController<MyFormSchema>
 
     public constructor(options: ViewControllerOptions) {
         super(options)
@@ -344,3 +344,637 @@ class SpyMyCard extends MyCardViewController {
 
 ```
 </details>
+
+### Rendering an Autocomplete Input
+
+The `AutocompleteInputViewController` is a text input that provides suggestions as you type. Well, you gotta supply the suggestions, but it's pretty easy.
+
+It's important to note that the 'AutocompleteInputViewController', like all `InputViewControllers`, has a `renderedValue` and a `value`. The `renderedValue` is what is what is displayed in the input, while the `value` is what is submitted in the form.
+
+With an `AutocompleteInput`, we'll pay attention to changes in the `renderedValue` as the user types, and then update the `value` when the user selects a suggestion.
+
+This series of tests is going to pickup where the tests above left off.
+
+<details>
+<summary><strong>Test 1</strong>: Assert that field renders using <em>AutocompleteInput</em></summary>
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { formAssert, AutocompleteInputViewController } from '@sprucelabs/heartwood-view-controllers'
+import MyCardViewController from '../../viewControllers/MyCardViewController'
+
+export default class MyCardTest extends AbstractSpruceFixtureTest {
+    private static vc: SpyMyCard
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.views.setController('eightbitstories.my-card', SpyMyCard)
+        this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
+    }
+
+    @test()
+    protected static async rendersACard() {
+        formAssert.cardRendersForm(this.vc)
+    }
+
+    @test()
+    protected static async rendersExpectedFields() {
+        formAssert.formRendersFields(this.formVc, ['field1','field2'])
+    }
+
+    @test()
+    protected static async rendersAutocompleteInput() {
+        formAssert.fieldRendersUsingInstanceOf(
+            this.formVc,
+            'field1',
+            AutocompleteInputViewController
+        )
+    }
+
+    protected static get formVc() {
+        return this.vc.getForm()
+    }
+}
+
+class SpyMyCard extends MyCardViewController {
+    public getForm() {
+        return this.formVc
+    }
+}
+
+```
+
+> **Note**: In addition to the `formAssert.fieldRendersUsingInstanceOf` assertion, we've added a `formVc` getter to cut down on duplication.
+
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Render an <em>AutocompleteInput</em> in your form</summary>
+
+This is another 2 parter:
+
+1. Construct an `AutocompleteInputViewController` and track it on your `ViewController`.
+2. Update your `FormSection` to be the "expanded" type, which is an object with `field` and `vc` properties (among others).
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    CardViewController,
+    buildForm,
+    FormViewController,
+    AutocompleteInputViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+import { buildSchema } from '@sprucelabs/schema'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private cardVc: CardViewController
+    protected formVc: FormViewController<MyFormSchema>
+    private autocompleteInputVc: AutocompleteInputViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+
+        this.autocompleteInputVc = this.AutocompleteVc()
+        this.formVc = FormVc()
+        this.cardVc = CardVc()
+    }
+
+    private AutocompleteVc(): AutocompleteInputViewController {
+        return this.Controller('autocomplete-input', {})
+    }
+
+    private FormVc() {
+        return this.Controller(
+            'form',
+            buildForm({
+                schema: myFormSchema,
+                sections: [
+                    {
+                        fields: [
+                            {
+                                name: 'field1'
+                                vc: this.autocompleteInputVc,
+                            }, 
+                            'field2'
+                        ],
+                    }
+                ],
+            })
+        )
+    }
+
+    private CardVc() {
+        return this.Controller('card', {
+            body: {
+                sections: [
+                    {
+                        form: this.formVc.render(),
+                    },
+                ],
+            },
+        })
+    }
+
+    public render() {
+        return this.cardVc.render()
+    }
+}
+
+const myFormSchema = buildSchema({
+    id: 'myForm',
+    fields: {
+        field1: {
+            type: 'text',
+            label: 'Field 1',
+        },
+        field2: {
+            type: 'text',
+            label: 'Field 2',
+        },
+    },
+})
+
+type MyFormSchema = typeof myFormSchema
+
+```
+
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Assert that the <em>AutocompleteInput</em> shows suggestions</summary>
+
+The next steps are:
+
+1. Use the `autocompleteAssert` utility to assert that the `AutocompleteInputViewController` shows suggestions when the `renderedValue` is changed.
+2. Update your `Spy` to expose the `AutocompleteInputViewController` with `getAutocompleteVc()`.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { test } from '@sprucelabs/test-utils'
+import {
+    autocompleteAssert,
+    AutocompleteInputViewController,
+    formAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+import MyCardViewController from '../../viewControllers/MyCardViewController'
+
+export default class MyCardTest extends AbstractSpruceFixtureTest {
+    private static vc: SpyMyCard
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.views.setController('eightbitstories.my-card', SpyMyCard)
+        this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
+    }
+
+    @test()
+    protected static async rendersACard() {
+        formAssert.cardRendersForm(this.vc)
+    }
+
+    @test()
+    protected static async rendersExpectedFields() {
+        formAssert.formRendersFields(this.formVc, ['field1','field2'])
+    }
+
+    @test()
+    protected static async rendersAutocompleteInput() {
+        formAssert.fieldRendersUsingInstanceOf(
+            this.formVc,
+            'field1',
+            AutocompleteInputViewController
+        )
+    }
+
+    @test()
+    protected static async changingDestinationsRendersSuggestions() {
+        await autocompleteAssert.actionShowsSuggestions(
+            this.vc.getAutocompleteVc(),
+            () => this.vc.getAutocompleteVc().setRenderedValue('test')
+        )
+    }
+
+    protected static get formVc() {
+        return this.vc.getForm()
+    }
+}
+
+class SpyMyCard extends MyCardViewController {
+    public getAutocompleteVc() {
+        return this.autocompleteInputVc
+    }
+
+    public getForm() {
+        return this.formVc
+    }
+}
+
+```
+
+> **Note**: You're going to get an type error because `autocompleteInputVc` is 'private'. You can make it 'protected' in `MyCardViewController` to get around this.
+
+</details>
+
+<details>
+<summary><strong>Production 2</strong>: Render suggestions in your <em>AutocompleteInput</em></summary>
+
+Notice how we added a `onChangeRenderedValue` callback to the `AutocompleteInputViewController` to show suggestions when the `renderedValue` changes and just pass an empty array for now.
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    CardViewController,
+    buildForm,
+    FormViewController,
+    AutocompleteInputViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+import { buildSchema } from '@sprucelabs/schema'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private cardVc: CardViewController
+    protected formVc: FormViewController<MyFormSchema>
+    protected autocompleteInputVc: AutocompleteInputViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+
+        this.autocompleteInputVc = this.AutocompleteVc()
+        this.formVc = FormVc()
+        this.cardVc = CardVc()
+    }
+
+    private AutocompleteVc(): AutocompleteInputViewController {
+        return this.Controller('autocomplete-input', {
+            onChangeRenderedValue: () =>
+                this.autocompleteInputVc.showSuggestions([]),
+        })
+    }
+
+    private FormVc() {
+        return this.Controller(
+            'form',
+            buildForm({
+                schema: myFormSchema,
+                sections: [
+                    {
+                        fields: [
+                            {
+                                name: 'field1'
+                                vc: this.autocompleteInputVc,
+                            }, 
+                            'field2'
+                        ],
+                    }
+                ],
+            })
+        )
+    }
+
+    private CardVc() {
+        return this.Controller('card', {
+            body: {
+                sections: [
+                    {
+                        form: this.formVc.render(),
+                    },
+                ],
+            },
+        })
+    }
+
+    public render() {
+        return this.cardVc.render()
+    }
+}
+
+const myFormSchema = buildSchema({
+    id: 'myForm',
+    fields: {
+        field1: {
+            type: 'text',
+            label: 'Field 1',
+        },
+        field2: {
+            type: 'text',
+            label: 'Field 2',
+        },
+    },
+})
+
+type MyFormSchema = typeof myFormSchema
+
+```
+
+</details>
+
+<details>
+<summary><strong>Test 3</strong>: Assert changing the <em>renderedValue</em> emits an event.</summary>
+
+```ts
+import { AbstractSpruceFixtureTest, eventFaker } from '@sprucelabs/spruce-test-fixtures'
+import { test } from '@sprucelabs/test-utils'
+import {
+    autocompleteAssert,
+    AutocompleteInputViewController,
+    formAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+import MyCardViewController from '../../viewControllers/MyCardViewController'
+
+export default class MyCardTest extends AbstractSpruceFixtureTest {
+    private static vc: SpyMyCard
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.views.setController('eightbitstories.my-card', SpyMyCard)
+        this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
+    }
+
+    @test()
+    protected static async rendersACard() {
+        formAssert.cardRendersForm(this.vc)
+    }
+
+    @test()
+    protected static async rendersExpectedFields() {
+        formAssert.formRendersFields(this.formVc, ['field1','field2'])
+    }
+
+    @test()
+    protected static async rendersAutocompleteInput() {
+        formAssert.fieldRendersUsingInstanceOf(
+            this.formVc,
+            'field1',
+            AutocompleteInputViewController
+        )
+    }
+
+    @test()
+    protected static async changingDestinationsRendersSuggestions() {
+        await autocompleteAssert.actionShowsSuggestions(
+            this.autocompleteInputVc,
+            () => this.typeIntoField1('test')
+        )
+    }
+
+    @test()
+    protected static async typeingIntoField1EmitsEvent() {
+        let wasHit = false
+        await eventFaker.on('eightbitstories.autocomplete-event::v2020_01_01', () => {
+            wasHit = true
+            return []
+        })
+
+        await this.typeIntoField1('hello world')
+        
+        assert.isTrue(wasHit)
+    }
+
+    protected static get autocompleteVc() {
+        return this.vc.getAutocompleteVc()
+    }
+
+    protected static async typeIntoField1(value: string) {
+       return this.autocompleteVc.setRenderedValue(value)
+    }
+
+    protected static get formVc() {
+        return this.vc.getForm()
+    }
+}
+
+class SpyMyCard extends MyCardViewController {
+    public getAutocompleteVc() {
+        return this.autocompleteInputVc
+    }
+
+    public getForm() {
+        return this.formVc
+    }
+}
+
+```
+
+</details>
+
+<details>
+<summary><strong>Production 3</strong>: Emit an event when the <em>renderedValue</em> changes</summary>
+
+Time to change the `onChangeRenderedValue` handler to emit an event when the `renderedValue` changes.
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    CardViewController,
+    buildForm,
+    FormViewController,
+    AutocompleteInputViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+import { buildSchema } from '@sprucelabs/schema'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private cardVc: CardViewController
+    protected formVc: FormViewController<MyFormSchema>
+    protected autocompleteInputVc: AutocompleteInputViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+
+        this.autocompleteInputVc = this.AutocompleteVc()
+        this.formVc = FormVc()
+        this.cardVc = CardVc()
+    }
+
+    private AutocompleteVc(): AutocompleteInputViewController {
+        return this.Controller('autocomplete-input', {
+            onChangeRenderedValue: (value) =>
+                this.handleAutocompleteChange(value),
+        })
+    }
+
+    private async handleAutocompleteChange(value: string) {
+        this.autocompleteInputVc.showSuggestions([])
+        const client = await this.connectToApi()
+        await client.emitAndFlattenResponses(
+            'eightbitstories.autocomplete-event::v2020_01_01'
+        )
+    }
+
+    private FormVc() {
+        return this.Controller(
+            'form',
+            buildForm({
+                schema: myFormSchema,
+                sections: [
+                    {
+                        fields: [
+                            {
+                                name: 'field1'
+                                vc: this.autocompleteInputVc,
+                            }, 
+                            'field2'
+                        ],
+                    }
+                ],
+            })
+        )
+    }
+
+    private CardVc() {
+        return this.Controller('card', {
+            body: {
+                sections: [
+                    {
+                        form: this.formVc.render(),
+                    },
+                ],
+            },
+        })
+    }
+
+    public render() {
+        return this.cardVc.render()
+    }
+}
+
+const myFormSchema = buildSchema({
+    id: 'myForm',
+    fields: {
+        field1: {
+            type: 'text',
+            label: 'Field 1',
+        },
+        field2: {
+            type: 'text',
+            label: 'Field 2',
+        },
+    },
+})
+
+type MyFormSchema = typeof myFormSchema
+
+```
+
+> **Note**: We still show an empty array of suggestions to keep the past test working.
+
+> **Note**: You should be getting an error that a listener for `eightbitstories.autocomplete-event::v2020_01_01` doesn't exist for the last test, we'll refactor our test next to make it work.
+
+</details>
+
+<details>
+<summary><strong>Test 4a</strong>: Fix the previous test + <em>EventFaker</em></summary>
+
+We're going to take a short detour now to create an `EventFaker` class to keep our tests DRY.
+
+```ts
+import { AbstractSpruceFixtureTest, eventFaker } from '@sprucelabs/spruce-test-fixtures'
+import { test } from '@sprucelabs/test-utils'
+import {
+    autocompleteAssert,
+    AutocompleteInputViewController,
+    formAssert,
+} from '@sprucelabs/heartwood-view-controllers'
+import MyCardViewController from '../../viewControllers/MyCardViewController'
+
+export default class MyCardTest extends AbstractSpruceFixtureTest {
+    private static vc: SpyMyCard
+    private static eventFaker: EventFaker
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+
+        this.views.setController('eightbitstories.my-card', SpyMyCard)
+
+        this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
+        this.eventFaker = new EventFaker()
+        
+        await this.eventFaker.fakeAutocompleteEvent()
+    }
+
+    @test()
+    protected static async rendersACard() {
+        formAssert.cardRendersForm(this.vc)
+    }
+
+    @test()
+    protected static async rendersExpectedFields() {
+        formAssert.formRendersFields(this.formVc, ['field1','field2'])
+    }
+
+    @test()
+    protected static async rendersAutocompleteInput() {
+        formAssert.fieldRendersUsingInstanceOf(
+            this.formVc,
+            'field1',
+            AutocompleteInputViewController
+        )
+    }
+
+    @test()
+    protected static async changingDestinationsRendersSuggestions() {
+        await autocompleteAssert.actionShowsSuggestions(
+            this.autocompleteInputVc,
+            () => this.typeIntoField1('test')
+        )
+    }
+
+    @test()
+    protected static async typeingIntoField1EmitsEvent() {
+        let wasHit = false
+        await this.eventFaker.fakeAutocompleteEvent(() => {
+            wasHit = true
+            return []
+        })
+
+        await this.typeIntoField1('hello world')
+        
+        assert.isTrue(wasHit)
+    }
+
+    protected static get autocompleteVc() {
+        return this.vc.getAutocompleteVc()
+    }
+
+    protected static async typeIntoField1(value: string) {
+       return this.autocompleteVc.setRenderedValue(value)
+    }
+
+    protected static get formVc() {
+        return this.vc.getForm()
+    }
+}
+
+class SpyMyCard extends MyCardViewController {
+    public getAutocompleteVc() {
+        return this.autocompleteInputVc
+    }
+
+    public getForm() {
+        return this.formVc
+    }
+}
+
+class EventFaker {
+    public async fakeAutocompleteEvent(cb?: () => void) {
+        return this.fakeEvent('eightbitstories.autocomplete-event::v2020_01_01', () => {
+            return {
+                results: [],
+            }
+        })
+    }
+}
+
+```
+
+> **Note**: By adding the `EventFaker` class and faking the event in `beforeEach`, we can be sure that no test fails because of a missing listener.
+
+</details>
+
