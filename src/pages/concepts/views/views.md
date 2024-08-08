@@ -12,10 +12,17 @@ Every other type of `ViewController` (listed below) is rendered inside a `CardSe
 
 
 {% include_raw "important-classes.md" "concepts/views" %}
+
 {% include_raw "rendering-cards.md" "concepts/views" %}
+
 {% include_raw "rendering-dialogs.md" "concepts/views" %}
+
 {% include_raw "rendering-forms.md" "concepts/views" %}
+
 {% include_raw "rendering-skill-views.md" "concepts/views" %}
+
 {% include_raw "root-skill-view.md" "concepts/views" %}
+
 {% include_raw "skill-view-lifecycle.md" "concepts/views" %}
+
 {% include_raw "view-controller-plugins.md" "concepts/views" %}
