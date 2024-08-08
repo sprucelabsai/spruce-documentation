@@ -5,8 +5,11 @@ const externalLinks = require("@aloskutov/eleventy-plugin-external-links");
 
 const registerExtensions = require("./11ty-extensions");
 
-module.exports = function (eleventyConfig) {
 
+const fs = require('fs');
+const path = require('path');
+
+module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "./src/assets/": "assets" });
   eleventyConfig.addPassthroughCopy({ "./node_modules/font-awesome/css": "assets/font-awesome/css" });
   eleventyConfig.addPassthroughCopy({ "./node_modules/font-awesome/fonts": "assets/font-awesome/fonts" });
@@ -32,6 +35,19 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setWatchThrottleWaitTime(100);
 
   registerExtensions(eleventyConfig);
+
+  eleventyConfig.addShortcode("include_raw", function(file) {
+    const inputPath = this.page.inputPath;
+    const inputDir = path.dirname(inputPath);
+    const filePath = path.join(inputDir, file);
+    
+    if (fs.existsSync(filePath)) {
+      return fs.readFileSync(filePath, 'utf8');
+    } else {
+      console.warn(`Warning: File not found - ${filePath}`);
+      return `<!-- File not found: ${file} -->`;
+    }
+  });
 
   return {
     pathPrefix: "/",
