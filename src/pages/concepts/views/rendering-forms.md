@@ -504,7 +504,166 @@ type MyFormSchema = typeof myFormSchema
 </details>
 
 <details>
-<summary><strong>Test 2</strong>: Assert that the <em>AutocompleteInput</em> shows suggestions</summary>
+<summary><strong>Test 2</strong>: Assert the field's <em>renderAs</em></summary>
+
+We'll use `formAssert.fieldRendersAs` to assert that the field is rendering as an `autocomplete`.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { formAssert, AutocompleteInputViewController } from '@sprucelabs/heartwood-view-controllers'
+import MyCardViewController from '../../viewControllers/MyCardViewController'
+
+export default class MyCardTest extends AbstractSpruceFixtureTest {
+    private static vc: SpyMyCard
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.views.setController('eightbitstories.my-card', SpyMyCard)
+        this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
+    }
+
+    @test()
+    protected static async rendersACard() {
+        formAssert.cardRendersForm(this.vc)
+    }
+
+    @test()
+    protected static async rendersExpectedFields() {
+        formAssert.formRendersFields(this.formVc, ['field1','field2'])
+    }
+
+    @test()
+    protected static async rendersAutocompleteInput() {
+        formAssert.fieldRendersUsingInstanceOf(
+            this.formVc,
+            'field1',
+            AutocompleteInputViewController
+        )
+    }
+
+    @test()
+    protected static async rendersAsAutocomplete() {
+        formAssert.fieldRendersAs(
+            this.formVc,
+            'field1',
+            'autocomplete'
+        )
+    }
+
+    protected static get formVc() {
+        return this.vc.getForm()
+    }
+}
+
+class SpyMyCard extends MyCardViewController {
+    public getForm() {
+        return this.formVc
+    }
+}
+
+```
+
+</details>
+
+
+<details>
+<summary><strong>Production 2</strong>: Set field to render as <em>autocomplete</em></summary>
+
+A quick, easy add. Simple set the `renderAs` property to `autocomplete` in field.
+
+```ts
+import {
+    AbstractViewController,
+    ViewControllerOptions,
+    Card,
+    CardViewController,
+    buildForm,
+    FormViewController,
+    AutocompleteInputViewController,
+} from '@sprucelabs/heartwood-view-controllers'
+import { buildSchema } from '@sprucelabs/schema'
+
+export default class MyCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-card'
+    private cardVc: CardViewController
+    protected formVc: FormViewController<MyFormSchema>
+    protected autocompleteInputVc: AutocompleteInputViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+
+        this.autocompleteInputVc = this.AutocompleteVc()
+        this.formVc = FormVc()
+        this.cardVc = CardVc()
+    }
+
+    private AutocompleteVc(): AutocompleteInputViewController {
+        return this.Controller('autocomplete-input', {
+            onChangeRenderedValue: () =>
+                this.autocompleteInputVc.showSuggestions([]),
+        })
+    }
+
+    private FormVc() {
+        return this.Controller(
+            'form',
+            buildForm({
+                schema: myFormSchema,
+                sections: [
+                    {
+                        fields: [
+                            {
+                                name: 'field1'
+                                vc: this.autocompleteInputVc,
+                                renderAs: 'autocomplete',
+                            }, 
+                            'field2'
+                        ],
+                    }
+                ],
+            })
+        )
+    }
+
+    private CardVc() {
+        return this.Controller('card', {
+            body: {
+                sections: [
+                    {
+                        form: this.formVc.render(),
+                    },
+                ],
+            },
+        })
+    }
+
+    public render() {
+        return this.cardVc.render()
+    }
+}
+
+const myFormSchema = buildSchema({
+    id: 'myForm',
+    fields: {
+        field1: {
+            type: 'text',
+            label: 'Field 1',
+        },
+        field2: {
+            type: 'text',
+            label: 'Field 2',
+        },
+    },
+})
+
+type MyFormSchema = typeof myFormSchema
+
+```
+
+</details>
+
+<details>
+<summary><strong>Test 3</strong>: Assert that the <em>AutocompleteInput</em> shows suggestions</summary>
 
 The next steps are:
 
@@ -550,6 +709,15 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
+    protected static async rendersAsAutocomplete() {
+        formAssert.fieldRendersAs(
+            this.formVc,
+            'field1',
+            'autocomplete'
+        )
+    }
+
+    @test()
     protected static async changingDestinationsRendersSuggestions() {
         await autocompleteAssert.actionShowsSuggestions(
             this.vc.getAutocompleteVc(),
@@ -579,7 +747,7 @@ class SpyMyCard extends MyCardViewController {
 </details>
 
 <details>
-<summary><strong>Production 2</strong>: Render suggestions in your <em>AutocompleteInput</em></summary>
+<summary><strong>Production 3</strong>: Render suggestions in your <em>AutocompleteInput</em></summary>
 
 Notice how we added a `onChangeRenderedValue` callback to the `AutocompleteInputViewController` to show suggestions when the `renderedValue` changes and just pass an empty array for now.
 
@@ -673,8 +841,10 @@ type MyFormSchema = typeof myFormSchema
 
 </details>
 
+
+
 <details>
-<summary><strong>Test 3</strong>: Assert changing the <em>renderedValue</em> emits an event.</summary>
+<summary><strong>Test 4</strong>: Assert changing the <em>renderedValue</em> emits an event.</summary>
 
 ```ts
 import { AbstractSpruceFixtureTest, eventFaker } from '@sprucelabs/spruce-test-fixtures'
@@ -763,7 +933,7 @@ class SpyMyCard extends MyCardViewController {
 </details>
 
 <details>
-<summary><strong>Production 3</strong>: Emit an event when the <em>renderedValue</em> changes</summary>
+<summary><strong>Production 4</strong>: Emit an event when the <em>renderedValue</em> changes</summary>
 
 Time to change the `onChangeRenderedValue` handler to emit an event when the `renderedValue` changes.
 
@@ -872,7 +1042,7 @@ type MyFormSchema = typeof myFormSchema
 </details>
 
 <details>
-<summary><strong>Test 4a</strong>: Fix the previous test + <em>EventFaker</em></summary>
+<summary><strong>Test 5a</strong>: Fix the previous test + <em>EventFaker</em></summary>
 
 We're going to take a short detour now to create an `EventFaker` class to keep our tests DRY.
 
@@ -981,7 +1151,7 @@ class EventFaker {
 </details>
 
 <details>
-<summary><strong>Test 4b</strong>: Assert the expected target & payload</summary>
+<summary><strong>Test 5b</strong>: Assert the expected target & payload</summary>
 
 </details>
 
