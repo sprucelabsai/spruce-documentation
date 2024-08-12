@@ -7,7 +7,6 @@ Open up your favorite terminal app and run the following command to install Deve
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sprucelabsai-community/theatre-monorepo/master/support/install.sh)"
 ```
-> **Note**: This approach only supports M Series Macs (for now). If you're not on an M Series Mac, you can [install the theatre manually](../manual-install).
 
 ### Something Missing?
 
