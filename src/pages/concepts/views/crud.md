@@ -6,7 +6,7 @@ If you need to build out data management views quickly (something akin to a CMS)
 
 ### Installing dependencies
 
-Because the `CRUD` functionality is by the [@sprucelabs/spruce-crud-utils](https://www.npmjs.com/package/@sprucelabs/spruce-crud-utils) module, let's start by adding it to our project.
+Because the `CRUD` `Views` and `assertions` are provided by the [@sprucelabs/spruce-crud-utils](https://www.npmjs.com/package/@sprucelabs/spruce-crud-utils) module, let's start by adding it to our project.
 
 
 ```bash
