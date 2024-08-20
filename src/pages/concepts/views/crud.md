@@ -137,7 +137,7 @@ import {
 
 export default class RootSkillViewController extends AbstractSkillViewController {
     public static id = 'root'
-    private masterSkillView: MasterSkillViewController
+    private masterSkillViewVc: MasterSkillViewController
 
     public constructor(options: ViewControllerOptions) {
         super(options)
@@ -151,7 +151,7 @@ export default class RootSkillViewController extends AbstractSkillViewController
             MasterListCardViewController
         )
 
-        this.masterSkillView = this.Controller('crud.master-skill-view', {
+        this.masterSkillViewVc = this.Controller('crud.master-skill-view', {
             entities: [
                 buildMasterListEntity({
                     id: 'aoeu',
@@ -170,7 +170,7 @@ export default class RootSkillViewController extends AbstractSkillViewController
     }
 
     public render(): SkillView {
-        return this.masterSkillView.render()
+        return this.masterSkillViewVc.render()
     }
 }
 
@@ -180,3 +180,165 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
 </details>
 
+<details>
+<summary><strong>Test 2</strong>:Assert <em>MasterSkillView</em> is loaded</summary>
+
+This one is fast, let's use `crudAssert.skillViewLoadsMasterView()` to assert that the `MasterSkillView` is loaded when your `SkillView` is loaded.
+
+```typescript
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { test } from '@sprucelabs/test-utils'
+import { crudAssert } from '@sprucelabs/spruce-crud-utils'
+
+export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
+
+    protected static async beforeEach() {
+        await super.beforeEach()
+        crudAssert.beforeEach(this.views)
+    }
+
+
+    @test()
+    protected static async rendersMaster() {
+        const vc = this.views.Controller('eightbitstories.root', {})
+        crudAssert.skillViewRendersMasterView(]vc)
+    }
+
+    @test()
+    protected static async loadsMaster() {
+        const vc = this.views.Controller('eightbitstories.root', {})
+        await crudAssert.skillViewLoadsMasterView(vc)
+    }
+}
+
+```
+</details>
+<details>
+<summary><strong>Production 2a</strong>:Implement <em>MasterSkillView</em> loading</summary>
+
+To get this test to pass, you need to implement the `load()` method in your `SkillView` and call `load(...)` on the `MasterSkillView`.
+
+```typescript
+import {
+    AbstractSkillViewController,
+    ViewControllerOptions,
+    SkillView,
+    SkillViewControllerLoadOptions,
+} from '@sprucelabs/heartwood-view-controllers'
+import {
+    MasterSkillViewController,
+    MasterListCardViewController,
+} from '@sprucelabs/spruce-crud-utils'
+
+export default class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+    private masterSkillViewVc: MasterSkillViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+
+        this.getVcFactory().setController(
+            'crud.master-skill-view',
+            MasterSkillViewController
+        )
+        this.getVcFactory().setController(
+            'crud.master-list-card',
+            MasterListCardViewController
+        )
+
+        this.masterSkillViewVc = this.Controller('crud.master-skill-view', {
+            entities: [
+                buildMasterListEntity({
+                    id: 'aoeu',
+                    title: 'aoeu',
+                    load: {
+                        fqen: 'aoeu',
+                        responseKey: 'aoue',
+                        rowTransformer: (skill) => ({
+                            id: 'aoeuaoeu',
+                            cells: [],
+                        }),
+                    },
+                }),
+            ],
+        })
+    }
+
+    public async load(options: SkillViewControllerLoadOptions) {
+        await this.masterSkillViewVc.load(options)
+    }
+
+    public render(): SkillView {
+        return this.masterSkillViewVc.render()
+    }
+}
+
+```
+
+</details>
+
+<details>
+<summary><strong>Production 2b</strong>: Cleanup constructor</summary>
+
+```typescript
+import {
+    AbstractSkillViewController,
+    ViewControllerOptions,
+    SkillView,
+    SkillViewControllerLoadOptions,
+} from '@sprucelabs/heartwood-view-controllers'
+import {
+    MasterSkillViewController,
+    MasterListCardViewController,
+} from '@sprucelabs/spruce-crud-utils'
+
+export default class RootSkillViewController extends AbstractSkillViewController {
+    public static id = 'root'
+    private masterSkillViewVc: MasterSkillViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+
+        this.getVcFactory().setController(
+            'crud.master-skill-view',
+            MasterSkillViewController
+        )
+        this.getVcFactory().setController(
+            'crud.master-list-card',
+            MasterListCardViewController
+        )
+
+        this.masterSkillViewVc = this.MasterSkillViewVc()
+    }
+
+    private MastSkillViewVc() {
+        return this.Controller('crud.master-skill-view', {
+            entities: [
+                buildMasterListEntity({
+                    id: 'aoeu',
+                    title: 'aoeu',
+                    load: {
+                        fqen: 'aoeu',
+                        responseKey: 'aoue',
+                        rowTransformer: (skill) => ({
+                            id: 'aoeuaoeu',
+                            cells: [],
+                        }),
+                    },
+                }),
+            ],
+        })
+    }
+
+    public async load(options: SkillViewControllerLoadOptions) {
+        await this.masterSkillViewVc.load(options)
+    }
+
+    public render(): SkillView {
+        return this.masterSkillViewVc.render()
+    }
+}
+
+```
+
+</details>
