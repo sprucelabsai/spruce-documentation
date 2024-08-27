@@ -73,7 +73,7 @@ export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 <details>
 <summary><strong>Production 1a</strong>:Configure the <em>ViewControllerFactory</em></summary>
 
-Since we're starting with an empty `SkillView`, we'll implement just the `constructor` and call `setController(...)` on the `ViewControllerFactory` to set the `MasterSkillViewController` and `MasterListCardViewController`.
+Since we're starting with an empty `SkillView`, we'll implement just the `constructor` and call `setController(...)` on the `ViewControllerFactory` to set the `CrudMasterSkillViewController` and `MasterListCardViewController`.
 
 ```typescript
 import {
@@ -82,7 +82,7 @@ import {
     SkillView,
 } from '@sprucelabs/heartwood-view-controllers'
 import {
-    MasterSkillViewController,
+    CrudMasterSkillViewController,
     MasterListCardViewController,
 } from '@sprucelabs/spruce-crud-utils'
 
@@ -94,7 +94,7 @@ export default class RootSkillViewController extends AbstractSkillViewController
 
         this.getVcFactory().setController(
             'crud.master-skill-view',
-            MasterSkillViewController
+            CrudMasterSkillViewController
         )
         this.getVcFactory().setController(
             'crud.master-list-card',
@@ -131,20 +131,20 @@ import {
     SkillView,
 } from '@sprucelabs/heartwood-view-controllers'
 import {
-    MasterSkillViewController,
+    CrudMasterSkillViewController,
     MasterListCardViewController,
 } from '@sprucelabs/spruce-crud-utils'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
     public static id = 'root'
-    private masterSkillViewVc: MasterSkillViewController
+    private masterSkillViewVc: CrudMasterSkillViewController
 
     public constructor(options: ViewControllerOptions) {
         super(options)
 
         this.getVcFactory().setController(
             'crud.master-skill-view',
-            MasterSkillViewController
+            CrudMasterSkillViewController
         )
         this.getVcFactory().setController(
             'crud.master-list-card',
@@ -226,20 +226,20 @@ import {
     SkillViewControllerLoadOptions,
 } from '@sprucelabs/heartwood-view-controllers'
 import {
-    MasterSkillViewController,
+    CrudMasterSkillViewController,
     MasterListCardViewController,
 } from '@sprucelabs/spruce-crud-utils'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
     public static id = 'root'
-    private masterSkillViewVc: MasterSkillViewController
+    private masterSkillViewVc: CrudMasterSkillViewController
 
     public constructor(options: ViewControllerOptions) {
         super(options)
 
         this.getVcFactory().setController(
             'crud.master-skill-view',
-            MasterSkillViewController
+            CrudMasterSkillViewController
         )
         this.getVcFactory().setController(
             'crud.master-list-card',
@@ -288,20 +288,20 @@ import {
     SkillViewControllerLoadOptions,
 } from '@sprucelabs/heartwood-view-controllers'
 import {
-    MasterSkillViewController,
+    CrudMasterSkillViewController,
     MasterListCardViewController,
 } from '@sprucelabs/spruce-crud-utils'
 
 export default class RootSkillViewController extends AbstractSkillViewController {
     public static id = 'root'
-    private masterSkillViewVc: MasterSkillViewController
+    private masterSkillViewVc: CrudMasterSkillViewController
 
     public constructor(options: ViewControllerOptions) {
         super(options)
 
         this.getVcFactory().setController(
             'crud.master-skill-view',
-            MasterSkillViewController
+            CrudMasterSkillViewController
         )
         this.getVcFactory().setController(
             'crud.master-list-card',
@@ -342,3 +342,7 @@ export default class RootSkillViewController extends AbstractSkillViewController
 ```
 
 </details>
+
+### Configuring your `DetailSkillView`
+
+Now that you have your `MasterSkillView` rendering, let's configure your `DetailSkillView` to render as a `CrudDetailSkillView`.
