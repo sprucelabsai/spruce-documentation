@@ -375,6 +375,10 @@
           "url": "/help/github-issues/"
         },
         {
+          "title": "Keyboard Shortcuts",
+          "url": "/help/keyboard-shortcuts/"
+        },
+        {
           "title": "Request new example",
           "url": "/help/new-example/"
         }
