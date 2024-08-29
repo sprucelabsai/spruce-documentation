@@ -1,4 +1,6 @@
-# Your Family Members
+---
+title: Open AI Setup
+---
 
 Coming soon...
 
@@ -11,5 +13,5 @@ Coming soon...
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/generating-a-story/' | url }}">OpenAI Set Up</a>
+    <a class="btn" href="{{ '/training/building-a-skill/generating-a-story/' | url }}">Generating Your Bedtime Story</a>
 </div>

@@ -28,8 +28,12 @@ To anchor your learning experience in a real world exercise, we will be building
         <span class="section-number">Chapter 4</span>
         <span class="section-title">Your Family Members</span>
     </a>
+    <a href="open-ai-setup/" class="section-link">
+        <span class="section-number">Chapter 5a</span>
+        <span class="section-title">Open AI Setup</span>
+    </a>
     <a href="generating-a-story/" class="section-link">
-        <span class="section-number">Chapter 5</span>
+        <span class="section-number">Chapter 5b</span>
         <span class="section-title">Generating a Bedtime Story</span>
     </a>
     <a href="share-story/" class="section-link">
