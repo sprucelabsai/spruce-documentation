@@ -4,5 +4,5 @@ A location's address (`location.address`) can be rendered easily by user the `lo
 
 ```typescript
 import { locationRenderer } from '@sprucelabs/spruce-skill-utils'
-console.log(locationRenderer.renderAddress(location))
+console.log(locationRenderer.renderAddress(location.address))
 ```
