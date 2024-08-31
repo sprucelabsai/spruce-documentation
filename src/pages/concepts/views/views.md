@@ -27,5 +27,6 @@ Every other type of `ViewController` (listed below) is rendered inside a `CardSe
 
 {% include_raw "crud.md" "concepts/views" %}
 
+{% include_raw "rendering-location-address.md" "concepts/views" %}
 
 {% include_raw "view-controller-plugins.md" "concepts/views" %}
