@@ -14,7 +14,7 @@ Below are the 2 keyboard shortcuts that you will definitely want to use when wor
 ```json
 ...
 {
-    "key": "ctrl+shift+space",
+    "key": "ctrl+space",
     "command": "workbench.action.tasks.runTask",
     "args": "spruce"
 },
@@ -48,7 +48,7 @@ If you want to use all the shortcuts Tay uses during the training, you can copy/
         "args": "test.file"
     },
     {
-        "key": "ctrl+shift+space",
+        "key": "ctrl+space",
         "command": "workbench.action.tasks.runTask",
         "args": "spruce"
     },
