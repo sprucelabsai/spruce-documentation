@@ -137,13 +137,6 @@ spruce sync.events
 
 </details>
 
-### Listening to an Event as a Skill
-
-Coming soon...
-
-### Listening to an Event in a View
-
-Coming soon...
 
 
 ### Something Missing?

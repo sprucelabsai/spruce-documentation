@@ -1,6 +1,10 @@
 # Tests
 
-Coming soon...
+Creating a test is as easy as:
+
+```bash
+spruce create.test
+```
 
 ## Polish
 
