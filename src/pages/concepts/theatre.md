@@ -81,7 +81,7 @@ skills:
   - git@github.com:sprucelabsai/spruce-crud-views-skill.git
 
 admin:
-  - phone: "720-253-5250"
+  - phone: "********"
 
 env:
   universal:
@@ -93,7 +93,7 @@ env:
     - PORT: "8081"
     - ANONYMOUS_PERSON_PHONE: "555-000-0001"
     - DEMO_NUMBERS: "*"
-    - ADMIN_NUMBERS: "720-253-5250,720-253-5251"
+    - ADMIN_NUMBERS: ""
     - SHOULD_ENABLE_LLM: "false"
   heartwood:
     - ANIMATION_DURATION: "500"
