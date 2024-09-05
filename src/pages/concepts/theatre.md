@@ -20,11 +20,13 @@ yarn shutdown
 
 ## Theatre Commands
 
+> **Note:** If you are working with the `Theatre` directly, you use `yarn` to execute scripts. The `SpruceCLI` is used when working with individual `Skills`.
+
 If you are working directly with the `Theatre` in your favorite terminal app, you have the following commands available:
 
 | Command | Description |
 | --- | --- |
-| `yarn setup.theatre <path/to/blueprint.yml>` | Sets up the Theatre with the given `blueprint.yml`. It'll `git clone` all the skills defined in the `blueprint.yml` and then copy in any settings based on `namespace` |
+| `yarn setup.theatre <path/to/blueprint.yml>` | Sets up the `Theatre` with the given `blueprint.yml`. It'll `git clone` all the skills defined in the `blueprint.yml` and then copy in any settings based on `namespace` |
 | `yarn boot [namespace]` | If no `namespace` is supplied, it boots the Theatre by running `yarn boot` on all skills. If a `namespace` is supplied, it runs just on that `Skill`. |
 | `yarn reboot [namespace]` | Runs `yarn shutdown`, resets boot counts, and then runs `yarn boot` on all skills. If a `namespace` is supplied, it will run those commands on just that `Skill`. |
 | `yarn run update [namespace]` | Runs `git pull` on each skill, then runs `yarn` at the root level to ensure the latest dependencies are installed. If a `namespace` is supplied, it'll only `git pull` for that `Skill`. |
