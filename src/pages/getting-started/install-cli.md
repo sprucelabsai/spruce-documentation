@@ -2,9 +2,9 @@
 
 This is the fastest way to get up and running with the Spruce CLI. It's the best way to get started in writing regression proof node modules.
 
-## Installing using Homebrew (WIP)
+## Installing using Homebrew (NOT WORKING YET)
 
-This does not work... yet. I could use some help here. If anyone is interested, [reach out to us on X](https://x.com/sprucebot). For now, you have to follow the steps under "Installing manually".
+**This does not work... yet**. I could use some help here. If anyone is interested, [reach out to us on X](https://x.com/sprucebot). For now, you have to follow the steps under "Installing manually".
 
 ```bash
 brew tap sprucelabsai-community/spruce-cli
