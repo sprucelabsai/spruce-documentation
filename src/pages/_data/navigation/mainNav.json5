@@ -161,6 +161,10 @@
       "url": "/concepts/",
       "children": [
         {
+          title: "Theatre",
+          "url": "/concepts/theatre/"
+        },
+        {
           "title": "Mercury",
           "url": "/concepts/mercury/"
         },
