@@ -1,4 +1,8 @@
-# Install the Spruce CLI
+# Install the SpruceCLI
+
+## Installing with Homebrew
+
+## Installing manually
 
 This is the fastest way to get up and running with the Spruce CLI. It's the best way to get started in writing regression proof node modules.
 
@@ -7,13 +11,13 @@ This is the fastest way to get up and running with the Spruce CLI. It's the best
 4. Setup <a href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line">vscode to work through command line</a>.
 5. Quit vscode (**very important or vscode won't get new settings**)
 
-## Install Yarn
+### Install Yarn
 
 ```bash
 npm install -g yarn
 ```
 
-## Install Spruce CLI
+### Install Spruce CLI
 
 Once Node, Yarn, and vscode are ready, run the following: 👇
 
