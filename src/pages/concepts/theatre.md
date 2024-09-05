@@ -11,6 +11,13 @@ cd ~/.spruce/theatre-monorepo
 yarn boot
 ```
 
+And when you shutdown the app, it runs:
+
+```bash
+cd ~/.spruce/theatre-monorepo
+yarn shutdown
+```
+
 ## Theatre Commands
 
 If you are working directly with the `Theatre` in your favorite terminal app, you have the following commands available:
