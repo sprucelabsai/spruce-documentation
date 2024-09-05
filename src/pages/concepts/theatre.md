@@ -24,6 +24,12 @@ If you are working directly with the `Theatre` in your favorite terminal app, yo
 | `yarn run upgrade [namespace]` | Runs `git pull` and then `spruce upgrade` on each skill. If a `namespace` is supplied, it'll only run on that skill. |
 | `yarn shutdown [namespace]` | Shuts down all skills unless an `namespace` is supplied. In that case, it'll only kill the `Skill` you specify. |
 | `yarn commit.push.skills <commit message>` | Runs `git commit -m <message>` and then `git push` on every skill. |
+| `yarn repair` | If you ever run into any `pm2` issues where it can't find yarn, this will fix that issue. **Make sure you `yarn shutdown` before running this!** |
+| `yarn monitor` | Starts the `pm2` monitor. Which is a good way of seeing the live status of each of your skills |
+| `yarn logs <namespace> [--lines=N]` | Tails the logs of the specified skill with an option for how many lines of logs you want to see. |
+| `yarn rebuild` | Rebuilds the `Theatre` and all skills by clearing out all `node_modules` and all `build` directories and starting over. |
+| `yarn list.running` | Lists all status of all skills, including online/stopped, restart count, cpu usage, and memory usage. |
+
 
 
 ## Blueprint.yml
