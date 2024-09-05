@@ -1,6 +1,6 @@
 # Building Your First Skill 🧩
 
-To anchor your learning experience in a real world exercise, we will be building a `Skill` together: **8-bit Stories**. This training series will take you from your first failing test all the way to deploy. End-to-end, it will touch almost every [Concept](/concepts) in the Spruce Platform. Budget yourself a few hours to complete this training.
+To anchor your learning experience in a real world exercise, we will be building a `Skill` together: [**8-bit Stories**](https://8bitstories.app). This training series will take you from your first failing test all the way to deploy. End-to-end, it will touch almost every [Concept](/concepts) in the Spruce Platform. Budget yourself a few hours to complete this training.
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/960504621?h=32d1ec593e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="8-Bit Stories"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
