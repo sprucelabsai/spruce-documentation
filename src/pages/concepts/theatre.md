@@ -2,7 +2,7 @@
 
 The `Theatre` is a totally self contained runtime that runs all your skills. It also handles operations that span multiple skills, like `boot` or `upgrade`.
 
-The `Sprucebot Theatre` you downloaded as part of the onboarding is an [Electron app](https://www.electronjs.org) that points to the local `Theatre` install at `~/.spruce/theatre-monorepo`.
+The `Sprucebot Theatre` you downloaded as part of the onboarding is an [Electron app](https://www.electronjs.org) that points to the local `Theatre` installed at `~/.spruce/theatre-monorepo`.
 
 When you open the `Sprucebot Theatre` app, it actuall runs the following code:
 
