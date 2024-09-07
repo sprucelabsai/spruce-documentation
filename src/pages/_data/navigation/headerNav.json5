@@ -1,9 +1,3 @@
 {
-  links: [
-    { title: "Getting Started", url: "/getting-started/", class:"" },
-    { title: "Ideology", url: "/ideology/", class:"" },
-    { title: "Training", url: "/training/", class:"" },
-    { title: "Concepts", url: "/concepts/", class:"" },
-    { title: "Help", url: "/help/", class:"" },
-  ]
+  links: []
 }

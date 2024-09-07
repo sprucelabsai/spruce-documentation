@@ -1,5 +1,33 @@
 {% from "widgets/svg-icons.njk" import downArrowHead, mdiSearch %}
 
+{% macro renderIfCurrent(pageUrl, link, output) %}
+  {% set isCurrentOrChild = false %}
+  {% if link.url == pageUrl %}
+    {% set isCurrentOrChild = true %}
+  {% elif link.hasChildren and link.children %}
+    {% for child in link.children %}
+      {% if child.url == pageUrl %}
+        {% set isCurrentOrChild = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if isCurrentOrChild %}{{ output }}{% endif %}
+{% endmacro %}
+
+{% macro renderIfNotCurrent(pageUrl, link, output) %}
+  {% set isCurrentOrChild = false %}
+  {% if link.url == pageUrl %}
+    {% set isCurrentOrChild = true %}
+  {% elif link.hasChildren and link.children %}
+    {% for child in link.children %}
+      {% if child.url == pageUrl %}
+        {% set isCurrentOrChild = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if not isCurrentOrChild %}{{ output }}{% endif %}
+{% endmacro %}
+
 {% macro mainNavTree(mainNavData, page) %}
 {% set activeParent = mainNavData.getActiveParentLink(page.url) %}
 <nav id="main-nav">
@@ -27,17 +55,17 @@
       </button>-->
       <ul class="nav-child-level open">
         {% for childLink in topLink.children %}
-        <li {% if childLink.url==page.url %} aria-current="page" {% endif %}>
+        <li {{ renderIfCurrent(page.url, childLink, 'aria-current=page') }}>
           <a href="{{ childLink.url | url }}" {{ 'target=_blank' if childLink.external }}>
             <span>
               {{ childLink.title }}
             </span>
           </a>
           {% if childLink.hasChildren %}
-          <button class="clear-btn up-arrow" data-grandchildren-opener>
+          <button class="clear-btn {{ renderIfNotCurrent(page.url, childLink, 'up-arrow') }}" data-grandchildren-opener>
             {{ downArrowHead() }}
           </button>
-          <ul class="nav-grandchild-level {% if isCurrentParent %}open{% endif%}">
+          <ul class="nav-grandchild-level {{ renderIfCurrent(page.url, childLink, 'open') }}">
             {% for grandchildLink in childLink.children %}
             <li {% if grandchildLink.url==page.url %} aria-current="page" {% endif %}>
               <a href="{{ grandchildLink.url | url }}" {{ 'target=_blank' if grandchildLink.external }}>
@@ -63,7 +91,7 @@
 <nav id="header-nav">
   <ul>
     {% for link in headerNavData.links %}
-    <li {% if link.url==activeParent.url %} data-is-current-parent="true" {% endif %}>
+    <li {{ renderIfCurrent(activeParent.url, link, 'data-is-current-parent=true') }}>
       <a href="{{ link.url | url }}">{{ link.title }}</a>
     </li>
     {% endfor %}
