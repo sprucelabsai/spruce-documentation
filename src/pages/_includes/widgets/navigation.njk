@@ -37,7 +37,7 @@
           <button class="clear-btn up-arrow" data-grandchildren-opener>
             {{ downArrowHead() }}
           </button>
-          <ul class="nav-grandchild-level">
+          <ul class="nav-grandchild-level {% if isCurrentParent %}open{% endif%}">
             {% for grandchildLink in childLink.children %}
             <li {% if grandchildLink.url==page.url %} aria-current="page" {% endif %}>
               <a href="{{ grandchildLink.url | url }}" {{ 'target=_blank' if grandchildLink.external }}>
