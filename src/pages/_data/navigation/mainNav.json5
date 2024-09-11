@@ -70,6 +70,33 @@
         }
       ]
     },
+
+      {
+      "title": "Ideology",
+      "url": "/ideology/",
+      "children": [
+        {
+          "title": "The Fourth Runtime",
+          "url": "/ideology/the_fourth_runtime/"
+        },
+        {
+          "title": "Great Software",
+          "url": "/ideology/great_software/"
+        },
+        {
+          "title": "Small Trunk, Big Branches",
+          "url": "/ideology/architecture/"
+        },
+        {
+          "title": "Test-Driven Development",
+          "url": "/ideology/tdd/"
+        },
+        {
+          "title": "Clean Code",
+          "url": "/ideology/clean-code/"
+        }
+      ]
+    },
     {
       "title": "Training",
       "url": "/training/",
@@ -336,32 +363,7 @@
         }
       ]
     },
-    {
-      "title": "Ideology",
-      "url": "/ideology/",
-      "children": [
-        {
-          "title": "The Fourth Runtime",
-          "url": "/ideology/the_fourth_runtime/"
-        },
-        {
-          "title": "Great Software",
-          "url": "/ideology/great_software/"
-        },
-        {
-          "title": "Small Trunk, Big Branches",
-          "url": "/ideology/architecture/"
-        },
-        {
-          "title": "Test-Driven Development",
-          "url": "/ideology/tdd/"
-        },
-        {
-          "title": "Clean Code",
-          "url": "/ideology/clean-code/"
-        }
-      ]
-    },
+
     {
       "title": "Help",
       "url": "/help/",
