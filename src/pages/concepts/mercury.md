@@ -19,7 +19,7 @@ Every skill utilizes the `MercuryClient` for communication. It's a websocket bas
 
 ## Core Events
 
-It's common to refer to the events that `Mercury` supports as "core events". 
+It's common to refer to the events that `Mercury` provides as "core events". 
 
 API COMING SOON
 

@@ -1,5 +1,16 @@
 # Listeners
 
+Listeners are how your skills can do work in response to events. Creating an event lister is as easy as running:
+
+## Listeners in skills (backend)
+
+```bash
+spruce create.listener
+```
+
+## Listeners in views (frontend)
+
+
 Coming soon...
 
 ### Something Missing?

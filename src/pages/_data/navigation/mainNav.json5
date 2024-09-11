@@ -64,7 +64,7 @@
           "children": []
         },
         {
-          "title": "SDK Only: Install Spruce CLI",
+          "title": "SDK Only: Install SpruceCLI",
           "url": "/getting-started/install-cli/",
           "children": []
         }
@@ -188,8 +188,20 @@
       "url": "/concepts/",
       "children": [
         {
+          title: "Theatre",
+          "url": "/concepts/theatre/"
+        },
+        {
           "title": "Mercury",
           "url": "/concepts/mercury/"
+        },
+        {
+          "title": "SpruceCLI",
+          "url": "/concepts/spruce-cli/"
+        },
+        {
+          "title": "Skills",
+          "url": "/concepts/skills/"
         },
         {
           "title": "Events",
@@ -379,6 +391,10 @@
         {
           "title": "Github Issues",
           "url": "/help/github-issues/"
+        },
+        {
+          "title": "Keyboard Shortcuts",
+          "url": "/help/keyboard-shortcuts/"
         },
         {
           "title": "Request new example",

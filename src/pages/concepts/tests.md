@@ -1,6 +1,22 @@
 # Tests
 
-Coming soon...
+Tests are a critical part of the Spruce SDLC
+
+Creating a test is as easy as:
+
+```bash
+spruce create.test
+```
+
+## Test Reporter
+
+### Watching Tests:
+
+Smart mode will watch for file changes. If any changes are detected, it'll set a 3 second timer to wait for additional changes. If no changes are detected after 3 seconds, it'll run all tests across all files. If any tests fails, it'll set a filter to only run the test file that failed. Once it passes, it'll clear the filter and run all tests again.
+
+```bash
+spruce test --watchMode smart
+```
 
 ## Polish
 
