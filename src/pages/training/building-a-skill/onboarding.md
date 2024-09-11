@@ -1,6 +1,14 @@
-# Onboarding
+# Bonus Chapter: Onboarding
+
+## Overview
 
 Coming soon...
+
+## Pre-requisites
+
+## Concepts Covered in This Chapter
+
+## Tools Used in This Chapter
 
 ### Something Missing?
 

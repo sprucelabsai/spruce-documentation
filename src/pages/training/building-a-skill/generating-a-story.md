@@ -1,10 +1,14 @@
----
-title: Generating a Bedtime Story with ChatGPT
----
+# Generating a Bedtime Story with ChatGPT
+
+## Overview
 
 Coming soon...
 
-### Something Missing?
+## Pre-requisites
+
+## Concepts Covered in This Chapter
+
+## Tools Used in This Chapter
 
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>

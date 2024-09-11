@@ -26,6 +26,13 @@
         { title: "Training", url: "/ideology/clean-code/", class:"" },
       ]
     },
+      {
+      title: "Training",
+      links: [
+        { title: "Building Your First Skill", url: "/training/building-a-skill/", class:"" },
+        { title: "Katas", url: "/training/katas/", class:"" },
+      ]
+    },
         {
       title: "Concepts",
       links: [
@@ -40,13 +47,7 @@
         { title: "Stores", url: "/concepts/stores/", class:"" },
       ]
     },
-        {
-      title: "Training",
-      links: [
-        { title: "Building Your First Skill", url: "/training/building-a-skill/", class:"" },
-        { title: "Katas", url: "/training/katas/", class:"" },
-      ]
-    },
+
         {
       title: "Help",
       links: [
