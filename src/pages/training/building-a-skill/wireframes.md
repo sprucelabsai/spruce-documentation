@@ -25,5 +25,5 @@
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/starting-a-skill/' | url }}">Starting a Skill</a>
+    <a class="btn" href="{{ '/training/building-a-skill/dashboard/' | url }}">Dashboard (RootSkilLViewController)</a>
 </div>
