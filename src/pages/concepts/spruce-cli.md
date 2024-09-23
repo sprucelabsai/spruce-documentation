@@ -1,6 +1,6 @@
 # SpruceCLI
 
-**World Class, Open Source Testing Framework for Typescript and Visual Studio Code**. 
+**A World Class, Open Source Testing Framework for Typescript and Visual Studio Code**. 
 
 <div class="grid-buttons">
     <a href="https://github.com/sprucelabsai-community/spruce-cli-workspace"><img src="https://img.shields.io/github/last-commit/sprucelabsai-community/spruce-cli-workspace" /></a>
@@ -15,18 +15,69 @@
 
 ## Features
 
-1. Beatifully test runner
-2. Smart watch mode - Tests broken test over until passing, then tests all files.
-2. Simple decorator based (`@test()`) test declaration
-3. Class based test files 
-    1. Easy scope management
-    1. Class test extensions for common setups and fixtures
-4. Test file generation
-5. Parent test class selection
+1. **Rediculously Easy to Use**: 
+    * Simple commands with helpful prompts.
+    * No "starter projects" or "boilerplates" to manage.
+
+1. **Beatifully Test Runner**: *"There is nothing quite like it."*
+2. **Multiple Watch Modes**:
+    * **Smart**: Auto-filters to tests that have changed and/or failed. After a successful run, it will run all tests.
+
+    * **Standard**: Keeps current filter on changes. If no filter is set, it runs all tests on every change.
+3. **Class Based Test Files**:
+    * **Easy scope management**: No more managing multiple levels of scope. Just use `this` to access the test's state.
+
+    * **Easily Extend Test Classes**: Create a parent test class to hold helpful assertions, setup methods, fixtures, etc.
+2. **Decorator Based**: Use `@test()` to define which Class methods are tests.
+4. **Tight VSCode Integration**:
+    * **Formatting**: Beatuifully format your code on every Save.
+
+    * **Test Explorer**: View and run tests from the sidebar.
+    * **Debugging**: Debug tests with breakpoints.
+5. **Format on Save**: Automatically format your code using best practices. 
+6. **Build Watcher**: Automatically build your code on every save.
+    * Tests are run against built code (not using `ts-node`), making them much faster.
+7. **Upgrader**: Update all your dependencies in 1 go!
+
+## What is it?
+
+The `SpruceCLI` is a command line tool that enables developers to "Build Great Software Fast." The testing elements of the `cli` are actually just a small part of it's overall capabilities.
+
+For this documentation, we will focus on the testing and VSCode integration aspects of the `cli`.
+
+### Testing
+
+The testing framework is comprised of 3 main parts:
+
+1. **Test Runner**: The test runner is built ontop of [Jest](https://jestjs.io). This is managed behind-the-scenes by the `cli`, so you don't have to deal with any of it's complexities.
+2. **Test Reporter**: A totally custom built, beautiful test reporter that makes running tests enjoyable.
+3. **Assertion Library**: A custom built assertion library that is designed to be easy to intuitive and reliable. No global objects, no magic, just simple assertions.
+
+### VSCode Integration
+
+Running commands manually is fine enough, but nothing beats having all the tooling you need "just work" right in your `IDE`.
+
+There are 3 main parts to the VSCode integration:
+
+1. **Linting**: `VSCode` will format your code on save. This is done using custom `eslint` and `prettier` configurations, following best practices.
+2. **Building**: `VSCode` will automatically build your code on save. This is done using `tsc` and a custom `tsconfig.json` file.
+3. **Testing**: The `Test Runner` is integrated right into the interface, making sure your tests are always visible.
+
+## Definitions
+
+| Concepts | Description |
+| --- | --- |
+| Test File | Test files written in Typescript. Exports 1 default class. |
+| Test Class | The class that holds your tests. Extends on `AbstractSpruceTest`. |
+| `@test` Decorator | Used to define which methods are tests, importad as `import { test } from @sprucelabs/test-utils` |
+| `assert` | A utility class that holds the basic assertions, imported as `import { assert } from @sprucelabs/test-utils`. |
+| `errorAssert` | A utility class that enables you to assert against errors, imported as `import { errorAssert } from @sprucelabs/test-utils`. |
+| Test Runner | The [Jest](https://jestjs.io) test runner. Actually runs the tests and streams results to the `Test Reporter`. |
+
 
 ## Installing
 
-### Hombrew
+### Homebrew
 
 ```bash
 brew tap sprucelabsai-community/spruce
@@ -45,11 +96,8 @@ npm install -g @sprucelabs/spruce-cli
 
 ## Starting a New Module
 
-When you are starting a node module from scratch, you can use `spruce` to get you started. This will not install the `Test` tools, but will leave you with a fully functioning Typescript based node module. 
+When you are starting a node module from scratch, you can use `spruce` to get you started. This will not install the `Test` tools, but will leave you with a fully functioning Typescript based node module:
 
-```bash
-
-This will get you started with a new node module. 
 
 ```bash
 spruce create.module [destination]
@@ -58,7 +106,9 @@ spruce create.module [destination]
 
 > **Note:** After the command is done, follow the instructions printed in the summary.
 
-## Existing module
+## Adding to an Existing Module
+
+If you already have a Typescript module running, you can add Spruce pretty easily:
 
 ### Setting up vscode
 
@@ -69,7 +119,7 @@ spruce setup.vscode
 
 ### Adding tests
 
-To add World Class testing to an existing module, you just have to create a test inside your module. The `sprucecli` will do the rest.
+To add World Class testing to an existing module, you just have to create your first test! The `sprucecli` will do the rest.
 
 ```bash
 cd path/to/your/module

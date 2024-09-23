@@ -193,7 +193,21 @@
         },
         {
           "title": "SpruceCLI",
-          "url": "/concepts/spruce-cli/"
+          "url": "/concepts/spruce-cli/",
+          "children": [
+            {
+              "title": "Features",
+              "url": "/concepts/spruce-cli/#features"
+            },
+            {
+              "title": "What is it?",
+              "url": "/concepts/spruce-cli/#what-is-it"
+            },
+            {
+              "title": "Installing",
+              "url": "/concepts/spruce-cli/#installing"
+            }
+          ]
         },
         {
           "title": "Skills",
