@@ -2,13 +2,11 @@
 
 This is the fastest way to get up and running with the Spruce CLI. It's the best way to get started in writing regression proof node modules.
 
-## Installing using Homebrew (NOT WORKING YET)
-
-**This does not work... yet**. I could use some help here. If anyone is interested, [reach out to us on X](https://x.com/sprucebot). For now, you have to follow the steps under "Installing manually".
+## Installing with Homebrew
 
 ```bash
-brew tap sprucelabsai-community/spruce-cli
-brew install spruce-cli
+brew tap @sprucelabs-community/spruce git@github.com:sprucelabsai-community/homebrew-spruce.git
+brew install spruce
 ```
 
 ## Installing manually
@@ -16,18 +14,17 @@ brew install spruce-cli
 1. Install <a href="https://nodejs.org/en/">latest LTS Node</a>.
 5. Quit vscode (**very important or vscode won't get new settings**)
 
-### Install Yarn
+### Installing with Yarn
 
 ```bash
 npm install -g yarn
+yarn global add @sprucelabs/spruce-cli
 ```
 
-### Install Spruce CLI
-
-Once Node, Yarn, and vscode are ready, run the following: 👇
+### Installing with NPM
 
 ```bash
-yarn global add @sprucelabs/spruce-cli
+npm install -g @sprucelabs/spruce-cli
 ```
 
 ### Something Missing?
