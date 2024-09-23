@@ -28,16 +28,20 @@
     * **Easy scope management**: No more managing multiple levels of scope. Just use `this` to access the test's state.
 
     * **Easily Extend Test Classes**: Create a parent test class to hold helpful assertions, setup methods, fixtures, etc.
-2. **Decorator Based**: Use `@test()` to define which Class methods are tests.
+2. **Decorator Based**: 
+    * Use `@test()` to define which Class methods are tests.
+    * **Parameterized Tests**: Use the `@test()` decorator with arguments to run the same test with different input.
 4. **Tight VSCode Integration**:
     * **Formatting**: Beatuifully format your code on every Save.
 
     * **Test Explorer**: View and run tests from the sidebar.
     * **Debugging**: Debug tests with breakpoints.
-5. **Format on Save**: Automatically format your code using best practices. 
 6. **Build Watcher**: Automatically build your code on every save.
     * Tests are run against built code (not using `ts-node`), making them much faster.
 7. **Upgrader**: Update all your dependencies in 1 go!
+8. **Errors**:
+    * **Error Codes**: Utilize the `SpruceError` to throw errors with `Codes`.
+    * **Error Assertions**: Assert errors against error codes and error metadata.
 
 ## What is it?
 
