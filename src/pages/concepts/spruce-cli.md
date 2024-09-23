@@ -9,7 +9,7 @@ View Source on [GitHub](https://github.com/sprucelabsai-community/spruce-cli-wor
 ### Hombrew
 
 ```bash
-brew tap sprucelabs-community/spruce git@github.com:sprucelabsai-community/homebrew-spruce.git
+brew tap sprucelabsai-community/spruce
 brew install spruce
 ```
 
