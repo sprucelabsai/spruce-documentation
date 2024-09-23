@@ -1,8 +1,14 @@
 # SpruceCLI
 
-**World Class, Open Source, Testing Tools for Typescript and Visual Studio Code**. 
+**World Class, Open Source TDD Tools for Typescript and Visual Studio Code**. 
 
-View Source on [GitHub](https://github.com/sprucelabsai-community/spruce-cli-workspace).
+View on [GitHub](https://github.com/sprucelabsai-community/spruce-cli-workspace).
+
+## Features
+
+1. Feature 1
+2. Feature 2
+3. Feature 3
 
 ## Installing
 
