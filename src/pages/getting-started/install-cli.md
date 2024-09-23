@@ -5,7 +5,7 @@ This is the fastest way to get up and running with the Spruce CLI. It's the best
 ## Installing with Homebrew
 
 ```bash
-brew tap @sprucelabs-community/spruce git@github.com:sprucelabsai-community/homebrew-spruce.git
+brew tap sprucelabs-community/spruce git@github.com:sprucelabsai-community/homebrew-spruce.git
 brew install spruce
 ```
 
