@@ -45,6 +45,10 @@ body {
     @include btn-base(white, black);
     margin: 5px;
   }
+
+  img {
+    margin: 5px;
+  }
 }
 
 .button-container {
