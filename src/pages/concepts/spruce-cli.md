@@ -134,6 +134,3 @@ spruce create.test
 
 > **Note**: You'll be asked if you want to select `Behavioral` or `Implementation` tests. If you are unsure, select `Behavioral`.
 
-??? note ""
-
-   Her there!
