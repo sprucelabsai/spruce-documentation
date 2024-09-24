@@ -13,13 +13,13 @@
 </div>
 
 
-## Features
+## 1. Features
 
 1. **Rediculously Easy to Use**: 
     * Simple commands with helpful prompts.
     * No "starter projects" or "boilerplates" to manage.
 
-1. **Beatifully Test Runner**: *"There is nothing quite like it."*
+1. **Beatiful Test Runner**: *"There is nothing quite like it."*
 2. **Multiple Watch Modes**:
     * **Smart**: Auto-filters to tests that have changed and/or failed. After a successful run, it will run all tests.
 
@@ -43,7 +43,7 @@
     * **Error Codes**: Utilize the `SpruceError` to throw errors with `Codes`.
     * **Error Assertions**: Assert errors against error codes and error metadata.
 
-## What is it?
+## 2. What is it?
 
 The `SpruceCLI` is a command line tool that enables developers to "Build Great Software Fast." The testing elements of the `cli` are actually just a small part of it's overall capabilities.
 
@@ -67,9 +67,9 @@ There are 3 main parts to the VSCode integration:
 2. **Building**: `VSCode` will automatically build your code on save. This is done using `tsc` and a custom `tsconfig.json` file.
 3. **Testing**: The `Test Runner` is integrated right into the interface, making sure your tests are always visible.
 
-## Definitions
+## 3. Definitions
 
-| Concepts | Description |
+| Concept | Description |
 | --- | --- |
 | Test File | Test files written in Typescript. Exports 1 default class. |
 | Test Class | The class that holds your tests. Extends on `AbstractSpruceTest`. |
@@ -77,9 +77,11 @@ There are 3 main parts to the VSCode integration:
 | `assert` | A utility class that holds the basic assertions, imported as `import { assert } from @sprucelabs/test-utils`. |
 | `errorAssert` | A utility class that enables you to assert against errors, imported as `import { errorAssert } from @sprucelabs/test-utils`. |
 | Test Runner | The [Jest](https://jestjs.io) test runner. Actually runs the tests and streams results to the `Test Reporter`. |
+| Behavior Test | A test that asserts against the inputs and outputs of a higher order function. It is not concerned with the implementation (the details of the work being done). Behavior tests are preferred because they don't break when you refactor your implementation. |
+| Implementation Test | A test that asserts against the implementation details of a lower oder function. Or, one that spies on a higher order function. Implementation tests are risky because they have to be reworked when your refactor. |
 
 
-## Installing
+## 4. Installing
 
 ### Homebrew
 
@@ -98,9 +100,9 @@ yarn global add @sprucelabs/spruce-cli
 npm install -g @sprucelabs/spruce-cli
 ```
 
-## Starting a New Module
+## 5. Starting a New Module
 
-When you are starting a node module from scratch, you can use `spruce` to get you started. This will not install the `Test` tools, but will leave you with a fully functioning Typescript based node module:
+When you are starting a node module from scratch, you can use `spruce` to set you up with a fully functioning `Typescript` project. This will not install the `Test` tools, but will leave you with a fully functioning Typescript node module with linting and building:
 
 
 ```bash
@@ -110,7 +112,7 @@ spruce create.module [destination]
 
 > **Note:** After the command is done, follow the instructions printed in the summary.
 
-## Adding to an Existing Module
+## 6. Adding to an Existing Module
 
 If you already have a Typescript module running, you can add Spruce pretty easily:
 
@@ -121,12 +123,13 @@ cd path/to/your/module
 spruce setup.vscode
 ```
 
-### Adding tests
+## 7. Your First Test
+After you have created your new module or setup an existing one, you can generate your first test!
 
-To add World Class testing to an existing module, you just have to create your first test! The `sprucecli` will do the rest.
+Once `vscode` is loaded up, you can run the following:
 
 ```bash
-cd path/to/your/module
 spruce create.test
 ```
 
+> **Note**: You'll be asked if you want to select `Behavioral` or `Implementation` tests. If you are unsure, select `Behavioral`.
