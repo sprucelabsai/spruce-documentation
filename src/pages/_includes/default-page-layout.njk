@@ -8,7 +8,7 @@ surpressH1InLayout: false
   {{ mainNavTree(navigation.mainNav, page) }}
 </div>
 {% renderlayoutblock "abovePageWrap" %}{% endrenderlayoutblock %}
-<div class="main-area">
+<div class="main-area {{ navigation.mainNav.getActiveParentLink(page.url).url | replace("/", "") }}">
   {% if not surpressH1InLayout %}
   {% if title %}<h1>{{ title }}</h1>{% endif %}
   {% endif %}

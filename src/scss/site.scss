@@ -127,17 +127,20 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-h1 {
-  counter-reset: h2;
-}
-h2 {
-  counter-reset: h3;
-}
-h2::before {
-  counter-increment: h2;
-  content: counter(h2) ". ";
-}
-h3::before {
-  counter-increment: h3;
-  content: counter(h2) "." counter(h3) ". ";
+.main-area.concepts {
+
+  h1 {
+    counter-reset: h2;
+  }
+  h2 {
+    counter-reset: h3;
+  }
+  h2::before {
+    counter-increment: h2;
+    content: counter(h2) ". ";
+  }
+  h3::before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) ". ";
+  }
 }
