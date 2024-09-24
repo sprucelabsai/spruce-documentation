@@ -13,7 +13,7 @@
 </div>
 
 
-## 1. Features
+## Features
 
 1. **Rediculously Easy to Use**: 
     * Simple commands with helpful prompts.
@@ -43,7 +43,7 @@
     * **Error Codes**: Utilize the `SpruceError` to throw errors with `Codes`.
     * **Error Assertions**: Assert errors against error codes and error metadata.
 
-## 2. What is it?
+## What is it?
 
 The `SpruceCLI` is a command line tool that enables developers to "Build Great Software Fast." The testing elements of the `cli` are actually just a small part of it's overall capabilities.
 
@@ -67,7 +67,7 @@ There are 3 main parts to the VSCode integration:
 2. **Building**: `VSCode` will automatically build your code on save. This is done using `tsc` and a custom `tsconfig.json` file.
 3. **Testing**: The `Test Runner` is integrated right into the interface, making sure your tests are always visible.
 
-## 3. Definitions
+## Definitions
 
 | Concept | Description |
 | --- | --- |
@@ -81,7 +81,7 @@ There are 3 main parts to the VSCode integration:
 | Implementation Test | A test that asserts against the implementation details of a lower oder function. Or, one that spies on a higher order function. Implementation tests are risky because they have to be reworked when your refactor. |
 
 
-## 4. Installing
+## Installing
 
 ### Homebrew
 
@@ -100,7 +100,7 @@ yarn global add @sprucelabs/spruce-cli
 npm install -g @sprucelabs/spruce-cli
 ```
 
-## 5. Starting a New Module
+## Starting a New Module
 
 When you are starting a node module from scratch, you can use `spruce` to set you up with a fully functioning `Typescript` project. This will not install the `Test` tools, but will leave you with a fully functioning Typescript node module with linting and building:
 
@@ -112,7 +112,7 @@ spruce create.module [destination]
 
 > **Note:** After the command is done, follow the instructions printed in the summary.
 
-## 6. Adding to an Existing Module
+## Adding to an Existing Module
 
 If you already have a Typescript module running, you can add Spruce pretty easily:
 
@@ -123,7 +123,7 @@ cd path/to/your/module
 spruce setup.vscode
 ```
 
-## 7. Your First Test
+## Your First Test
 After you have created your new module or setup an existing one, you can generate your first test!
 
 Once `vscode` is loaded up, you can run the following:
@@ -133,3 +133,7 @@ spruce create.test
 ```
 
 > **Note**: You'll be asked if you want to select `Behavioral` or `Implementation` tests. If you are unsure, select `Behavioral`.
+
+??? note ""
+
+   Her there!
