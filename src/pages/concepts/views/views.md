@@ -1,6 +1,6 @@
 # Views
 
-`Views` are the building blocks of the front-end experience in Spruce. Every `Skill` can register `Skill Views` that are comprised of `CardViewControllers`. By default, the a skill's `RootSkillViewController` is the first view that is rendered. 
+`Views` are the building blocks of the front-end experience in Spruce. Every `Skill` can register `Skill Views` that are comprised of `CardViewControllers`. A `Skill View` also renders a `NavigationViewController` that is comprised of `NavigationButtonViews`. By default, the skill's `RootSkillViewController` is the first view that is rendered. 
 
 <img style="margin:0 auto; display:block;" src="../../assets/img/concepts/skill_view_with_cards.png">
 
