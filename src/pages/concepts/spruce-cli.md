@@ -134,4 +134,6 @@ spruce create.test
 
 > **Note**: You'll be asked if you want to select `Behavioral` or `Implementation` tests. If you are unsure, select `Behavioral`.
 
-> **Note**: You may be asked to install the `Skill Feature.` If you started by running `spruce create.module`, select `Always Skip`.
+> **Note**: You may be asked to install the `Skill Feature.` If you started by running `spruce create.module`, select `Always Skip`. Installing this will turn your module into a `Skill` that runs on the `Spruce Platform`.
+
+> **Node**: You will be asked to select a base test class. Select `AbstractSpruceTest` to start.
