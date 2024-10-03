@@ -110,7 +110,7 @@ spruce create.module [destination]
 ```
 > **Note:** If you do not supply a `destination`, it will default to the current directory.
 
-> **Note:** After the command is done, follow the instructions printed in the summary.
+> **Note:** After the command is done, follow the instructions printed in the summary. 
 
 ## Adding to an Existing Module
 
@@ -134,3 +134,4 @@ spruce create.test
 
 > **Note**: You'll be asked if you want to select `Behavioral` or `Implementation` tests. If you are unsure, select `Behavioral`.
 
+> **Note**: You may be asked to install the `Skill Feature.` If you started by running `spruce create.module`, select `Always Skip`.
