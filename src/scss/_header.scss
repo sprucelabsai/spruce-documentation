@@ -23,12 +23,13 @@ header#page-header {
 
     #logo-space {
       display: flex;
-      flex-shrink: 0;
+      max-width: 80%;
 
       #home-link {
         img {
           height: $top-nav-img-height;
           padding: 0 10px 0 2px;
+          max-width: 100%;
         }
       }
 
@@ -41,8 +42,10 @@ header#page-header {
       display: flex;
       justify-content: center;
       align-items: flex-start;
-
+      flex-shrink: 0;
+      
       ul {
+        padding-left: 0;
         display: flex;
         // column-gap: 20px;
         justify-content: flex-end;
