@@ -18,11 +18,11 @@ Pick a starting point that best fits your current skillset:
     <a class="btn" href="{{ '/getting-started/frameworks/ios/' | url }}">IOS</a>
     <a class="btn" href="{{ '/getting-started/frameworks/android/' | url }}">Android</a>
     <a class="btn" href="{{ '/getting-started/frameworks/ruby/' | url }}">Ruby</a>
-    <a class="btn" href="{{ '/getting-started/frameworks/python/' | url }}">Python</a>
     <a class="btn" href="{{ '/getting-started/frameworks/laravel/' | url }}">Laravel</a>
     <a class="btn" href="{{ '/getting-started/frameworks/react/' | url }}">React</a>
     <a class="btn" href="{{ '/getting-started/frameworks/django/' | url }}">Django</a>
     <a class="btn" href="{{ '/getting-started/frameworks/flask/' | url }}">Flask</a>
     <a class="btn" href="{{ '/getting-started/frameworks/spring/' | url }}">Spring</a>
     <a class="btn" href="{{ '/getting-started/frameworks/groovy/' | url }}">Groovy</a>
+    <a class="btn" href="{{ '/getting-started/frameworks/dot-net/' | url }}">.NET</a>
 </div>

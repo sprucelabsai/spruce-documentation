@@ -36,8 +36,8 @@
               "url": "/getting-started/frameworks/laravel/"
             },
             {
-              "title": "Python",
-              "url": "/getting-started/frameworks/python/"
+              "title": ".NET",
+              "url": "/getting-started/frameworks/dot-net/"
             },
             {
               "title": "Ruby",
@@ -108,10 +108,6 @@
             {
               "title": "Wireframes",
               "url": "/training/building-a-skill/wireframes/"
-            },
-            {
-              "title": "Starting Your Skill",
-              "url": "/training/building-a-skill/starting-a-skill/"
             },
             {
               "title": "Dashboard",
@@ -197,7 +193,21 @@
         },
         {
           "title": "SpruceCLI",
-          "url": "/concepts/spruce-cli/"
+          "url": "/concepts/spruce-cli/",
+          "children": [
+            {
+              "title": "Features",
+              "url": "/concepts/spruce-cli/#features"
+            },
+            {
+              "title": "What is it?",
+              "url": "/concepts/spruce-cli/#what-is-it"
+            },
+            {
+              "title": "Installing",
+              "url": "/concepts/spruce-cli/#installing"
+            }
+          ]
         },
         {
           "title": "Skills",

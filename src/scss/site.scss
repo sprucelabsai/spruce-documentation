@@ -45,6 +45,10 @@ body {
     @include btn-base(white, black);
     margin: 5px;
   }
+
+  img {
+    margin: 5px;
+  }
 }
 
 .button-container {
@@ -115,4 +119,28 @@ blockquote {
   border-left: 10px solid $monokai-fg;
   margin: 1.5em 10px;
   padding: 1px 10px .1em 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: none;
+  }
+}
+
+.main-area.concepts {
+
+  h1 {
+    counter-reset: h2;
+  }
+  h2 {
+    counter-reset: h3;
+  }
+  h2::before {
+    counter-increment: h2;
+    content: counter(h2) ". ";
+  }
+  h3::before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) ". ";
+  }
 }

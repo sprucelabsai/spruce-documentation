@@ -30,10 +30,11 @@
     align-items: center;
     position: relative;
     color: white;
-    padding: 19px 0 60px;
+    padding: 19px 10px 60px;
 
     &-bg {
-      background-color: black;
+      background-image: url("/assets/img/home/greetings-bg.png");
+      background-size: cover;
       position: absolute;
       top: 0;
       bottom: 0;
@@ -73,7 +74,7 @@
     }
 
     #greeting {
-      padding: 10px 0;
+      padding: 10px 10px;
     }
   }
 
@@ -168,6 +169,23 @@
     .sidebar-right-bg {
       display: none;
     }
+  }
+}
+
+.home-row {
+  max-width: 800px;
+  margin: 100px auto;
+  text-align: center;
+
+  .video {
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  video {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 }
 

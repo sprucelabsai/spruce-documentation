@@ -73,7 +73,7 @@ responsePayload.builder.ts
 3. **event.options.ts**: Additional options for an event (including permissions).
 4. **responsePayload.builder.ts**: The schema of the payload that is returned when the event is handled.
 
-## Events & Listeners
+## Events & Faked Listeners
 
 ### Registering an Event
 
@@ -129,7 +129,7 @@ spruce create.event
 <details>
 <summary><strong>Production 1b</strong>: Define your event</summary>
 
-Now is a great time to do some event design work. Once your event is defined, make sure you run the following:
+Now is a great time to do some event design work. Finde Once your event is defined, make sure you run the following:
 
 ```bash
 spruce sync.events

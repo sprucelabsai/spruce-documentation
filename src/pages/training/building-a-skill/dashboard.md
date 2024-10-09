@@ -1,51 +1,31 @@
----
-title: Dashboard (RootSkillView)
-tocData:
-  - text: Chapter 1
-    href: chapter-1
-    children:
-      - text: Set Up Testing Environment and IDE
-        href: set-up-testing-environment-and-ide
-        children:
-          - text: Start Docker for NPM Caching
-            href: start-docker-for-npm-caching
-          - text: Create New Skill
-            href: create-new-skill
-          - text: Access Your New Skill
-            href: access-your-new-skill
-          - text: Turn on WatchMode
-            href: turn-on-watchmode
-      - text: Write your First Failing Test
-        href: write-your-first-failing-test
-        children:
-          - text: Drafting the First Test
-            href: drafting-the-first-test
-      - text: Create a Root Skill View
-        href: create-a-root-skill-view
-        children:
-          - text: Add Logic to Your Root Skill Interface
-            href: add-logic-to-your-root-skill-interface
-          - text: Test the Root Skill Interface
-            href: test-the-root-skill-interface
-          - text: Set Up Dynamic Routing
-            href: set-up-dynamic-routing
-      - text: Preview on a Device
-        href: preview-on-a-device
----
-
-<div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/SiUckNpPLag?si=SCepKnOJDJKmLbC-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+# Dashboard (RootSkillViewController)
 
 ## Overview
 
-Coming soon...
+This is it! Finally we get to start writing some code! But, before we do, we have to do some `vscode` setup. After that, we'll create our `Skill`, our first failing test, and then our first `SkillView` to get the test to pass.
+
+## Training 
+
+<div class="video-container">
+    <iframe width="100%" height="500" src="https://www.youtube.com/embed/CjbafVYh1uc?si=RGCQPTGMN3LAwW6t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ## Pre-requisites
 
+1. Follow the `Getting Started` section of the [documentation](/getting-started/)
+1. Review the `Ideology` section of the [documentation](/ideology/)
+
 ## Concepts Covered in This Chapter
 
+1. [`Tests`](/concepts/tests/) - TDD by the 3 laws!
+1. [`Views`](/concepts/views/) - The visual representation of your skill provided by the Heartwood Skill.
+
 ## Tools Used in This Chapter
+
+1. [`spruce-cli`](/getting-started/install-cli/) - The Spruce Command Line Interface (CLI) is a tool that enables you create, build, and test your skills.
+2. [`vscode`](https://code.visualstudio.com/) - A free code editor that works on Windows, macOS, and Linux.
+3. [Development Theatre](/getting-started/development-theatre/) - The runtime that executes your skills.
+
 
 ### Something Missing?
 
