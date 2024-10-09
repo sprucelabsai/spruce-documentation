@@ -1,6 +1,10 @@
 # Common Issues
 
-Coming soon...
+| The Issue  | The Reason  | The Solution |
+|--------|-----------|----------|
+| "Well shoot! You don't have access to emit `example-example-example::v202x_xx_xx`"       |     Coming soon...      |    Coming soon...     |
+|        |           |          |
+|        |           |          |
 
 ### Something Missing?
 
