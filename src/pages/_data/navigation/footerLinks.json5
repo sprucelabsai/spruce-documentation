@@ -52,6 +52,7 @@
       title: "Help",
       links: [
         { title: "Glossary", url: "/help/glossary/", class:"" },
+        { title: "Common Issues", url: "/help/common-issues/", class:"" },
         { title: "Discord", url: "/help/contact/", class:"" },
         { title: "Github Issues", url: "/help/github-issues/", class:"" },
       ]

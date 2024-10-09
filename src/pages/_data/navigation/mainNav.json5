@@ -389,6 +389,10 @@
           "url": "/help/contact/"
         },
         {
+          "title": "Common Issues",
+          "url": "/help/common-issues/"
+        },
+        {
           "title": "Github Issues",
           "url": "/help/github-issues/"
         },
