@@ -266,6 +266,10 @@
               "url": "/concepts/views/#rendering-remote-cards"
             },
             {
+              "title": "Active Record Cards",
+              "url": "/concepts/views/#active-record-card"
+            },
+            {
               "title": "Rendering Dialogs",
               "url": "/concepts/views/#rendering-dialogs"
             },
