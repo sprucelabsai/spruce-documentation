@@ -14,6 +14,7 @@ This is it! Finally we get to start writing some code! But, before we do, we hav
 
 1. Follow the `Getting Started` section of the [documentation](/getting-started/)
 1. Review the `Ideology` section of the [documentation](/ideology/)
+2. Checkout the `Mercury` section of the [documentation](/concepts/mercury/)
 
 ## Concepts Covered in This Chapter
 

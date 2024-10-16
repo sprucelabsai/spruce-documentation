@@ -2,7 +2,9 @@
 
 {% macro renderIfCurrent(pageUrl, link, output) %}
   {% set isCurrentOrChild = false %}
-  {% if link.url == pageUrl %}
+  {% if not pageUrl %}
+    {% set isCurrentOrChild = false %}
+  {% elif link.url == pageUrl %}
     {% set isCurrentOrChild = true %}
   {% elif link.hasChildren and link.children %}
     {% for child in link.children %}
