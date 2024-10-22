@@ -106,35 +106,39 @@
           "url": "/training/building-a-skill/",
           "children": [
             {
-              "title": "Wireframes",
+              "title": "Chapter 0: Wireframes",
               "url": "/training/building-a-skill/wireframes/"
             },
             {
-              "title": "Dashboard",
+              "title": "Chapter 1: Dashboard",
               "url": "/training/building-a-skill/dashboard/"
             },
             {
-              "title": "Feedback",
+              "title": "Chapter 2: Feedback",
               "url": "/training/building-a-skill/feedback/"
             },
             {
-              "title": "Your Family Values",
+              "title": "Chapter 3: Your Family Values",
               "url": "/training/building-a-skill/your-family-values/"
             },
             {
-              "title": "Your Family Members",
+              "title": "Chapter 4: Your Family Members",
               "url": "/training/building-a-skill/your-family-members/"
             },
             {
-              "title": "Open AI Setup",
+              "title": "Chapter 5: Customizing Your Bedtime Story",
               "url": "/training/building-a-skill/open-ai-setup/"
             },
             {
-              "title": "Generating a Bedtime Story",
+              "title": "Chapter 6a: Open AI Setup",
+              "url": "/training/building-a-skill/open-ai-setup/"
+            },
+            {
+              "title": "Chapter 6b: Using ChatGPT to Write the Story",
               "url": "/training/building-a-skill/generating-a-story/"
             },
             {
-              "title": "Sharing Your Story",
+              "title": "Chapter 7: Sharing Your Story",
               "url": "/training/building-a-skill/share-story/"
             },
             {
