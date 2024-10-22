@@ -1,4 +1,4 @@
-# Wireframes
+# Chapter 0: Wireframes
 
 ## Overview
 
@@ -49,6 +49,8 @@ This chapter is very passive, so you don't need to do anything to prepare. Just 
 ## Tools Used in This Chapter
 
 1. [Exceldraw](https://excalidraw.com/) - A low fidelity wireframing tool that also looks great.
+
+## Commands Used in This Chapter
 
 ### Something Missing?
 

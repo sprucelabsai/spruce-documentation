@@ -1,4 +1,4 @@
-# Customizing Your Bedtime Story
+# Chapter 5: Customizing Your Bedtime Story
 
 ## Overview
 
@@ -9,6 +9,10 @@ Coming soon...
 ## Concepts Covered in This Chapter
 
 ## Tools Used in This Chapter
+
+## Commands Used in This Chapter
+
+### Something Missing?
 
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>

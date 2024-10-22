@@ -1,4 +1,4 @@
-# Feedback
+# Chapter 2: Feedback
 
 ## Overview
 
@@ -14,6 +14,8 @@ Coming soon...
 ## Concepts Covered in This Chapter
 
 ## Tools Used in This Chapter
+
+## Commands Used in This Chapter
 
 ### Something Missing?
 

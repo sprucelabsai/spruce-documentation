@@ -1,4 +1,4 @@
-# Dashboard (RootSkillViewController)
+# Chapter 1: Dashboard (RootSkillViewController)
 
 ## Overview
 
@@ -27,6 +27,7 @@ This is it! Finally we get to start writing some code! But, before we do, we hav
 2. [`vscode`](https://code.visualstudio.com/) - A free code editor that works on Windows, macOS, and Linux.
 3. [Development Theatre](/getting-started/development-theatre/) - The runtime that executes your skills.
 
+## Commands Used in This Chapter
 
 ### Something Missing?
 

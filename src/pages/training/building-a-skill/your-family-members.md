@@ -1,4 +1,4 @@
-# Your Family Members
+# Chapter 4: Your Family Members
 
 ## Overview
 
@@ -10,6 +10,8 @@ Coming soon...
 
 ## Tools Used in This Chapter
 
+## Commands Used in This Chapter
+
 ### Something Missing?
 
 <div class="grid-buttons">
@@ -19,5 +21,5 @@ Coming soon...
 ## Now What?
 
 <div class="grid-buttons">
-    <a class="btn" href="{{ '/training/building-a-skill/generating-a-story/' | url }}">OpenAI Set Up</a>
+    <a class="btn" href="{{ '/training/building-a-skill/customizing-your-bedtime-story/' | url }}">Customizing Your Bedtime Story</a>
 </div>

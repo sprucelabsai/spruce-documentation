@@ -1,4 +1,4 @@
-# Your Family Values
+# Chapter 3: Your Family Values
 
 ## Overview
 
@@ -16,6 +16,8 @@ Coming soon...
 ## Concepts Covered in This Chapter
 
 ## Tools Used in This Chapter
+
+## Commands Used in This Chapter
 
 ### Something Missing?
 

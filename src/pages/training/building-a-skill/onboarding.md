@@ -10,6 +10,8 @@ Coming soon...
 
 ## Tools Used in This Chapter
 
+## Commands Used in This Chapter
+
 ### Something Missing?
 
 <div class="grid-buttons">

@@ -1,4 +1,4 @@
-# OpenAI Setup
+# Chapter 6a: OpenAI Setup
 
 ## Overview
 
@@ -9,6 +9,8 @@ Coming soon...
 ## Concepts Covered in This Chapter
 
 ## Tools Used in This Chapter
+
+## Commands Used in This Chapter
 
 ### Something Missing?
 
