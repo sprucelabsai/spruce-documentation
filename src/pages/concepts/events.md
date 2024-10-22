@@ -47,10 +47,22 @@ Events are very robust, especially when compared to standard verb based HTTP req
     2. **Listener Permissions**: These are the permissions required to listen to the event. By default, the skill that registered the event is the only one that can listen to it.
 
 
-
 <div style="text-align:center">
     <img src="../../assets/img/concepts/event_structure.png">
 </div>
+
+## Event Naming Conventions
+
+Here are some common naming conventions for events (minus the namespace and version):
+
+| Name Template | Examples | Use Case |
+|-|-|-|
+| `create-{objectSingular}` | `create-family-member`, `create-objective-profile` | Creating a new thing. |
+| `get-{objectSingular}` | `get-family`, `get-objective-profile` | Retrieving a thing. |
+| `list-{objectPlural}` | `list-family-members`, `list-objective-profiles` | Listing multiple things (objects,records,etc.). |
+| `update-{objectSingular}` | `update-family-member`, `update-objective-profile` | Updating a thing. |
+| `save-{objectSingular}` | `save-family-member`, `save-objective-profile` | Updating a thing if it exists, creating if not. |
+| `delete-{objectSingular}` | `delete-family-member`, `delete-objective-profile` | Deleting a thing. |
 
 ## Event File Structure
 

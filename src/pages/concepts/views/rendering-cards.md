@@ -638,6 +638,8 @@ class RootSkillViewController extends AbstractSkillViewController {
 
 The `ActiveRecordCard` is a special card that is used to quickly render records returned from a listener (usually pulled from a database, but not necessarily). Generally speaking, it is a great way to render a list of records. 
 
+<img style="margin:0 auto; display:block;" src="../../assets/img/concepts/active_record_card.png">
+
 > **Note**: This test starts with a **MyCardViewContoller**  that you have already created in the ["Rendering Card by Id"](#rendering-your-own-view-controller-class) section. You should start with that test before continuing.
 
 <details>
