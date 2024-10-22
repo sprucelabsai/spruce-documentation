@@ -137,3 +137,7 @@ spruce create.test
 > **Note**: You may be asked to install the `Skill Feature.` If you started by running `spruce create.module`, select `Always Skip`. Installing this will turn your module into a `Skill` that runs on the `Spruce Platform`.
 
 > **Node**: You will be asked to select a base test class. Select `AbstractSpruceTest` to start.
+
+## Working with Skills
+
+Coming soon!

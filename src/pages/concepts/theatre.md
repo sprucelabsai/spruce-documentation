@@ -1,6 +1,6 @@
 # Theatre
 
-The `Theatre` is a totally self contained runtime that runs all your skills. It also handles operations that span multiple skills, like `boot` or `upgrade`.
+The `Theatre` is a totally self contained environment that runs all your skills. It also handles operations that span multiple skills, like `boot` or `upgrade`.
 
 In a technical sense, it's a [monorepo](https://en.wikipedia.org/wiki/Monorepo) that contains all your skills that uses [pm2](https://pm2.keymetrics.io) to runs each skill. It relies on a bunch of bash scripts to do a lot of the heavy lifting.
 
