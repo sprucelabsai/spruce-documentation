@@ -316,7 +316,7 @@
               "url": "/concepts/permissions/#checking-in-the-backend"
             },
             {
-              "title": " - Request new example",
+              "title": " - Request New Example",
               "url": "/help/new-example/"
             },
             {
@@ -328,7 +328,7 @@
               "url": "/concepts/permissions/#redirecting-if-someone-is-not-logged-in"
             },
             {
-              "title": " - Request new example",
+              "title": " - Request New Example",
               "url": "/help/new-example"
             },
             {
@@ -415,7 +415,11 @@
           "url": "/help/keyboard-shortcuts/"
         },
         {
-          "title": "Request new example",
+          "title": "Definitions",
+          "url": "/help/definitions/"
+        },
+        {
+          "title": "Request New Example",
           "url": "/help/new-example/"
         }
       ]
