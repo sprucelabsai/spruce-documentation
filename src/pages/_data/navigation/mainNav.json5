@@ -316,20 +316,12 @@
               "url": "/concepts/permissions/#checking-in-the-backend"
             },
             {
-              "title": " - Request New Example",
-              "url": "/help/new-example/"
-            },
-            {
               "title": "In Skill Views",
               "url": "/concepts/permissions/#checking-in-skill-views"
             },
             {
               "title": " - Redirect of not logged in",
               "url": "/concepts/permissions/#redirecting-if-someone-is-not-logged-in"
-            },
-            {
-              "title": " - Request New Example",
-              "url": "/help/new-example"
             },
             {
               "title": "In event contracts",
