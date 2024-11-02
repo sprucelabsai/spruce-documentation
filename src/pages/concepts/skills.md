@@ -10,6 +10,15 @@ To start, your `Skill` is only a `BootLoader` that looks for `Features`. `Featur
 
 <img src="../../assets/img/concepts/skill_lifecycle.png">
 
+## Folder Structure
+
+| Folder        | Purpose     |
+|---------------|-----------------|
+| `.spruce`     | Coming soon...  |
+| `config`      | Coming soon...  |
+| `logs`        | Coming soon...  |
+| `tests`       | Coming soon...  |
+
 ## Creating your Skill
 
 When you're ready to start building a new `Skill`, you can use the [`SpruceCLI`](../spruce-cli/) to generate the `Skill` scaffolding. 
