@@ -14,17 +14,35 @@ To start, your `Skill` is only a `BootLoader` that looks for `Features`. `Featur
 
 | Folder        | Purpose     |
 |---------------|-----------------|
-| `.spruce`     | Coming soon...  |
-| `config`      | Coming soon...  |
-| `logs`        | Coming soon...  |
-| `tests`       | Coming soon...  |
+| `.vscode`     | Coming soon...  |
+| `build`     | Coming soon...  |
+| `node_modules`       | Coming soon...  |
+| `src`       | Coming soon...  |
+| `src/__tests__`       | Coming soon...  |
+| `src/.spruce`       | Coming soon...  |
+| `src/errors`       | Coming soon...  |
+| `src/listeners`       | Coming soon...  |
+| `src/permissions`       | Coming soon...  |
+| `src/schemas`       | Coming soon...  |
+| `src/skillViewControllers`       | Coming soon...  |
+| `src/stores`       | Coming soon...  |
+| `src/viewControllers`       | Coming soon...  |
+| `src/viewPlugins`       | Coming soon...  |
+| `.editorconfig`       | Coming soon...  |
+| `.eslintcache`       | Coming soon...  |
+| `.npmignore`       | Coming soon...  |
+| `.nvmrc`       | Coming soon...  |
+| `.eslint.config.mjs`       | Coming soon...  |
+| `package.json`       | Coming soon...  |
+| `README.md`       | Coming soon...  |
+| `tsconfig.json`       | Coming soon...  |
 
 ## Creating your Skill
 
 When you're ready to start building a new `Skill`, you can use the [`SpruceCLI`](../spruce-cli/) to generate the `Skill` scaffolding. 
 
 ```bash
-spruce create skill [directory]
+spruce create.skill [directory]
 ``` 
 
 > **Note:** If you don't provide a directory, the `Skill` will be created in the current directory.
