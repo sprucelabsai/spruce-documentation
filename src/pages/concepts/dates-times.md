@@ -493,7 +493,7 @@ export default class GetFamilyMemberListenerTest extends AbstractSpruceFixtureTe
     <summary><strong>Production 1:</strong> Build <em>dateUtil</em> with the hardcoded timezone</summary>
 
 ```ts
-// Comming soon
+Coming soon...
 ``
 
 </details>
