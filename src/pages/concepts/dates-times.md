@@ -5,7 +5,6 @@
 <details>
 <summary><strong>dateUtil</strong> - A utility that wraps a lot of helpful date related functionality. By default it's not timezone aware, but you can make it timezone aware by using the DateUtilDecorator provided by @sprucelabs/calendar-utils.</summary>
 
-
 ```ts
 export interface DateUtil {
     eventDaysOfWeek: {
