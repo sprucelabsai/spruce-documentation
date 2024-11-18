@@ -300,6 +300,10 @@
           ]
         },
         {
+          "title": "Scope",
+          "url": "/concepts/scope"
+        },
+        {
           "title": "Schemas",
           "url": "/concepts/schemas/"
         },

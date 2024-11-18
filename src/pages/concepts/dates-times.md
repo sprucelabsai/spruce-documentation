@@ -5,7 +5,6 @@
 <details>
 <summary><strong>dateUtil</strong> - A utility that wraps a lot of helpful date related functionality. By default it's not timezone aware, but you can make it timezone aware by using the DateUtilDecorator provided by @sprucelabs/calendar-utils.</summary>
 
-
 ```ts
 export interface DateUtil {
     eventDaysOfWeek: {
@@ -428,13 +427,75 @@ Coming soon...
 
 ## Timezones
 
-### Based on `Location`
+### In your `ViewControllers`
 
-Coming Soon...
+In your `ViewControllers` the `dateUtil` is already `Locale` aware. All you have to do is access the `dateUtil` via `this.dates` and you're good to go. Example:
 
-### Based on `Person`
+```ts
+class RootSkillView extends AbstarctSkillViewController {
+    public async load() {
+        const startOfToday = this.dates.getStartOfDay()
+        console.log('Timestamp for start of day in the current timezone:', startOfToday)
+    }
+}
 
-Coming Soon...
+
+```
+
+> **Note:** Timezone will default to the client's timezone (browser or app). If `Scope` is set, it'll use current `Location`'s or `Organization`'s timezone. The presidence is `Location` > `Organization` > `Client`.
+
+### In the backend
+
+It gets a little more complicated in the backend because there is no way to know the timezone of the client or current scope. By default, the timezone will match whatever the server is set to. As you can imagine, that is not going to work in most cases.
+
+<details>
+    <summary><strong>Test 1:</strong> Assert <em>dateUtil</em> is built with the correct timezone</summary>
+
+In this test, we're going to assume you already have tested your `Listener` and are ready to ensure the `dateUtil` is built with the correct timezone. This example is very contrived, but lets say you want to show the date a family member scheduled an event in the location's timezone. We added the `usesTheLocationsTimezone()` test, which should fail at this point.
+
+```ts
+import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+
+export default class GetFamilyMemberListenerTest extends AbstractSpruceFixtureTest {
+
+    @seed('locations', 1)
+    @seed('familyMembers', 1)
+    protected static async beforeEach() {
+        await super.beforeEach()
+        await this.bootSkill()
+    }
+
+    @test()
+    protected static async usesTheLocationsTimezone() {
+        this.fakedLocations[0].timezone = 'America/Denver'
+        await this.emitGetFamilyMember()
+        dateAssert.timezoneOfLastBuiltDateUtilEquals('America/Denver')
+
+    }
+
+    public static async emitGetFamilyMember() {
+      const [{ familyMembers}] = await this.client.emitAndFlattenResponses(
+        'eightbitstories.get-family-member::v2023_09_05',
+        {
+            target: {
+                locationId: this.fakedLocations[0].id,
+            },
+        })
+
+      return familyMembers
+    }
+}
+```
+</details>
+
+<details>
+    <summary><strong>Production 1:</strong> Build <em>dateUtil</em> with the hardcoded timezone</summary>
+
+```ts
+Coming soon...
+``
+
+</details>
 
 ## Rendering time until a date
 
