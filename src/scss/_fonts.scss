@@ -1,41 +1,7 @@
 /* Imports */
 
-@import url("//hello.myfonts.net/count/3e423c");
 
-@font-face {
-  font-family: "URW Form";
-  font-weight: 700;
-  font-style: normal;
-  src: url('/assets/webFonts/URWFormBold/font.woff2') format('woff2'),
-    url('/assets/webFonts/URWFormBold/font.woff') format('woff');
-}
-
-@font-face {
-  font-family: "URW Form";
-  font-weight: 700;
-  font-style: italic;
-  src: url('/assets/webFonts/URWFormBoldItalic/font.woff2') format('woff2'),
-    url('/assets/webFonts/URWFormBoldItalic/font.woff') format('woff');
-}
-
-@font-face {
-  font-family: "URW Form";
-  font-weight: 800;
-  font-style: normal;
-  src: url('/assets/webFonts/URWFormExtraBold/font.woff2') format('woff2'),
-    url('/assets/webFonts/URWFormExtraBold/font.woff') format('woff');
-}
-
-@font-face {
-  font-family: "URW Form";
-  font-weight: 800;
-  font-style: italic;
-  src: url('/assets/webFonts/URWFormExtraBoldItalic/font.woff2') format('woff2'),
-    url('/assets/webFonts/URWFormExtraBoldItalic/font.woff') format('woff');
-}
-
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 // global font sizes vars
 $fs-extra-smaller: 13px;
@@ -48,20 +14,19 @@ $fs-footer-col-header: 14px;
 $fs-footer-smaller: $fs-smaller;
 
 html {
-  font-size: 6.2%;
 
   body {
-    font-family: "Roboto Mono";
+    font-family: "Montserrat", sans-serif;
     font-size: $fs-primary;
     line-height: 1.5em;
-    font-weight: 200;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: "Roboto Mono";
-    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
   }
 }
