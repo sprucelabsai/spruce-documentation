@@ -88,9 +88,11 @@ Llama 3.2 is the newest version of Llama (as of this writing) that supports embe
 Here are the steps to configure your skill to use ChromaDatabase
 
 <details>
-<summary>Setting up the Chroma Database Adapter</summary>
+<summary><strong>Step 1:</strong> Installing the Chroma Adapter</summary>
 
-```env
+Coming soon...
+
+```bash
 
 ```
 
@@ -114,7 +116,7 @@ ollama run nomic-embed-text
 <summary><strong>Step 2:</strong> Configuring nomic-embed-text in your skill</summary>
 
 Add the following to your skill's `.env`:
-```env
+```bash
 CHROMA_EMBEDDING_MODEL="nomic-embed-text"
 ```
 </details>
