@@ -63,7 +63,8 @@ Give your skill the ability to store and retrieve data from a Chroma database fo
 
 ### Running Chroma
 
-1. Clone this rep
+1. Clone the `@sprucelabs/chroma-data-store` repository
+3. cd into the repository
 2. Run `yarn start.chroma.docker`
 
 ### Setting an embedding model
