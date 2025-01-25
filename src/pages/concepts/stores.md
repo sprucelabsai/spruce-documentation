@@ -91,10 +91,21 @@ Here are the steps to configure your skill to use ChromaDatabase
 <details>
 <summary><strong>Step 1:</strong> Installing the Chroma Adapter</summary>
 
-Coming soon...
+Inside your skill's directory run:
 
 ```bash
+yarn install @sprucelabs/chroma-data-store
+```
 
+</details>
+
+<details>
+<summary><strong>Step 2:</strong> Enabling the adapter</summary>
+
+Inside your skill's directory run:
+
+```bash
+Coming soon.
 ```
 
 </details>
