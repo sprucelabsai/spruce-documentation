@@ -29,11 +29,10 @@
 
     * **Easily Extend Test Classes**: Create a parent test class to hold helpful assertions, setup methods, fixtures, etc.
 2. **Decorator Based**: 
-    * Use `@test()` to define which Class methods are tests.
-    * **Parameterized Tests**: Use the `@test()` decorator with arguments to run the same test with different input.
+    * Use [`@test()`](/concepts/tests/) to define which Class methods are tests.
+    * **Parameterized Tests**: Use the [`@test()`](/concepts/tests/) decorator with arguments to run the same test with different input.
 4. **Tight VSCode Integration**:
     * **Formatting**: Beatuifully format your code on every Save.
-
     * **Test Explorer**: View and run tests from the sidebar.
     * **Debugging**: Debug tests with breakpoints.
 6. **Build Watcher**: Automatically build your code on every save.
