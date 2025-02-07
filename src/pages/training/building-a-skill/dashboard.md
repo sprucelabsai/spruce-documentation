@@ -19,7 +19,7 @@ This is it! Finally we get to start writing some code! But, before we do, we hav
 ## Concepts Covered in This Chapter
 
 1. [`Tests`](/concepts/tests/) - TDD by the 3 laws!
-1. [`Views`](/concepts/views/) - The visual representation of your skill provided by the Heartwood Skill.
+2. [`Views`](/concepts/views/) - The visual representation of your skill provided by the Heartwood Skill.
 
 ## Tools Used in This Chapter
 

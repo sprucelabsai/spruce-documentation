@@ -2,7 +2,7 @@
 
 ## Overview
 
-Coming soon...
+Alright! Now, we get to build more sophisticated functionality! But, before we dive in, we’ll review where we left off. Then, we’ll render a dialog, create a form, and handle our first events. Along the way, we’ll refactor for cleaner code, explore schemas, and implement permissions.
 
 ## Training
 <div class="video-container">
@@ -10,12 +10,133 @@ Coming soon...
 </div>
 
 ## Pre-requisites
-
+1. Understanding of the previous chapter, [`building a dashboard`](/training/building-a-skill/dashboard) and adding a card with images and buttons.
+   
 ## Concepts Covered in This Chapter
+1. [`Mercury`](/concepts/mercury/) - Event-handling and communication via Mercury.
+2. [`Tests`](/concepts/tests/) - TDD by the 3 laws!
+3. [`Views`](/concepts/views/) - The visual representation of your skill provided by the Heartwood Skill.
+4. [`Events`](/concepts/events/) - Custom event creation and handling.
+5. [`Schemas`](/concepts/schemas/) - Data validation and normalization through schemas.
+6. [`Permissions`](/concepts/permissions/) - Controlling access with permission contracts.
+7. [`Listeners`](/concepts/listeners/) - Listening for backend events and responding appropriately.
+8. [`Errors`](/concepts/errors/) - Handling and displaying errors effectively.
 
 ## Tools Used in This Chapter
-
+1. [`spruce-cli`](/getting-started/install-cli/) - The Spruce Command Line Interface (CLI) is a tool that enables you create, build, and test your skills.
+2. [`vscode`](https://code.visualstudio.com/) - A free code editor that works on Windows, macOS, and Linux.
+3. [Development Theatre](/getting-started/development-theatre/) - The runtime that executes your skills.
+   
 ## Commands Used in This Chapter
+
+### **Assertions**
+1. **`VC assert.renders.dialogue`**
+   - **Description**: Asserts that a dialogue box is rendered on the view controller.
+
+2. **`VC assert.renders.field`**
+   - **Description**: Asserts that a specific field is rendered in the form.
+
+3. **`assert.is.false`**
+   - **Description**: Verifies that a specific condition or value is false.
+
+4. **`form assert.field.renders.as`**
+   - **Description**: Ensures that a form field is rendered as a specific type, e.g., a text area.
+
+5. **`assert.is.equal`**
+   - **Description**: Checks that two values are equal.
+
+6. **`assert.renders.alert`**
+   - **Description**: Confirms that an alert is displayed on the view.
+
+### **Event Handling**
+1. **`event Faker.on`**
+   - **Description**: Sets up a listener for a specified event to verify its behavior in tests.
+
+2. **`event Faker.make.event.throw`**
+   - **Description**: Simulates an event throwing an error for testing purposes.
+
+3. **`client.emit`**
+   - **Description**: Emits an event to a backend API.
+
+4. **`client.emit.and.flatten.responses`**
+   - **Description**: Emits an event and simplifies the response structure, commonly used when responses contain nested data.
+
+### **View Controllers and Forms**
+1. **`form VC.get value`**
+   - **Description**: Retrieves the value of a specific field from the form.
+
+2. **`form VC.render`**
+   - **Description**: Renders a form in the view controller.
+
+3. **`form VC.set value`**
+   - **Description**: Sets a value for a specific field in the form.
+
+4. **`form assert.rendered.form`**
+   - **Description**: Asserts that a form is correctly rendered.
+
+5. **`form assert.field.renders`**
+   - **Description**: Verifies that a specific form field is rendered.
+
+### **View Setup**
+1. **`controller.Factory`**
+   - **Description**: Creates a new instance of a controller for use in the application.
+
+2. **`this.controller.card`**
+   - **Description**: Initializes a card view controller encapsulating the necessary view components.
+
+3. **`this.render.in.dialogue`**
+   - **Description**: Renders a dialogue box with specific options and content.
+
+4. **`build.form`**
+   - **Description**: Builds a form object with fields, sections, and schema definitions.
+
+### **Listener and Permissions**
+1. **`this.connect.to.API`**
+   - **Description**: Establishes a connection to the API for emitting or listening to events.
+
+2. **`build.permission.reference`**
+   - **Description**: Creates a reference for a permission contract, specifying roles and permissions.
+
+3. **`permissions.sync`**
+   - **Description**: Synchronizes the permissions configuration to ensure it reflects the latest changes.
+
+### **Terminal and CLI Commands**
+
+1. **`watch.views`**
+   - **Description**: Watches for changes in views and rebuilds them automatically during development.
+
+2. **`create.view`**
+   - **Description**: Generates a new view controller file using the CLI.
+
+3. **`sync.events`**
+   - **Description**: Synchronizes the events configuration, ensuring event types and handlers are up-to-date.
+
+4. **`sync.permissions`**
+   - **Description**: Updates permission contracts and related configurations.
+
+### **Schema and Data Handling**
+1. **`build.schema`**
+   - **Description**: Constructs a schema definition, including fields, types, and validation rules.
+
+2. **`normalize.against.schema`**
+   - **Description**: Adjusts an object to match a defined schema, including type conversions and default values.
+
+### **General Functions**
+1. **`handle.click.feedback`**
+   - **Description**: Handles click events on the feedback button and triggers corresponding actions.
+
+2. **`handle.submit`**
+   - **Description**: Handles form submission logic, including validation and event emission.
+
+3. **`submit.feedback`**
+   - **Description**: Submits the feedback to the backend by emitting an event.
+
+### **Test Utilities**
+1. **`test.protected.static`**
+   - **Description**: Defines a protected static method used as a test case in the test framework.
+
+2. **`this.VC.getformVC`**
+   - **Description**: Retrieves the form view controller from a parent view controller.
 
 ### Something Missing?
 
