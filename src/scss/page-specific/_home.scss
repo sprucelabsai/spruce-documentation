@@ -1,4 +1,10 @@
-&.home-page {
+@use '../values' as *;
+@use '../fonts' as * ;
+@use '../svg-icons' as *;
+@use '../base-element-styles' as *;
+@use '../code-theme' as *;
+
+.home-page {
   position: relative;
   grid-template-areas:
     "... header header ..."
@@ -195,7 +201,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  &.home-page #home-tiles .home-tile {
+  .home-page #home-tiles .home-tile {
     .content-wrapper svg {
       display: none;
     }

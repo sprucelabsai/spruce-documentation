@@ -1,8 +1,17 @@
+@use "sass:color";
+@use "sass:meta";
+@use "sass:string";
+@use "values" as *;
+@use 'fonts' as * ;
+@use 'svg-icons' as *;
+@use 'base-element-styles' as *;
+@use 'code-theme' as *;
+
 //does not work with colors containing alpha
 @function encodecolor($string) {
-  @if type-of($string)=='color' {
-    $hex: str-slice(ie-hex-str($string), 4);
-    $string: unquote("#{$hex}");
+  @if meta.type-of($string)=='color' {
+    $hex: string.slice(color.ie-hex-str($string), 4);
+    $string: string.unquote("#{$hex}");
   }
 
   $string: '%23' + $string;
@@ -26,7 +35,7 @@
 
     &:hover {
       cursor: pointer;
-      background-color: lighten($color: $cl-gray, $amount: 20);
+      background-color: color.adjust($color: $cl-gray, $lightness: 20%);
     }
 
     &:active {

@@ -1,8 +1,20 @@
-@import 'values';
-@import 'fonts';
-@import 'svg-icons';
-@import 'base-element-styles';
-@import 'code-theme';
+@use "sass:meta"; // 
+
+@use "values";
+@use "fonts";
+@use "svg-icons";
+@use "base-element-styles";
+@use "code-theme";
+@use "navigation";
+@use "header";
+@use "footer";
+@use "widgets";
+
+@use "page-specific/default-page-type";
+@use "page-specific/home";
+@use "page-specific/search";
+@use "page-specific/install";
+@use "markdown-docs-styles";
 
 // @import 'debug';
 
@@ -21,20 +33,6 @@ body {
 body {
   display: flex;
   flex-direction: column;
-
-  @import 'widgets';
-  @import 'header';
-  @import 'navigation';
-  @import '_markdown-docs-styles';
-
-
-  @import 'page-specific/default-page-type';
-
-  @import 'footer';
-
-  @import 'page-specific/home';
-  @import 'page-specific/search';
-  @import 'page-specific/install';
 }
 
 .grid-buttons {
@@ -42,7 +40,7 @@ body {
   flex-wrap: wrap;
 
   .btn {
-    @include btn-base(white, black);
+    @include base-element-styles.btn-base(white, black);
     margin: 5px;
   }
 
@@ -58,7 +56,7 @@ body {
 }
 
 .btn {
-  @include btn-base(white, black);
+  @include base-element-styles.btn-base(white, black);
   padding: 10px 20px;
   background-color: #000000;
   color: white;
@@ -82,7 +80,7 @@ details {
 }
 
 h1 {
-  border-bottom: 5px solid $cl-gray;
+  border-bottom: 5px solid values.$cl-gray;
   padding-bottom: 20px;
   line-height: 1.2em;
 }
@@ -108,15 +106,15 @@ h2 {
 }
 
 .main-area > h2 {
-  background: rgba($cl-gray, 30%); 
+  background: rgba(values.$cl-gray, 30%); 
   padding: 10px;
   border-radius: 5px;
   margin-left: -10px;
 }
 
 blockquote {
-  background: rgba($cl-gray, 10%);
-  border-left: 10px solid $monokai-fg;
+  background: rgba(values.$cl-gray, 10%);
+  border-left: 10px solid code-theme.$monokai-fg;
   margin: 1.5em 10px;
   padding: 1px 10px .1em 20px;
 }

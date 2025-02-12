@@ -1,3 +1,9 @@
+@use 'values' as *;
+@use 'fonts' as * ;
+@use 'svg-icons' as *;
+@use 'base-element-styles' as *;
+@use 'code-theme' as *;
+
 // Interactive Button Styles
 .guide-sections {
     display: flex;

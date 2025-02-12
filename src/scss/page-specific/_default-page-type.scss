@@ -1,6 +1,13 @@
+@use '../values' as *;
+@use '../fonts' as * ;
+@use '../svg-icons' as *;
+@use '../base-element-styles' as *;
+@use '../code-theme' as *;
+@use '../navigation' as *;
+
 $cl-sidebar-bg: #f7f7f7;
 
-&.default-page-type {
+.default-page-type {
   background-color: white;
   display: grid;
 

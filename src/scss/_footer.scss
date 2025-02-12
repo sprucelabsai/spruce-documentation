@@ -1,3 +1,9 @@
+@use 'values' as *;
+@use 'fonts' as * ;
+@use 'svg-icons' as *;
+@use 'base-element-styles' as *;
+@use 'code-theme' as *;
+
 $footer-nav-img-height: 14px;
 $footer-nav-header-to-links: 14px;
 

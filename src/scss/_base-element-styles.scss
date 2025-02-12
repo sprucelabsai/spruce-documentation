@@ -1,3 +1,8 @@
+@use 'values' as *;
+@use 'fonts' as * ;
+@use 'svg-icons' as *;
+@use 'code-theme' as *;
+
 img {
   width: unset;
   max-width: 100%;

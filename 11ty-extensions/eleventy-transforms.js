@@ -1,5 +1,5 @@
 const postHtml = require("posthtml")();
-const htmlMin = require("html-minifier");
+const htmlMin = require("html-minifier-terser");
 const { noopener } = require("posthtml-noopener");
 const dom = require("fauxdom");
 const he = require("he");
