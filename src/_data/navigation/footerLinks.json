@@ -1,0 +1,232 @@
+{
+  "columns": [
+    {
+      "title": "Gettting Started",
+      "links": [
+        {
+          "title": "Start From Scratch",
+          "url": "/getting-started/from-scratch/",
+          "class": ""
+        },
+        {
+          "title": "Android",
+          "url": "/getting-started/frameworks/android/",
+          "class": ""
+        },
+        {
+          "title": "Django",
+          "url": "/getting-started/frameworks/django/",
+          "class": ""
+        },
+        {
+          "title": "Flask",
+          "url": "/getting-started/frameworks/flask/",
+          "class": ""
+        },
+        {
+          "title": "Groovy",
+          "url": "/getting-started/frameworks/groovy/",
+          "class": ""
+        },
+        {
+          "title": "IOS",
+          "url": "/getting-started/frameworks/ios/",
+          "class": ""
+        },
+        {
+          "title": "Laravel",
+          "url": "/getting-started/frameworks/laravel/",
+          "class": ""
+        },
+        {
+          "title": "Python",
+          "url": "/getting-started/frameworks/python/",
+          "class": ""
+        },
+        {
+          "title": "Ruby",
+          "url": "/getting-started/frameworks/ruby/",
+          "class": ""
+        },
+        {
+          "title": "React",
+          "url": "/getting-started/frameworks/react/",
+          "class": ""
+        },
+        {
+          "title": "Spring",
+          "url": "/getting-started/frameworks/spring/",
+          "class": ""
+        }
+      ]
+    },
+    {
+      "title": "Ideology",
+      "links": [
+        {
+          "title": "The Fourth Runtime",
+          "url": "/ideology/the_fourth_runtime/",
+          "class": ""
+        },
+        {
+          "title": "Great Software",
+          "url": "/ideology/great_software/",
+          "class": ""
+        },
+        {
+          "title": "Small Trunk, Big Branches",
+          "url": "/ideology/architecture/",
+          "class": ""
+        },
+        {
+          "title": "Clean Code",
+          "url": "/ideology/tdd/",
+          "class": ""
+        },
+        {
+          "title": "Training",
+          "url": "/ideology/clean-code/",
+          "class": ""
+        }
+      ]
+    },
+    {
+      "title": "Training",
+      "links": [
+        {
+          "title": "Building Your First Skill",
+          "url": "/training/building-a-skill/",
+          "class": ""
+        },
+        {
+          "title": "Katas",
+          "url": "/training/katas/",
+          "class": ""
+        }
+      ]
+    },
+    {
+      "title": "Concepts",
+      "links": [
+        {
+          "title": "Mercury",
+          "url": "/concepts/mercury/",
+          "class": ""
+        },
+        {
+          "title": "Tests",
+          "url": "/concepts/tests/",
+          "class": ""
+        },
+        {
+          "title": "Views",
+          "url": "/concepts/views/",
+          "class": ""
+        },
+        {
+          "title": "Events",
+          "url": "/concepts/events/",
+          "class": ""
+        },
+        {
+          "title": "Schemas",
+          "url": "/concepts/schemas/",
+          "class": ""
+        },
+        {
+          "title": "Permissions",
+          "url": "/concepts/permissions/",
+          "class": ""
+        },
+        {
+          "title": "Listeners",
+          "url": "/concepts/listeners/",
+          "class": ""
+        },
+        {
+          "title": "Errors",
+          "url": "/concepts/errors/",
+          "class": ""
+        },
+        {
+          "title": "Stores",
+          "url": "/concepts/stores/",
+          "class": ""
+        }
+      ]
+    },
+    {
+      "title": "Help",
+      "links": [
+        {
+          "title": "Glossary",
+          "url": "/help/glossary/",
+          "class": ""
+        },
+        {
+          "title": "Discord",
+          "url": "/help/contact/",
+          "class": ""
+        },
+        {
+          "title": "Github Issues",
+          "url": "/help/github-issues/",
+          "class": ""
+        }
+      ]
+    }
+  ],
+  "bottomRow": {
+    "links": [
+      {
+        "title": "sprucelabsai",
+        "url": "https://developer.spruce.bot",
+        "image": {
+          "url": "/assets/img/logos/sprucebot.png"
+        },
+        "class": "sp-logo"
+      },
+      {
+        "type": "icon-list",
+        "class": "icon-list",
+        "links": [
+          {
+            "title": "Spruce on Reddit",
+            "url": "https://www.reddit.com/",
+            "svgSnippet": "redditIcon",
+            "class": "no-away",
+            "external": true
+          },
+          {
+            "title": "Spruce on Discord",
+            "url": "https://discord.com/invite/",
+            "svgSnippet": "discordMarkIcon",
+            "class": "no-away",
+            "external": true
+          },
+          {
+            "title": "Spruce on GitHub",
+            "url": "https://github.com/",
+            "svgSnippet": "githubLogo",
+            "class": "no-away",
+            "external": true
+          },
+          {
+            "title": "Spruce on YouTube",
+            "url": "https://www.youtube.com/channel/",
+            "svgSnippet": "youtubeMarkIcon",
+            "class": "no-away",
+            "external": true
+          },
+          {
+            "title": "Spruce on Twitter",
+            "url": "https://twitter.com/",
+            "svgSnippet": "twitterLogo",
+            "class": "no-away",
+            "external": true
+          }
+        ]
+      }
+    ]
+  }
+}

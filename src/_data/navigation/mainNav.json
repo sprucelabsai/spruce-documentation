@@ -70,8 +70,7 @@
         }
       ]
     },
-
-      {
+    {
       "title": "Ideology",
       "url": "/ideology/",
       "children": [
@@ -188,7 +187,7 @@
       "url": "/concepts/",
       "children": [
         {
-          title: "Theatre",
+          "title": "Theatre",
           "url": "/concepts/theatre/"
         },
         {
@@ -389,7 +388,6 @@
         }
       ]
     },
-
     {
       "title": "Help",
       "url": "/help/",
