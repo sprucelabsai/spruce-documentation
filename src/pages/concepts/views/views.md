@@ -17,6 +17,8 @@ Every other type of `ViewController` (listed below) is rendered inside a `CardSe
 
 {% include_raw "root-skill-view.md" "concepts/views" %}
 
+{% include_raw "app-view-controller.md" "concepts/views" %}
+
 {% include_raw "rendering-skill-views.md" "concepts/views" %}
 
 {% include_raw "rendering-cards.md" "concepts/views" %}

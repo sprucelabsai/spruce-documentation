@@ -8,7 +8,7 @@ Spruce is a "full-stack platform" that allows for both beautiful UI's and robust
 |--------------------------|----------------------------|
 | **Programming Language** | TypeScript                 |
 | **IDE**                  | Visual Studio Code         |
-| **App Lifecycle**        | N/A              |
+| **App Lifecycle**        | AppViewController              |
 | **UI Design**            | Heartwood, ViewControllers |
 | **Event Handling**       | Mercury |
 | **Data Persistence**     | Data Stores                   |
@@ -62,7 +62,7 @@ Spruce has been fully integrated into Visual Studio Code. It's free, open-source
 
 ### App Lifecycle
 
-When a browser or native app loads your Skill, it will start by hitting it's `RootSkillViewController`. You can execute code at each stage by implementing a method by the name of the stage.
+When a browser or native app loads your Skill, it will start by hitting it's `RootSkillViewController`. If your `Skill` has an `AppViewController` declared, it will be loaded first. You can execute code at each stage by implementing a method by the name of the stage.
 
 <img src="../../assets/img/concepts/skill_view_lifecycle.png">
 

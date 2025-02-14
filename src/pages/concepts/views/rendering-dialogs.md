@@ -2,9 +2,15 @@
 
 Dialogs are cards rendered modally. You can render a basic `Card` `ViewModel` or you can render a `CardViewController` as a dialog.
 
+### Dialog Lifecycle
+
+Dialog's lifecycle is very basic. It only has a `didHide()` method that is called when the dialog is hidden. This is a great place to remove event listeners or do any cleanup.
+
+Anything else you want done (like loading) has be done manually when you're rendering the dialog.
+
 ### Rendering a simple `ViewModel` based `Dialog` on load
 
-This is the simplest way to render a dialog. You can render a `Card` `ViewModel` by calling `this.renderInDialog(...)` from your `SkillViewController` or `ViewController`.
+This is the simplest way to render a dialog. You can render the `Card`'s `ViewModel` by calling `this.renderInDialog(...)` from your `SkillViewController` or `ViewController`.
 
 <details>
 <summary><strong>Test 1</strong>: Assert dialog is rendered on load</summary>
