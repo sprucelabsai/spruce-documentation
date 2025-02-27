@@ -20,7 +20,7 @@ import { AutoLogoutPlugin } from '@sprucelabs/spruce-heartwood-utils'
 export default class AutoLoggingOutTest extends AbstractSpruceFixtureTest {
 
     @test()
-    protected static async autoLogoutPluginInstalled() {
+    protected async autoLogoutPluginInstalled() {
         vcPluginAssert.pluginIsInstalled(
             this.views.Controller('eightbitstories.root', {}),
             'autoLogout',
@@ -67,7 +67,7 @@ export { AutoLogoutPlugin as default } from '@sprucelabs/spruce-heartwood-utils'
 You can drop in your test double using the `views` fixture on your `AbstractSpruceFixtureTest` . Here is how you may do that in your `beforeEach()`:
 
 ```ts
-protected static async beforeEach() {
+protected async beforeEach() {
     await super.beforeEach()
 
     this.spy = new SpyPlugin()

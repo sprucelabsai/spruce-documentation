@@ -23,7 +23,7 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersAlertOnLoad() {
+    protected async rendersAlertOnLoad() {
         const vc = this.views.Controller('eightbitstories.root', {})
         await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
     }
@@ -68,7 +68,7 @@ import { vcAssert, vcPluginAssert } from '@sprucelabs/heartwood-view-controllers
 
 export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersAlertOnLoad() {
+    protected async rendersAlertOnLoad() {
         const vc = this.views.Controller('eightbitstories.root', {})
         await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
     }
@@ -106,7 +106,7 @@ import { vcAssert, vcPluginAssert } from '@sprucelabs/heartwood-view-controllers
 export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
     @test()
-    protected static async rendersAlertOnLoad() {
+    protected async rendersAlertOnLoad() {
         const vc = this.views.Controller('eightbitstories.root', {})
         const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
         vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
@@ -213,14 +213,14 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
     @test()
-    protected static async rendersAlertOnLoad() {
+    protected async rendersAlertOnLoad() {
         const vc = this.views.Controller('eightbitstories.root', {})
         const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
         vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
     }
 
     @test()
-    protected static async callsLoadOnMyCardAfterShowingAsDialog() {
+    protected async callsLoadOnMyCardAfterShowingAsDialog() {
         const vc = this.views.Controller('eightbitstories.root', {})
         const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
         const myCardVc = vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
@@ -247,20 +247,20 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.views.setController('eightbitstories.my-card', MockMyCardViewController)
     }
 
     @test()
-    protected static async rendersAlertOnLoad() {
+    protected async rendersAlertOnLoad() {
         const vc = this.views.Controller('eightbitstories.root', {})
         const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
         vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController)
     }
 
     @test()
-    protected static async callsLoadOnMyCardAfterShowingAsDialog() {
+    protected async callsLoadOnMyCardAfterShowingAsDialog() {
         const vc = this.views.Controller('eightbitstories.root', {})
         const dlgVc = await vcAssert.assertRendersDialog(vc, () => this.views.load(vc))
         const myCardVc = vcAssert.assertRendersAsInstanceOf(dlgVc, MyCardViewController) as MockMyCardViewController
@@ -327,19 +327,19 @@ export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
     private static vc: MockMyCardViewController
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.views.setController('eightbitstories.my-card', MockMyCardViewController)
         this.vc = this.views.Controller('eightbitstories.root', {}) as MockMyCardViewController
     }
 
     @test()
-    protected static async rendersAlertOnLoad() {
+    protected async rendersAlertOnLoad() {
         await this.loadAndAssertRendersMyCard()
     }
 
     @test()
-    protected static async callsLoadOnMyCardAfterShowingAsDialog() {
+    protected async callsLoadOnMyCardAfterShowingAsDialog() {
         const myCardVc = await this.loadAndAssertRendersMyCard()
         myCardVc.assertLoaded()
     }
@@ -398,7 +398,7 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 export default class MyCardViewTest extends AbstractSpruceFixtureTest {
 
     @test()
-    protected static async setsListenersOnLoad() {
+    protected async setsListenersOnLoad() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         await vc.load()
 
@@ -478,7 +478,7 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 export default class MyCardViewTest extends AbstractSpruceFixtureTest {
 
     @test()
-    protected static async setsListenersOnLoad() {
+    protected async setsListenersOnLoad() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         await vc.load()
 
@@ -493,7 +493,7 @@ export default class MyCardViewTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async removesListenersOnHide() {
+    protected async removesListenersOnHide() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         await vc.load()
 
@@ -595,13 +595,13 @@ export default class MyCardViewTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async setsListenersOnLoad() {
+    protected async setsListenersOnLoad() {
         await this.emitDidGenerateStory()
         assert.isTrue(this.wasDidGenerateStoryCalled, `Expected handleDidGenerateStory to be called in my Card`)
     }
 
     @test()
-    protected static async removesListenersOnHide() {
+    protected async removesListenersOnHide() {
         await interactor.hide(this.vc)
         await this.emitDidGenerateStory()
         assert.isFalse(this.wasDidGenerateStoryCalled, `Expected handleDidGenerateStory to not be called in MyCard`)
@@ -647,19 +647,19 @@ export default class MyCardViewTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async setsListenersOnLoad() {
+    protected async setsListenersOnLoad() {
         await this.emitDidGenerateStory()
         assert.isTrue(this.wasDidGenerateStoryCalled, `Expected handleDidGenerateStory to be called in my Card`)
     }
 
     @test()
-    protected static async removesListenersOnHide() {
+    protected async removesListenersOnHide() {
         await this.hideAndEmitDidGenerateStory()
         assert.isFalse(this.wasDidGenerateStoryCalled, `Expected handleDidGenerateStory to not be called in MyCard`)
     }
 
     @test()
-    protected static async removesTheCorrectListener() {
+    protected async removesTheCorrectListener() {
         let wasHit = false
 
         await this.fakeClient.on('eightbitstories.did-generate-story::v2024_01_01', () => {
@@ -771,19 +771,19 @@ export default class MyCardViewTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async setsListenersOnLoad() {
+    protected async setsListenersOnLoad() {
         await this.emitDidGenerateStory()
         assert.isTrue(this.wasDidGenerateStoryCalled, `Expected handleDidGenerateStory to be called in my Card`)
     }
 
     @test()
-    protected static async removesListenersOnHide() {
+    protected async removesListenersOnHide() {
         await this.hideAndEmitDidGenerateStory()
         assert.isFalse(this.wasDidGenerateStoryCalled, `Expected handleDidGenerateStory to not be called in MyCard`)
     }
 
     @test()
-    protected static async removesTheCorrectListener() {
+    protected async removesTheCorrectListener() {
         let wasHit = false
 
         await this.fakeClient.on('eightbitstories.did-generate-story::v2024_01_01', () => {

@@ -42,7 +42,7 @@ import { crudAssert } from '@sprucelabs/spruce-crud-utils'
 
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersMaster() {
+    protected async rendersMaster() {
         const vc = this.views.Controller('eightbitstories.root', {})
         crudAssert.skillViewRendersMasterView(]vc)
     }

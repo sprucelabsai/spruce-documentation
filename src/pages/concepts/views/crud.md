@@ -29,7 +29,7 @@ import { crudAssert } from '@sprucelabs/spruce-crud-utils'
 
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersMaster() {
+    protected async rendersMaster() {
         const vc = this.views.Controller('eightbitstories.root', {})
         crudAssert.skillViewRendersMasterView(]vc)
     }
@@ -52,14 +52,14 @@ import { crudAssert } from '@sprucelabs/spruce-crud-utils'
 
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         crudAssert.beforeEach(this.views)
     }
 
 
     @test()
-    protected static async rendersMaster() {
+    protected async rendersMaster() {
         const vc = this.views.Controller('eightbitstories.root', {})
         crudAssert.skillViewRendersMasterView(]vc)
     }
@@ -192,20 +192,20 @@ import { crudAssert } from '@sprucelabs/spruce-crud-utils'
 
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         crudAssert.beforeEach(this.views)
     }
 
 
     @test()
-    protected static async rendersMaster() {
+    protected async rendersMaster() {
         const vc = this.views.Controller('eightbitstories.root', {})
         crudAssert.skillViewRendersMasterView(]vc)
     }
 
     @test()
-    protected static async loadsMaster() {
+    protected async loadsMaster() {
         const vc = this.views.Controller('eightbitstories.root', {})
         await crudAssert.skillViewLoadsMasterView(vc)
     }

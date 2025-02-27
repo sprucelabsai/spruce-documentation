@@ -13,7 +13,7 @@ import { formAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         formAssert.cardRendersForm(vc)
     }
@@ -96,13 +96,13 @@ import { formAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         formAssert.cardRendersForm(vc)
     }
 
     @test()
-    protected static async rendersExpectedFields() {
+    protected async rendersExpectedFields() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         formAssert.formRendersFields(vc.getForm(), ['destination'])
     }
@@ -124,13 +124,13 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         formAssert.cardRendersForm(vc)
     }
 
     @test()
-    protected static async rendersExpectedFields() {
+    protected async rendersExpectedFields() {
         this.views.setController('eightbitstories.my-card', SpyMyCard)
         const vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
         formAssert.formRendersFields(vc.getForm(), ['field1','field2'])
@@ -319,19 +319,19 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     private static vc: SpyMyCard
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.views.setController('eightbitstories.my-card', SpyMyCard)
         this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
     }
 
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         formAssert.cardRendersForm(this.vc)
     }
 
     @test()
-    protected static async rendersExpectedFields() {
+    protected async rendersExpectedFields() {
         formAssert.formRendersFields(this.vc.getForm(), ['field1','field2'])
     }
 }
@@ -366,24 +366,24 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     private static vc: SpyMyCard
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.views.setController('eightbitstories.my-card', SpyMyCard)
         this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
     }
 
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         formAssert.cardRendersForm(this.vc)
     }
 
     @test()
-    protected static async rendersExpectedFields() {
+    protected async rendersExpectedFields() {
         formAssert.formRendersFields(this.formVc, ['field1','field2'])
     }
 
     @test()
-    protected static async rendersAutocompleteInput() {
+    protected async rendersAutocompleteInput() {
         formAssert.fieldRendersUsingInstanceOf(
             this.formVc,
             'field1',
@@ -391,7 +391,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
         )
     }
 
-    protected static get formVc() {
+    protected get formVc() {
         return this.vc.getForm()
     }
 }
@@ -516,24 +516,24 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     private static vc: SpyMyCard
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.views.setController('eightbitstories.my-card', SpyMyCard)
         this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
     }
 
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         formAssert.cardRendersForm(this.vc)
     }
 
     @test()
-    protected static async rendersExpectedFields() {
+    protected async rendersExpectedFields() {
         formAssert.formRendersFields(this.formVc, ['field1','field2'])
     }
 
     @test()
-    protected static async rendersAutocompleteInput() {
+    protected async rendersAutocompleteInput() {
         formAssert.fieldRendersUsingInstanceOf(
             this.formVc,
             'field1',
@@ -542,7 +542,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async rendersAsAutocomplete() {
+    protected async rendersAsAutocomplete() {
         formAssert.fieldRendersAs(
             this.formVc,
             'field1',
@@ -550,7 +550,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
         )
     }
 
-    protected static get formVc() {
+    protected get formVc() {
         return this.vc.getForm()
     }
 }
@@ -683,24 +683,24 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     private static vc: SpyMyCard
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.views.setController('eightbitstories.my-card', SpyMyCard)
         this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
     }
 
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         formAssert.cardRendersForm(this.vc)
     }
 
     @test()
-    protected static async rendersExpectedFields() {
+    protected async rendersExpectedFields() {
         formAssert.formRendersFields(this.formVc, ['field1','field2'])
     }
 
     @test()
-    protected static async rendersAutocompleteInput() {
+    protected async rendersAutocompleteInput() {
         formAssert.fieldRendersUsingInstanceOf(
             this.formVc,
             'field1',
@@ -709,7 +709,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async rendersAsAutocomplete() {
+    protected async rendersAsAutocomplete() {
         formAssert.fieldRendersAs(
             this.formVc,
             'field1',
@@ -718,14 +718,14 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async changingDestinationsRendersSuggestions() {
+    protected async changingDestinationsRendersSuggestions() {
         await autocompleteAssert.actionShowsSuggestions(
             this.vc.getAutocompleteVc(),
             () => this.vc.getAutocompleteVc().setRenderedValue('test')
         )
     }
 
-    protected static get formVc() {
+    protected get formVc() {
         return this.vc.getForm()
     }
 }
@@ -859,24 +859,24 @@ import MyCardViewController from '../../viewControllers/MyCardViewController'
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     private static vc: SpyMyCard
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.views.setController('eightbitstories.my-card', SpyMyCard)
         this.vc = this.views.Controller('eightbitstories.my-card', {}) as SpyMyCard
     }
 
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         formAssert.cardRendersForm(this.vc)
     }
 
     @test()
-    protected static async rendersExpectedFields() {
+    protected async rendersExpectedFields() {
         formAssert.formRendersFields(this.formVc, ['field1','field2'])
     }
 
     @test()
-    protected static async rendersAutocompleteInput() {
+    protected async rendersAutocompleteInput() {
         formAssert.fieldRendersUsingInstanceOf(
             this.formVc,
             'field1',
@@ -885,7 +885,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async changingDestinationsRendersSuggestions() {
+    protected async changingDestinationsRendersSuggestions() {
         await autocompleteAssert.actionShowsSuggestions(
             this.autocompleteInputVc,
             () => this.typeIntoField1('test')
@@ -893,7 +893,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async typeingIntoField1EmitsEvent() {
+    protected async typeingIntoField1EmitsEvent() {
         let wasHit = false
         await eventFaker.on('eightbitstories.autocomplete-event::v2020_01_01', () => {
             wasHit = true
@@ -905,15 +905,15 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
         assert.isTrue(wasHit)
     }
 
-    protected static get autocompleteVc() {
+    protected get autocompleteVc() {
         return this.vc.getAutocompleteVc()
     }
 
-    protected static async typeIntoField1(value: string) {
+    protected async typeIntoField1(value: string) {
        return this.autocompleteVc.setRenderedValue(value)
     }
 
-    protected static get formVc() {
+    protected get formVc() {
         return this.vc.getForm()
     }
 }
@@ -1060,7 +1060,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     private static vc: SpyMyCard
     private static eventFaker: EventFaker
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
 
         this.views.setController('eightbitstories.my-card', SpyMyCard)
@@ -1072,17 +1072,17 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async rendersACard() {
+    protected async rendersACard() {
         formAssert.cardRendersForm(this.vc)
     }
 
     @test()
-    protected static async rendersExpectedFields() {
+    protected async rendersExpectedFields() {
         formAssert.formRendersFields(this.formVc, ['field1','field2'])
     }
 
     @test()
-    protected static async rendersAutocompleteInput() {
+    protected async rendersAutocompleteInput() {
         formAssert.fieldRendersUsingInstanceOf(
             this.formVc,
             'field1',
@@ -1091,7 +1091,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async changingDestinationsRendersSuggestions() {
+    protected async changingDestinationsRendersSuggestions() {
         await autocompleteAssert.actionShowsSuggestions(
             this.autocompleteInputVc,
             () => this.typeIntoField1('test')
@@ -1099,7 +1099,7 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async typeingIntoField1EmitsEvent() {
+    protected async typeingIntoField1EmitsEvent() {
         let wasHit = false
         await this.eventFaker.fakeAutocompleteEvent(() => {
             wasHit = true
@@ -1111,15 +1111,15 @@ export default class MyCardTest extends AbstractSpruceFixtureTest {
         assert.isTrue(wasHit)
     }
 
-    protected static get autocompleteVc() {
+    protected get autocompleteVc() {
         return this.vc.getAutocompleteVc()
     }
 
-    protected static async typeIntoField1(value: string) {
+    protected async typeIntoField1(value: string) {
        return this.autocompleteVc.setRenderedValue(value)
     }
 
-    protected static get formVc() {
+    protected get formVc() {
         return this.vc.getForm()
     }
 }

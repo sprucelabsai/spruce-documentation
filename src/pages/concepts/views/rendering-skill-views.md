@@ -21,7 +21,7 @@ import {
 
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async canLoadRootSkillView() {
+    protected async canLoadRootSkillView() {
         this.views.Controller('eightbitstories.root', {}),
     }
 }

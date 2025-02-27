@@ -56,7 +56,7 @@ import { fake, AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixture
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 
     @test()
-    protected static async redirectsToOnboardingIfNotLoggedIn() {
+    protected async redirectsToOnboardingIfNotLoggedIn() {
         const vc = this.views.Controller('eightbitstories.root', {})
 
         //first thing we do is log the person back out =)
@@ -122,7 +122,7 @@ Now we'll test that it does NOT redirect if someone is logged in, which will for
 ...
 
 @test()
-protected static async shouldNotRedirectIfLoggedIn() {
+protected async shouldNotRedirectIfLoggedIn() {
     const vc = this.views.Controller('eightbitstories.root', {})
 
     //Because we use the @fake.login() decorator, the person is already logged in
@@ -184,9 +184,9 @@ import RootSkillViewController from '../../skillViewControllers/Root.svc'
 
 @fake.login()
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
-    protected static vc: RootSkillViewController
+    protected vc: RootSkillViewController
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
 
         //Construct the RootSkillViewController once here to work on in every test
@@ -194,7 +194,7 @@ export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async redirectsToOnboardingIfNotLoggedIn() {
+    protected async redirectsToOnboardingIfNotLoggedIn() {
         //This could be exctracted too, but I'll wait until the second time we need to call it
         this.permissions.getAuthenticator().clearSession()
 
@@ -208,12 +208,12 @@ export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async shouldNotRedirectIfLoggedIn() {
+    protected async shouldNotRedirectIfLoggedIn() {
         await this.load()
     }
 
     //I'll extract `this.views.load(this.vc)` to `this.load()` because it's been called twice now
-    protected static async load() {
+    protected async load() {
         await this.views.load(this.vc)
     }
 }

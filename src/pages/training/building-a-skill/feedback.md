@@ -133,7 +133,7 @@ Alright! Now, we get to build more sophisticated functionality! But, before we d
 
 ### **Test Utilities**
 1. **`test.protected.static`**
-   - **Description**: Defines a protected static method used as a test case in the test framework.
+   - **Description**: Defines a protected method used as a test case in the test framework.
 
 2. **`this.VC.getformVC`**
    - **Description**: Retrieves the form view controller from a parent view controller.

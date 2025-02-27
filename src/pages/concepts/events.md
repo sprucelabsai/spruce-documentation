@@ -117,7 +117,7 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
     @test()
-    protected static async rendersAlertOnLoad() {
+    protected async rendersAlertOnLoad() {
         await this.fakeClient.emitAndFlattenResponses('my-skill::book-appointment::v1')
     }
 }

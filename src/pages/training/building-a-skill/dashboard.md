@@ -4,6 +4,9 @@
 
 This is it! Finally we get to start writing some code! But, before we do, we have to do some `vscode` setup. After that, we'll create our `Skill`, our first failing test, and then our first `SkillView` to get the test to pass.
 
+## Notice
+We have moved away from `static` tests by default. Now, when you create a test, it will not be static! Everything will work the exact same way, just without the `static` keyword.
+
 ## Training 
 
 <div class="video-container">

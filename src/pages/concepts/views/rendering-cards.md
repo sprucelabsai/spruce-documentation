@@ -13,7 +13,7 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersExpectedCard() {
+    protected async rendersExpectedCard() {
         const vc = this.views.Controller('eightbitstories.root', {})
         vcAssert.assertSkillViewRendersCard(vc, 'my-card')
     }
@@ -126,7 +126,7 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersExpectedCard() {
+    protected async rendersExpectedCard() {
         const vc = this.views.Controller('eightbitstories.root', {})
         const cardVc = vcAssert.assertSkillViewRendersCard(vc, 'my-card')
         vcAssert.assertControllerInstanceOf(cardVc, MyCardViewController)
@@ -160,7 +160,7 @@ import MyCardViewController from '../../ViewControllers/MyCard.vc'
 
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersExpectedCard() {
+    protected async rendersExpectedCard() {
         const vc = this.views.Controller('eightbitstories.root', {})
         const cardVc = vcAssert.assertSkillViewRendersCard(vc, 'my-card')
         vcAssert.assertControllerInstanceOf(cardVc, MyCardViewController)
@@ -285,7 +285,7 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     @test()
-    protected static async loadsRemoteCard() {
+    protected async loadsRemoteCard() {
         RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
     }
 }
@@ -310,7 +310,7 @@ import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from
 
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     @test()
-    protected static async loadsRemoteCard() {
+    protected async loadsRemoteCard() {
         RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
     }
 }
@@ -330,7 +330,7 @@ import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from
 
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     @test()
-    protected static async loadsRemoteCard() {
+    protected async loadsRemoteCard() {
         RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
 
 
@@ -385,7 +385,7 @@ import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from
 
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     @test()
-    protected static async loadsRemoteCard() {
+    protected async loadsRemoteCard() {
         RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
 
         MockRemoteViewControllerFactory.dropInRemoteController(
@@ -416,7 +416,7 @@ import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from
 
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     @test()
-    protected static async loadsRemoteCard() {
+    protected async loadsRemoteCard() {
         RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
 
         MockRemoteViewControllerFactory.dropInRemoteController(
@@ -432,7 +432,7 @@ export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async rendersRemoteCard() {
+    protected async rendersRemoteCard() {
         RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
 
         MockRemoteViewControllerFactory.dropInRemoteController(
@@ -504,7 +504,7 @@ import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     private static vc: RootSkillViewController
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
 
         RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
@@ -516,13 +516,13 @@ export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async loadsRemoteCard() {
+    protected async loadsRemoteCard() {
         await this.load()
         this.mockFactory.assertFetchedRemoteController('other-skill.my-card')
     }
 
     @test()
-    protected static async rendersRemoteCard() {
+    protected async rendersRemoteCard() {
         await this.load()
         this.mockFactory.assertSkillViewRendersRemoteCard(vc, 'other-skill.my-card')
     }
@@ -552,7 +552,7 @@ import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     private static vc: RootSkillViewController
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
 
         RemoteViewControllerFactoryImpl.Class = MockRemoteViewControllerFactory
@@ -564,19 +564,19 @@ export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async loadsRemoteCard() {
+    protected async loadsRemoteCard() {
         await this.load()
         this.mockFactory.assertFetchedRemoteController('other-skill.my-card')
     }
 
     @test()
-    protected static async rendersRemoteCard() {
+    protected async rendersRemoteCard() {
         await this.load()
         this.mockFactory.assertSkillViewRendersRemoteCard(vc, 'other-skill.my-card')
     }
 
     @test()
-    protected static async triggersRender() {
+    protected async triggersRender() {
         await this.load()
         vcAssert.assertTriggerRenderCount(this.vc, 1)
     }
@@ -659,7 +659,7 @@ import { test } from '@sprucelabs/test-utils'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         vcAssert.assertIsActiveRecordCard(vc)
     }
@@ -728,13 +728,13 @@ import { test } from '@sprucelabs/test-utils'
 
 export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         vcAssert.assertIsActiveRecordCard(vc)
     }
 
     @test()
-    protected static async emitsListConnectedPeopleOnLoad() {
+    protected async emitsListConnectedPeopleOnLoad() {
         let wasHit = false
 
         await eventFaker.on('eightbitstories.list-family-members::v2024_07_22', () => {
@@ -817,13 +817,13 @@ import { test, assert } from '@sprucelabs/test-utils'
 
 export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         const vc = this.views.Controller('eightbitstories.my-card', {})
         vcAssert.assertIsActiveRecordCard(vc)
     }
 
     @test()
-    protected static async emitsListConnectedPeopleOnLoad() {
+    protected async emitsListConnectedPeopleOnLoad() {
         let wasHit = false
 
         await eventFaker.on('eightbitstories.list-family-members::v2024_07_22', () => {
@@ -979,20 +979,20 @@ import { test, assert } from '@sprucelabs/test-utils'
 import MyCardViewController from '../../ViewControllers/MyCard.vc'
 
 export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
-    protected static vc: MyCardViewController
+    protected vc: MyCardViewController
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.vc = this.views.Controller('eightbitstories.my-card', {})
     }
 
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         vcAssert.assertIsActiveRecordCard(this.vc)
     }
 
     @test()
-    protected static async emitsListConnectedPeopleOnLoad() {
+    protected async emitsListConnectedPeopleOnLoad() {
         let wasHit = false
 
         await eventFaker.on('eightbitstories.list-family-members::v2024_07_22', () => {
@@ -1024,18 +1024,18 @@ import MyCardViewController from '../../../viewControllers/MyCard.vc'
 export default class MyCardTest extends AbstractFixtureTest {
     private static vc: MyCardViewController
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.vc = this.views.Controller('eightbitstories.my-card', {})
     }
 
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         vcAssert.assertIsActiveRecordCard(this.vc)
     }
 
     @test()
-    protected static async emitsListConnectedPeopleOnLoad() {
+    protected async emitsListConnectedPeopleOnLoad() {
         const organizationId = generateId()
 
         let wasHit = false
@@ -1135,19 +1135,19 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     private static vc: MyCardViewController
     private static eventFaker: EventFaker
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.eventFaker = new EventFaker()
         this.vc = this.views.Controller('eightbitstories.my-card', {})
     }
 
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         vcAssert.assertIsActiveRecordCard(this.vc)
     }
 
     @test()
-    protected static async emitsListConnectedPeopleOnLoad() {
+    protected async emitsListConnectedPeopleOnLoad() {
         const organizationId = generateId()
 
         let passedTarget:
@@ -1213,19 +1213,19 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     private static vc: MyCardViewController
     private static eventFaker: EventFaker
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.eventFaker = new EventFaker()
         this.vc = this.views.Controller('eightbitstories.my-card', {})
     }
 
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         vcAssert.assertIsActiveRecordCard(this.vc)
     }
 
     @test()
-    protected static async emitsListConnectedPeopleOnLoad() {
+    protected async emitsListConnectedPeopleOnLoad() {
         const organizationId = generateId()
 
         let passedTarget:
@@ -1245,7 +1245,7 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async rendersRowForResults() {
+    protected async rendersRowForResults() {
         const organizationId = generateId()
 
         const person: Person = {
@@ -1285,7 +1285,7 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     private static vc: SpyMyCard
     private static eventFaker: EventFaker
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         this.eventFaker = new EventFaker()
 
@@ -1294,12 +1294,12 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         vcAssert.assertIsActiveRecordCard(this.vc)
     }
 
     @test()
-    protected static async emitsListConnectedPeopleOnLoad() {
+    protected async emitsListConnectedPeopleOnLoad() {
         const organizationId = generateId()
 
         let passedTarget:
@@ -1319,7 +1319,7 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async rendersRowForResults() {
+    protected async rendersRowForResults() {
         const organizationId = generateId()
 
         const person: Person = {
@@ -1440,7 +1440,7 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
 
     private static familyMembers: Person[] = []
 
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         
         this.eventFaker = new EventFaker()
@@ -1461,18 +1461,18 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
     }
 
     @test()
-    protected static async rendersAsInstanceOfActiveRecordCard() {
+    protected async rendersAsInstanceOfActiveRecordCard() {
         vcAssert.assertIsActiveRecordCard(this.vc)
     }
 
     @test()
-    protected static async emitsListConnectedPeopleOnLoad() {
+    protected async emitsListConnectedPeopleOnLoad() {
         await this.load()
         assert.isEqualDeep(this.lastListFamilyMembersTarget, { organizationId: this.organizationId })
     }
 
     @test()
-    protected static async rendersRowForResults() {
+    protected async rendersRowForResults() {
         this.familyMembers.push({
             id: generateId(),
             casualName: generateId(),
@@ -1484,7 +1484,7 @@ export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
         listAssert.listRendersRow(this.vc.getListVc(), this.familyMembers[0].id)
     }
 
-    protected static async load() {
+    protected async load() {
         await this.vc.load(this.organizationId)
     }
 }

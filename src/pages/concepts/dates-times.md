@@ -460,13 +460,13 @@ export default class GetFamilyMemberListenerTest extends AbstractSpruceFixtureTe
 
     @seed('locations', 1)
     @seed('familyMembers', 1)
-    protected static async beforeEach() {
+    protected async beforeEach() {
         await super.beforeEach()
         await this.bootSkill()
     }
 
     @test()
-    protected static async usesTheLocationsTimezone() {
+    protected async usesTheLocationsTimezone() {
         this.fakedLocations[0].timezone = 'America/Denver'
         await this.emitGetFamilyMember()
         dateAssert.timezoneOfLastBuiltDateUtilEquals('America/Denver')
@@ -512,13 +512,13 @@ You are safe to monkey patch the `durationUtil` on the `DurationUtilBuilder` to 
 ```ts
 import { DurationUtilBuilder } from '@sprucelabs/calendar-utils'
 
-protected static async beforeEach() {
+protected async beforeEach() {
     await super.beforeEach()
     DurationUtilBuilder.reset()
 }
 
 @test()
-protected static async myOperationCallsRenderDateTimeUntil() {
+protected async myOperationCallsRenderDateTimeUntil() {
     const dateTimeUntil = generateId()
 
     DurationUtilBuilder.durationUtil.renderDateTimeUntil = () => {
@@ -563,7 +563,7 @@ Now that you know the `durationUtil.renderDateTimeUntil(...)` method is called, 
 import { DurationUtilBuilder } from '@sprucelabs/calendar-utils'
 
 @test()
-protected static async myOperationCallsRenderDateTimeUntil() {
+protected async myOperationCallsRenderDateTimeUntil() {
     let passedEnd: number | undefined
 
     const dateTimeUntil = generateId()
@@ -613,7 +613,7 @@ You can start a new test and use the `dateAssert` utility from `@sprucelabs/cale
 import { DurationUtilBuilder, dateAssert } from '@sprucelabs/calendar-utils'
 
 @test()
-protected static async myOperationCalledWithTheExpectedTimezone() {
+protected async myOperationCalledWithTheExpectedTimezone() {
     await this.someOperation()
 
     dateAssert.currentTimezoneEquals(
@@ -657,7 +657,7 @@ If you want to render the time until an event in a View Controller, you go about
 import { vcDurationAssert } from '@sprucelabs/heartwood-view-controllers'
 
 @test()
-protected static async myViewHasDurationUtilConfigured() {
+protected async myViewHasDurationUtilConfigured() {
     const vc = this.views.Controller('eightbitstories.root', {})
     vcDurationAssert.durationUtilIsConfiguredForVc(vc)
 }
@@ -673,13 +673,13 @@ You should have gotten an error telling you to call `vcDurationAssert.beforeEach
 ```ts
 import { vcDurationAssert } from '@sprucelabs/heartwood-view-controllers'
 
-protected static async beforeEach() {
+protected async beforeEach() {
     await super.beforeEach()
     vcDurationAssert.beforeEach(this.views)
 }
 
 @test()
-protected static async myViewHasDurationUtilConfigured() {
+protected async myViewHasDurationUtilConfigured() {
     const vc = this.views.Controller('eightbitstories.root', {})
     vcDurationAssert.durationUtilIsConfiguredForVc(vc)
 }
@@ -714,7 +714,7 @@ Sending a message that renders the time until is a bit different than the other 
 import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
 
 @test()
-protected static async messageIsSent() {
+protected async messageIsSent() {
     let wasHit = false
 
     await eventFaker.on('send-message::v2020_12_25', () => {
@@ -765,7 +765,7 @@ Now we'll check the body to see if it contains the `{{formatDateTimeUntil dateTi
 import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
 
 @test()
-protected static async messageIsSent() {
+protected async messageIsSent() {
     let passedBody: string | undefined
 
     await eventFaker.on('send-message::v2020_12_25', ( { payload }) => {
@@ -814,7 +814,7 @@ The `formatDateTimeUntil` placeholder is a plugin that accepts a variable that i
 import { eventFaker } from '@sprucelabs/spruce-test-fixtures'
 
 @test()
-protected static async messageIsSent() {
+protected async messageIsSent() {
     let passedBody: string | undefined
     let passedContext: Record<string, any> | undefined
 
@@ -875,7 +875,7 @@ import { TimezoneName } from '@sprucelabs/calendar-utils'
 
 @test('message is sent with timezone Africa/Johannesburg')
 @test('message is sent with timezone America/Denver')
-protected static async messageIsSent(timezone: TimezoneName) {
+protected async messageIsSent(timezone: TimezoneName) {
     let passedBody: string | undefined
     let passedContext: Record<string, any> | undefined
 
