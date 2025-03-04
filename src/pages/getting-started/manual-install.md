@@ -31,7 +31,7 @@ git clone git@github.com:sprucelabsai-community/theatre-monorepo.git spruce-thea
 Theatres are driven by a `blueprint.yml` file. It tells the theatre what to build and how to build it. You can download the blueprint for the Development Theatre by running:
 
 ```bash
-curl -o blueprint.yml https://raw.githubusercontent.com/sprucelabsai/sprucebot-theatre/master/blueprint.yml
+curl -o blueprint.yml https://raw.githubusercontent.com/sprucelabsai/sprucebot-theatre/refs/heads/master/blueprint.yml?token=GHSAT0AAAAAABRMC52TJMXI4JDXPKUWVC6WZ6HAHKQ
 ```
 
 You should end up with a directory structure that looks like this:
