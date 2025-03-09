@@ -150,7 +150,6 @@ import {
 } from '@sprucelabs/heartwood-view-controllers'
 
 export default class MyCardViewController extends AbstractViewController<Card> {
-
     public static id = 'my-card'
     private cardVc: CardViewController
 
