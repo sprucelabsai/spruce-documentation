@@ -242,31 +242,37 @@
             },
             {
               "title": "Rendering Skill Views",
-              "url": "/concepts/views/#rendering-skill-views"
-            },
-            {
-              "title": " - Root Skill View",
-              "url": "/concepts/views/#root-skill-view-1"
-            },
-            {
-              "title": " - Rendering A Different Skill View",
-              "url": "/concepts/views/#rendering-a-different-skill-view"
-            },
-            {
-              "title": " - Redirecting Between Skill Views",
-              "url": "/concepts/views/#redirecting-between-skill-views"
-            },
-            {
-              "title": "Rendering Cards",
-              "url": "/concepts/views/#rendering-cards"
-            },
-            {
-              "title": " - Rendering Card by Id",
-              "url": "/concepts/views/#rendering-card-by-id"
-            },
-            {
-              "title": " - Rendering Remote Cards",
-              "url": "/concepts/views/#rendering-remote-cards"
+              "url": "/concepts/views/#rendering-skill-views",
+              "children": [
+                {
+                  "title": "Root Skill View",
+                  "url": "/concepts/views/#root-skill-view-1"
+                },
+                {
+                  "title": "Rendering A Different Skill View",
+                  "url": "/concepts/views/#rendering-a-different-skill-view"
+                },
+                {
+                  "title": "Redirecting Between Skill Views",
+                  "url": "/concepts/views/#redirecting-between-skill-views"
+                },
+                {
+                  "title": "Skill View Layouts",
+                  "url": "/concepts/views/#layouts"
+                },
+                {
+                  "title": "Rendering Cards",
+                  "url": "/concepts/views/#rendering-cards"
+                },
+                {
+                  "title": "Rendering Card by Id",
+                  "url": "/concepts/views/#rendering-card-by-id"
+                },
+                {
+                  "title": "Rendering Remote Cards",
+                  "url": "/concepts/views/#rendering-remote-cards"
+                }
+              ]
             },
             {
               "title": "Active Record Cards",
@@ -274,33 +280,37 @@
             },
             {
               "title": "Rendering Dialogs",
-              "url": "/concepts/views/#rendering-dialogs"
-            },
-            {
-              "title": " - Rendering a simple ViewModel Based Dialog on load",
-              "url": "/concepts/views/#rendering-a-simple-view-model-based-dialog-on-load"
-            },
-            {
-              "title": " - Rendering a CardViewController Based Dialog on load",
-              "url": "/concepts/views/#rendering-a-card-view-controller-based-dialog-on-load"
-            },
-            {
-              "title": " - Running Code When a Dialog is Closed",
-              "url": "/concepts/views/#running-code-when-a-dialog-is-closed"
+              "url": "/concepts/views/#rendering-dialogs",
+              "children": [
+                {
+                  "title": "Rendering a simple ViewModel Based Dialog on load",
+                  "url": "/concepts/views/#rendering-a-simple-view-model-based-dialog-on-load"
+                },
+                {
+                  "title": "Rendering a CardViewController Based Dialog on load",
+                  "url": "/concepts/views/#rendering-a-card-view-controller-based-dialog-on-load"
+                },
+                {
+                  "title": "Running Code When a Dialog is Closed",
+                  "url": "/concepts/views/#running-code-when-a-dialog-is-closed"
+                }
+              ]
             },
             {
               "title": "View Controller Plugins",
-              "url": "/concepts/views/#view-controller-plugins"
-            },
-            {
-              "title": " - Implementing a View Controller Plugin",
-              "url": "/concepts/views/#implementing-a-view-controller-plugin"
+              "url": "/concepts/views/#view-controller-plugins",
+              "children": [
+                {
+                  "title": "Implementing a View Controller Plugin",
+                  "url": "/concepts/views/#implementing-a-view-controller-plugin"
+                }
+              ]
             }
           ]
         },
         {
           "title": "Scope",
-          "url": "/concepts/scope"
+          "url": "/concepts/scope/"
         },
         {
           "title": "Schemas",
@@ -320,12 +330,15 @@
             },
             {
               "title": "In Skill Views",
-              "url": "/concepts/permissions/#checking-in-skill-views"
+              "url": "/concepts/permissions/#checking-in-skill-views",
+              "children": [
+                {
+                  "title": "Redirect of not logged in",
+                  "url": "/concepts/permissions/#redirecting-if-someone-is-not-logged-in"
+                }
+              ]
             },
-            {
-              "title": " - Redirect of not logged in",
-              "url": "/concepts/permissions/#redirecting-if-someone-is-not-logged-in"
-            },
+
             {
               "title": "In event contracts",
               "url": "/concepts/permissions/#in-event-contracts"
@@ -354,31 +367,35 @@
             },
             {
               "title": "Timezones",
-              "url": "/concepts/dates-times/#timezones"
-            },
-            {
-              "title": " - Based on Location",
-              "url": "/concepts/dates-times/#based-on-location"
-            },
-            {
-              "title": " - Based on Person",
-              "url": "/concepts/dates-times/#based-on-person"
+              "url": "/concepts/dates-times/#timezones",
+              "children": [
+                {
+                  "title": "Based on Location",
+                  "url": "/concepts/dates-times/#based-on-location"
+                },
+                {
+                  "title": "Based on Person",
+                  "url": "/concepts/dates-times/#based-on-person"
+                }
+              ]
             },
             {
               "title": "Rendering time until a date",
-              "url": "/concepts/dates-times/#rendering-time-until-a-date"
-            },
-            {
-              "title": " - In the Backend",
-              "url": "/concepts/dates-times/#duration-util-in-the-backend"
-            },
-            {
-              "title": " - In Views",
-              "url": "/concepts/dates-times/#duration-util-in-views"
-            },
-            {
-              "title": " - In Messages",
-              "url": "/concepts/dates-times/#duration-util-in-messages"
+              "url": "/concepts/dates-times/#rendering-time-until-a-date",
+              "children": [
+                {
+                  "title": "In the Backend",
+                  "url": "/concepts/dates-times/#duration-util-in-the-backend"
+                },
+                {
+                  "title": "In Views",
+                  "url": "/concepts/dates-times/#duration-util-in-views"
+                },
+                {
+                  "title": "In Messages",
+                  "url": "/concepts/dates-times/#duration-util-in-messages"
+                }
+              ]
             }
           ]
         },

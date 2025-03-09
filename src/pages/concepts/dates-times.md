@@ -473,7 +473,7 @@ export default class GetFamilyMemberListenerTest extends AbstractSpruceFixtureTe
 
     }
 
-    public static async emitGetFamilyMember() {
+    private async emitGetFamilyMember() {
       const [{ familyMembers}] = await this.client.emitAndFlattenResponses(
         'eightbitstories.get-family-member::v2023_09_05',
         {

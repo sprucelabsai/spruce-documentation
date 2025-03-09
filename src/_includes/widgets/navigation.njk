@@ -73,6 +73,17 @@
               <a href="{{ grandchildLink.url | url }}" {{ 'target=_blank' if grandchildLink.external }}>
                 <span>{{ grandchildLink.title }}</span>
               </a>
+              {% if grandchildLink.hasChildren %}
+              <ul class="nav-great-grandchild-level">
+                {% for greatGrandchildLink in grandchildLink.children %}
+                <li {% if greatGrandchildLink.url==page.url %} aria-current="page" {% endif %}>
+                  <a href="{{ greatGrandchildLink.url | url }}" {{ 'target=_blank' if greatGrandchildLink.external }}>
+                    <span>{{ greatGrandchildLink.title }}</span>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
             </li>
             {% endfor %}
           </ul>

@@ -247,9 +247,11 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
+    private vc!: MockMyCardViewController
+
     protected async beforeEach() {
         await super.beforeEach()
-        this.views.setController('eightbitstories.my-card', MockMyCardViewController)
+        this.vc = this.views.setController('eightbitstories.my-card', MockMyCardViewController)
     }
 
     @test()
@@ -325,11 +327,11 @@ import { vcAssert } from '@sprucelabs/heartwood-view-controllers'
 
 export default class RenderingADialogTest extends AbstractSpruceFixtureTest {
 
-    private static vc: MockMyCardViewController
+    private vc: MockMyCardViewController
 
     protected async beforeEach() {
         await super.beforeEach()
-        this.views.setController('eightbitstories.my-card', MockMyCardViewController)
+        this.vc = this.views.setController('eightbitstories.my-card', MockMyCardViewController)
         this.vc = this.views.Controller('eightbitstories.root', {}) as MockMyCardViewController
     }
 
@@ -578,13 +580,12 @@ import { interactor } from '@sprucelabs/heartwood-view-controllers'
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardViewTest extends AbstractSpruceFixtureTest {
-    private static vc: MyCardViewController
-    private static wasDidGenerateStoryCalled = false
+    private vc!: MyCardViewController
+    private wasDidGenerateStoryCalled = false
 
-    public static async beforeEach() {
+    private async  beforeEach() {
         await super.beforeEach()
         
-        this.wasDidGenerateStoryCalled = true
         this.vc = this.views.Controller('eightbitstories.my-card', {}) as MyCardViewController
        
         this.vc.handleDidGenerateStory = async () => {
@@ -630,13 +631,12 @@ import { interactor } from '@sprucelabs/heartwood-view-controllers'
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardViewTest extends AbstractSpruceFixtureTest {
-    private static vc: MyCardViewController
-    private static wasDidGenerateStoryCalled = false
+    private vc!: MyCardViewController
+    private wasDidGenerateStoryCalled = false
 
-    public static async beforeEach() {
+    private async  beforeEach() {
         await super.beforeEach()
         
-        this.wasDidGenerateStoryCalled = true
         this.vc = this.views.Controller('eightbitstories.my-card', {})
        
         this.vc.handleDidGenerateStory = async () => {
@@ -758,10 +758,10 @@ import { interactor } from '@sprucelabs/heartwood-view-controllers'
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardViewTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCardViewController
+    private vc!: SpyMyCardViewController
     
 
-    public static async beforeEach() {
+    private async  beforeEach() {
         await super.beforeEach()
         
         this.views.setController('eightbitstories.my-card', SpyMyCardViewController)

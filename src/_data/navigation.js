@@ -14,17 +14,15 @@ function findTopLinkRecordFor(url, navLinks) {
   });
 }
 
+const buildMenuRecursive = (link) => ({
+  ...link,
+  hasChildren: link.children && link.children.length > 0,
+  children: link.children?.map(buildMenuRecursive) ?? [],
+});
+
 const mainNavObj = {
   ...mainNav,
-  links: mainNav.links.map((link) => ({
-    ...link,
-    hasChildren: link.children && link.children.length > 0,
-    children: link.children?.map((child) => ({
-      ...child,
-      hasChildren: child.children && child.children.length > 0,
-      children: child.children || [],
-    })),
-  })),
+  links: mainNav.links.map(buildMenuRecursive),
   getActiveParentLink(pageUrlRendering) {
     return findTopLinkRecordFor(pageUrlRendering, mainNav.links);
   },

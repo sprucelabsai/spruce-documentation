@@ -23,6 +23,8 @@ Every other type of `ViewController` (listed below) is rendered inside a `CardSe
 
 {% include_raw "rendering-cards.md" "concepts/views" %}
 
+{% include_raw "rendering-layouts.md" "concepts/views" %}
+
 {% include_raw "rendering-dialogs.md" "concepts/views" %}
 
 {% include_raw "rendering-forms.md" "concepts/views" %}

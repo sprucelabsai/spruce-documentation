@@ -317,7 +317,7 @@ import { formAssert } from '@sprucelabs/heartwood-view-controllers'
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCard
+    private vc!: SpyMyCard
 
     protected async beforeEach() {
         await super.beforeEach()
@@ -364,7 +364,7 @@ import { formAssert, AutocompleteInputViewController } from '@sprucelabs/heartwo
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCard
+    private vc!: SpyMyCard
 
     protected async beforeEach() {
         await super.beforeEach()
@@ -514,7 +514,7 @@ import { formAssert, AutocompleteInputViewController } from '@sprucelabs/heartwo
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCard
+    private vc!: SpyMyCard
 
     protected async beforeEach() {
         await super.beforeEach()
@@ -681,7 +681,7 @@ import {
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCard
+    private vc!: SpyMyCard
 
     protected async beforeEach() {
         await super.beforeEach()
@@ -857,7 +857,7 @@ import {
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCard
+    private vc!: SpyMyCard
 
     protected async beforeEach() {
         await super.beforeEach()
@@ -1057,7 +1057,7 @@ import {
 import MyCardViewController from '../../viewControllers/MyCardViewController'
 
 export default class MyCardTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCard
+    private vc!: SpyMyCard
     private static eventFaker: EventFaker
 
     protected async beforeEach() {

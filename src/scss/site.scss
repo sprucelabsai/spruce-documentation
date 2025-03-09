@@ -142,3 +142,20 @@ h1, h2, h3, h4, h5, h6 {
     content: counter(h2) "." counter(h3) ". ";
   }
 }
+
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video.shadow {
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+body:not(.home-page) .video {
+  max-width: 700px;
+  margin: 50px auto;
+}

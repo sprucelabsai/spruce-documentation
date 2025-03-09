@@ -502,7 +502,7 @@ import { vcAssert, CardViewControllerImpl } from '@sprucelabs/heartwood-view-con
 import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from '@sprucelabs/spruce-heartwood-utils'
 
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
-    private static vc: RootSkillViewController
+    private vc!: RootSkillViewController
 
     protected async beforeEach() {
         await super.beforeEach()
@@ -527,11 +527,11 @@ export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
         this.mockFactory.assertSkillViewRendersRemoteCard(vc, 'other-skill.my-card')
     }
 
-    public static async load() {
+    private async load() {
         await this.views.load(vc)
     }
 
-    public static get mockFactory() {
+    private get mockFactory() {
         return MockRemoteViewControllerFactory.getInstance()
     }
 }
@@ -550,7 +550,7 @@ import { vcAssert, CardViewControllerImpl } from '@sprucelabs/heartwood-view-con
 import { RemoteViewControllerFactoryImpl, MockRemoteViewControllerFactory } from '@sprucelabs/spruce-heartwood-utils'
 
 export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
-    private static vc: RootSkillViewController
+    private vc!: RootSkillViewController
 
     protected async beforeEach() {
         await super.beforeEach()
@@ -581,11 +581,11 @@ export default class RenderingARemoteCard extends AbstractSpruceFixtureTest {
         vcAssert.assertTriggerRenderCount(this.vc, 1)
     }
 
-    public static async load() {
+    private async load() {
         await this.views.load(vc)
     }
 
-    public static get mockFactory() {
+    private get mockFactory() {
         return MockRemoteViewControllerFactory.getInstance()
     }
 }
@@ -1022,7 +1022,7 @@ import { assert, generateId, test } from '@sprucelabs/test-utils'
 import MyCardViewController from '../../../viewControllers/MyCard.vc'
 
 export default class MyCardTest extends AbstractFixtureTest {
-    private static vc: MyCardViewController
+    private vc!: MyCardViewController
 
     protected async beforeEach() {
         await super.beforeEach()
@@ -1132,7 +1132,7 @@ import MyCardViewController from '../../../viewControllers/MyCard.vc'
 import EventFaker, { ListFamilyMembersTargetAndPayload } from '../../support/EventFaker'
 
 export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
-    private static vc: MyCardViewController
+    private vc!: MyCardViewController
     private static eventFaker: EventFaker
 
     protected async beforeEach() {
@@ -1210,7 +1210,7 @@ import { Person } from '@sprucelabs/spruce-core-schemas'
 import EventFaker, { ListFamilyMembersTargetAndPayload } from '../../support/EventFaker'
 
 export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
-    private static vc: MyCardViewController
+    private vc!: MyCardViewController
     private static eventFaker: EventFaker
 
     protected async beforeEach() {
@@ -1282,7 +1282,7 @@ import { Person } from '@sprucelabs/spruce-core-schemas'
 import EventFaker, { ListFamilyMembersTargetAndPayload } from '../../support/EventFaker'
 
 export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCard
+    private vc!: SpyMyCard
     private static eventFaker: EventFaker
 
     protected async beforeEach() {
@@ -1431,7 +1431,7 @@ import { Person } from '@sprucelabs/spruce-core-schemas'
 import EventFaker, { ListFamilyMembersTargetAndPayload } from '../../support/EventFaker'
 
 export default class WhosOnWifiCardTest extends AbstractSpruceFixtureTest {
-    private static vc: SpyMyCard
+    private vc!: SpyMyCard
     private static eventFaker: EventFaker
     private static organizationId: string
     private static lastListFamilyMembersTarget:
