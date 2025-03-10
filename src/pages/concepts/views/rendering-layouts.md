@@ -1,4 +1,4 @@
-## Layouts
+## Skill View Layouts
 
 `SkillViews` can be rendered using a few different layouts. There is a `buildSkillViewLayout(...)` helper available to make it easy. 
 
