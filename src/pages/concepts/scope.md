@@ -26,7 +26,7 @@ Spruce has the ability to allow multiple `Organizations` to signup for accounts.
         - `Teammate`
 
 
-# Scope in Action
+## Scope in Action
 The video below is the `locations.root` `SkillView`. It has been `Scoped` to `Organization` and `Employed`. Any `SkillView` that has `Scope` will render the `ToolBelt` on the right that allows you to change the `Scope` (in this case, changing the current `Organization`).
 <div class="video scope shadow">
     <video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline">
@@ -109,6 +109,52 @@ export default class RootSkillViewController extends AbstractSkillViewController
 ```
 </details>
 
+## Pulling Scope From a `SkillView`
+
+The currenty `Organization` or `Location` can be pulled out of the `Scope` object passed to the `load()` `lifecycle` method of your `SkillView`.
+
+> **Note:** Even though the results to `getCurrentOrganization()` and `getCurrentLocation()` are optional, they will always be set according to the `Scope` of the `SkillView`.
+
+```ts
+import {
+    AbstractSkillViewController,
+    ViewControllerOptions,
+    SkillView,
+    SkillViewControllerLoadOptions,
+    ScopeFlag,
+} from '@sprucelabs/heartwood-view-controllers'
+
+export default class OrganizationDashboardSkillViewController extends AbstractSkillViewController {
+    public static id = 'organization-dashboard'
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+    }
+
+    public getScope = () => ['organization'] as ScopeFlag[]
+
+    public async load(options: SkillViewControllerLoadOptions) {
+        const { scope } = options
+
+        //current organization in scope, will be set because we are scoped to organization
+        const organization = await scope.getCurrentOrganization()
+        console.log('Current Organization:', organization)
+
+        //current location in scope, will be empty because we are scoped to organization
+        const location = await scope.getCurrentLocation()
+        console.log('Current Location:', location)
+    }
+
+    public render(): SkillView {
+        return buildSkillViewLayout('big-left', {
+            leftCards: [this.detectionsCardVc.render()],
+            rightCards: [this.locationsCardVc.render()],
+        })
+    }
+}
+
+
+```
 
 
 ### Something Missing?
