@@ -259,11 +259,13 @@
                 {
                   "title": "Skill View Layouts",
                   "url": "/concepts/views/#layouts"
-                },
-                {
-                  "title": "Rendering Cards",
-                  "url": "/concepts/views/#rendering-cards"
-                },
+                }
+              ]
+            },
+            {
+              "title": "Rendering Cards",
+              "url": "/concepts/views/#rendering-cards",
+              "children": [
                 {
                   "title": "Rendering Card by Id",
                   "url": "/concepts/views/#rendering-card-by-id"
