@@ -55,7 +55,7 @@ The Test Runner should open and begin installing additional requirements.
 When it's done, you should see a message that says `Ready and waiting...`
 
 
-### Create your first test file
+## Step 2: Create your first test file
 
 1. Hit `ctrl+space` (if you have the shortcuts setup) and hit enter. 
     - If you don't have the shortcuts setup, you can type `spruce create.test` in your terminal and hit `Enter`.
@@ -74,6 +74,8 @@ When it's done, you should see a message that says `Ready and waiting...`
 9. Close the terminal window and get back to the Test Runner.
     - The test should now be failing beacuse `false` does not equal `true`.
 10. Click on the failing test in the Test Runner and click "Open" to open the test file.
+
+## Step 3: Writing your tests
 
 ### Prep the test file
 
@@ -122,7 +124,7 @@ protected async canCreateRootSkillView() {
 
 </details>
 
-## Rendering a `Card` in your `RootSkillView`
+### Rendering a `Card` in your `RootSkillView`
 
 <details>
 <summary><strong>Test 1</strong>: Rendering a Card in your RootSkillView</summary>
