@@ -1,6 +1,8 @@
 # Events
 
-Coming soon...
+{% kata_setup concept="views"  %}
+
+```bash
 
 ### Something Missing?
 

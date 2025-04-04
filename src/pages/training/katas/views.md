@@ -75,7 +75,7 @@ When it's done, you should see a message that says `Ready and waiting...`
     - The test should now be failing beacuse `false` does not equal `true`.
 10. Click on the failing test in the Test Runner and click "Open" to open the test file.
 
-## Step 3: Writing your tests
+## Step 3: Creating your test
 
 ### Prep the test file
 
@@ -84,6 +84,8 @@ When it's done, you should see a message that says `Ready and waiting...`
 2. Delete `class RootSkillView {}` at the bottom of the test file
 
 Your test should now be passing.
+
+# Views Kata
 
 ### Rendering your `RootSkillView`
 
@@ -129,8 +131,69 @@ protected async canCreateRootSkillView() {
 <details>
 <summary><strong>Test 1</strong>: Rendering a Card in your RootSkillView</summary>
 
+```typescript
+@test()
+protected canCreateRootSkillView() {
+    this.views.Controller('views-kata.root', {})
+}
+
+@test()
+protected rendersACard() {
+    const vc = this.views.Controller('views-kata.root', {})
+    vcAssert.assertSkillViewRendersCard(vc)
+}
+```
 </details>
+
+<details>
+<summary><strong>Production 1</strong>: Rendering a Card in your RootSkillView</summary>
  
+ ```typescript
+// Step 2. Declare the cardVc property (declare property after constructing the card using 'Command + .')
+private cardVc: CardViewController
+
+public constructor(options: ViewControllerOptions) {
+    super(options)
+
+    // Step 1. Construct a CardViewController
+    this.cardVc = this.Controller('card', {
+        header: {
+            title: 'A title!',
+        },
+    })
+}
+
+public render(): SkillView {
+    return {
+        layouts: [
+            {
+                // Step 3. Render the card
+                cards: [this.cardVc.render()],
+            },
+        ],
+    }
+}
+```
+ 
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Refactor the test</summary>
+
+```typescript
+private vc!: RootSkillViewController
+
+protected async beforeEach() {
+    this.vc = this.views.Controller('views-kata.root', {})
+}
+
+@test()
+protected rendersACard() {
+    vcAssert.assertSkillViewRendersCard(this.vc)
+}
+```
+</details>
+
 ### Something Missing?
 
 <div class="grid-buttons">
