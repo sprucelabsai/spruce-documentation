@@ -30,54 +30,52 @@ Alright! Now, we get to build more sophisticated functionality! But, before we d
 ## Commands Used in This Chapter
 
 ### **Assertions**
-1. **`VC assert.renders.dialogue`**
+1. **`vcAssert.rendersDialogue`**
    - **Description**: Asserts that a dialogue box is rendered on the view controller.
 
-2. **`VC assert.renders.field`**
+2. **`formAssert.formRendersField`**
    - **Description**: Asserts that a specific field is rendered in the form.
 
-3. **`assert.is.false`**
+3. **`assert.isFalse`**
    - **Description**: Verifies that a specific condition or value is false.
 
-4. **`form assert.field.renders.as`**
+4. **`formassert.fieldRendersAs`**
    - **Description**: Ensures that a form field is rendered as a specific type, e.g., a text area.
 
-5. **`assert.is.equal`**
+5. **`assert.isEqual`**
    - **Description**: Checks that two values are equal.
 
 6. **`assert.renders.alert`**
    - **Description**: Confirms that an alert is displayed on the view.
 
-### **Event Handling**
-1. **`event Faker.on`**
+4. **`form.cardRrenderedForm`**
+   - **Description**: Asserts that a card renders a form.
+
+5. **`form assert.field.renders`**
+   - **Description**: Verifies that a specific form field is rendered.
+
+
+### **Events**
+1. **`eventFaker.on`**
    - **Description**: Sets up a listener for a specified event to verify its behavior in tests.
 
-2. **`event Faker.make.event.throw`**
+2. **`eventFaker.makeEventThrow`**
    - **Description**: Simulates an event throwing an error for testing purposes.
 
 3. **`client.emit`**
    - **Description**: Emits an event to a backend API.
 
-4. **`client.emit.and.flatten.responses`**
+4. **`client.emitAndFlattenResponses`**
    - **Description**: Emits an event and simplifies the response structure, commonly used when responses contain nested data.
 
-### **View Controllers and Forms**
-1. **`form VC.get value`**
+### **Forms**
+1. **`formVC.getValue`**
    - **Description**: Retrieves the value of a specific field from the form.
 
-2. **`form VC.render`**
-   - **Description**: Renders a form in the view controller.
-
-3. **`form VC.set value`**
+3. **`formVc.setVvalue`**
    - **Description**: Sets a value for a specific field in the form.
 
-4. **`form assert.rendered.form`**
-   - **Description**: Asserts that a form is correctly rendered.
-
-5. **`form assert.field.renders`**
-   - **Description**: Verifies that a specific form field is rendered.
-
-### **View Setup**
+### **Views**
 1. **`controller.Factory`**
    - **Description**: Creates a new instance of a controller for use in the application.
 
@@ -90,11 +88,11 @@ Alright! Now, we get to build more sophisticated functionality! But, before we d
 4. **`build.form`**
    - **Description**: Builds a form object with fields, sections, and schema definitions.
 
-### **Listener and Permissions**
+### **Listeners and Permissions**
 1. **`this.connect.to.API`**
    - **Description**: Establishes a connection to the API for emitting or listening to events.
 
-2. **`build.permission.reference`**
+2. **`buildPermissionReference`**
    - **Description**: Creates a reference for a permission contract, specifying roles and permissions.
 
 3. **`permissions.sync`**
@@ -102,41 +100,25 @@ Alright! Now, we get to build more sophisticated functionality! But, before we d
 
 ### **Terminal and CLI Commands**
 
-1. **`watch.views`**
+1. **`spruce watch.views`**
    - **Description**: Watches for changes in views and rebuilds them automatically during development.
 
-2. **`create.view`**
+2. **`spruce create.view`**
    - **Description**: Generates a new view controller file using the CLI.
 
-3. **`sync.events`**
+3. **`spruce sync.events`**
    - **Description**: Synchronizes the events configuration, ensuring event types and handlers are up-to-date.
 
-4. **`sync.permissions`**
+4. **`spruce sync.permissions`**
    - **Description**: Updates permission contracts and related configurations.
 
-### **Schema and Data Handling**
-1. **`build.schema`**
+### **Schemas**
+1. **`spruce create.schema`**
    - **Description**: Constructs a schema definition, including fields, types, and validation rules.
 
-2. **`normalize.against.schema`**
-   - **Description**: Adjusts an object to match a defined schema, including type conversions and default values.
-
-### **General Functions**
-1. **`handle.click.feedback`**
-   - **Description**: Handles click events on the feedback button and triggers corresponding actions.
-
-2. **`handle.submit`**
-   - **Description**: Handles form submission logic, including validation and event emission.
-
-3. **`submit.feedback`**
-   - **Description**: Submits the feedback to the backend by emitting an event.
-
-### **Test Utilities**
-1. **`test.protected.static`**
+### **Test Doubles**
+1. **`SpyFeedbackCard`**
    - **Description**: Defines a protected method used as a test case in the test framework.
-
-2. **`this.VC.getformVC`**
-   - **Description**: Retrieves the form view controller from a parent view controller.
 
 ### Something Missing?
 
