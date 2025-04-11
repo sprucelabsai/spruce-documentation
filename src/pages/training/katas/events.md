@@ -1,7 +1,5 @@
 # Events
 
-{% kata_setup concept="views"  %}
-
 ```bash
 
 ### Something Missing?
