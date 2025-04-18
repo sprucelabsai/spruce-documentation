@@ -435,7 +435,86 @@ private async handleClick() {
 
 ### Rendering a useful Dialog
 
-Coming soon!
+<details>
+<summary><strong>Test 1</strong>: Asserting your Dialog renders a custom View</summary>
+
+```typescript
+@test()
+protected async clickingButtonRendersDialog() {
+    // Step 1. get the dialogVc that is returned from the assertRendersDialog
+    const dialogVc = await vcAssert.assertRendersDialog(this.vc, () =>
+        interactor.clickButton(this.vc.getCardVc(), 'my-button')
+    )
+
+    // Step 2. Assert the dialogVc is an instance of your custom view
+    vcAssert.assertRendersAsInstanceOf(dialogVc, MyDialogCardViewController)
+}
+```
+
+> **Note**: You will get an error that 'MyDialogCardViewController' does not exist, so let's create it!
+
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Creating your custom Dialog Card</summary>
+
+1. Hit `ctrl+space` and type `create.view` and hit `Enter`.
+2. Select "View Controller"
+3. Controller name "My Dialog Card"
+4. For view model: `Card`
+
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Implementing your custom Dialog View</summary>
+
+```typescript
+// Step 2: It will be auto imported for you
+import MyDialogCardViewController from '../../viewControllers/MyDialogCard.vc'
+
+@test()
+protected async clickingButtonRendersDialog() {
+    const dialogVc = await vcAssert.assertRendersDialog(this.vc, () =>
+        interactor.clickButton(this.vc.getCardVc(), 'my-button')
+    )
+    // Step 1. Click on MyDialogCardViewController and hit 'Ctrl + .' and import it
+    vcAssert.assertRendersAsInstanceOf(dialogVc, MyDialogCardViewController)
+}
+```
+> **Note**: Your test will now fail because you are not rendering `MyDialogCardViewController` into `this.renderInDialog(...). Let's fix that!
+</details>
+
+<details>
+<summary><strong>Production 2a</strong>: Getting MyDialogCard rendering a Card</summary>
+
+If you look at `MyDialogCard.vc`, you will see that it is not rendering anything. Just an empty object. In order for `MyDialogCard` to be useful, we need to render a `Card`.
+
+```typescript
+export default class MyDialogCardViewController extends AbstractViewController<Card> {
+    public static id = 'my-dialog-card'
+    // Step 3. Change the type to be 'CardViewController' and 'Command + .' to import it
+    private cardVc: CardViewController
+
+    public constructor(options: ViewControllerOptions) {
+        super(options)
+
+        // Step 1. Construct a CardViewController and set it to this.cardVc
+        // Step 2. Use 'Command + .' to declare the cardVc property
+        this.cardVc = this.Controller('card', {
+            header: {
+                title: 'My Dialog Card',
+            },
+        })
+    }
+
+    public render() {
+        // Step 4. Render the card
+        return this.cardVc.render()
+    }
+}
+
+```
+
 
 
 ### Something Missing?
