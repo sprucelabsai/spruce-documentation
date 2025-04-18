@@ -39,7 +39,7 @@ Alright! Now, we get to build more sophisticated functionality! But, before we d
 3. **`assert.isFalse`**
    - **Description**: Verifies that a specific condition or value is false.
 
-4. **`formassert.fieldRendersAs`**
+4. **`formAssert.fieldRendersAs`**
    - **Description**: Ensures that a form field is rendered as a specific type, e.g., a text area.
 
 5. **`assert.isEqual`**
@@ -48,7 +48,7 @@ Alright! Now, we get to build more sophisticated functionality! But, before we d
 6. **`assert.renders.alert`**
    - **Description**: Confirms that an alert is displayed on the view.
 
-4. **`form.cardRrenderedForm`**
+4. **`form.cardRenderedForm`**
    - **Description**: Asserts that a card renders a form.
 
 5. **`form assert.field.renders`**
@@ -72,7 +72,7 @@ Alright! Now, we get to build more sophisticated functionality! But, before we d
 1. **`formVC.getValue`**
    - **Description**: Retrieves the value of a specific field from the form.
 
-3. **`formVc.setVvalue`**
+3. **`formVc.setValue`**
    - **Description**: Sets a value for a specific field in the form.
 
 ### **Views**
