@@ -2,6 +2,10 @@
 
 In this kata, we're going to focus solely on creating `views`! It'll be short and sweet and give you the opportunity to play around with `view` related concepts.
 
+
+<details>
+<summary><strong>Kata Prep</strong></summary>
+
 ## Pre-requisites
 1. Make sure your `Development Theatre` is running.
 
@@ -84,6 +88,8 @@ When it's done, you should see a message that says `Ready and waiting...`
 2. Delete `class RootSkillView {}` at the bottom of the test file
 
 Your test should now be passing.
+
+</details>
 
 # Views Kata
 
