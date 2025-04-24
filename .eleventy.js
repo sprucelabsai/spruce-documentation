@@ -44,6 +44,18 @@ module.exports = async function (eleventyConfig) {
     }
   });
 
+  eleventyConfig.addFilter("camelCase", function (str) {
+    return str?.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
+            return index === 0 ? match.toLowerCase() : match.toUpperCase();
+        })?.replace(/\s+/g, "");
+  });
+
+  eleventyConfig.addFilter('pascalCase', function (str) {
+    return str?.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match) {
+            return match.toUpperCase();
+        })?.replace(/\s+/g, "");
+  });
+
   return {
     pathPrefix: "/",
     dir: {

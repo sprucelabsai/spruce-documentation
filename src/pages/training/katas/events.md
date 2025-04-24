@@ -1,94 +1,146 @@
 # Events
 
+For this kata, you will be creating a `skill` that emits events. Both from the front-end and the back-end. We'll be creating a listener in your `Skill` as well as in your `RootSkillView`.
+
+{% include "./includes/kata_setup.md" kata_name: "events" what_are_you_testing: "Emitting events" %}
+
+# Events Kata
+
+{% include "./includes/tests_up_to_card_with_button.md" kata_name: "events" what_are_you_testing: "Emitting events" %}
+
+### Clicking the Button emits an Event
+
 <details>
-<summary><strong>Kata Prep</strong></summary>
+<summary><strong>Test 1</strong>: Handling the click of the Button</summary>
 
-## Pre-requisites
-1. Make sure your `Development Theatre` is running.
+```typescript
 
-## Step 1: Create your `skill`
+// Step 1. Declare the new test
+@test()
+protected async clickingButtonEmitsEvent() {
+    // Step 4. Declare variable to track whether the event was hit
+    let wasHit = false
 
-### Create a new directory for your kata
+    // Step 2. Use the eventFaker utility from '@sprucelabs/spruce-test-fixtures' to listen to the event. Give it a random name to start because we have no defined our new event yet
+    await eventFaker.on('event-kata', () => {
+        // Step 3. Track that the event listener was hit
+        wasHit = true
+    })
 
-```bash
-cd ~/path/to/your/spruce/projects
-mkdir katas
+    // Step 5. Use the interactor utility to click the button
+    await interactor.clickButton(this.vc.getCardVc(), 'my-button')
+}
 ```
 
-### Create a new skill
-
-```bash
-cd katas
-spruce create.skill views-kata
-```
-
-### Name your `skill`
-
-> *Note*: Your `skill` name should be unique, so if you did this kata before, you may want to name it something different.
-
-* Name: `Views Kata`
-* Description: `A kata to practice creating views!`
-
-### Open your `skill` in VS Code
-
-> *Note*: You can follow the instructions printed in the `cli` or use the command below.
-
-```bash
-cd views-kata && code .
-```
-
-Then, open the terminal in VS Code and run:
-
-```bash
-spruce setup.vscode
-```
-Hit `Enter` to accept all setup options.
-
-Then complete the following:
-
-1. Open the Command Palette by using `cmd+shift+p` and search type: "Manage"
-2. Select "Tasks: Manage Automatic Tasks"
-3. Then select "Allow Automatic Tasks"
-4. Open the Command Palette again type "reload" and select "Reload Window"
-
-The Test Runner should open and begin installing additional requirements.
-
-When it's done, you should see a message that says `Ready and waiting...`
-
-
-## Step 2: Create your first test
-
-### Create the test file
-
-1. Hit `ctrl+space` (if you have the shortcuts setup) and hit enter. 
-    - If you don't have the shortcuts setup, you can type `spruce create.test` in your terminal and hit `Enter`.
-2. Select "Behavioral"
-3. For "What are you testing?", type "Root skill view"
-4. For "Camel case name", hit Enter (it should say "rootSkillView")
-5. For "Which abstract test class do you want to extend?" select "AbstractSpruceFixtureTest"
-6. Close the terminal window and get back to the Test Runner.
-    - There should be one failing test.
-    - The test will explain that before you can do any tests, you need to run `spruce set.remote`
-7. Hit `ctrl+space` and type `set.remote` and hit `Enter`.
-    - You will be prompted for more dependencies to install. Hit `Enter` to accept them all.
-8. For your remote, select "Local"
-    - Allow the rest of the dependencies to install
-    - If prompted for remote again, select "Local" again
-9. Close the terminal window and get back to the Test Runner.
-    - The test should now be failing beacuse `false` does not equal `true`.
-10. Click on the failing test in the Test Runner and click "Open" to open the test file.
-
-### Prep the test file
-
-1. Clear out the contents of the first test
-1. Delete the second test
-2. Delete `class RootSkillView {}` at the bottom of the test file
-
-Your test should now be passing.
+> *Note*: Your test will be failing because your button does not have an onClick handler yet. We'll do that next.
 
 </details>
 
-# Events Kata
+<details>
+<summary><strong>Production 1</strong>: Adding the onClick handler to the button</summary>
+
+```typescript
+private CardVc(): CardViewController {
+    return this.Controller('card', {
+        header: {
+            title: 'A card title',
+        },
+        footer: {
+            buttons: [
+                {
+                    id: 'my-button',
+                    label: 'My button',
+                    // Step 1. Add the onClick handler to the button, it will do nothing
+                    onClick: () => {},
+                },
+            ],
+        },
+    })
+}
+```
+
+> *Note*: Now your test is passing! But to be fair, it's only checking if there was an onClick handler. Let's actually check if the event is emitted and the listener hit.
+
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Checking if the Event is emitted</summary>
+
+```typescript
+@test()
+protected async clickingButtonEmitsEvent() {
+    let wasHit = false
+    await eventFaker.on('event-kata', () => {
+        wasHit = true
+    })
+
+    await interactor.clickButton(this.vc.getCardVc(), 'my-button')
+
+    // Step 1. Assert that wasHit is true!
+    assert.isTrue(wasHit, 'Event was not emitted')
+}
+```
+</details>
+
+<details>
+<summary><strong>Production 2</strong>: Emitting the event</summary>
+
+```typescript
+private CardVc(): CardViewController {
+    return this.Controller('card', {
+        header: {
+            title: 'A card title',
+        },
+        footer: {
+            buttons: [
+                {
+                    id: 'my-button',
+                    label: 'My button',
+                    // Step 1. Change the callback to be a method defined in the class
+                    onClick: this.handleClickMyButton.bind(this),
+                },
+            ],
+        },
+    })
+}
+
+// Step 2. Create the method that will be called when the button is clicked
+private async handleClickMyButton() {
+    // Step 3. Connect to the API
+    const client = await this.connectToApi()
+    // Step 4. Emit the event
+    await client.emitAndFlattenResponses('my-event-kata')
+}
+```
+
+> *Note*: Now your test will be failing (and types too) because of the event name not existing. Lets fix that next.
+
+</details>
+
+<details>
+<summary><strong>Production 3</strong>: Create the Event</summary>
+
+1. Hit `ctrl+space` and type `create.event`
+2. For Readable Name, type `My first event` (or whatever you want, really)
+3. For Kebab Case Name, just hit `enter`
+4. For Camel Case Name, just hit `enter`
+5. For Version, select the latest version (if prompted
+)
+</details>
+
+<details>
+<summary><strong>Production 4</strong>: Defining the Event</summary>
+
+We need to define 4 things in our event:
+1. The Event's Emit Target
+2. The Event's Emit Payload
+3. The Event's Response Payload
+4. The Event's Permissions
+
+
+
+</details>
+
 
 ### Something Missing?
 
