@@ -55,7 +55,7 @@ skills:
   - git@github.com:sprucelabsai/spruce-theme-skill.git
 
 admin:
-  - phone: "********" # Used to setup the admin person, you should always login using this number when developing
+  - PHONE: "********" # Used to setup the admin person, you should always login using this number when developing
 
 theatre:
   # - LOCK: xxxxx #Provide a url for a yarn.lock file you want to use for this theatre
@@ -75,7 +75,7 @@ env:
     - PORT: "8081" #The port mercury will listen on for skills and front-end clients
     - ANONYMOUS_PERSON_PHONE: "555-000-0001" #Mercury needs an anonymous person to use when a person wishes to remain anonymous.
     - DEMO_NUMBERS: "*" #Demo numbers allow you to login with a pin of all zeros. "*" means all numbers are demo numbers. You can also set this to a comma separated list of numbers.
-    - ADMIN_NUMBERS: "" #Any additional admin numbers (other than the one in the admin section) that will get the owner role at the platform level
+    # - ADMIN_NUMBERS: "" #Any admin numbers that will get the owner role at the platform level. It'll use the admin.PHONE by default, this will let you override that and set your own.
     - SHOULD_ENABLE_LLM: "false" #By default, the ConversationCoordinate will not use an LLM to respond. This is only useful if you have SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER=true
     #- SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER: true #If you want to run the message receiver to handle incoming messages (sms). You'll need to configure Twilio or Vonage to support this.
   heartwood:
