@@ -63,6 +63,14 @@ theatre:
   # - BOOT_STRATEGY: serial | parallel #(default: parallel) How to boot the skills. Only use Serial if you're crushing your CPU.
   # - BUILD_STRATEGY: serial | parallel #(default: parallel) How to build the skills. Only use Serial if you're crushing your CPU.
   # - CIRCLECI_TOKEN: xxxxx #Provide a CircleCI token for use with yarn circle.status
+  # - POST_BUNDLE_SCRIPT: | #Run a script after bundling of heartwood is complete. This is example of how to upload the bundled files to an S3 bucket
+    #     AWS_ACCESS_KEY_ID=$POLISH_AWS_ACCESS_KEY_ID AWS_REGION=$POLISH_AWS_REGION AWS_SECRET_ACCESS_KEY=$POLISH_AWS_SECRET_ACCESS_KEY \
+    #       aws s3 sync \
+    #         ./packages/spruce-heartwood-skill/dist/ s3://bucketname.com/  \
+    #         --acl public-read \
+    #         --cache-control "max-age=1,public" \
+    #         --metadata-directive REPLACE \
+    #         --delete
 
 env:
   universal: #These are the env vars that are used by all skills, anything here can be overridden in the skill below
@@ -81,14 +89,14 @@ env:
   heartwood:
     - WEB_SERVER_PORT: 8080 #The port heartwood will serve on, unless SHOULD_SERVE_HEARTWOOD is set to false
     # - PUBLIC_ASSETS_DIR: "/path/to/public/assets" #If you want to serve your own assets, you can set this to a directory that contains your assets and they will be served from http://localhost:{{WEB_SERVER_PORT}}/assets
-    # - POST_BUNDLE_SCRIPT: | #Run a script after bundling of heartwood is complete. This is example of how to upload the bundled files to an S3 bucket
-    #     AWS_ACCESS_KEY_ID=$POLISH_AWS_ACCESS_KEY_ID AWS_REGION=$POLISH_AWS_REGION AWS_SECRET_ACCESS_KEY=$POLISH_AWS_SECRET_ACCESS_KEY \
-    #       aws s3 sync \
-    #         ./packages/spruce-heartwood-skill/dist/ s3://bucketname.com/  \
-    #         --acl public-read \
-    #         --cache-control "max-age=1,public" \
-    #         --metadata-directive REPLACE \
-    #         --delete
+    # - PUBLIC_URL: "https://myapp.com" #The public URL of your app. This is used to generate links to the heartwood app. If you are using a CDN, this should be the CDN URL.
+    # - FOOTER_ICON: "https://myapp.com/favicon.svg" #The icon that will be used in the footer of Skill Views. This should be a URL to an image.
+    # - ERROR_PAGE_REDIRECT_DESTINATION: "https://myapp.com" #Where we'll redirect the user if they hit an error page. Falls back to PUBLIC_URL if not set, or https://spruce.bot
+    # - ERROR_PAGE_MESSAGE: "Something went wrong. Please try again." #The message that will be displayed under the raw error message on the error page.
+    # - IDLE_SESSION_TIMEOUT_MS: 60000 #The amount of time in milliseconds before a session is considered idle and will be auto logged out. No default.
+    # - SHOULD_DISABLE_KEYBOARD_SHORTCUTS: true #If you want to disable keyboard shortcuts in the front-end, though some can't be disabled. Defaults to false.
+    # - KEYBOARD_SHORTCUT_WHITELIST: "ctrl+shift+f" #If you want to only allow certain keyboard shortcuts, you can set this to a comma separated list of shortcuts.
+    
   eightbitstories:
     - OPENAI_API_KEY: "********"
 
