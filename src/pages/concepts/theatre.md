@@ -40,8 +40,11 @@ If you are working directly with the `Theatre` in your favorite terminal app, yo
 | `yarn logs <namespace> [--lines=N]` | Tails the logs of the specified skill with an option for how many lines of logs you want to see. |
 | `yarn rebuild` | Rebuilds the `Theatre` and all skills by clearing out all `node_modules` and all `build` directories and starting over. |
 | `yarn list.running` | Lists all status of all skills, including online/stopped, restart count, cpu usage, and memory usage. |
+| `yarn circle.status` | Shows the status of the CircleCI build for each skill. *Requires theatre.CIRCLECLI_TOKEN to be set in your `blueprint.yml` |
 
 
+> ***Note:** Many commands support `--help` so you can see the options available.
+> **Note:** After making any changes to the `blueprint.yml`, you should run `yarn setup.theatre blueprint.yml` again to ensure the changes are propagated.
 
 ## Blueprint.yml
 
@@ -49,61 +52,43 @@ Here is an example of a `blueprint.yml` file that you may edit to suit your need
 
 ```yaml
 skills:
-  - git@github.com:sprucelabsai-community/spruce-adventure-skill.git
-  - git@github.com:sprucelabsai-community/spruce-eightbitstories-skill.git
-  - git@github.com:sprucelabsai/spruce-appointments-skill.git
-  - git@github.com:sprucelabsai/spruce-calendar-skill.git
-  - git@github.com:sprucelabsai/spruce-demo-skill.git
-  - git@github.com:sprucelabsai/spruce-developer-skill.git
-  - git@github.com:sprucelabsai/spruce-esm-skill.git
-  - git@github.com:sprucelabsai/spruce-feed-skill.git
-  - git@github.com:sprucelabsai/spruce-feedback-skill.git
-  - git@github.com:sprucelabsai/spruce-files-skill.git
-  - git@github.com:sprucelabsai/spruce-forms-skill.git
-  - git@github.com:sprucelabsai/spruce-groups-skill.git
-  - git@github.com:sprucelabsai/spruce-heartwood-skill.git
-  - git@github.com:sprucelabsai/spruce-help-skill.git
-  - git@github.com:sprucelabsai/spruce-images-skill.git
-  - git@github.com:sprucelabsai/spruce-invites-skill.git
-  - git@github.com:sprucelabsai/spruce-lbb-skill.git
-  - git@github.com:sprucelabsai/spruce-locations-skill.git
-  - git@github.com:sprucelabsai/spruce-madrix-skill.git
-  - git@github.com:sprucelabsai/spruce-mercury-api.git
-  - git@github.com:sprucelabsai/spruce-organization-skill.git
-  - git@github.com:sprucelabsai/spruce-people-skill.git
-  - git@github.com:sprucelabsai/spruce-permissions-skill.git
-  - git@github.com:sprucelabsai/spruce-profile-skill.git
-  - git@github.com:sprucelabsai/spruce-reminders-skill.git
-  - git@github.com:sprucelabsai/spruce-roles-skill.git
-  - git@github.com:sprucelabsai/spruce-shifts-skill.git
-  - git@github.com:sprucelabsai/spruce-skills-skill.git
-  - git@github.com:sprucelabsai/spruce-theatre-skill.git
   - git@github.com:sprucelabsai/spruce-theme-skill.git
-  - git@github.com:sprucelabsai/spruce-waivers-skill.git
-  - git@github.com:sprucelabsai/spruce-wifi-skill.git
-  - git@github.com:sprucelabsai/spruce-xa-skill.git
-  - git@github.com:sprucelabsai/spruce-crud-views-skill.git
 
 admin:
-  - phone: "********"
+  - phone: "********" # Used to setup the admin person, you should always login using this number when developing
+
+theatre:
+  # - LOCK: xxxxx #Provide a url for a yarn.lock file you want to use for this theatre
+  # - SHOULD_SERVE_HEARTWOOD: false (default: true) #Should we bundle and serve the Heartwood frontend? Not needed if serving from a CDN
+  # - BOOT_STRATEGY: serial | parallel #(default: parallel) How to boot the skills. Only use Serial if you're crushing your CPU.
+  # - BUILD_STRATEGY: serial | parallel #(default: parallel) How to build the skills. Only use Serial if you're crushing your CPU.
+  # - CIRCLECI_TOKEN: xxxxx #Provide a CircleCI token for use with yarn circle.status
 
 env:
-  universal:
-    - DB_NAME: "{{namespace}}"
-    - DB_CONNECTION_STRING: "mongodb://localhost:27017"
-    - MAXIMUM_LOG_PREFIXES_LENGTH: 1
-    - HOST: "http://127.0.0.1:8081"
+  universal: #These are the env vars that are used by all skills, anything here can be overridden in the skill below
+    - DB_NAME: "{{namespace}}" #The name of the database dynamically set based on the namespace of the skill
+    - DB_CONNECTION_STRING: "mongodb://localhost:27017" #Everything connects to local mongo by default. If you have creds, you set them in the connection string
+    - MAXIMUM_LOG_PREFIXES_LENGTH: 1 #The Spruce logger will log the instantiation path of what's being logged. This is helpful when debugging, but usually a length of 1 is all you need
+    - HOST: "http://127.0.0.1:8081" #How all skills will connect to Mercury. Make sure the port matche PORT in the mercury section
+    # - SHOULD_VIEWS_GENERATE_SOURCE_MAPS: true #Will build views with source maps, which can be helpful for debugging
   mercury:
-    - PORT: "8081"
-    - ANONYMOUS_PERSON_PHONE: "555-000-0001"
-    - DEMO_NUMBERS: "*"
-    - ADMIN_NUMBERS: ""
-    - SHOULD_ENABLE_LLM: "false"
+    - PORT: "8081" #The port mercury will listen on for skills and front-end clients
+    - ANONYMOUS_PERSON_PHONE: "555-000-0001" #Mercury needs an anonymous person to use when a person wishes to remain anonymous.
+    - DEMO_NUMBERS: "*" #Demo numbers allow you to login with a pin of all zeros. "*" means all numbers are demo numbers. You can also set this to a comma separated list of numbers.
+    - ADMIN_NUMBERS: "" #Any additional admin numbers (other than the one in the admin section) that will get the owner role at the platform level
+    - SHOULD_ENABLE_LLM: "false" #By default, the ConversationCoordinate will not use an LLM to respond. This is only useful if you have SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER=true
+    #- SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER: true #If you want to run the message receiver to handle incoming messages (sms). You'll need to configure Twilio or Vonage to support this.
   heartwood:
-    - ANIMATION_DURATION: "500"
-    - WEB_SERVER_PORT: 8080
-  madrix:
-    - MADRIX_ENDPOINT: "http://10.106.6.181:8082"
+    - WEB_SERVER_PORT: 8080 #The port heartwood will serve on, unless SHOULD_SERVE_HEARTWOOD is set to false
+    # - PUBLIC_ASSETS_DIR: "/path/to/public/assets" #If you want to serve your own assets, you can set this to a directory that contains your assets and they will be served from http://localhost:{{WEB_SERVER_PORT}}/assets
+    # - POST_BUNDLE_SCRIPT: | #Run a script after bundling of heartwood is complete. This is example of how to upload the bundled files to an S3 bucket
+    #     AWS_ACCESS_KEY_ID=$POLISH_AWS_ACCESS_KEY_ID AWS_REGION=$POLISH_AWS_REGION AWS_SECRET_ACCESS_KEY=$POLISH_AWS_SECRET_ACCESS_KEY \
+    #       aws s3 sync \
+    #         ./packages/spruce-heartwood-skill/dist/ s3://bucketname.com/  \
+    #         --acl public-read \
+    #         --cache-control "max-age=1,public" \
+    #         --metadata-directive REPLACE \
+    #         --delete
   eightbitstories:
     - OPENAI_API_KEY: "********"
 
