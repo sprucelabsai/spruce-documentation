@@ -608,7 +608,7 @@ protected async clickingButtonEmitsEvent() {
 ### Testing the back-end (creating a listener)
 
 <details>
-<summary><strong>Test 1</strong>: Create a new test</summary>
+<summary><strong>Test 1a</strong>: Create a new test</summary>
 
 Hit `ctrl+space` and type `create.test`, then fill out the form with the following:
 
@@ -619,8 +619,173 @@ Hit `ctrl+space` and type `create.test`, then fill out the form with the followi
 - **Which abstract test class do you want to extend?**: Select `AbstractSpruceFixtureTest`
 </details>
 
+<details>
+<summary><strong>Test 1b</strong>: Update the test</summary>
+
+```typescript
+@fake.login()
+@suite()
+export default class MyFirstEventListenerTest extends AbstractSpruceFixtureTest {
+    // Step 1: Remove existing tests and class declaration at the bottom
+    @test()
+    protected async skillIsListening() { // Step 2: Declare the new test
+        await this.bootSkill() // Step 3: Boot the skill so it can listen to events
+        await this.fakedClient.emitAndFlattenResponses( // Step 4: Emit the event
+            'events-kata.my-first-event::v2025_04_24'
+        )
+    }
+}
+```
+</details>
+
+<details>
+<summary><strong>Production 1</strong>: Create the listener</summary>
+
+1. Hit `ctrl+space` and type `create.listener`
+2. For "Select Namespace", select `EventsKata`
+3. For "Select an Event", select `events-kata.my-first-event::v2025_04_24`
+
+> *Note*: Your test will now fail because we're not passing a payload. We'll fix that next.
+
+</details>
+
+<details>
+<summary><strong>Test 2</strong>: Emit the propert payload</summary>
+
+```typescript
+@test()
+protected async skillIsListening() {
+    await this.bootSkill()
+    await this.fakedClient.emitAndFlattenResponses(
+        'events-kata.my-first-event::v2025_04_24',
+        {
+            payload: { // Step 1: Add the payload to the emit
+                randomValue: generateId(), // Step 2: Put in random id for now (will need to import)
+            },
+        }
+    )
+}
+```
+
+> *Note*: Your test will now fail because the listener is throwing an error. Let's fix that now!
+
+</details>
+
+<details>
+<summary><strong>Production 2</strong>: Update the listener</summary>
+
+Jump into your new listener at: `src/listeners/events-kata/my-first-event.v2025_04_24.listener.ts`
+
+```typescript
+// Step 1: Remove the current contents of the listener and all unused imports
+export default async (
+    _event: SpruceEvent<SkillEventContract, EmitPayload> // Step 2: Underscore event to disable unused variable warning
+): SpruceEventResponse<ResponsePayload> => {
+    return { // Step 3: Return an object with the wasSuccesful field
+        wasSuccesful: false, // Step 4: Set wasSuccesful to false for now
+    }
+}
+```
+</details>
+
+<details>
+<summary><strong>Test 3</strong>: Test the listener returns true</summary>
+
+```typescript
+@test()
+protected async listenerReturnsWasSuccesful() { // Step 1: Declare a new test
+    await this.bootSkill() // Step 2: Boot the skill
+    const [{ wasSuccesful }] =
+        await this.fakedClient.emitAndFlattenResponses( // Step 3: Emit the event and flatten the responses
+            'events-kata.my-first-event::v2025_04_24',
+            {
+                payload: {
+                    randomValue: generateId(),
+                },
+            }
+        )
+
+    assert.isTrue(wasSuccesful, 'Expected wasSuccesful to be true') // Step 4: Assert that wasSuccesful is true
+}
+```
+</details>
+
+<details>
+<summary><strong>Production 3</strong>: Update the listener to return true (and log for fun)</summary>
+
+We'll also do some logging here so we can see the payload that was passed in when we test the front-end.
+
+```typescript
+export default async (
+    event: SpruceEvent<SkillEventContract, EmitPayload>
+): SpruceEventResponse<ResponsePayload> => {
+    const { payload } = event // Step 1: Destructure the payload from the event
+    console.log('Received payload:', payload) // Step 2: Log the payload to the console
+    return {
+        wasSuccesful: true, // Step 3: Set wasSuccesful to true
+    }
+}
+```
+</details>
+
+<details>
+<summary><strong>Test 4</strong>: Refactor the test</summary>
+
+```typescript
+export default class MyFirstEventListenerTest extends AbstractSpruceFixtureTest {
+
+    // Step 1: Declare beforeEach to boot the skill
+    // Step 2: Remove bootSkill from your other tests
+    protected async beforeEach(): Promise<void> {
+        await super.beforeEach()
+        await this.bootSkill()
+    }
+
+    @test()
+    protected async skillIsListening() {
+        // Step 3: Extract the emit to a method called emit
+        await this.emit()
+    }
+
+    @test()
+    protected async listenerReturnsWasSuccesful() {
+        // Step 6: Swap out the emitAndFlattenResponses call for the emit method
+        const wasSuccesful = await this.emit()
+        assert.isTrue(wasSuccesful, 'Expected wasSuccesful to be true')
+    }
+
+    // Step 4: Move the emit method to the bottom of the class
+    // Step 5: Destructure the response to get wasSuccesful and return it directly
+    private async emit() {
+        const [{ wasSuccesful }] =
+            await this.fakedClient.emitAndFlattenResponses(
+                'events-kata.my-first-event::v2025_04_24',
+                {
+                    payload: {
+                        randomValue: generateId(),
+                    },
+                }
+            )
+
+        return wasSuccesful
+    }
+}
+```
+
+</details>
+
+### Test the front end again
+
+Whenever you change the back-end, you'll need to start the watcher again (since `watch.views` only watches the front-end). Also, the view watcher is not the best for viewing logs, So kill the watcher and go to the debug pane (cmd+d) and switch the dropdown to `boot` and click the play button.
+
+Then, Load up the front-end at [http://localhost:8080/#views/events-kata.root](http://localhost:8080/#views/events-kata.root) and click the button! 
+
+The alert that no skill is listening should be gone, and you should see the console log in the debug pane with the payload that was passed in!
+
+
 ### Something Missing?
 
 <div class="grid-buttons">
     <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
 </div>
+
