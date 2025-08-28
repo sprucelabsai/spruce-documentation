@@ -63,6 +63,8 @@ theatre:
   # - BOOT_STRATEGY: serial | parallel #(default: parallel) How to boot the skills. Only use Serial if you're crushing your CPU.
   # - BUILD_STRATEGY: serial | parallel #(default: parallel) How to build the skills. Only use Serial if you're crushing your CPU.
   # - CIRCLECI_TOKEN: xxxxx #Provide a CircleCI token for use with yarn circle.status
+  # - POST_BOOT_SCRIPT: | #Run a script after all skills have been booted. This is an example of how to notify a slack channel that the theatre is booted.
+    #     curl -X POST -H 'Content-type: application/json' --data '{"text":"Theatre is booted!"}' $SLACK_WEBHOOK_URL
   # - POST_BUNDLE_SCRIPT: | #Run a script after bundling of heartwood is complete. This is example of how to upload the bundled files to an S3 bucket
     #     AWS_ACCESS_KEY_ID=$POLISH_AWS_ACCESS_KEY_ID AWS_REGION=$POLISH_AWS_REGION AWS_SECRET_ACCESS_KEY=$POLISH_AWS_SECRET_ACCESS_KEY \
     #       aws s3 sync \
