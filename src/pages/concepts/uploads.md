@@ -158,6 +158,14 @@ Once you have your environment variables set up, you can start the REST server w
 yarn boot.rest
 ```
 
+
+### Setting up on ec2
+
+1. SSH into your EC2 instance:
+2. Copy the script from `./support/setup_ec2.sh` to your EC2 instance
+3. Run it with `./setup_ec2.sh`
+
+
 ## Useful links
 
 - [Spruce Developer Documentation: https://developer.spruce.ai](https://developer.spruce.ai)
