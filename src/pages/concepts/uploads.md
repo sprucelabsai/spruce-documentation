@@ -166,6 +166,9 @@ yarn boot.rest
 3. Run it with `./setup_ec2.sh`
 
 
-## Useful links
 
-- [Spruce Developer Documentation: https://developer.spruce.ai](https://developer.spruce.ai)
+### Something Missing?
+
+<div class="grid-buttons">
+    <a class="btn" href="https://forms.gle/2ZMtwUxg1egV8sHT8">Request Documentation Enhancement</a>
+</div>
