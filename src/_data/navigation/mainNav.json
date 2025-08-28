@@ -404,6 +404,10 @@
         {
           "title": "Messages",
           "url": "/concepts/messages/"
+        },
+        {
+          "title": "Uploads",
+          "url": "/concepts/uploads/"
         }
       ]
     },
