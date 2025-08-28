@@ -106,6 +106,8 @@ For files under 2mb, you don't have to do anything special. The `Mercury` event 
 
 The `Files` skill comes with it's own REST server for handling file uploads. This bypasses the `Mercury` event system and supports chunked uploads (up to 10MB per chunk).
 
+> *Note*: You will need to update the max file size limit for `Heartwood` too. See how to do that below the REST configuration section.
+
 ### Configuring the REST Server
 
 Update your `.env` or `blueprint.yml` file to include the following environment variables:
@@ -159,12 +161,29 @@ yarn boot.rest
 ```
 
 
+### Updating Heartwood's File Size Limit
+
+
+#### `.env`
+```.env
+MAX_UPLOAD_SIZE_KB="10240"
+```
+
+#### `blueprint.yml`
+```yml
+env:
+  heartwood:
+    - MAX_UPLOAD_SIZE_KB: "10240"
+```
+
+> *Note*: You will need to re-bundle Heartwood's assets for the changes to take effect. Use `yarn bundle.heartwood` from your `Theatre`.
+
+
 ### Setting up on ec2
 
 1. SSH into your EC2 instance:
 2. Copy the script from `./support/setup_ec2.sh` to your EC2 instance
 3. Run it with `./setup_ec2.sh`
-
 
 
 ### Something Missing?
