@@ -1,12 +1,12 @@
 # Skills
 
-A `Skill` is a descrete piece of functionality that includes the full stack of an application. It's a way to encapsulate a feature or set of features in a way that can be easily installed, updated, removed, etc.
+A `Skill` is a descrete piece of functionality that includes the full stack of an application. It's a way to encapsulate a feature or set of features that can easily be deployed, installed, updated, configured, removed, etc.
 
 <img src="../../assets/img/concepts/skill_stack.png">
 
 ## Skill Lifecycle
 
-To start, your `Skill` is only a `BootLoader` that looks for `Features`. `Features` map closely to the `Concepts`. Your `Skill` starts with no `Features` installed and the `SpruceCLI` installs them for you as you need them.
+To start, your `Skill` is only a `BootLoader` that looks for `Features`. `Features` map closely to the `Concepts`. Your `Skill` starts with no `Features` and the [`SpruceCLI`](/concepts/spruce-cli/) installs them for you as you need them.
 
 <img src="../../assets/img/concepts/skill_lifecycle.png">
 
