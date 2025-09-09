@@ -90,6 +90,7 @@ env:
     #- SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER: true #If you want to run the message receiver to handle incoming messages (sms). You'll need to configure Twilio or Vonage to support this.
   heartwood:
     - WEB_SERVER_PORT: 8080 #The port heartwood will serve on, unless SHOULD_SERVE_HEARTWOOD is set to false
+    # - LOCKED_APP_NAMESPACE: "lumena" #locking into a namespace forces your AppController to load everytime, which makes this theatre a single app theatre
     # - PUBLIC_ASSETS_DIR: "/path/to/public/assets" #If you want to serve your own assets, you can set this to a directory that contains your assets and they will be served from http://localhost:{{WEB_SERVER_PORT}}/assets
     # - PUBLIC_URL: "https://myapp.com" #The public URL of your app. This is used to generate links to the heartwood app. If you are using a CDN, this should be the CDN URL.
     # - FOOTER_ICON: "https://myapp.com/favicon.svg" #The icon that will be used in the footer of Skill Views. This should be a URL to an image.
