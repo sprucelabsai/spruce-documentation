@@ -94,6 +94,9 @@ FILE_HOST_URL="http://localhost:3000"
 
 #### `blueprint.yml`
 ```yml
+theatre:
+  - POST_BOOT_SCRIPT: "./packages/spruce-files-skill/support/serve_local_uploads.sh"
+
 env:
   files:
     - UPLOAD_STRATEGY: "local"
@@ -101,6 +104,9 @@ env:
     - FILE_HOST_URL: "http://localhost:3000"
 
 ```
+
+> *Note*: You will need to actually serve the directory where uploads saving, or you'll get a broken image on the page. For ease-of-use, we'll use the `POST_BOOT_SCRIPT` functionality in the `theatre` to run a script that will serve the directory. You can test by visiting the `FILE_HOST_URL` in your browser.
+
 ## Enabling Big File Uploads
 For files under 2mb, you don't have to do anything special. The `Mercury` event system can handle a payload of that size. But, if you need to enable support for larger files, you will need to configure your server to handle chunked uploads.
 
