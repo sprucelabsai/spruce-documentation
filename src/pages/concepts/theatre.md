@@ -86,8 +86,16 @@ env:
     - ANONYMOUS_PERSON_PHONE: "555-000-0001" #Mercury needs an anonymous person to use when a person wishes to remain anonymous.
     - DEMO_NUMBERS: "*" #Demo numbers allow you to login with a pin of all zeros. "*" means all numbers are demo numbers. You can also set this to a comma separated list of numbers.
     # - ADMIN_NUMBERS: "" #Any admin numbers that will get the owner role at the platform level. It'll use the admin.PHONE by default, this will let you override that and set your own.
-    - SHOULD_ENABLE_LLM: "false" #By default, the ConversationCoordinate will not use an LLM to respond. This is only useful if you have SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER=true
+    - SHOULD_ENABLE_LLM: false #By default, the ConversationCoordinate will not use an LLM to respond. This is only useful if you have SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER=true
     #- SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER: true #If you want to run the message receiver to handle incoming messages (sms). You'll need to configure Twilio or Vonage to support this.
+    # - SMS_ADAPTER: false # Disables the SMS adapter by default. You can set this to "twilio" or "vonage" if you want to use one of those adapters. Only relevant if SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER=true or SHOULD_BOOT_MERCURY_MESSAGE_SENDER=true
+    # - SHOULD_BOOT_MESSAGE_RECEIVER: true #If you want to run the message receiver to handle incoming messages (sms or email). You'll need to configure Twilio, Vonage, SMTP, or Gmail to support this.
+    # - SHOULD_BOOT_MESSAGE_SENDER: true #If you want to run the message sender to handle outgoing messages (sms or email). You'll need to configure Twilio, Vonage, SMTP, or Gmail to support this.
+    # - MAX_HTTP_BUFFER_SIZE: 10242880 #The maximum size of a message that can be sent to Mercury. Default is 1MB. For large file uploads, see the Concepts -> File Uploads
+    # - MESSAGING_GOOGLE_SERVICE_EMAIL: "xxxxx@xxxxxx-email.iam.gserviceaccount.com"
+    # - MESSAGING_GOOGLE_PRIVATE_KEY: "xxxx"
+    # - MESSAGING_GMAIL_IMPERSONATE_USER: "bot@sprucelabs.ai"
+    # - MESSAGING_EMAIL_POLL_INTERVAL_SEC: "5" #The interval in seconds to poll for new email messages. Default is 5 seconds.
   heartwood:
     - WEB_SERVER_PORT: 8080 #The port heartwood will serve on, unless SHOULD_SERVE_HEARTWOOD is set to false
     # - LOCKED_APP_NAMESPACE: "lumena" #locking into a namespace forces your AppController to load everytime, which makes this theatre a single app theatre
