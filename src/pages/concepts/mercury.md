@@ -5,7 +5,7 @@
 ## Skills and Mercury
 
 
-Every skill utilizes the `MercuryClient` for communication. It's a websocket based client that facilitates both push and pull type communication (typical event driven systems stuff). If a skill wants to, it'll go through Mercury. One outcome of this is that skills can be indepedently upgrade, updated, and rebooted without affecting the rest of the system.
+Every skill utilizes the `MercuryClient` for communication. It's a websocket based client that facilitates both push and pull type communication (typical event driven systems stuff). All `events` route through Mercury. One outcome of this is that skills can be indepedently upgrade, updated, and rebooted without affecting the rest of the system.
 
 
 <img src="../../assets/img/concepts/small_trunk_big_branches.png">
