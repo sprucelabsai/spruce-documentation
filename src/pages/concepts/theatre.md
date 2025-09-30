@@ -61,6 +61,7 @@ theatre:
   # - LOCK: xxxxx #Provide a url for a yarn.lock file you want to use for this theatre
   # - SHOULD_SERVE_HEARTWOOD: false (default: true) #Should we bundle and serve the Heartwood frontend? Not needed if serving from a CDN
   # - BOOT_STRATEGY: serial | parallel #(default: parallel) How to boot the skills. Only use Serial if you're crushing your CPU.
+  # - SERIAL_BOOT_SPACER_SEC: 5 #(default: 5) If using serial boot strategy, how many seconds to wait between skill boots
   # - BUILD_STRATEGY: serial | parallel #(default: parallel) How to build the skills. Only use Serial if you're crushing your CPU.
   # - CIRCLECI_TOKEN: xxxxx #Provide a CircleCI token for use with yarn circle.status
   # - POST_BOOT_SCRIPT: | #Run a script after all skills have been booted. This is an example of how to notify a slack channel that the theatre is booted.
