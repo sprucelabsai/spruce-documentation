@@ -73,7 +73,6 @@ When it's done, you should see a message that says `Ready and waiting...`
     - You will be prompted for more dependencies to install. Hit `Enter` to accept them all.
 8. For your remote, select "Local"
     - Allow the rest of the dependencies to install
-    - If prompted for remote again, select "Local" again
 9. Close the terminal window and get back to the Test Runner.
     - The test should now be failing beacuse `false` does not equal `true`.
 10. Click on the failing test in the Test Runner and click "Open" to open the test file.
