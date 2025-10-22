@@ -64,6 +64,7 @@ theatre:
   # - SERIAL_BOOT_SPACER_SEC: 5 #(default: 5) If using serial boot strategy, how many seconds to wait between skill boots
   # - MERCURY_BOOT_SPACER_SEC: 3 #(default: 3) How many seconds to wait after booting mercury before booting the rest of the skills
   # - BUILD_STRATEGY: serial | parallel #(default: parallel) How to build the skills. Only use Serial if you're crushing your CPU.
+  # - BUILD_MAX_MEMORY_MB: 4096 #Optional. Overrides Node's --max_old_space_size during yarn build to avoid OOM issues.
   # - CIRCLECI_TOKEN: xxxxx #Provide a CircleCI token for use with yarn circle.status
   # - POST_BOOT_SCRIPT: | #Run a script after all skills have been booted. This is an example of how to notify a slack channel that the theatre is booted.
     #     curl -X POST -H 'Content-type: application/json' --data '{"text":"Theatre is booted!"}' $SLACK_WEBHOOK_URL
