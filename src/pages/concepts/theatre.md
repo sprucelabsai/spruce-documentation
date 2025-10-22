@@ -92,6 +92,8 @@ env:
     - DEMO_NUMBERS: "*" #Demo numbers allow you to login with a pin of all zeros. "*" means all numbers are demo numbers. You can also set this to a comma separated list of numbers.
     - ADMIN_NUMBERS: "" #Any admin numbers that will get the owner role at the platform level. It'll use the admin.PHONE by default, this will let you override that and set your own.
     - SHOULD_ENABLE_LLM: false #By default, the ConversationCoordinate will not use an LLM to respond. This is only useful if you have SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER=true
+    - OPEN_AI_API_KEY: "xxxx" #Your OpenAI API key, required if using LLM features
+    - OPEN_AI_MODEL: "gpt-5" #The OpenAI model to use for LLM features. Default is gpt-4
     - SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER: true #If you want to run the message receiver to handle incoming messages (sms). You'll need to configure Twilio or Vonage to support this.
     - SMS_ADAPTER: false # Disables the SMS adapter by default. You can set this to "twilio" or "vonage" if you want to use one of those adapters. Only relevant if SHOULD_BOOT_MERCURY_MESSAGE_RECEIVER=true or SHOULD_BOOT_MERCURY_MESSAGE_SENDER=true
     - SHOULD_BOOT_MESSAGE_RECEIVER: true #If you want to run the message receiver to handle incoming messages (sms or email). You'll need to configure Twilio, Vonage, SMTP, or Gmail to support this.
