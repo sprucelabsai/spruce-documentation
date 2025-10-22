@@ -83,6 +83,8 @@ env:
     - DB_CONNECTION_STRING: "mongodb://localhost:27017" #Everything connects to local mongo by default. If you have creds, you set them in the connection string
     - MAXIMUM_LOG_PREFIXES_LENGTH: 1 #The Spruce logger will log the instantiation path of what's being logged. This is helpful when debugging, but usually a length of 1 is all you need
     - HOST: "http://127.0.0.1:8081" #How all skills will connect to Mercury. Make sure the port matche PORT in the mercury section
+    # - IS_PHONE_LOGIN_ENABLED: "true" #Enables phone login for all skills that support it. Default is true
+    # - IS_EMAIL_LOGIN_ENABLED: "true" #Enables email login for all skills that support it. Default is false
     # - SHOULD_VIEWS_GENERATE_SOURCE_MAPS: true #Will build views with source maps, which can be helpful for debugging
   mercury:
     - PORT: "8081" #The port mercury will listen on for skills and front-end clients
