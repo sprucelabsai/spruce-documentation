@@ -394,12 +394,12 @@ protected async canSendWithValidParams() {
 
 ```ts
     public async send(options: SendOptions) {
-        // Step 1. Destructure personId from options
+        // Step 2. Destructure personId from options (fixes type error from Step 1)
         const { personId } = assertOptions(options, ['personId', 'message'])
 
         await this.client.emitAndFlattenResponses('send-message::v2020_12_25', {
             target: {
-                // Step 2. Pass personId to target
+                // Step 1. Use personId in target (causes type error)
                 personId,
             },
             payload: {
