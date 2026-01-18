@@ -25,9 +25,9 @@ Use this file to track unfinished pages and missing documentation.
 - [x] **COMPLETE: All 21 assertion tools documented with full method signatures**
 
 ### Concepts
-- [ ] `src/pages/concepts/messages.md`
+- [x] `src/pages/concepts/messages.md` (full TDD walkthrough, interfaces, scoping, permissions, Handlebars)
 - [ ] `src/pages/concepts/permissions.md`
-- [ ] `src/pages/concepts/spruce-cli.md`
+- [x] `src/pages/concepts/spruce-cli.md` (full command reference, skill workflow)
 - [x] `src/pages/concepts/theatre.md` (add theatre CLI arguments)
 - [x] `src/pages/concepts/skills.md`
 - [ ] `src/pages/concepts/listeners.md`

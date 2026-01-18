@@ -82,15 +82,6 @@ There are 3 main parts to the VSCode integration:
 
 ## Installing
 
-### Homebrew
-
-```bash
-brew tap sprucelabsai-community/spruce
-brew install spruce
-```
-
-### Yarn or NPM
-
 ```bash
 yarn global add @sprucelabs/spruce-cli
 ```
@@ -137,9 +128,184 @@ spruce create.test
 
 > **Node**: You will be asked to select a base test class. Select `AbstractSpruceTest` to start.
 
+## Command Reference
+
+Use `--help` on any command for detailed options (e.g., `spruce test --help`).
+
+### Authentication
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce login` | `--phone`, `--pin` | Authenticate as a person. |
+| `spruce logout` | | Logout as a person. |
+| `spruce whoami` | | Check who you're logged in as. |
+| `spruce login.skill` | | Re-authenticate a skill if you lost your env. |
+
+### Skills
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.skill` | `[destination]`, `--name`, `--description` | Create a new skill for the Spruce Platform. |
+| `spruce register.skill` | `--nameReadable`, `--nameKebab`, `--description` | Register your skill with Mercury. |
+| `spruce unregister.skill` | | Unregister a skill from your account. |
+| `spruce boot` | `--local` | Boot your skill and connect to Mercury. |
+| `spruce install.skill` | `--organizationId` | Install your skill at an organization. |
+| `spruce add.dependency` | `[namespace]` | Add another skill as a dependency. |
+| `spruce manage.dependencies` | | Manage or remove skill dependencies. |
+| `spruce deploy.heroku` | `--teamName`, `--shouldRunTests` | Deploy your skill to Heroku. |
+| `spruce publish` | | Publish a skill to the world. |
+| `spruce create.organization` | | Create an organization. |
+
+### Events & Listeners
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.event` | `--nameReadable`, `--version`, `--isGlobal` | Create a new event for Mercury. |
+| `spruce listen.event` | `--namespace`, `--eventName`, `--version` | Create a listener for an event. |
+| `spruce sync.events` | | Pull down event contracts from Mercury. |
+| `spruce sync.listeners` | | Sync event listeners. |
+| `spruce pull.event.contracts` | | Pull event contracts to a single file. |
+
+### Schemas
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.schema` | `--nameReadable`, `--description`, `--version` | Create a new schema builder. |
+| `spruce sync.schemas` | | Sync schema types with your builders. |
+| `spruce sync.fields` | | Sync schema fields. |
+
+### Stores
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.store` | `--nameReadable`, `--nameReadablePlural` | Create a data store. |
+| `spruce sync.stores` | | Sync stores. |
+
+### Views
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.view` | `--viewType`, `--nameReadable`, `--isRoot` | Create a new Heartwood view. |
+| `spruce create.avc` | | Create an App View Controller. |
+| `spruce create.view.plugin` | | Create a view plugin. |
+| `spruce create.theme` | | Create a theme for your skill. |
+| `spruce sync.views` | | Sync view types and generated files. |
+| `spruce watch.views` | | Watch for view changes in real time. |
+
+### Testing
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.test` | `--type`, `--nameReadable` | Generate a new test file. |
+| `spruce test` | `--pattern`, `--inspect`, `--watchMode` | Run your tests. |
+| `spruce migrate.tests` | | Migrate static tests to instance-based. |
+| `spruce setup.testing` | | Prepare skill for CI/CD testing. |
+| `spruce setup.polish` | | Set up Polish for visual testing. |
+
+### Errors
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.error` | `--nameReadable`, `--description` | Create a new error builder. |
+| `spruce sync.errors` | | Sync error types with builders. |
+
+### Permissions
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.permissions` | `--nameReadable`, `--description` | Create permission contracts. |
+| `spruce sync.permissions` | | Sync permission contracts. |
+
+### Conversations
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.conversation` | | Define a conversation topic. |
+| `spruce test.conversation` | | Test your conversation topics. |
+
+### AI & Agents
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce register.agent` | `--type`, `--name` | Register an AI agent. |
+| `spruce setup.ai` | | Configure AI capabilities. |
+
+### Logging
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.log.transport` | | Send logs to custom destinations. |
+
+### Projects & Modules
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce create.module` | `[destination]` | Create a new TypeScript node module. |
+| `spruce setup.vscode` | | Install VSCode extensions and settings. |
+| `spruce upgrade` | `--shouldBuild`, `--upgradeMode` | Upgrade all dependencies. |
+| `spruce update.dependencies` | | Clear and reinstall node_modules. |
+| `spruce rebuild` | | Clear build and node_modules, start fresh. |
+| `spruce install.feature` | | Install additional features. |
+
+### Environment
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `spruce set.remote` | `[remote]` | Point to different Mercury environments. |
+| `spruce enable.cache` | | Enable npm caching for faster installs. |
+| `spruce disable.cache` | | Disable caching. |
+| `spruce onboard` | | Start the onboarding process. |
+| `spruce setup.sandbox` | | Set up a sandbox environment. |
+
 ## Working with Skills
 
-Coming soon!
+### Creating a Skill
+
+```bash
+spruce create.skill my-skill
+cd my-skill
+```
+
+You'll be prompted to configure your skill. After creation, follow the printed instructions to complete setup.
+
+### Registering with Mercury
+
+Before your skill can communicate with other skills and the platform, you need to register it:
+
+```bash
+spruce login
+spruce register.skill
+```
+
+This creates a `.env` file with your skill's credentials. Keep this file secure and never commit it to version control.
+
+### Booting Your Skill
+
+```bash
+spruce boot
+```
+
+This starts your skill and connects it to Mercury. Your event listeners will begin receiving events.
+
+### Installing at an Organization
+
+To make your skill available to an organization:
+
+```bash
+spruce install.skill
+```
+
+You'll be prompted to select which organization to install at.
+
+### Adding Dependencies
+
+If your skill needs to communicate with another skill:
+
+```bash
+spruce add.dependency other-skill-namespace
+```
+
+This pulls in the event contracts from the dependency so you can emit and listen to its events.
 
 ### Something Missing?
 
