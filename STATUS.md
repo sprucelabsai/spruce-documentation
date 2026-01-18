@@ -29,7 +29,7 @@ Use this file to track unfinished pages and missing documentation.
 - [ ] `src/pages/concepts/permissions.md`
 - [ ] `src/pages/concepts/spruce-cli.md`
 - [x] `src/pages/concepts/theatre.md` (add theatre CLI arguments)
-- [ ] `src/pages/concepts/skills.md`
+- [x] `src/pages/concepts/skills.md`
 - [ ] `src/pages/concepts/listeners.md`
 - [ ] `src/pages/concepts/stores.md`
 - [ ] `src/pages/concepts/uploads.md`

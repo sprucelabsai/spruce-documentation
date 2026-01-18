@@ -37,9 +37,10 @@ For this scenario, we're going to ensure that our `listener` returns the expecte
 
 ```typescript
 import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
-import { test } from '@sprucelabs/test-utils'
+import { test, suite } from '@sprucelabs/test-utils'
 import { crudAssert } from '@sprucelabs/spruce-crud-utils'
 
+@suite()
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     @test()
     protected async rendersMaster() {

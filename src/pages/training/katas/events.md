@@ -442,6 +442,7 @@ await client.emitAndFlattenResponses(
 There is a lot of duplication and uneeded code in the test now, let's refactor it!
 
 ```typescript
+@suite()
 export default class EmittingEventsTest extends AbstractSpruceFixtureTest {
     ...
 
@@ -502,6 +503,7 @@ export default class EmittingEventsTest extends AbstractSpruceFixtureTest {
 <summary><strong>Step 2b</strong>: Extract out click interaction</summary>
 
 ```typescript
+@suite()
 export default class EmittingEventsTest extends AbstractSpruceFixtureTest {
     private vc!: SpyRootSkillView
 

@@ -53,6 +53,7 @@ import { fake, AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixture
 
 //@fake.login() will ensure a fake person is logged in for each test
 @fake.login()
+@suite()
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
 
     @test()
@@ -183,6 +184,7 @@ import { fake, AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixture
 import RootSkillViewController from '../../skillViewControllers/Root.svc'
 
 @fake.login()
+@suite()
 export default class RootSkillViewTest extends AbstractSpruceFixtureTest {
     protected vc: RootSkillViewController
 
