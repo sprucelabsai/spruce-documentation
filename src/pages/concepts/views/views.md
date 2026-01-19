@@ -10,6 +10,14 @@ A `CardViewController` has a `CardHeader`, `CardBody`, and `CardFooter`. The `Ca
 
 Every other type of `ViewController` (listed below) is rendered inside a `CardSection`. This allows for a consistent look and feel across all views in the Spruce ecosystem.
 
+## View Controllers and Heartwood
+
+`@sprucelabs/heartwood-view-controllers` is where view controllers are declared. It is what you work with when you code. You can use built-in controllers provided by `@sprucelabs/heartwood-view-controllers` or create custom ones by extending `AbstractViewController` or `AbstractSkillViewController` and encapsulating built-in controllers.
+
+The `Heartwood Skill` (`spruce-heartwood-skill`) serves the whole front end and imports `@sprucelabs/heartwood-view-controllers`. It takes the `ViewModel` returned from `render()` on any view controller and renders the UI.
+
+> **Note**: This is why we assert against `ViewModels` and controller behavior instead of HTML output.
+
 
 {% include_raw "important-classes.md" "concepts/views" %}
 

@@ -414,15 +414,141 @@ export interface DateUtil {
 </details>
 
 <details>
-<summary><strong>DateUtilDecorator</strong> - A decorator that makes the dateUtil timezone aware. This is done automatically for you in your Skill Views.</summary>
+<summary><strong>DateUtilBuilder</strong> - The easiest way to get a timezone-aware dateUtil. Use this in your backend code.</summary>
 
-Coming soon...
+```ts
+import { DateUtilBuilder } from '@sprucelabs/calendar-utils'
+
+// Get a timezone-aware dateUtil
+const dates = await DateUtilBuilder.getForTimezone('America/Denver')
+
+// Now all methods respect the timezone
+const startOfToday = dates.getStartOfDay() // Midnight in Denver
+const formatted = dates.format(Date.now(), 'MMM do, yyyy') // Formatted in Denver time
+```
+
+### API
+
+| Method | Returns | Description |
+|---|---|---|
+| `getForTimezone(timezone: TimezoneName)` | `Promise<DateUtil>` | Returns a timezone-aware dateUtil for the given timezone. |
+| `reset()` | `void` | Resets the builder state. Call in `beforeEach()` during tests. |
+| `lastBuiltDateUtil` | `DateUtil \| undefined` | The last dateUtil that was built. Useful for testing. |
+| `didBuild(cb: (dateUtil: DateUtil) => DateUtil)` | `void` | Hook to intercept/modify dateUtil after building. Useful for testing. |
+
+</details>
+
+<details>
+<summary><strong>DurationUtilBuilder</strong> - The easiest way to get a timezone-aware durationUtil. Use this in your backend code.</summary>
+
+```ts
+import { DurationUtilBuilder } from '@sprucelabs/calendar-utils'
+
+// Get a timezone-aware durationUtil
+const duration = await DurationUtilBuilder.getForTimezone('America/Denver')
+
+// Now all methods respect the timezone
+const timeUntil = duration.renderDateTimeUntil(someFutureDate)
+// Returns: "tomorrow @ 3pm" or "Feb 14 (in 10 days) @ 9am"
+```
+
+### API
+
+| Method | Returns | Description |
+|---|---|---|
+| `getForTimezone(timezone: TimezoneName)` | `Promise<DurationUtil>` | Returns a timezone-aware durationUtil for the given timezone. |
+| `reset()` | `void` | Resets the builder state. Call in `beforeEach()` during tests. |
+| `lastBuiltDurationUtil` | `DurationUtil \| undefined` | The last durationUtil that was built. Useful for testing. |
+| `durationUtil` | `DurationUtil` | A copy of durationUtil that can be monkey-patched for testing. |
+
 </details>
 
 <details>
 <summary><strong>durationUtil</strong> - A utility that helps you render durations (timespans, distances, etc.) in various ways.</summary>
 
-Coming soon...
+```ts
+import { durationUtil } from '@sprucelabs/calendar-utils'
+
+// Render a duration in human-readable format
+durationUtil.renderDuration(3600000) // "1hr"
+durationUtil.renderDuration(5400000) // "1hr30min"
+durationUtil.renderDuration(3665000) // "1hr1min & 5sec"
+
+// Render a time range
+durationUtil.renderTimeRange(date1, date2) // "7am to 7:30am"
+
+// Render time until a date (relative)
+durationUtil.renderDateTimeUntil(futureDate) // "tomorrow @ 3pm"
+durationUtil.renderDateTimeUntil(futureDate, { shouldCapitalize: true }) // "Tomorrow @ 3pm"
+```
+
+### API
+
+| Method | Returns | Description |
+|---|---|---|
+| `renderDuration(durationMs: number)` | `string` | Converts milliseconds to human-readable format (e.g., "1hr30min"). |
+| `renderTimeRange(date1: number, date2: number)` | `string` | Returns formatted time range (e.g., "7am to 7:30am"). |
+| `renderDateTimeUntil(end: number, options?: TimeUntilOptions)` | `string` | Formats relative dates with context (e.g., "today @ 7am", "tomorrow @ 3pm"). |
+| `dates` | `DateUtil` | Reference to the dateUtil used internally. |
+
+### TimeUntilOptions
+
+```ts
+interface TimeUntilOptions {
+    yesterday?: string | null  // Prefix for yesterday
+    today?: string | null      // Prefix for today
+    tomorrow?: string | null   // Prefix for tomorrow
+    future?: string | null     // Prefix for future dates
+    past?: string | null       // Prefix for past dates
+    shouldCapitalize?: boolean // Capitalize the first letter
+    now?: number               // Override "now" timestamp for testing
+}
+```
+
+</details>
+
+<details>
+<summary><strong>dateAssert</strong> - Testing utility for asserting timezone configuration.</summary>
+
+```ts
+import { dateAssert } from '@sprucelabs/calendar-utils'
+
+// Assert a dateUtil or durationUtil is locale/timezone aware
+dateAssert.isLocaleAware(dates)
+
+// Assert the timezone of the last built dateUtil
+dateAssert.timezoneOfLastBuiltDateUtilEquals('America/Denver')
+
+// Assert the current timezone of a dateUtil or durationUtil
+dateAssert.currentTimezoneEquals(dates, 'America/Denver')
+```
+
+### API
+
+| Method | Returns | Description |
+|---|---|---|
+| `isLocaleAware(datesOrDuration: DateUtil \| DurationUtil)` | `void` | Asserts the utility has been decorated for timezone awareness. |
+| `timezoneOfLastBuiltDateUtilEquals(timezone: TimezoneName)` | `void` | Asserts `DateUtilBuilder.lastBuiltDateUtil` has the expected timezone. |
+| `currentTimezoneEquals(datesOrDuration: DateUtil \| DurationUtil, timezone: TimezoneName)` | `void` | Asserts the utility is configured for the expected timezone. |
+
+</details>
+
+<details>
+<summary><strong>DateUtilDecorator</strong> - Low-level decorator that makes dateUtil timezone aware. Prefer using DateUtilBuilder instead.</summary>
+
+The `DateUtilDecorator` is used internally by `DateUtilBuilder`. You typically don't need to use it directly.
+
+```ts
+import { DateUtilDecorator, LocaleImpl, dateUtil } from '@sprucelabs/calendar-utils'
+
+// Manual decoration (prefer DateUtilBuilder.getForTimezone instead)
+const locale = new LocaleImpl()
+await locale.setZoneName('America/Denver')
+
+const decorator = new DateUtilDecorator(locale)
+const timezoneDates = decorator.makeLocaleAware(dateUtil)
+```
+
 </details>
 
 ## Timezones
@@ -455,7 +581,9 @@ In this test, we're going to assume you already have tested your `Listener` and 
 
 ```ts
 import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
+import { suite, test } from '@sprucelabs/test-utils'
 
+@suite()
 export default class GetFamilyMemberListenerTest extends AbstractSpruceFixtureTest {
 
     @seed('locations', 1)
@@ -492,7 +620,24 @@ export default class GetFamilyMemberListenerTest extends AbstractSpruceFixtureTe
     <summary><strong>Production 1:</strong> Build <em>dateUtil</em> with the hardcoded timezone</summary>
 
 ```ts
-Coming soon...
+import { DateUtilBuilder } from '@sprucelabs/calendar-utils'
+
+export default class GetFamilyMemberListener extends AbstractListener {
+    public async execute(event: GetFamilyMemberEvent) {
+        const { locationId } = event.target
+
+        // Get the location to access its timezone
+        const location = await this.locations.findOne({ id: locationId })
+
+        // Build a timezone-aware dateUtil
+        const dates = await DateUtilBuilder.getForTimezone(location.timezone)
+
+        // Now use dates for any date formatting/calculations
+        const formattedDate = dates.format(familyMember.createdAt, 'MMM do, yyyy')
+
+        return { familyMember: { ...familyMember, formattedDate } }
+    }
+}
 ```
 
 </details>

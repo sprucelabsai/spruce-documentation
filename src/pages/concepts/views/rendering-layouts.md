@@ -9,7 +9,7 @@
 You can see the different layout options in the `SkillView` `Layouts` Storybook.
 
 <div class="grid-buttons">
-    <a class="btn" href="https://storybook.spruce.bot/iframe.html?args=&globals=&id=components-skill-views--layouts&viewMode=story">View Storybook</a>
+    <a class="btn" href="https://storybook.spruce.bot/iframe.html?args=&globals=&id=components-skill-view-layouts--skill-view-layouts&viewMode=story">View Storybook</a>
 </div>
 
 > **Note:** In this Storybook example, you'll see "Legacy" layouts. Those are the old way of rendering layouts and are not recommended for new development.
