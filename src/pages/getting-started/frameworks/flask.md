@@ -49,7 +49,6 @@ if __name__ == '__main__':
 
 Flask developers typically use PyCharm (with Flask support) or VS Code with Python extensions for development.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 

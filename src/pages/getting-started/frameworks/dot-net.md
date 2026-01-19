@@ -58,7 +58,6 @@ public class CardViewModel
 
 .NET developers typically use Visual Studio (full IDE with rich debugging and IntelliSense), Visual Studio Code with C# extensions, or JetBrains Rider. Visual Studio provides integrated debugging, profiling, and NuGet package management.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 

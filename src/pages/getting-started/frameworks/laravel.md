@@ -52,7 +52,6 @@ class HomeController extends Controller
 
 Laravel developers typically use PhpStorm (with Laravel Idea plugin) or VS Code with extensions like Laravel Extra Intellisense, PHP Intelephense, and Laravel Blade Snippets.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 

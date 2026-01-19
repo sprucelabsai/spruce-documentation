@@ -55,7 +55,6 @@ struct ContentView: View {
 
 #### iOS in xcode
 
-<img src="../../../assets/img/screenshots/xcode.png">
 
 #### Spruce in Visual Studio Code
 

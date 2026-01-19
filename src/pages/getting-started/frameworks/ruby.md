@@ -48,7 +48,6 @@ end
 
 Ruby developers typically use RubyMine for its powerful refactoring tools, or VS Code with Ruby extensions for linting, debugging, and IntelliSense.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 

@@ -48,7 +48,6 @@ export default App
 
 React developers typically use VS Code with extensions like ES7+ React snippets, Prettier, and ESLint.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 

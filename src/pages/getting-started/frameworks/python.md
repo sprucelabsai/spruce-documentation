@@ -49,7 +49,6 @@ if __name__ == '__main__':
 
 Python developers typically use PyCharm or VS Code with Python extensions for linting, debugging, and IntelliSense.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 

@@ -45,7 +45,6 @@ def home(request):
 
 Django developers typically use PyCharm Professional (with Django support) or VS Code with Python extensions.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 

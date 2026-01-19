@@ -53,7 +53,6 @@ public class HelloController {
 
 Spring Boot developers typically use IntelliJ IDEA (with Spring support), Eclipse with Spring Tool Suite (STS), or VS Code with Java extensions. IntelliJ provides excellent support for Spring annotations, auto-configuration, and bean management.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 

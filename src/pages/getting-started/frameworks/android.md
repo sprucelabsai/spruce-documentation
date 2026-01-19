@@ -60,7 +60,6 @@ fun MyApp() {
 
 #### Android in Android Studio
 
-<img src="../../../assets/img/screenshots/android-studio.png">
 
 #### Spruce in Visual Studio Code
 

@@ -49,7 +49,6 @@ class HelloController {
 
 IntelliJ IDEA provides excellent Groovy and Grails support with features like code completion, refactoring, and integrated Grails commands.
 
-<img src="../../../assets/img/screenshots/vscode.png">
 
 #### Spruce in Visual Studio Code
 
