@@ -41,17 +41,20 @@ Use this file to track unfinished pages and missing documentation.
 - [ ] `src/pages/concepts/views/app-view-controller.md`
 - [ ] `src/pages/concepts/views/rendering-skill-views.md`
 
-### Getting Started / Frameworks
-- [ ] `src/pages/getting-started/frameworks/android.md`
-- [ ] `src/pages/getting-started/frameworks/django.md`
-- [ ] `src/pages/getting-started/frameworks/dot-net.md`
-- [ ] `src/pages/getting-started/frameworks/flask.md`
-- [ ] `src/pages/getting-started/frameworks/groovy.md`
-- [ ] `src/pages/getting-started/frameworks/laravel.md`
-- [ ] `src/pages/getting-started/frameworks/python.md`
-- [ ] `src/pages/getting-started/frameworks/react.md`
-- [ ] `src/pages/getting-started/frameworks/ruby.md`
-- [ ] `src/pages/getting-started/frameworks/spring.md`
+### Getting Started
+- [x] `src/pages/getting-started/from-scratch.md`
+- [x] `src/pages/getting-started/frameworks/ios.md`
+- [x] `src/pages/getting-started/frameworks/android.md`
+- [x] `src/pages/getting-started/frameworks/react.md`
+- [x] `src/pages/getting-started/frameworks/python.md`
+- [x] `src/pages/getting-started/frameworks/django.md`
+- [x] `src/pages/getting-started/frameworks/flask.md`
+- [x] `src/pages/getting-started/frameworks/ruby.md`
+- [x] `src/pages/getting-started/frameworks/laravel.md`
+- [x] `src/pages/getting-started/frameworks/spring.md`
+- [x] `src/pages/getting-started/frameworks/groovy.md`
+- [x] `src/pages/getting-started/frameworks/dot-net.md`
+- [x] **COMPLETE: All framework transition pages documented**
 
 ### Training / Building a Skill
 - [ ] `src/pages/training/building-a-skill/customizing-your-bedtime-story.md`
