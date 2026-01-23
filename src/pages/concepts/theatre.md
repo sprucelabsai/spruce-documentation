@@ -122,6 +122,7 @@ admin:
 
 theatre:
   - LOCK: xxxxx #Provide a url for a yarn.lock file you want to use for this theatre
+  - ENVIRONMENT: "dev" #Used by build scripts. Set to "production" to run production builds.
   - SHOULD_SERVE_HEARTWOOD: false (default: true) #Should we bundle and serve the Heartwood frontend? Not needed if serving from a CDN
   - SHOULD_VALIDATE_SKILL_DEPENDENCIES: true #(default: true) Validate skill-to-skill dependencies during setup. Set false to skip validation.
   - BOOT_STRATEGY: serial | parallel #(default: parallel) How to boot the skills. Only use Serial if you're crushing your CPU.
