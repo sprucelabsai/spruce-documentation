@@ -236,7 +236,6 @@ env:
 
     # Internal flags (usually set by scripts/CLI)
     - ACTION: "server" #Set to "message.sender" or "message.receiver" when booting those modes.
-    - IS_CLI: false #Set by the CLI to format errors for terminal output.
   heartwood:
     # Core app
     - HOST: "http://127.0.0.1:8081" #Mercury host Heartwood connects to for events.
@@ -275,14 +274,9 @@ env:
 
     # Sandbox and registration
     - SANDBOX_DEMO_NUMBER: "555-000-0001" #Demo number used to re-register Heartwood in sandbox environments.
-    - SKILL_NAME: "Heartwood" #Used when registering the skill in sandbox mode.
-    - SKILL_SLUG: "heartwood" #Skill namespace used for sandbox registration.
-    - SKILL_ID: "skill_123" #Set during registration.
-    - SKILL_API_KEY: "xxxx" #Set during registration.
 
     # Internal flags
     - SLACK_ERROR_LOG_WEBHOOK_URL: "https://hooks.slack.com/services/xxx/yyy/zzz" #Optional error logging hook.
-    - IS_CLI: false #Set by the CLI to format errors for terminal output.
   eightbitstories:
     - OPENAI_API_KEY: "********"
 
